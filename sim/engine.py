@@ -120,6 +120,7 @@ class Engine:
         self.last_change_t = -(10**9)
         self.yellows: dict[int, int] = {}
         self.subs_used = [0, 0]
+        self.storyline_reds = {p.trigger_player for p in mods.plans if p.trigger == "red_card"}
         self.used_bench: set[int] = set()
         self._schedule()
 
@@ -260,7 +261,7 @@ class Engine:
         """On a turnover, attackers of the new side burst forward and the others recover."""
         for s in self._side_slots(side):
             fwd = LINE[self.players[int(self.slot_pid[s])].position] == "FWD"
-            if self.rng.random() < (0.5 if fwd else 0.12):
+            if self.rng.random() < (0.3 if fwd else 0.12):
                 self.run_until[s] = self.t + int(self.rng.uniform(2000, 4000))
         for s in self._side_slots(1 - side):
             if not self.is_gk[s] and self.rng.random() < 0.15:
@@ -370,8 +371,9 @@ class Engine:
             return
         protected = {side * 11 + s for s in self.mods.protected_slots(side)}
         # A player due to be sent off by a storyline stays on until then.
-        red = {p.trigger_player for p in self.mods.plans if p.trigger == "red_card"}
-        protected |= {int(s) for s in self._side_slots(side) if self._pid(int(s)) in red}
+        protected |= {
+            int(s) for s in self._side_slots(side) if self._pid(int(s)) in self.storyline_reds
+        }
         if slot is None:
             cands = [
                 int(s)
@@ -531,7 +533,7 @@ class Engine:
                 self.hold_engaged.add(o)
                 if self.t < self.stun_until[o]:
                     continue
-                p = 0.046 * (0.4 + 1.2 * press) * (0.8 + 0.5 * self.defending[o])
+                p = 0.05 * (0.4 + 1.2 * press) * (0.8 + 0.5 * self.defending[o])
                 if press > 0.9:
                     p *= 1.5  # an all-out press engages more often
                 if self.rng.random() < p:
@@ -559,9 +561,13 @@ class Engine:
         self._emit_carry(h)
         if self.rng.random() < 0.33:
             self._emit("foul", o, x, y)
-            if self.rng.random() < 0.15:
-                self.yellows[int(self.slot_pid[o])] = self.yellows.get(int(self.slot_pid[o]), 0) + 1
-                if self.yellows[int(self.slot_pid[o])] >= 2:
+            booked = self.rng.random() < 0.15
+            pid = int(self.slot_pid[o])
+            if booked and self.yellows.get(pid, 0) >= 1 and self._pid(o) in self.storyline_reds:
+                booked = False  # this player's sending-off belongs to a storyline
+            if booked:
+                self.yellows[pid] = self.yellows.get(pid, 0) + 1
+                if self.yellows[pid] >= 2:
                     self._send_off(o)
                 else:
                     self._emit("card", o, x, y, outcome="yellow")
@@ -599,7 +605,7 @@ class Engine:
         )
         lead = self.score[side] - self.score[1 - side]
         if lead >= 2:
-            p_shot *= 0.5 if lead == 2 else 0.1  # game management: a comfortable lead eases off
+            p_shot *= 0.4 if lead == 2 else 0.1  # game management: a comfortable lead eases off
         if self.rng.random() < p_shot:
             self._shoot(h, dist, angle, dmin)
         else:
@@ -652,7 +658,7 @@ class Engine:
             if self._line(r) == "FWD":
                 sc -= 1.4
             if abs(float(b[1]) - PITCH_WIDTH / 2) > 18.0:
-                sc += 1.3 if wide_mode else 0.3
+                sc += 1.0 if wide_mode else 0.3
             if flank_y is not None and abs(float(b[1]) - flank_y) < 15.0:
                 sc += 1.6
             if not (0.0 <= b[0] <= PITCH_LENGTH and 0.0 <= b[1] <= PITCH_WIDTH):
@@ -663,8 +669,10 @@ class Engine:
         k = int(self.rng.choice(len(mates), p=w / w.sum()))
         r, b, L, lane_def, openness, progress = feats[k]
         ax_carrier, _ = pitch.to_attacking(float(a[0]), float(a[1]), d)
+        long_ball = False
         if directness >= 0.85 and ax_carrier < 75.0 and self.rng.random() < 0.7:
             # Long ball: to the most advanced team-mate, into the space behind them.
+            long_ball = True
             k = int(np.argmax([f[5] for f in feats]))
             r = feats[k][0]
             b = self.pos[r] + np.array([d * float(self.rng.uniform(4.0, 10.0)), 0.0])
@@ -679,7 +687,7 @@ class Engine:
         passing = self.passing[h] + (0.25 if h == pm_slot else 0.0)
         under_pressure = dmin < 2.5
         logit = (
-            2.75
+            2.85
             + 2.0 * (passing - 0.7)
             - 0.05 * (L - 15.0)
             - 0.55 * lane_def
@@ -688,6 +696,7 @@ class Engine:
             - 1.8 * (press_opp - 0.5)
             - (0.4 if self._line(r) == "FWD" else 0.0)
             - (0.3 if high else 0.0)
+            - (0.4 if long_ball else 0.0)  # a contested ball, not a placed pass
             + self.mods.retention(side, self.t)
         )
         ok = self.rng.random() < _sigmoid(logit)
@@ -858,7 +867,7 @@ class Engine:
             )
             return
         p_goal = _sigmoid(
-            -0.85
+            -1.0
             - 0.12 * dist
             + 1.5 * angle
             + 2.0 * (self.finishing[h] - 0.6)
@@ -988,10 +997,14 @@ class Engine:
                     continue
                 tgt[s] = self.ball
                 fast = (
-                    (0.55 + 0.35 * press) * self.top[s]
+                    (0.45 + 0.35 * press) * self.top[s]
                     if rank == 0
                     else (0.45 + 0.25 * press) * self.top[s]
                 )
+                if dd[k] > 15.0:
+                    fast = min(
+                        fast, 0.6 * self.top[s]
+                    )  # close the distance, sprint only near the ball
                 want[s] = fast if dd[k] > 2.0 else 2.5
 
         if self.mode == "held":

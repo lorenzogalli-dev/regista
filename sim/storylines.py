@@ -296,7 +296,7 @@ def _make(
         if variant == "long_ball":
             mech = {
                 "directness": f"{team.style.directness} -> 0.92",
-                "long_balls": "70% of passes before the final third go long to the front player",
+                "long_balls": "70% of passes before the final third are contested long balls",
             }
             sigs = [
                 sig(metric="avg_pass_length", team=team.team_id, direction="up"),

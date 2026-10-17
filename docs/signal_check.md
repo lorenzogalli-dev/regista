@@ -19,9 +19,18 @@ Decisions
   distinguishable from noise with these signals.
 - No type is kept as "difficult" (none failed with median z >= 2).
 
-Changes after the judged run (plausibility only, signal mechanisms untouched): shot rate and conversion,
-3-5-2 wing-back and midfield anchors, a red-card storyline player is no longer substituted before the card.
-Table 4 re-checks the active types on the tuning seeds after those changes.
+Changes after the judged run. The table "Judged on 2100-2199" describes the simulator as it was
+when judged. Afterwards, the simulator was changed for plausibility and physical realism only:
+- shot rate and conversion, stronger game management at a 2-goal lead;
+- 3-5-2 wing-back and midfield anchors;
+- a red-card storyline player is no longer substituted before the card;
+- pressers sprint only near the ball (forwards had up to ~100 sprints a match);
+- pass success +0.1 logit, tackle rate +9 %.
+
+Two signal-related compensations followed: the `wide` receiver bonus was lowered (its tuning z had
+reached 5.07, above the upper bound of 5) and long balls became contested (-0.4 logit on
+success). The last table re-checks the active types on the tuning seeds only. The judged seeds
+were not re-used. tactical_switch/long_ball sits exactly at the median-z threshold (2.00) there.
 
 ### Judged on calibration seeds 2100-2199 (noise 2200-2249)
 
@@ -61,14 +70,13 @@ Table 4 re-checks the active types on the tuning seeds after those changes.
 | player_arc | combined score > p95 | 21 | 5.3% | 1.36 | 88% |
 | player_arc | >=2 signals over own p95 | 21 | 1.7% | 0.68 | 54% |
 
-### 4. Post-change sanity check: tuning seeds 2000-2099 (noise 2200-2249)
-
+### 4. Post-change sanity check: tuning seeds 2000-2099 (noise 2200-2249), final simulator
 
 | type | n | z median | detected (>p95) | >=2 signals over own p95 | 2-min slice z median | per-signal z median | pass |
 |---|---|---|---|---|---|---|---|
 | pressing_spell | 0 | - | - | - | - | - | - |
 | fatigue_drop | 0 | - | - | - | - | - | - |
-| momentum_shift | 66 | 2.98 | 91% | 64% | 0.99 | possession 2.18, field_tilt 3.64 | yes |
-| tactical_switch/long_ball | 32 | 2.15 | 75% | 44% | 0.60 | avg_pass_length 2.60, pass_completion 1.55 | yes |
-| tactical_switch/wide | 38 | 4.41 | 97% | n/a | 1.21 | width 4.41 | yes |
-| player_arc | 67 | 3.53 | 88% | 73% | 0.79 | progressive_passes 3.95, touches 2.91 | yes |
+| momentum_shift | 66 | 2.94 | 92% | 65% | 0.99 | possession 2.16, field_tilt 3.77 | yes |
+| tactical_switch/long_ball | 32 | 2.00 | 75% | 38% | 0.52 | avg_pass_length 2.07, pass_completion 2.56 | yes |
+| tactical_switch/wide | 38 | 3.64 | 95% | n/a | 0.90 | width 3.64 | yes |
+| player_arc | 68 | 3.46 | 85% | 63% | 0.85 | progressive_passes 4.10, touches 2.57 | yes |
