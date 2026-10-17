@@ -17,6 +17,7 @@ dependencies = [
 
 [project.scripts]
 sim = "sim.cli:main"
+metrics = "metrics.cli:main"
 
 [dependency-groups]
 dev = [

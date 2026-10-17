@@ -152,6 +152,13 @@ def main(argv: list[str] | None = None) -> int:
         parts = list(pool.map(collect, CALIBRATION_SEEDS))
     pX = np.vstack([p["passes_x"] for p in parts])
     py = np.concatenate([p["passes_y"] for p in parts])
+    pd_model = logistic_fit(pX, py)
+    z = pd_model["intercept"] + ((pX - pd_model["mean"]) / pd_model["std"]) @ np.array(
+        pd_model["coef"]
+    )
+    difficulty = 1.0 / (1.0 + np.exp(-z))
+    # Trigger threshold: the hardest 2 % of completed passes on calibration data.
+    pd_model["difficult_pass_threshold"] = float(np.percentile(difficulty[py == 0], 98))
     sX = np.vstack([p["shots_x"] for p in parts])
     sy = np.concatenate([p["shots_y"] for p in parts])
     grid = xt_grid(
@@ -179,7 +186,7 @@ def main(argv: list[str] | None = None) -> int:
         ),
         "pass_difficulty": {
             "features": ["length_m", "receiver_space_m", "lane_defenders", "under_pressure"],
-            **logistic_fit(pX, py),
+            **pd_model,
         },
         "xg": {"features": ["distance_m", "angle_rad", "header"], **logistic_fit(sX, sy)},
         "xt": {"cols": XT_COLS, "rows": XT_ROWS, "grid": np.round(grid, 5).tolist()},
@@ -192,6 +199,7 @@ def main(argv: list[str] | None = None) -> int:
             f"{k}: n={m['n']} base_rate={m['base_rate']:.3f} auc={m['auc']:.3f} "
             f"coef={np.round(m['coef'], 3)}"
         )
+    print(f"difficult pass threshold: {pd_model['difficult_pass_threshold']:.3f}")
     print(f"xt: max={grid.max():.3f} at {np.unravel_index(grid.argmax(), grid.shape)}")
     print(
         "control refs:", {k: (round(v["median"], 3), round(v["scale"], 3)) for k, v in ref.items()}

@@ -104,6 +104,11 @@ def pass_difficulty(features: np.ndarray) -> float:
     return _sigmoid(_logit(params()["pass_difficulty"], features))
 
 
+def difficult_pass_threshold() -> float:
+    """Difficulty above which a completed pass is a highlight (top 2 % on calibration)."""
+    return float(params()["pass_difficulty"]["difficult_pass_threshold"])
+
+
 def xg(features: np.ndarray) -> float:
     return _sigmoid(_logit(params()["xg"], features))
 
