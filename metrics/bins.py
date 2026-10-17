@@ -23,38 +23,19 @@ window, its complement and sliding windows are all cheap to evaluate. Definition
 - sprint_count (per minute on pitch): runs above 7 m/s sustained for at least 1 s.
 """
 
-import itertools
 from dataclasses import dataclass, field
 
 import numpy as np
 
+from metrics import counters as C
 from metrics.data import MIN_MS, MatchData
-from sim.schema import PITCH_LENGTH, PITCH_WIDTH, TICK_MS
+from sim.schema import TICK_MS
 
-FINAL_THIRD_X = 70.0
-PPDA_ZONE_X = 0.6 * PITCH_LENGTH  # opponent's own 60 %
-FLANK_LEFT_Y = PITCH_WIDTH * 2 / 3
-FLANK_RIGHT_Y = PITCH_WIDTH / 3
 SPRINT_MS = 7.0
 SPRINT_MIN_FRAMES = 1000 // TICK_MS
 SMOOTH_FRAMES = 500 // TICK_MS
 FRAMES_PER_MIN = MIN_MS // TICK_MS
-DEF_ACTIONS = {"tackle", "interception", "foul"}
-TOUCH_TYPES = {"pass", "carry", "shot"}
-
-TEAM_FIELDS = (
-    "passes",
-    "passes_complete",
-    "pass_len_sum",
-    "opp_passes_zone",
-    "def_actions_zone",
-    "f3_touches",
-    "width_sum",
-    "width_n",
-    "f3_left",
-    "f3_right",
-    "poss_ms",
-)
+TEAM_FIELDS = (*C.TEAM_FIELDS, "poss_ms")
 PLAYER_FIELDS = ("touches", "prog_passes", "top_speed", "sprints", "on_frames")
 
 
@@ -73,15 +54,7 @@ class MinuteBins:
         return self.player_ids.index(player_id)
 
 
-def is_progressive(sx: float, ex: float) -> bool:
-    """Progressive pass rule on attacking-frame x coordinates (see module docstring)."""
-    half = PITCH_LENGTH / 2
-    adv = ex - sx
-    if sx < half and ex < half:
-        return adv >= 30.0
-    if sx < half <= ex:
-        return adv >= 15.0
-    return adv >= 10.0
+is_progressive = C.is_progressive
 
 
 def build(md: MatchData) -> MinuteBins:
@@ -97,62 +70,31 @@ def build(md: MatchData) -> MinuteBins:
 
 
 def _events(md: MatchData, b: MinuteBins) -> None:
-    T, Pl = b.team, b.player
+    team_idx = {t: i for i, t in enumerate(b.team_ids)}
+
+    def other(team: str) -> str:
+        return b.team_ids[1 - team_idx[team]]
+
     for e in md.events:
-        team = e["team_id"]
-        if team is None:
-            continue
-        ti = b.team_idx(team)
         m = min(e["t_ms"] // MIN_MS, b.n_minutes - 1)
-        per = e["period"]
-        ax, ay = md.to_attacking(team, per, e["x"], e["y"])
-        typ = e["type"]
-        pi = md.player_index.get(e["player_id"] or "")
-        if typ in TOUCH_TYPES:
-            if ax >= FINAL_THIRD_X:
-                T["f3_touches"][ti, m] += 1
-                if ay >= FLANK_LEFT_Y:
-                    T["f3_left"][ti, m] += 1
-                elif ay <= FLANK_RIGHT_Y:
-                    T["f3_right"][ti, m] += 1
-            if pi is not None:
-                Pl["touches"][pi, m] += 1
-        if typ in ("pass", "carry"):
-            T["width_sum"][ti, m] += abs(e["y"] - PITCH_WIDTH / 2)
-            T["width_n"][ti, m] += 1
-        if typ == "pass":
-            T["passes"][ti, m] += 1
-            T["pass_len_sum"][ti, m] += float(np.hypot(e["end_x"] - e["x"], e["end_y"] - e["y"]))
-            if ax < PPDA_ZONE_X:
-                T["opp_passes_zone"][1 - ti, m] += 1
-            if e["outcome"] == "complete":
-                T["passes_complete"][ti, m] += 1
-                ex, _ = md.to_attacking(team, per, e["end_x"], e["end_y"])
-                if pi is not None and is_progressive(ax, ex):
-                    Pl["prog_passes"][pi, m] += 1
-                ri = md.player_index.get(e["recipient_id"] or "")
-                if ri is not None:
-                    Pl["touches"][ri, m] += 1
-        if typ in DEF_ACTIONS and ax > PITCH_LENGTH - PPDA_ZONE_X:
-            T["def_actions_zone"][ti, m] += 1
+        for scope, key, fld, val in C.contributions(e, md.to_attacking, other):
+            if scope == "team":
+                b.team[fld][team_idx[key], m] += val
+            elif fld in b.player:
+                b.player[fld][md.player_index[key], m] += val
 
 
 def _possession(md: MatchData, b: MinuteBins) -> None:
-    """Time-based possession: segments between kickoff / possession_change events."""
+    """Time-based possession per minute (see metrics.counters.possession_ms)."""
     changes = [
         (e["t_ms"], e["team_id"])
         for e in md.events
         if e["type"] in ("kickoff", "possession_change")
     ]
-    changes.append((md.duration_ms, None))
-    for (t0, team), (t1, _) in itertools.pairwise(changes):
-        if team is None or t1 <= t0:
-            continue
-        ti = b.team_idx(team)
-        m0, m1 = t0 // MIN_MS, (t1 - 1) // MIN_MS
-        for m in range(m0, min(m1, b.n_minutes - 1) + 1):
-            lo, hi = max(t0, m * MIN_MS), min(t1, (m + 1) * MIN_MS)
-            b.team["poss_ms"][ti, m] += hi - lo
+    for m in range(b.n_minutes):
+        lo, hi = m * MIN_MS, min((m + 1) * MIN_MS, md.duration_ms)
+        for team, ms in C.possession_ms(changes, lo, hi).items():
+            b.team["poss_ms"][b.team_idx(team), m] += ms
 
 
 def smoothed_speed(speed: np.ndarray) -> np.ndarray:
@@ -212,26 +154,9 @@ def _ratio(num: float, den: float) -> float:
 def team_metric(b: MinuteBins, metric: str, team_id: str, mask: np.ndarray) -> float:
     """Metric for `team_id` over the minutes selected by boolean `mask`."""
     ti = b.team_idx(team_id)
-    T = {k: float(v[ti, mask].sum()) for k, v in b.team.items()}
-    if metric == "pass_completion":
-        return _ratio(T["passes_complete"], T["passes"])
-    if metric == "avg_pass_length":
-        return _ratio(T["pass_len_sum"], T["passes"])
-    if metric == "ppda":
-        return _ratio(T["opp_passes_zone"], max(T["def_actions_zone"], 1.0))
-    if metric == "field_tilt":
-        other = float(b.team["f3_touches"][1 - ti, mask].sum())
-        return _ratio(T["f3_touches"], T["f3_touches"] + other)
-    if metric == "possession":
-        other = float(b.team["poss_ms"][1 - ti, mask].sum())
-        return _ratio(T["poss_ms"], T["poss_ms"] + other)
-    if metric == "width":
-        return _ratio(T["width_sum"], T["width_n"])
-    if metric == "flank_attack_share_left":
-        return _ratio(T["f3_left"], T["f3_touches"])
-    if metric == "flank_attack_share_right":
-        return _ratio(T["f3_right"], T["f3_touches"])
-    raise KeyError(metric)
+    own = {k: float(v[ti, mask].sum()) for k, v in b.team.items()}
+    other = {k: float(v[1 - ti, mask].sum()) for k, v in b.team.items()}
+    return C.team_metrics(own, other)[metric]
 
 
 def player_metric(b: MinuteBins, metric: str, player_id: str, mask: np.ndarray) -> float:

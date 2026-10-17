@@ -12,6 +12,7 @@ dependencies = [
     "numpy>=2.5.4",
     "websockets>=17.2",
     "pydantic>=2.14.1",
+    "mcp>=1.30.0,<2",
 ]
 
 [project.scripts]
