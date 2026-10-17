@@ -9,7 +9,13 @@ dependencies = [
     "fastapi>=0.143.3",
     "uvicorn[standard]>=0.54.0",
     "psycopg[binary]>=3.3.6",
+    "numpy>=2.5.4",
+    "websockets>=17.2",
+    "pydantic>=2.14.1",
 ]
+
+[project.scripts]
+sim = "sim.cli:main"
 
 [dependency-groups]
 dev = [
@@ -45,4 +51,9 @@ strict = true
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-markers = ["integration: needs a running PostgreSQL (DATABASE_URL)"]
+markers = [
+    "integration: needs a running PostgreSQL (DATABASE_URL)",
+    "slow: simulates many full matches (run in the separate CI job)",
+    "crossplatform: compares a digest recorded on another platform",
+]
+addopts = "-m 'not slow and not crossplatform'"

@@ -35,6 +35,29 @@ jobs:
       - run: uv run mypy
       - run: uv run pytest -q -W error
 
+  simulator-plausibility:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v10.3.0
+        with:
+          version: "0.13.1"
+      - run: uv sync --frozen
+      - run: uv run pytest -q -W error -m slow
+
+  # numpy does not promise bit-identical floats across platforms. This job reports whether
+  # Linux reproduces the digest recorded on macOS; it never blocks the build.
+  simulator-crossplatform:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v10.3.0
+        with:
+          version: "0.13.1"
+      - run: uv sync --frozen
+      - run: uv run pytest -q -m crossplatform
+
   web:
     runs-on: ubuntu-latest
     defaults:

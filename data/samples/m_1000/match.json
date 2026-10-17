@@ -1,0 +1,554 @@
+{
+  "match_id": "m_1000",
+  "seed": 1000,
+  "competition": "Synthetic League",
+  "venue": "Linbridge Meadow",
+  "home": {
+    "team_id": "t_lin",
+    "name": "Linbridge Harriers",
+    "short": "LIN",
+    "colors": [
+      "#F2C230",
+      "#1B1B1B"
+    ],
+    "formation": "4-4-2",
+    "style": {
+      "press_intensity": 0.7,
+      "directness": 0.44,
+      "width": 0.62
+    }
+  },
+  "away": {
+    "team_id": "t_dun",
+    "name": "Dunhurst Borough",
+    "short": "DUN",
+    "colors": [
+      "#E6E6E6",
+      "#C8102E"
+    ],
+    "formation": "4-4-2",
+    "style": {
+      "press_intensity": 0.46,
+      "directness": 0.57,
+      "width": 0.6
+    }
+  },
+  "players": [
+    {
+      "player_id": "p_lin_01",
+      "team_id": "t_lin",
+      "name": "Jarek Falssen",
+      "shirt": 1,
+      "position": "GK",
+      "starter": true,
+      "attrs": {
+        "top_speed_ms": 8.23,
+        "accel": 0.89,
+        "passing": 0.64,
+        "finishing": 0.29,
+        "defending": 0.62,
+        "stamina": 0.79
+      }
+    },
+    {
+      "player_id": "p_lin_20",
+      "team_id": "t_lin",
+      "name": "Oren Corberg",
+      "shirt": 20,
+      "position": "LB",
+      "starter": true,
+      "attrs": {
+        "top_speed_ms": 8.85,
+        "accel": 0.61,
+        "passing": 0.64,
+        "finishing": 0.45,
+        "defending": 0.7,
+        "stamina": 0.47
+      }
+    },
+    {
+      "player_id": "p_lin_21",
+      "team_id": "t_lin",
+      "name": "Yusuf Fendor",
+      "shirt": 21,
+      "position": "CB",
+      "starter": true,
+      "attrs": {
+        "top_speed_ms": 9.13,
+        "accel": 0.56,
+        "passing": 0.75,
+        "finishing": 0.33,
+        "defending": 0.64,
+        "stamina": 0.7
+      }
+    },
+    {
+      "player_id": "p_lin_02",
+      "team_id": "t_lin",
+      "name": "Gael Normore",
+      "shirt": 2,
+      "position": "CB",
+      "starter": true,
+      "attrs": {
+        "top_speed_ms": 9.54,
+        "accel": 0.92,
+        "passing": 0.85,
+        "finishing": 0.56,
+        "defending": 0.88,
+        "stamina": 0.83
+      }
+    },
+    {
+      "player_id": "p_lin_26",
+      "team_id": "t_lin",
+      "name": "Ugo Marley",
+      "shirt": 26,
+      "position": "RB",
+      "starter": true,
+      "attrs": {
+        "top_speed_ms": 9.95,
+        "accel": 0.91,
+        "passing": 0.75,
+        "finishing": 0.36,
+        "defending": 0.71,
+        "stamina": 0.79
+      }
+    },
+    {
+      "player_id": "p_lin_14",
+      "team_id": "t_lin",
+      "name": "Piet Toroux",
+      "shirt": 14,
+      "position": "LM",
+      "starter": true,
+      "attrs": {
+        "top_speed_ms": 9.17,
+        "accel": 0.89,
+        "passing": 0.86,
+        "finishing": 0.56,
+        "defending": 0.31,
+        "stamina": 0.82
+      }
+    },
+    {
+      "player_id": "p_lin_11",
+      "team_id": "t_lin",
+      "name": "Idris Taldor",
+      "shirt": 11,
+      "position": "CM",
+      "starter": true,
+      "attrs": {
+        "top_speed_ms": 9.32,
+        "accel": 0.54,
+        "passing": 0.74,
+        "finishing": 0.48,
+        "defending": 0.57,
+        "stamina": 0.78
+      }
+    },
+    {
+      "player_id": "p_lin_28",
+      "team_id": "t_lin",
+      "name": "Kian Varham",
+      "shirt": 28,
+      "position": "CM",
+      "starter": true,
+      "attrs": {
+        "top_speed_ms": 8.84,
+        "accel": 0.45,
+        "passing": 0.79,
+        "finishing": 0.59,
+        "defending": 0.55,
+        "stamina": 0.57
+      }
+    },
+    {
+      "player_id": "p_lin_07",
+      "team_id": "t_lin",
+      "name": "Nils Fenvell",
+      "shirt": 7,
+      "position": "RM",
+      "starter": true,
+      "attrs": {
+        "top_speed_ms": 9.04,
+        "accel": 0.77,
+        "passing": 0.64,
+        "finishing": 0.35,
+        "defending": 0.48,
+        "stamina": 0.53
+      }
+    },
+    {
+      "player_id": "p_lin_10",
+      "team_id": "t_lin",
+      "name": "Viktor Garvell",
+      "shirt": 10,
+      "position": "ST",
+      "starter": true,
+      "attrs": {
+        "top_speed_ms": 8.96,
+        "accel": 0.62,
+        "passing": 0.49,
+        "finishing": 0.62,
+        "defending": 0.6,
+        "stamina": 0.74
+      }
+    },
+    {
+      "player_id": "p_lin_24",
+      "team_id": "t_lin",
+      "name": "Pavel Pelak",
+      "shirt": 24,
+      "position": "ST",
+      "starter": true,
+      "attrs": {
+        "top_speed_ms": 9.95,
+        "accel": 0.62,
+        "passing": 0.74,
+        "finishing": 0.84,
+        "defending": 0.38,
+        "stamina": 0.86
+      }
+    },
+    {
+      "player_id": "p_lin_13",
+      "team_id": "t_lin",
+      "name": "Leon Sevrick",
+      "shirt": 13,
+      "position": "GK",
+      "starter": false,
+      "attrs": {
+        "top_speed_ms": 8.41,
+        "accel": 0.51,
+        "passing": 0.65,
+        "finishing": 0.52,
+        "defending": 0.76,
+        "stamina": 0.59
+      }
+    },
+    {
+      "player_id": "p_lin_06",
+      "team_id": "t_lin",
+      "name": "Teo Varley",
+      "shirt": 6,
+      "position": "CB",
+      "starter": false,
+      "attrs": {
+        "top_speed_ms": 9.16,
+        "accel": 0.55,
+        "passing": 0.59,
+        "finishing": 0.59,
+        "defending": 0.69,
+        "stamina": 0.67
+      }
+    },
+    {
+      "player_id": "p_lin_09",
+      "team_id": "t_lin",
+      "name": "Piet Uloux",
+      "shirt": 9,
+      "position": "CM",
+      "starter": false,
+      "attrs": {
+        "top_speed_ms": 9.73,
+        "accel": 0.88,
+        "passing": 0.83,
+        "finishing": 0.28,
+        "defending": 0.64,
+        "stamina": 0.72
+      }
+    },
+    {
+      "player_id": "p_lin_27",
+      "team_id": "t_lin",
+      "name": "Luca Jasvik",
+      "shirt": 27,
+      "position": "LW",
+      "starter": false,
+      "attrs": {
+        "top_speed_ms": 9.95,
+        "accel": 0.48,
+        "passing": 0.48,
+        "finishing": 0.61,
+        "defending": 0.59,
+        "stamina": 0.95
+      }
+    },
+    {
+      "player_id": "p_lin_25",
+      "team_id": "t_lin",
+      "name": "Noel Evberg",
+      "shirt": 25,
+      "position": "ST",
+      "starter": false,
+      "attrs": {
+        "top_speed_ms": 9.76,
+        "accel": 0.78,
+        "passing": 0.53,
+        "finishing": 0.86,
+        "defending": 0.52,
+        "stamina": 0.79
+      }
+    },
+    {
+      "player_id": "p_dun_01",
+      "team_id": "t_dun",
+      "name": "Milo Sevak",
+      "shirt": 1,
+      "position": "GK",
+      "starter": true,
+      "attrs": {
+        "top_speed_ms": 8.39,
+        "accel": 0.69,
+        "passing": 0.69,
+        "finishing": 0.3,
+        "defending": 0.84,
+        "stamina": 0.46
+      }
+    },
+    {
+      "player_id": "p_dun_23",
+      "team_id": "t_dun",
+      "name": "Wes Calak",
+      "shirt": 23,
+      "position": "LB",
+      "starter": true,
+      "attrs": {
+        "top_speed_ms": 9.71,
+        "accel": 0.53,
+        "passing": 0.57,
+        "finishing": 0.5,
+        "defending": 0.68,
+        "stamina": 0.48
+      }
+    },
+    {
+      "player_id": "p_dun_09",
+      "team_id": "t_dun",
+      "name": "Yannick Quinham",
+      "shirt": 9,
+      "position": "CB",
+      "starter": true,
+      "attrs": {
+        "top_speed_ms": 8.97,
+        "accel": 0.54,
+        "passing": 0.86,
+        "finishing": 0.52,
+        "defending": 0.78,
+        "stamina": 0.89
+      }
+    },
+    {
+      "player_id": "p_dun_04",
+      "team_id": "t_dun",
+      "name": "Ilan Yorovic",
+      "shirt": 4,
+      "position": "CB",
+      "starter": true,
+      "attrs": {
+        "top_speed_ms": 9.8,
+        "accel": 0.66,
+        "passing": 0.55,
+        "finishing": 0.46,
+        "defending": 0.74,
+        "stamina": 0.4
+      }
+    },
+    {
+      "player_id": "p_dun_05",
+      "team_id": "t_dun",
+      "name": "Leon Lormore",
+      "shirt": 5,
+      "position": "RB",
+      "starter": true,
+      "attrs": {
+        "top_speed_ms": 9.95,
+        "accel": 0.88,
+        "passing": 0.77,
+        "finishing": 0.29,
+        "defending": 0.84,
+        "stamina": 0.89
+      }
+    },
+    {
+      "player_id": "p_dun_16",
+      "team_id": "t_dun",
+      "name": "Yannick Norston",
+      "shirt": 16,
+      "position": "LM",
+      "starter": true,
+      "attrs": {
+        "top_speed_ms": 9.87,
+        "accel": 0.76,
+        "passing": 0.61,
+        "finishing": 0.38,
+        "defending": 0.54,
+        "stamina": 0.52
+      }
+    },
+    {
+      "player_id": "p_dun_27",
+      "team_id": "t_dun",
+      "name": "Luca Yoroux",
+      "shirt": 27,
+      "position": "CM",
+      "starter": true,
+      "attrs": {
+        "top_speed_ms": 9.73,
+        "accel": 0.79,
+        "passing": 0.8,
+        "finishing": 0.5,
+        "defending": 0.48,
+        "stamina": 0.44
+      }
+    },
+    {
+      "player_id": "p_dun_26",
+      "team_id": "t_dun",
+      "name": "Emil Dorrick",
+      "shirt": 26,
+      "position": "CM",
+      "starter": true,
+      "attrs": {
+        "top_speed_ms": 9.32,
+        "accel": 0.49,
+        "passing": 0.67,
+        "finishing": 0.52,
+        "defending": 0.45,
+        "stamina": 0.6
+      }
+    },
+    {
+      "player_id": "p_dun_24",
+      "team_id": "t_dun",
+      "name": "Piet Falvik",
+      "shirt": 24,
+      "position": "RM",
+      "starter": true,
+      "attrs": {
+        "top_speed_ms": 9.15,
+        "accel": 0.89,
+        "passing": 0.56,
+        "finishing": 0.43,
+        "defending": 0.55,
+        "stamina": 0.54
+      }
+    },
+    {
+      "player_id": "p_dun_21",
+      "team_id": "t_dun",
+      "name": "Ari Peldor",
+      "shirt": 21,
+      "position": "ST",
+      "starter": true,
+      "attrs": {
+        "top_speed_ms": 9.93,
+        "accel": 0.93,
+        "passing": 0.68,
+        "finishing": 0.7,
+        "defending": 0.66,
+        "stamina": 0.75
+      }
+    },
+    {
+      "player_id": "p_dun_29",
+      "team_id": "t_dun",
+      "name": "Ilan Uldell",
+      "shirt": 29,
+      "position": "ST",
+      "starter": true,
+      "attrs": {
+        "top_speed_ms": 9.15,
+        "accel": 0.94,
+        "passing": 0.73,
+        "finishing": 0.62,
+        "defending": 0.54,
+        "stamina": 0.94
+      }
+    },
+    {
+      "player_id": "p_dun_13",
+      "team_id": "t_dun",
+      "name": "Vito Quinini",
+      "shirt": 13,
+      "position": "GK",
+      "starter": false,
+      "attrs": {
+        "top_speed_ms": 8.21,
+        "accel": 0.74,
+        "passing": 0.75,
+        "finishing": 0.47,
+        "defending": 0.91,
+        "stamina": 0.93
+      }
+    },
+    {
+      "player_id": "p_dun_10",
+      "team_id": "t_dun",
+      "name": "Ruben Sevner",
+      "shirt": 10,
+      "position": "CB",
+      "starter": false,
+      "attrs": {
+        "top_speed_ms": 9.24,
+        "accel": 0.6,
+        "passing": 0.86,
+        "finishing": 0.25,
+        "defending": 0.87,
+        "stamina": 0.8
+      }
+    },
+    {
+      "player_id": "p_dun_14",
+      "team_id": "t_dun",
+      "name": "Anders Dorini",
+      "shirt": 14,
+      "position": "CM",
+      "starter": false,
+      "attrs": {
+        "top_speed_ms": 9.19,
+        "accel": 0.66,
+        "passing": 0.62,
+        "finishing": 0.4,
+        "defending": 0.43,
+        "stamina": 0.73
+      }
+    },
+    {
+      "player_id": "p_dun_25",
+      "team_id": "t_dun",
+      "name": "Ugo Dalmore",
+      "shirt": 25,
+      "position": "LW",
+      "starter": false,
+      "attrs": {
+        "top_speed_ms": 9.89,
+        "accel": 0.95,
+        "passing": 0.79,
+        "finishing": 0.7,
+        "defending": 0.52,
+        "stamina": 0.74
+      }
+    },
+    {
+      "player_id": "p_dun_08",
+      "team_id": "t_dun",
+      "name": "Vito Norley",
+      "shirt": 8,
+      "position": "ST",
+      "starter": false,
+      "attrs": {
+        "top_speed_ms": 8.92,
+        "accel": 0.91,
+        "passing": 0.45,
+        "finishing": 0.64,
+        "defending": 0.32,
+        "stamina": 0.81
+      }
+    }
+  ],
+  "period_end_ms": [
+    2760000,
+    5580000
+  ]
+}

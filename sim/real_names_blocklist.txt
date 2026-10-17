@@ -1,0 +1,53 @@
+# Real names the fictional-name generators must never produce (case-insensitive).
+# Comma-separated entries. The list is a safety net, not exhaustive; generated names are
+# also built from invented syllables.
+
+[surnames]
+messi, ronaldo, neymar, mbappe, haaland, kane, salah, de bruyne, rooney, gerrard, lampard, beckham
+henry, zidane, pele, maradona, cruyff, beckenbauer, puskas, eusebio, figo, kaka, ronaldinho, rivaldo
+romario, baggio, maldini, baresi, totti, del piero, pirlo, buffon, cannavaro, nesta, zola, vialli
+lineker, shearer, owen, fowler, dalglish, keane, giggs, scholes, cantona, ferdinand, vidic, terry, drogba
+lewandowski, modric, kroos, benzema, suarez, cavani, aguero, silva, fernandes, rashford, saka, rice
+foden, bellingham, grealish, sterling, stones, walker, trippier, pickford, alexander-arnold, robertson
+van dijk, alisson, son, lukaku, hazard, kante, pogba, griezmann, xavi, iniesta, puyol, casillas, ramos
+pique, busquets, fabregas, torres, villa, alonso, mata, hierro, raul, guti, morientes, vieira, pires
+bergkamp, ljungberg, adams, seaman, wright, overmars, petit, anelka, ibrahimovic, nedved, shevchenko
+weah, eto'o, toure, kompany, lahm, muller, neuer, schweinsteiger, klose, ballack, podolski, gotze
+reus, hummels, kimmich, musiala, wirtz, odegaard, martinelli, palmer, mainoo, garnacho, onana
+vardy, mahrez, maddison, ward-prowse, bowen, antonio, paqueta, kudus, watkins, mcginn
+de gea, casemiro, eriksen, hojlund, nunez, szoboszlai, gakpo, jota, diaz, mac allister
+isak, gordon, guimaraes, tonali, botman, pope, schar, dias, gvardiol, akanji
+doku, alvarez, caicedo, mudryk, jackson, nkunku, madueke, cucurella
+ederson, rodri, lavia, gallagher, mount, yamal, pedri, gavi, valverde, vinicius, rodrygo
+militao, camavinga, tchouameni, courtois, osimhen, kvaratskhelia, barella, dimarco, leao
+hernandez, tomori, pulisic, vlahovic, chiesa, dalglish, charlton, moore, banks, best, law
+
+[clubs]
+arsenal, aston villa, bournemouth, brentford, brighton, chelsea, crystal palace, everton, fulham
+ipswich town, leicester city, liverpool, manchester city, manchester united, newcastle united
+nottingham forest, southampton, tottenham hotspur, west ham united, wolverhampton wanderers
+burnley, sheffield united, sheffield wednesday, luton town, leeds united, sunderland, middlesbrough
+watford, norwich city, west bromwich albion, stoke city, swansea city, cardiff city, hull city
+coventry city, bristol city, bristol rovers, millwall, preston north end, plymouth argyle
+portsmouth, derby county, blackburn rovers, blackpool, bolton wanderers, wigan athletic
+reading, birmingham city, queens park rangers, charlton athletic, huddersfield town
+barnsley, rotherham united, oxford united, cambridge united, peterborough united, lincoln city
+doncaster rovers, tranmere rovers, bury, salford city, stockport county, wrexham
+port vale, crewe alexandra, walsall, mansfield town, grimsby town, carlisle united
+accrington stanley, morecambe, harrogate town, barrow, forest green rovers, exeter city
+gillingham, colchester united, stevenage, wycombe wanderers, leyton orient, sutton united
+afc wimbledon, bromley, swindon town, cheltenham town, fleetwood town, shrewsbury town
+northampton town, burton albion, bradford city, notts county, chesterfield, hartlepool united
+celtic, rangers, aberdeen, hearts, hibernian, motherwell, kilmarnock, dundee united, st mirren
+linfield, glentoran, wexford, shamrock rovers, bohemians, shelbourne
+real madrid, barcelona, atletico madrid, sevilla, valencia, villarreal, real sociedad, athletic bilbao
+bayern munich, borussia dortmund, bayer leverkusen, schalke, rb leipzig, eintracht frankfurt
+juventus, inter milan, ac milan, napoli, roma, lazio, atalanta, fiorentina
+paris saint-germain, marseille, lyon, monaco, lille, ajax, psv, feyenoord, benfica, porto, sporting
+galatasaray, fenerbahce, besiktas, olympiacos, panathinaikos, anderlecht, club brugge
+ashton united, falmouth town, ivybridge town, brackley town, port vale
+
+[towns]
+salford, ashton, bury, falmouth, ivybridge, brackley, linfield, wexford, morley, elmbridge
+thornbury, hartley, hartlepool, burnley, wycombe, portsmouth, plymouth, bournemouth
+stockport, southport, bridport, newport, stockbridge, harrogate, hartford, glenmore

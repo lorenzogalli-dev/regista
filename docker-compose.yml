@@ -22,6 +22,7 @@ services:
     build: .
     environment:
       DATABASE_URL: postgresql://gtf:gtf@db:5432/gtf
+      MATCH_DATA_DIR: /app/data/generated
     env_file:
       - path: .env
         required: false
@@ -33,6 +34,7 @@ services:
     # data/ground_truth is deliberately NOT mounted: the agent runtime must never see it.
     volumes:
       - ./data/samples:/app/data/samples:ro
+      - ./data/generated:/app/data/generated:ro
 
 volumes:
   pgdata:

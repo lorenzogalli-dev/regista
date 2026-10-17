@@ -8,6 +8,7 @@ from fastapi import Depends, FastAPI
 from fastapi.responses import JSONResponse
 
 from api import db
+from api.routes import replay
 
 
 @asynccontextmanager
@@ -17,6 +18,7 @@ async def lifespan(app: FastAPI) -> AsyncIterator[None]:
 
 
 app = FastAPI(title="Ground Truth Football", version="0.1.0", lifespan=lifespan)
+app.include_router(replay.router)
 
 
 @app.get("/health")

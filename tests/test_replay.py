@@ -1,0 +1,61 @@
+import asyncio
+import itertools
+
+from fastapi.testclient import TestClient
+
+from api.main import app
+from sim.replay import frame_stride, merged, replay
+
+
+def test_frame_stride() -> None:
+    assert (frame_stride(1), frame_stride(4), frame_stride(20)) == (1, 2, 10)
+
+
+def test_merged_is_time_ordered_and_decimated(sample_dirs) -> None:
+    out, _ = sample_dirs
+    msgs = list(merged(out, speed=20, from_ms=60_000))
+    ts = [m["data"]["t_ms"] for m in msgs]
+    assert ts == sorted(ts) and ts[0] >= 60_000
+    frames = [m["data"]["t_ms"] for m in msgs if m["type"] == "frame"]
+    assert all((b - a) == 1000 for a, b in itertools.pairwise(frames))
+
+
+def test_pacing_matches_speed(sample_dirs) -> None:
+    out, _ = sample_dirs
+    clock = {"t": 0.0}
+
+    async def fake_sleep(s: float) -> None:
+        clock["t"] += s
+
+    async def run() -> list[dict]:
+        return [
+            m async for m in replay(out, 20.0, 5_000_000, now=lambda: clock["t"], sleep=fake_sleep)
+        ]
+
+    msgs = asyncio.run(run())
+    assert msgs[0]["type"] == "meta" and msgs[-1]["type"] == "end"
+    last_t = msgs[-2]["data"]["t_ms"]
+    assert abs(clock["t"] - (last_t - 5_000_000) / 1000 / 20) < 0.05
+
+
+def test_websocket_streams_events_and_frames(sample_dirs, monkeypatch) -> None:
+    out, _ = sample_dirs
+    monkeypatch.setenv("MATCH_DATA_DIR", str(out.parent))
+    end = 5_580_000
+    kinds: dict[str, int] = {}
+    with (
+        TestClient(app) as client,
+        client.websocket_connect(f"/ws/replay/m_1000?speed=100&from_ms={end - 20_000}") as ws,
+    ):
+        while True:
+            msg = ws.receive_json()
+            kinds[msg["type"]] = kinds.get(msg["type"], 0) + 1
+            if msg["type"] == "end":
+                break
+    assert kinds["meta"] == 1 and kinds["frame"] > 0 and kinds["event"] > 0
+
+
+def test_websocket_unknown_match(monkeypatch, tmp_path) -> None:
+    monkeypatch.setenv("MATCH_DATA_DIR", str(tmp_path))
+    with TestClient(app) as client, client.websocket_connect("/ws/replay/m_42") as ws:
+        assert ws.receive_json()["type"] == "error"
