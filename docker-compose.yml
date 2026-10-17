@@ -1,0 +1,38 @@
+name: ground-truth-football
+
+
+services:
+  db:
+    image: postgres:17
+    environment:
+      POSTGRES_USER: gtf
+      POSTGRES_PASSWORD: gtf
+      POSTGRES_DB: gtf
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U gtf -d gtf"]
+      interval: 2s
+      timeout: 3s
+      retries: 20
+
+  api:
+    build: .
+    environment:
+      DATABASE_URL: postgresql://gtf:gtf@db:5432/gtf
+    env_file:
+      - path: .env
+        required: false
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+    # data/ground_truth is deliberately NOT mounted: the agent runtime must never see it.
+    volumes:
+      - ./data/samples:/app/data/samples:ro
+
+volumes:
+  pgdata:

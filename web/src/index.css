@@ -1,0 +1,22 @@
+/* Placeholder base styles. The design system lands in D5a (see DESIGN.md). */
+:root {
+  --bg: #06110c;
+  --panel: #0c1b14;
+  --text: #f2f5f3;
+  --text-2: #9fb0a7;
+  --ai: #46e5d8;
+  color-scheme: dark;
+  font-family: system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* /graphics renders only the overlay layer over a transparent background. */
+body.graphics {
+  background: transparent;
+  overflow: hidden;
+}
