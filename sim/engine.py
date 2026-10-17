@@ -168,6 +168,9 @@ class Engine:
     def _dir(self, side: int) -> int:
         return pitch.direction(side == 0, self.period)
 
+    def _line(self, slot: int) -> str:
+        return LINE[self.players[int(self.slot_pid[slot])].position]
+
     def _pid(self, slot: int) -> str:
         return self.players[int(self.slot_pid[slot])].player_id
 
@@ -242,7 +245,15 @@ class Engine:
         self.hold_start = (float(self.pos[slot, 0]), float(self.pos[slot, 1]))
         self.hold_pressed = set()
         self.hold_engaged = set()
-        base = 4.0 if self.is_gk[slot] else float(self.rng.uniform(2.8, 5.5))
+        if self.is_gk[slot]:
+            base = 4.0
+        elif self._line(slot) == "FWD":
+            base = float(self.rng.uniform(1.5, 3.2))
+        else:
+            base = float(self.rng.uniform(3.0, 5.8))
+        press_opp = self._style(1 - int(self.side[slot]))[0]
+        base *= 1.0 - 0.5 * max(0.0, press_opp - 0.5)
+        base *= self.mods.hold_factor(int(self.side[slot]), self.t)
         self.decide_at = self.t + int(base * 1000)
 
     def _transition_runs(self, side: int) -> None:
@@ -358,6 +369,9 @@ class Engine:
         if self.subs_used[side] >= 3:
             return
         protected = {side * 11 + s for s in self.mods.protected_slots(side)}
+        # A player due to be sent off by a storyline stays on until then.
+        red = {p.trigger_player for p in self.mods.plans if p.trigger == "red_card"}
+        protected |= {int(s) for s in self._side_slots(side) if self._pid(int(s)) in red}
         if slot is None:
             cands = [
                 int(s)
@@ -517,11 +531,15 @@ class Engine:
                 self.hold_engaged.add(o)
                 if self.t < self.stun_until[o]:
                     continue
-                p = 0.039 * (0.7 + 0.6 * press) * (0.8 + 0.5 * self.defending[o])
+                p = 0.046 * (0.4 + 1.2 * press) * (0.8 + 0.5 * self.defending[o])
+                if press > 0.9:
+                    p *= 1.5  # an all-out press engages more often
                 if self.rng.random() < p:
                     self._tackle(o, h)
                     return
-        if dmin < 1.5 and self.rng.random() < 0.007 * (0.5 + press) * (1.3 - self.passing[h]):
+        squeeze = 0.007 * (0.5 + press) * (1.3 - self.passing[h])
+        squeeze *= 1.0 - 0.4 * self.mods.retention(side, self.t)
+        if dmin < 1.5 and self.rng.random() < squeeze:
             self._lose_control(h)
             return
         if self.t >= self.decide_at:
@@ -551,6 +569,7 @@ class Engine:
             self._set_restart(int(self.side[h]), (float(x), float(y)), "free_kick", delay)
             return
         p_win = 0.55 + 0.3 * (self.defending[o] - self.passing[h])
+        p_win -= 0.2 * self.mods.retention(int(self.side[h]), self.t)
         if self.rng.random() < p_win:
             self._emit("tackle", o, x, y, outcome="won")
             self._gain(o)
@@ -575,9 +594,12 @@ class Engine:
             0.0
             if self.is_gk[h]
             else min(
-                0.35, 0.46 * math.exp(-dist / 7.5) * (0.4 + angle) + (0.015 if dist < 27.0 else 0.0)
+                0.6, 2.2 * math.exp(-dist / 7.5) * (0.4 + angle) + (0.065 if dist < 27.0 else 0.0)
             )
         )
+        lead = self.score[side] - self.score[1 - side]
+        if lead >= 2:
+            p_shot *= 0.5 if lead == 2 else 0.1  # game management: a comfortable lead eases off
         if self.rng.random() < p_shot:
             self._shoot(h, dist, angle, dmin)
         else:
@@ -600,6 +622,8 @@ class Engine:
             if self.active[fs]:
                 flank_y = float(self.pos[fs, 1])
 
+        carrier_fwd = self._line(h) == "FWD"
+        wide_mode = self._style(side)[2] >= 0.9
         scores, feats = [], []
         for r in mates:
             b = self.pos[r] + self.vel[r] * 0.5
@@ -610,7 +634,9 @@ class Engine:
             openness = float(np.min(np.hypot(*(self.pos[opp] - b).T))) if len(opp) else 10.0
             prog_w = 0.4 + 1.6 * directness
             if h == pm_slot:
-                prog_w *= 2.0
+                prog_w *= 3.0
+            if carrier_fwd:
+                prog_w *= 0.5
             sc = (
                 0.05 * progress * prog_w
                 - 0.045 * L * (1.4 - directness)
@@ -622,9 +648,13 @@ class Engine:
             if self.is_gk[r]:
                 sc -= 1.5
             if r == pm_slot:
-                sc += 0.8
+                sc += 1.5
+            if self._line(r) == "FWD":
+                sc -= 1.4
+            if abs(float(b[1]) - PITCH_WIDTH / 2) > 18.0:
+                sc += 1.3 if wide_mode else 0.3
             if flank_y is not None and abs(float(b[1]) - flank_y) < 15.0:
-                sc += 0.9
+                sc += 1.6
             if not (0.0 <= b[0] <= PITCH_LENGTH and 0.0 <= b[1] <= PITCH_WIDTH):
                 sc -= 2.0
             scores.append(sc)
@@ -632,6 +662,17 @@ class Engine:
         w = np.exp(np.array(scores) - max(scores))
         k = int(self.rng.choice(len(mates), p=w / w.sum()))
         r, b, L, lane_def, openness, progress = feats[k]
+        ax_carrier, _ = pitch.to_attacking(float(a[0]), float(a[1]), d)
+        if directness >= 0.85 and ax_carrier < 75.0 and self.rng.random() < 0.7:
+            # Long ball: to the most advanced team-mate, into the space behind them.
+            k = int(np.argmax([f[5] for f in feats]))
+            r = feats[k][0]
+            b = self.pos[r] + np.array([d * float(self.rng.uniform(4.0, 10.0)), 0.0])
+            b += np.array([0.0, float(self.rng.normal(0.0, 3.0))])
+            L = float(np.hypot(*(b - a)))
+            opp, ld, _ = self._lane(a, b, side)
+            lane_def = int(np.sum(ld < 2.0))
+            openness = float(np.min(np.hypot(*(self.pos[opp] - b).T))) if len(opp) else 10.0
 
         speed = float(np.clip(7.0 + 0.38 * L + self.rng.normal(0, 1.5), 8.0, 25.0))
         high = L > 32 or (lane_def >= 2 and L > 20)
@@ -644,7 +685,8 @@ class Engine:
             - 0.55 * lane_def
             - 0.6 * under_pressure
             + 0.12 * min(openness, 6.0)
-            - 0.6 * (press_opp - 0.5)
+            - 1.8 * (press_opp - 0.5)
+            - (0.4 if self._line(r) == "FWD" else 0.0)
             - (0.3 if high else 0.0)
             + self.mods.retention(side, self.t)
         )
@@ -816,7 +858,7 @@ class Engine:
             )
             return
         p_goal = _sigmoid(
-            -1.8
+            -0.85
             - 0.12 * dist
             + 1.5 * angle
             + 2.0 * (self.finishing[h] - 0.6)
@@ -894,10 +936,11 @@ class Engine:
             ax0, ay0 = self.anchor[sl, 0], self.anchor[sl, 1]
             if side == ps:
                 ax = ax0 * 0.95 + 0.40 * (bax - 0.5) + 0.05 + 0.25 * ax0 * max(0.0, bax - 0.55)
-                ay = 0.5 + (ay0 - 0.5) * (0.75 + 0.5 * width) + 0.1 * (bay - 0.5)
+                ay = 0.5 + (ay0 - 0.5) * (0.85 + 0.5 * width) + 0.1 * (bay - 0.5)
             else:
-                ax = ax0 * 0.85 + 0.35 * (bax - 0.5) - 0.02 + 0.10 * (press - 0.5)
+                ax = ax0 * 0.85 + 0.35 * (bax - 0.5) - 0.02 + 0.6 * (press - 0.5)
                 ay = 0.5 + (ay0 - 0.5) * 0.7 + 0.25 * (bay - 0.5)
+            ax = ax + self.mods.block_shift(side, self.t)
             gk = self.is_gk[sl]
             ax = np.where(gk, 0.035 + 0.04 * bax, ax)
             ay = np.where(gk, 0.5 + 0.3 * (bay - 0.5), ay)
@@ -934,7 +977,7 @@ class Engine:
         # pressers chase the ball
         def_side = 1 - ps
         press, _, _ = self._style(def_side)
-        n_press = 1 + int(press * 2.2)
+        n_press = 1 + int(press * 2.2) + (1 if press > 0.9 else 0)
         cand = [int(s) for s in self._side_slots(def_side) if not self.is_gk[s]]
         if cand:
             dd = np.hypot(*(self.pos[cand] - self.ball).T)
@@ -966,6 +1009,11 @@ class Engine:
 
     def _move(self) -> None:
         tgt, want = self._targets()
+        for p in self.mods.plans:
+            if p.sl.type == "fatigue_drop" and p.player_slot is not None:
+                slot = p.side * 11 + p.player_slot
+                if self.mods.extra_fatigue(p.side, p.player_slot, self.t) > 0.05:
+                    want[slot] = min(want[slot], 0.70 * self.top[slot])
         delta = tgt - self.pos
         dist = np.hypot(*delta.T)
         unit = delta / np.maximum(dist, 1e-6)[:, None]

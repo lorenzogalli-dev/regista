@@ -34,6 +34,9 @@ from sim.storylines import DURATION_MIN
 
 AFTER_MIN = 3
 SLICE_MIN = 2
+# Tuning uses the first half of each calibration set; criteria are judged on the second half.
+TUNE_SEEDS = CALIBRATION_SEEDS[:100]
+JUDGE_SEEDS = CALIBRATION_SEEDS[100:]
 NULL_SEEDS = CALIBRATION_CONTROL_SEEDS[:50]
 HOLDOUT_SEEDS = CALIBRATION_CONTROL_SEEDS[50:]
 
@@ -202,6 +205,7 @@ class Null:
     mu: np.ndarray
     sd: np.ndarray
     combined: np.ndarray  # combined z of each noise window
+    signal_p95: np.ndarray  # per-signal 95th percentile of z on noise
 
     def z(self, eff: list[float]) -> tuple[np.ndarray, float]:
         zs = (np.array(eff) - self.mu) / self.sd
@@ -210,11 +214,16 @@ class Null:
     def p95(self) -> float:
         return float(np.percentile(self.combined, 95))
 
+    def n_over(self, eff: list[float]) -> int:
+        """Number of signals individually above their own noise p95."""
+        return int((self.z(eff)[0] > self.signal_p95).sum())
+
 
 def build_null(matches: list[MatchBins], key: str, dur: int) -> Null:
     eff = null_effects(matches, key, dur)
     mu, sd = eff.mean(axis=0), eff.std(axis=0) + 1e-9
-    return Null(mu, sd, ((eff - mu) / sd).mean(axis=1))
+    zs = (eff - mu) / sd
+    return Null(mu, sd, zs.mean(axis=1), np.percentile(zs, 95, axis=0))
 
 
 # --------------------------------------------------------------------------- report
@@ -256,6 +265,7 @@ def evaluate(storyline_matches: list[MatchBins], null_matches: list[MatchBins]) 
                     "signal_z": [float(x) for x in zs],
                     "percentile": pct,
                     "detected": pct > 0.95,
+                    "signals_over_p95": nl.n_over(eff),
                     "slice_z_median": float(np.median(slice_z)) if slice_z else float("nan"),
                 }
             )
@@ -278,6 +288,7 @@ def evaluate(storyline_matches: list[MatchBins], null_matches: list[MatchBins]) 
             "z_median": z_med,
             "detected_share": det,
             "slice_z_median": sl_med,
+            "two_signals_share": sum(r["signals_over_p95"] >= 2 for r in rows) / len(rows),
             "signal_z_median": dict(zip([m for m, _, _ in TEMPLATES[key]], sig_med, strict=True)),
             "pass": bool(2.0 <= z_med <= 5.0 and det >= 0.70 and sl_med < 1.5),
         }
@@ -286,16 +297,16 @@ def evaluate(storyline_matches: list[MatchBins], null_matches: list[MatchBins]) 
 
 def false_alarms(null_matches: list[MatchBins], holdout: list[MatchBins]) -> dict[str, Any]:
     """Noise windows on held-out no-storyline matches whose score exceeds the 95th percentile."""
-    out = {}
+    out: dict[str, dict[str, Any]] = {}
     for key in TEMPLATES:
         lo, hi = DURATION_MIN[key.split("/")[0]]  # type: ignore[index]
         dur = (lo + hi) // 2
         nl = build_null(null_matches, key, dur)
         thr = nl.p95()
-        n_win = n_hit = 0
-        per_match = []
+        n_win = n_hit = n_multi = 0
+        per_match, per_match_multi = [], []
         for mb in holdout:
-            hits = []
+            hits, multi = [], []
             for team, player in _subjects(mb, key):
                 full = B.full_minutes(mb.bins, player) if player else None
                 for s in _starts(mb, dur):
@@ -308,13 +319,11 @@ def false_alarms(null_matches: list[MatchBins], holdout: list[MatchBins]) -> dic
                     if nl.z(eff)[1] > thr:
                         n_hit += 1
                         hits.append(s)
-            # distinct episodes: hits more than one window length apart
-            episodes, last = 0, -(10**6)
-            for s in sorted(set(hits)):
-                if s - last >= dur:
-                    episodes += 1
-                    last = s
-            per_match.append(episodes)
+                    if nl.n_over(eff) >= 2:
+                        n_multi += 1
+                        multi.append(s)
+            per_match.append(_episodes(hits, dur))
+            per_match_multi.append(_episodes(multi, dur))
         out[key] = {
             "window_minutes": dur,
             "windows": n_win,
@@ -322,59 +331,100 @@ def false_alarms(null_matches: list[MatchBins], holdout: list[MatchBins]) -> dic
             "episodes_per_match_mean": float(np.mean(per_match)),
             "matches_with_any": float(np.mean([x > 0 for x in per_match])),
         }
+        if len(TEMPLATES[key]) >= 2:
+            out[key]["two_signals"] = {
+                "share": n_multi / max(1, n_win),
+                "episodes_per_match_mean": float(np.mean(per_match_multi)),
+                "matches_with_any": float(np.mean([x > 0 for x in per_match_multi])),
+            }
     return out
+
+
+def _episodes(starts: list[int], dur: int) -> int:
+    """Distinct episodes: flagged window starts more than one window length apart."""
+    episodes, last = 0, -(10**6)
+    for s in sorted(set(starts)):
+        if s - last >= dur:
+            episodes += 1
+            last = s
+    return episodes
 
 
 def _fmt_table(title: str, res: dict[str, Any]) -> str:
     lines = [
         f"### {title}",
         "",
-        "| type | n | z median | detected (>p95) | 2-min slice z median "
-        "| per-signal z median | pass |",
-        "|---|---|---|---|---|---|---|",
+        "| type | n | z median | detected (>p95) | >=2 signals over own p95 "
+        "| 2-min slice z median | per-signal z median | pass |",
+        "|---|---|---|---|---|---|---|---|",
     ]
     for key, s in res["summary"].items():
         if not s.get("n"):
-            lines.append(f"| {key} | 0 | - | - | - | - | - |")
+            lines.append(f"| {key} | 0 | - | - | - | - | - | - |")
             continue
         sig = ", ".join(f"{k} {v:.2f}" for k, v in s["signal_z_median"].items())
+        two = f"{s['two_signals_share']:.0%}" if len(TEMPLATES[key]) >= 2 else "n/a"
         lines.append(
-            f"| {key} | {s['n']} | {s['z_median']:.2f} | {s['detected_share']:.0%} | "
+            f"| {key} | {s['n']} | {s['z_median']:.2f} | {s['detected_share']:.0%} | {two} | "
             f"{s['slice_z_median']:.2f} | {sig} | {'yes' if s['pass'] else 'NO'} |"
         )
     return "\n".join(lines)
 
 
-def main(argv: list[str] | None = None) -> int:
-    ap = argparse.ArgumentParser(prog="python -m eval.signal_check")
-    ap.add_argument("--workers", type=int, default=8)
-    ap.add_argument("--out", default="docs/signal_check")
-    a = ap.parse_args(argv)
-    null_m = load_many(list(NULL_SEEDS), a.workers)
-    hold_m = load_many(list(HOLDOUT_SEEDS), a.workers)
-    dev = evaluate(load_many(list(DEV_SEEDS), a.workers), null_m)
-    cal = evaluate(load_many(list(CALIBRATION_SEEDS), a.workers), null_m)
-    fa = false_alarms(null_m, hold_m)
-    out = Path(a.out)
-    out.parent.mkdir(parents=True, exist_ok=True)
-    out.with_suffix(".json").write_text(
-        json.dumps({"dev": dev, "calibration": cal, "false_alarms": fa}, indent=2, default=float)
-    )
+def _fmt_false_alarms(fa: dict[str, Any]) -> list[str]:
     md = [
-        _fmt_table("Dev seeds 1000-1019 (noise: calibration-control 2200-2249)", dev),
-        "",
-        _fmt_table("Calibration seeds 2000-2199 (noise: calibration-control 2200-2249)", cal),
-        "",
         "### False alarms on held-out no-storyline matches (2250-2299)",
         "",
-        "| type | window (min) | windows | share > p95 | episodes / match | matches with any |",
+        "| type | rule | window (min) | share of windows | episodes / match | matches with any |",
         "|---|---|---|---|---|---|",
     ]
     for key, f in fa.items():
         md.append(
-            f"| {key} | {f['window_minutes']} | {f['windows']} | {f['share_over_p95']:.1%} | "
-            f"{f['episodes_per_match_mean']:.2f} | {f['matches_with_any']:.0%} |"
+            f"| {key} | combined score > p95 | {f['window_minutes']} | "
+            f"{f['share_over_p95']:.1%} | {f['episodes_per_match_mean']:.2f} | "
+            f"{f['matches_with_any']:.0%} |"
         )
+        if "two_signals" in f:
+            t = f["two_signals"]
+            md.append(
+                f"| {key} | >=2 signals over own p95 | {f['window_minutes']} | "
+                f"{t['share']:.1%} | {t['episodes_per_match_mean']:.2f} | "
+                f"{t['matches_with_any']:.0%} |"
+            )
+    return md
+
+
+def main(argv: list[str] | None = None) -> int:
+    ap = argparse.ArgumentParser(prog="python -m eval.signal_check")
+    ap.add_argument(
+        "--mode",
+        choices=["tune", "final"],
+        required=True,
+        help="tune: storylines 2000-2099 only; final: judge on 2100-2199, dev, false alarms",
+    )
+    ap.add_argument("--workers", type=int, default=8)
+    ap.add_argument("--out", default="docs/signal_check")
+    a = ap.parse_args(argv)
+    null_m = load_many(list(NULL_SEEDS), a.workers)
+    if a.mode == "tune":
+        tune = evaluate(load_many(list(TUNE_SEEDS), a.workers), null_m)
+        print(_fmt_table("Tuning seeds 2000-2099 (noise 2200-2249)", tune))
+        return 0
+    judge = evaluate(load_many(list(JUDGE_SEEDS), a.workers), null_m)
+    dev = evaluate(load_many(list(DEV_SEEDS), a.workers), null_m)
+    fa = false_alarms(null_m, load_many(list(HOLDOUT_SEEDS), a.workers))
+    out = Path(a.out)
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.with_suffix(".json").write_text(
+        json.dumps({"judge": judge, "dev": dev, "false_alarms": fa}, indent=2, default=float)
+    )
+    md = [
+        _fmt_table("Judged on calibration seeds 2100-2199 (noise 2200-2249)", judge),
+        "",
+        _fmt_table("Control: dev seeds 1000-1019 (noise 2200-2249)", dev),
+        "",
+        *_fmt_false_alarms(fa),
+    ]
     out.with_suffix(".md").write_text("\n".join(md) + "\n")
     print("\n".join(md))
     return 0

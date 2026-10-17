@@ -15,10 +15,12 @@ from sim.storylines import MIN
 PERIOD_ENDS = [47 * MIN, 95 * MIN]
 
 
-def _plan(seed: int, control: bool = False) -> storylines.Modifiers:
+def _plan(
+    seed: int, control: bool = False, pool: tuple = storylines.ACTIVE_TYPES
+) -> storylines.Modifiers:
     rs = streams(seed)
     home, away, _ = roster.build(rs.roster)
-    return storylines.plan(rs.storylines, home, away, PERIOD_ENDS, control)
+    return storylines.plan(rs.storylines, home, away, PERIOD_ENDS, control, pool)
 
 
 def test_seed_sets_are_disjoint() -> None:
@@ -39,7 +41,7 @@ def test_two_or_three_non_overlapping_windows_inside_a_period() -> None:
         for s, e in wins:
             assert (s >= 0 and e <= PERIOD_ENDS[0]) or (s >= PERIOD_ENDS[0] and e <= PERIOD_ENDS[1])
         seen_types |= {p.sl.type for p in plans}
-    assert seen_types == set(storylines.TYPES)
+    assert seen_types == set(storylines.ACTIVE_TYPES)
 
 
 def test_control_has_no_storylines() -> None:
@@ -48,7 +50,7 @@ def test_control_has_no_storylines() -> None:
 
 def test_modifiers_only_inside_window() -> None:
     for seed in range(100):
-        mods = _plan(seed)
+        mods = _plan(seed, pool=storylines.TYPES)  # pressing_spell is disabled by default
         for p in mods.plans:
             if p.sl.type != "pressing_spell":
                 continue
@@ -60,9 +62,14 @@ def test_modifiers_only_inside_window() -> None:
                 assert mods.press(p.side, 0.5, after) == 0.5
 
 
+def test_disabled_types_are_not_generated() -> None:
+    for seed in range(200):
+        assert {p.sl.type for p in _plan(seed).plans} <= set(storylines.ACTIVE_TYPES)
+
+
 def test_every_storyline_has_signals_and_explanation() -> None:
     for seed in range(100):
-        for p in _plan(seed).plans:
+        for p in _plan(seed, pool=storylines.TYPES).plans:
             assert p.sl.expected_signals
             assert p.sl.canonical_explanation
             assert p.sl.end_ms > p.sl.start_ms

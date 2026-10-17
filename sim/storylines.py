@@ -20,11 +20,15 @@ TYPES: tuple[StorylineType, ...] = (
     "tactical_switch",
     "player_arc",
 )
+# Types the simulator currently generates. pressing_spell and fatigue_drop are implemented
+# but disabled: in the final signal check (docs/signal_check.md) their median z was below 2,
+# i.e. not reliably distinguishable from noise.
+ACTIVE_TYPES: tuple[StorylineType, ...] = ("momentum_shift", "tactical_switch", "player_arc")
 DURATION_MIN: dict[StorylineType, tuple[int, int]] = {
-    "pressing_spell": (10, 15),
+    "pressing_spell": (14, 20),
     "fatigue_drop": (15, 22),
-    "momentum_shift": (10, 15),
-    "tactical_switch": (12, 18),
+    "momentum_shift": (14, 20),
+    "tactical_switch": (16, 22),
     "player_arc": (18, 25),
 }
 
@@ -73,7 +77,7 @@ class Modifiers:
         v = 0.0
         for p in self._active(t_ms):
             if p.sl.type == "momentum_shift":
-                v += 0.55 if p.side == side else -0.45
+                v += 1.2 if p.side == side else -1.0
         return v
 
     def extra_fatigue(self, side: int, slot: int, t_ms: int) -> float:
@@ -82,7 +86,23 @@ class Modifiers:
             if p.sl.type == "fatigue_drop" and p.side == side and p.player_slot == slot:
                 if t_ms < p.sl.start_ms:
                     return 0.0
-                return 0.2 * min(1.0, (t_ms - p.sl.start_ms) / (6 * MIN))
+                return 0.25 * min(1.0, (t_ms - p.sl.start_ms) / (6 * MIN))
+        return 0.0
+
+    def hold_factor(self, side: int, t_ms: int) -> float:
+        """Multiplier on how long a player keeps the ball before acting."""
+        for p in self._active(t_ms):
+            if p.sl.type == "momentum_shift":
+                return 1.25 if p.side == side else 0.85
+        return 1.0
+
+    def block_shift(self, side: int, t_ms: int) -> float:
+        """Shift of the team's shape towards the opponent goal (fraction of pitch length)."""
+        for p in self._active(t_ms):
+            if p.sl.type == "momentum_shift":
+                return 0.08 if p.side == side else -0.10
+            if p.sl.type == "pressing_spell" and p.side == side:
+                return 0.06  # the whole team plays higher, not only the block
         return 0.0
 
     def flank_target(self, attacking_side: int, t_ms: int) -> tuple[int, int] | None:
@@ -144,12 +164,14 @@ def plan(
     away: TeamSheet,
     period_ends: list[int],
     control: bool,
+    pool: tuple[StorylineType, ...] = ACTIVE_TYPES,
 ) -> Modifiers:
+    """Draw 2-3 storylines from `pool` (disabled types can still be drawn explicitly)."""
     if control:
         return Modifiers()
     while True:
         n = int(rng.integers(2, 4))
-        types = [TYPES[int(i)] for i in rng.choice(len(TYPES), size=n, replace=False)]
+        types = [pool[int(i)] for i in rng.choice(len(pool), size=n, replace=False)]
         wins = _windows(rng, types, period_ends)
         if wins is not None:
             break
@@ -186,7 +208,10 @@ def _make(
             end_ms=end,
             team_id=team.team_id,
             actors=[],
-            mechanism={"press_intensity": f"{team.style.press_intensity} -> 0.97"},
+            mechanism={
+                "press_intensity": f"{team.style.press_intensity} -> 0.97",
+                "shape": "higher block and line, one extra presser, more tackles",
+            },
             expected_signals=[
                 sig(metric="ppda", team=team.team_id, direction="down"),
                 sig(metric="pass_completion", team=other.team_id, direction="down"),
@@ -211,7 +236,8 @@ def _make(
             team_id=team.team_id,
             actors=[pl.player_id],
             mechanism={
-                "top_speed": "-20% over 6 min",
+                "top_speed": "-25% over 6 min",
+                "sprints": "fewer, shorter",
                 "opponent_targeting": "flank of tiring player",
             },
             expected_signals=[
@@ -247,7 +273,13 @@ def _make(
             end_ms=end,
             team_id=team.team_id,
             actors=actors,
-            mechanism={"trigger": trigger, "press_intensity": "+0.25", "retention": "+0.55 logit"},
+            mechanism={
+                "trigger": trigger,
+                "press_intensity": "+0.25",
+                "retention": "+1.2 / -1.0 logit",
+                "tempo": "beneficiary keeps the ball longer, opponent loses it more",
+                "shape": "beneficiary higher, opponent deeper",
+            },
             expected_signals=[
                 sig(metric="possession", team=team.team_id, direction="up"),
                 sig(metric="field_tilt", team=team.team_id, direction="up"),
@@ -262,7 +294,10 @@ def _make(
     if t == "tactical_switch":
         variant = "long_ball" if rng.random() < 0.5 else "wide"
         if variant == "long_ball":
-            mech = {"directness": f"{team.style.directness} -> 0.92"}
+            mech = {
+                "directness": f"{team.style.directness} -> 0.92",
+                "long_balls": "70% of passes before the final third go long to the front player",
+            }
             sigs = [
                 sig(metric="avg_pass_length", team=team.team_id, direction="up"),
                 sig(metric="pass_completion", team=team.team_id, direction="down"),
@@ -272,7 +307,7 @@ def _make(
                 "trading control for directness."
             )
         else:
-            mech = {"width": f"{team.style.width} -> 0.97"}
+            mech = {"width": f"{team.style.width} -> 0.97", "passing": "wide receivers preferred"}
             sigs = [sig(metric="width", team=team.team_id, direction="up")]
             text = (
                 f"{team.name} stretched the pitch from minute {minute}, "
@@ -306,8 +341,8 @@ def _make(
         actors=[pl.player_id],
         mechanism={
             "passing": "+0.25",
-            "involvement": "teammates seek him out",
-            "progression": "x2",
+            "involvement": "team-mates look for this player",
+            "progression": "x3",
         },
         expected_signals=[
             sig(metric="progressive_passes", player=pl.player_id, direction="up"),

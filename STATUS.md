@@ -10,7 +10,12 @@ Last updated: 2026-10-17. This file can drift: check the real state (run it, que
   - Timing: ~3.5 s simulate + ~2.2 s write per full match (macOS ARM).
 
 ## In progress
-- D2.0 storyline signal check: instruments committed with the "before" tables (`docs/signal_check_before.md`): no storyline type passes. Strengthening round A–F approved (one round, 3 h time-box): tune on calibration 2000–2099 (noise 2200–2249), judge on 2100–2199 (false alarms 2250–2299), dev table as a control only.
+- D2.0 storyline signal check done (2026-10-18), see `docs/signal_check.md` (before: `docs/signal_check_before.md`).
+  - Three strengthening rounds tuned on 2000–2099; judged once on 2100–2199.
+  - Pass: momentum_shift, tactical_switch/long_ball, tactical_switch/wide, player_arc.
+  - **Disabled** (median z < 2, code kept): pressing_spell (1.79), fatigue_drop (1.75). `sim/storylines.py: ACTIVE_TYPES`.
+  - Changes after the judged run were plausibility-only; active types re-checked on tuning seeds (all pass).
+- D2.1 metrics engine + tools: in progress.
 
 ## Blocked
 - Nothing.
@@ -36,4 +41,7 @@ Last updated: 2026-10-17. This file can drift: check the real state (run it, que
   - `fatigue_drop` ends with the tiring player's substitution; `player_arc` is a "playmaker" spell; `tactical_switch` is `long_ball` or `wide`.
   - Players teleport to kickoff positions at the start of each half (velocity reset); metrics must not count that jump as distance.
   - Sprint counting needs a minimum duration (≥ 1 s): instantaneous speed jitters around thresholds.
-- Plausibility (20 dev seeds, 2026-10-17, after the tackle fix): means passes 1012, completion 0.814, shots 24.5, goals 2.45, max player speed 9.90 m/s, tackles 42.5 (range 29–54). Per-match shot band widened from the proposed 14–36 to 10–45 (approved). Tackles: mean must be 35–55, per-match band 25–80 (match-to-match variance is driven by how often defenders get close). Fewer tackles are offset by loose balls when a carrier is squeezed (`ball_recovery`); fouls are now 33% of tackle attempts (~15–25 per match).
+- Plausibility (20 dev seeds, 2026-10-18, after D2.0): means passes 1008, completion 0.799, shots 25.1 (range 11–44), goals 2.9 (range 0–5), tackles 43.8 (28–65), max speed 9.90 m/s. Per-match bands: shots 10–45, goals 0–7, tackles 25–80; tackle mean 35–55.
+- Simulator realism after D2.0 (16 calibration matches): forwards 1.6 touches/min (was ~3.0), defenders 0.9, midfielders 2.3 (touches include carries, so totals are higher than real-world touch counts); 47 % of final-third touches on the flanks; mean width 15.5 m.
+- Game management: a team leading by 2 shoots half as often, by 3+ a tenth as often (caps goal tails).
+- A red-card storyline player is protected from substitution until the card.

@@ -16,7 +16,7 @@ MEAN_RANGES = {
 MATCH_BANDS = {
     "passes": (800, 1250),
     "shots": (10, 45),
-    "goals": (0, 9),
+    "goals": (0, 7),
     "pass_completion": (0.70, 0.90),
     "max_player_speed": (8.5, 10.0),
     "tackles": (25, 80),

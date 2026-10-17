@@ -94,6 +94,8 @@ Storyline types (aim for 5):
 - `tactical_switch` — width/directness change (e.g. switch to long balls).
 - `player_arc` — a player has an outlier game (e.g. many progressive passes, a record sprint).
 
+Status (2026-10-18): `pressing_spell` and `fatigue_drop` are implemented but disabled in the generator; they did not separate from noise in the signal check (`docs/signal_check.md`). Active: `momentum_shift`, `tactical_switch` (`long_ball`, `wide`), `player_arc`.
+
 Storyline scheduling:
 - **2–3 storylines per match**, drawn from the seed, with **non-overlapping** windows.
 - `momentum_shift` does not wait for a random event: the simulator **forces the trigger event** (red card, substitution or goal) at a scheduled minute, then applies the modifiers.
