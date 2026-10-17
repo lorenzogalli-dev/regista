@@ -1,0 +1,384 @@
+"""Do hidden storylines move their expected signals more than noise does? (D2.0)
+
+For each storyline: signed effect = metric in the window minus metric in the rest of the
+match (excluding 3 minutes after the window), multiplied by +1/-1 for the expected
+direction. The noise reference is the same statistic over sliding windows of the same
+duration on matches generated with zero storylines.
+
+Per storyline, signal z-scores are averaged into one score; it is "detected" when it
+exceeds the 95th percentile of the same score on noise windows. Per type, the pass
+criteria are: median full-window z in [2, 5], >= 70 % detected, median z over 2-minute
+slices < 1.5 (the signal must need several minutes to emerge).
+
+This module reads ground truth and is used only offline for simulator calibration and
+evaluation; it is not reachable from the agent runtime.
+"""
+
+import argparse
+import json
+import statistics
+from collections import defaultdict
+from concurrent.futures import ProcessPoolExecutor
+from dataclasses import dataclass
+from pathlib import Path
+from typing import Any
+
+import numpy as np
+
+from metrics import bins as B
+from metrics.data import from_sim
+from sim.generate import simulate
+from sim.roster import LINE, WIDE
+from sim.seeds import CALIBRATION_CONTROL_SEEDS, CALIBRATION_SEEDS, DEV_SEEDS
+from sim.storylines import DURATION_MIN
+
+AFTER_MIN = 3
+SLICE_MIN = 2
+NULL_SEEDS = CALIBRATION_CONTROL_SEEDS[:50]
+HOLDOUT_SEEDS = CALIBRATION_CONTROL_SEEDS[50:]
+
+# (metric, subject role, direction). Roles: team, opp, player, opp_flank (the flank of
+# `player`, seen from the opponent's attacking direction).
+TEMPLATES: dict[str, list[tuple[str, str, int]]] = {
+    "pressing_spell": [
+        ("ppda", "team", -1),
+        ("pass_completion", "opp", -1),
+        ("field_tilt", "team", 1),
+    ],
+    "fatigue_drop": [
+        ("top_speed", "player", -1),
+        ("sprint_count", "player", -1),
+        ("flank_attack_share", "opp_flank", 1),
+    ],
+    "momentum_shift": [("possession", "team", 1), ("field_tilt", "team", 1)],
+    "tactical_switch/long_ball": [("avg_pass_length", "team", 1), ("pass_completion", "team", -1)],
+    "tactical_switch/wide": [("width", "team", 1)],
+    "player_arc": [("progressive_passes", "player", 1), ("touches", "player", 1)],
+}
+PLAYER_POOL = {"fatigue_drop": "wide", "player_arc": "mid"}
+
+
+@dataclass
+class MatchBins:
+    seed: int
+    bins: B.MinuteBins
+    team_ids: tuple[str, str]
+    period_end_min: tuple[int, int]
+    players: list[dict[str, Any]]  # player_id, team_id, position, starter
+    flank: dict[str, str]  # player_id -> "left"/"right" in own attacking direction
+    storylines: list[dict[str, Any]]
+
+
+def _load(seed: int) -> MatchBins:
+    result, gt = simulate(seed)
+    md = from_sim(result)
+    b = B.build(md)
+    flank = {}
+    p1 = md.meta.period_end_ms[0]
+    first_half = md.t_ms < p1
+    for i, pid in enumerate(md.player_ids):
+        ys = md.pos[first_half, i, 1]
+        if np.isnan(ys).all():
+            continue
+        team = md.player_team[pid]
+        ay = float(np.nanmean(ys)) if md.direction(team, 1) == 1 else 68.0 - float(np.nanmean(ys))
+        flank[pid] = "left" if ay >= 34.0 else "right"
+    return MatchBins(
+        seed=seed,
+        bins=b,
+        team_ids=md.team_ids,
+        period_end_min=(md.meta.period_end_ms[0] // 60_000, md.meta.period_end_ms[1] // 60_000),
+        players=[
+            {
+                "player_id": p.player_id,
+                "team_id": p.team_id,
+                "position": p.position,
+                "starter": p.starter,
+            }
+            for p in md.meta.players
+        ],
+        flank=flank,
+        storylines=[s.model_dump() for s in gt.storylines],
+    )
+
+
+def load_many(seeds: list[int], workers: int) -> list[MatchBins]:
+    with ProcessPoolExecutor(max_workers=workers) as pool:
+        return list(pool.map(_load, seeds))
+
+
+# --------------------------------------------------------------------------- effects
+
+
+def _other(mb: MatchBins, team: str) -> str:
+    return mb.team_ids[1 - mb.team_ids.index(team)]
+
+
+def _team_of(mb: MatchBins, pid: str) -> str:
+    return str(next(p["team_id"] for p in mb.players if p["player_id"] == pid))
+
+
+def signal_effect(
+    mb: MatchBins,
+    metric: str,
+    role: str,
+    direction: int,
+    team: str,
+    player: str | None,
+    start: int,
+    end: int,
+) -> float:
+    n = mb.bins.n_minutes
+    win = np.zeros(n, dtype=bool)
+    win[start:end] = True
+    rest = np.ones(n, dtype=bool)
+    rest[start : min(n, end + AFTER_MIN)] = False
+    if role in ("team", "opp"):
+        subject = team if role == "team" else _other(mb, team)
+        v_w = B.team_metric(mb.bins, metric, subject, win)
+        v_r = B.team_metric(mb.bins, metric, subject, rest)
+    elif role == "player":
+        assert player is not None
+        full = B.full_minutes(mb.bins, player)
+        v_w = B.player_metric(mb.bins, metric, player, win & full)
+        v_r = B.player_metric(mb.bins, metric, player, rest & full)
+    else:  # opp_flank
+        assert player is not None
+        own = mb.flank.get(player, "left")
+        opp_flank = "right" if own == "left" else "left"
+        subject = _other(mb, _team_of(mb, player))
+        name = f"{metric}_{opp_flank}"
+        v_w = B.team_metric(mb.bins, name, subject, win)
+        v_r = B.team_metric(mb.bins, name, subject, rest)
+    return direction * (v_w - v_r)
+
+
+def _effects(mb: MatchBins, key: str, team: str, player: str | None, s: int, e: int) -> list[float]:
+    return [signal_effect(mb, m, r, d, team, player, s, e) for m, r, d in TEMPLATES[key]]
+
+
+def _key(sl: dict[str, Any]) -> str:
+    return f"tactical_switch/{sl['variant']}" if sl["type"] == "tactical_switch" else sl["type"]
+
+
+def _starts(mb: MatchBins, dur: int) -> list[int]:
+    """Window starts allowed by the storyline scheduler (inside one period)."""
+    p1, p2 = mb.period_end_min
+    return list(range(8, p1 - 2 - dur + 1)) + list(range(p1 + 5, p2 - 4 - dur + 1))
+
+
+def _subjects(mb: MatchBins, key: str) -> list[tuple[str, str | None]]:
+    pool = PLAYER_POOL.get(key.split("/")[0])
+    if pool is None:
+        return [(t, None) for t in mb.team_ids]
+    out = []
+    for p in mb.players:
+        if not p["starter"]:
+            continue
+        if (pool == "wide" and p["position"] in WIDE) or (
+            pool == "mid" and LINE[p["position"]] == "MID"
+        ):
+            out.append((p["team_id"], p["player_id"]))
+    return out
+
+
+def null_effects(matches: list[MatchBins], key: str, dur: int) -> np.ndarray:
+    """(N, n_signals) signed effects on noise windows of length `dur` minutes."""
+    rows = []
+    for mb in matches:
+        for team, player in _subjects(mb, key):
+            full = B.full_minutes(mb.bins, player) if player else None
+            for s in _starts(mb, dur):
+                if full is not None and not full[s : s + dur].all():
+                    continue
+                eff = _effects(mb, key, team, player, s, s + dur)
+                if not any(np.isnan(eff)):
+                    rows.append(eff)
+    return np.array(rows)
+
+
+@dataclass
+class Null:
+    mu: np.ndarray
+    sd: np.ndarray
+    combined: np.ndarray  # combined z of each noise window
+
+    def z(self, eff: list[float]) -> tuple[np.ndarray, float]:
+        zs = (np.array(eff) - self.mu) / self.sd
+        return zs, float(zs.mean())
+
+    def p95(self) -> float:
+        return float(np.percentile(self.combined, 95))
+
+
+def build_null(matches: list[MatchBins], key: str, dur: int) -> Null:
+    eff = null_effects(matches, key, dur)
+    mu, sd = eff.mean(axis=0), eff.std(axis=0) + 1e-9
+    return Null(mu, sd, ((eff - mu) / sd).mean(axis=1))
+
+
+# --------------------------------------------------------------------------- report
+
+
+def evaluate(storyline_matches: list[MatchBins], null_matches: list[MatchBins]) -> dict[str, Any]:
+    cache: dict[tuple[str, int], Null] = {}
+
+    def null(key: str, dur: int) -> Null:
+        if (key, dur) not in cache:
+            cache[(key, dur)] = build_null(null_matches, key, dur)
+        return cache[(key, dur)]
+
+    per_type: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for mb in storyline_matches:
+        for sl in mb.storylines:
+            key = _key(sl)
+            s, e = sl["start_ms"] // 60_000, sl["end_ms"] // 60_000
+            player = sl["actors"][0] if key.split("/")[0] in PLAYER_POOL else None
+            team = sl["team_id"]
+            eff = _effects(mb, key, team, player, s, e)
+            if any(np.isnan(eff)):
+                continue
+            nl = null(key, e - s)
+            zs, zc = nl.z(eff)
+            pct = float((nl.combined < zc).mean())
+            sl2 = null(key, SLICE_MIN)
+            slice_z = []
+            for a in range(s, e - SLICE_MIN + 1, SLICE_MIN):
+                ef2 = _effects(mb, key, team, player, a, a + SLICE_MIN)
+                if not any(np.isnan(ef2)):
+                    slice_z.append(sl2.z(ef2)[1])
+            per_type[key].append(
+                {
+                    "seed": mb.seed,
+                    "storyline_id": sl["storyline_id"],
+                    "minutes": e - s,
+                    "z": zc,
+                    "signal_z": [float(x) for x in zs],
+                    "percentile": pct,
+                    "detected": pct > 0.95,
+                    "slice_z_median": float(np.median(slice_z)) if slice_z else float("nan"),
+                }
+            )
+    summary: dict[str, dict[str, Any]] = {}
+    for key in TEMPLATES:
+        rows = per_type.get(key, [])
+        if not rows:
+            summary[key] = {"n": 0}
+            continue
+        z_med = statistics.median(r["z"] for r in rows)
+        det = sum(r["detected"] for r in rows) / len(rows)
+        sl_med = statistics.median(
+            r["slice_z_median"] for r in rows if not np.isnan(r["slice_z_median"])
+        )
+        sig_med = [
+            statistics.median(r["signal_z"][i] for r in rows) for i in range(len(TEMPLATES[key]))
+        ]
+        summary[key] = {
+            "n": len(rows),
+            "z_median": z_med,
+            "detected_share": det,
+            "slice_z_median": sl_med,
+            "signal_z_median": dict(zip([m for m, _, _ in TEMPLATES[key]], sig_med, strict=True)),
+            "pass": bool(2.0 <= z_med <= 5.0 and det >= 0.70 and sl_med < 1.5),
+        }
+    return {"summary": summary, "storylines": dict(per_type)}
+
+
+def false_alarms(null_matches: list[MatchBins], holdout: list[MatchBins]) -> dict[str, Any]:
+    """Noise windows on held-out no-storyline matches whose score exceeds the 95th percentile."""
+    out = {}
+    for key in TEMPLATES:
+        lo, hi = DURATION_MIN[key.split("/")[0]]  # type: ignore[index]
+        dur = (lo + hi) // 2
+        nl = build_null(null_matches, key, dur)
+        thr = nl.p95()
+        n_win = n_hit = 0
+        per_match = []
+        for mb in holdout:
+            hits = []
+            for team, player in _subjects(mb, key):
+                full = B.full_minutes(mb.bins, player) if player else None
+                for s in _starts(mb, dur):
+                    if full is not None and not full[s : s + dur].all():
+                        continue
+                    eff = _effects(mb, key, team, player, s, s + dur)
+                    if any(np.isnan(eff)):
+                        continue
+                    n_win += 1
+                    if nl.z(eff)[1] > thr:
+                        n_hit += 1
+                        hits.append(s)
+            # distinct episodes: hits more than one window length apart
+            episodes, last = 0, -(10**6)
+            for s in sorted(set(hits)):
+                if s - last >= dur:
+                    episodes += 1
+                    last = s
+            per_match.append(episodes)
+        out[key] = {
+            "window_minutes": dur,
+            "windows": n_win,
+            "share_over_p95": n_hit / max(1, n_win),
+            "episodes_per_match_mean": float(np.mean(per_match)),
+            "matches_with_any": float(np.mean([x > 0 for x in per_match])),
+        }
+    return out
+
+
+def _fmt_table(title: str, res: dict[str, Any]) -> str:
+    lines = [
+        f"### {title}",
+        "",
+        "| type | n | z median | detected (>p95) | 2-min slice z median "
+        "| per-signal z median | pass |",
+        "|---|---|---|---|---|---|---|",
+    ]
+    for key, s in res["summary"].items():
+        if not s.get("n"):
+            lines.append(f"| {key} | 0 | - | - | - | - | - |")
+            continue
+        sig = ", ".join(f"{k} {v:.2f}" for k, v in s["signal_z_median"].items())
+        lines.append(
+            f"| {key} | {s['n']} | {s['z_median']:.2f} | {s['detected_share']:.0%} | "
+            f"{s['slice_z_median']:.2f} | {sig} | {'yes' if s['pass'] else 'NO'} |"
+        )
+    return "\n".join(lines)
+
+
+def main(argv: list[str] | None = None) -> int:
+    ap = argparse.ArgumentParser(prog="python -m eval.signal_check")
+    ap.add_argument("--workers", type=int, default=8)
+    ap.add_argument("--out", default="docs/signal_check")
+    a = ap.parse_args(argv)
+    null_m = load_many(list(NULL_SEEDS), a.workers)
+    hold_m = load_many(list(HOLDOUT_SEEDS), a.workers)
+    dev = evaluate(load_many(list(DEV_SEEDS), a.workers), null_m)
+    cal = evaluate(load_many(list(CALIBRATION_SEEDS), a.workers), null_m)
+    fa = false_alarms(null_m, hold_m)
+    out = Path(a.out)
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.with_suffix(".json").write_text(
+        json.dumps({"dev": dev, "calibration": cal, "false_alarms": fa}, indent=2, default=float)
+    )
+    md = [
+        _fmt_table("Dev seeds 1000-1019 (noise: calibration-control 2200-2249)", dev),
+        "",
+        _fmt_table("Calibration seeds 2000-2199 (noise: calibration-control 2200-2249)", cal),
+        "",
+        "### False alarms on held-out no-storyline matches (2250-2299)",
+        "",
+        "| type | window (min) | windows | share > p95 | episodes / match | matches with any |",
+        "|---|---|---|---|---|---|",
+    ]
+    for key, f in fa.items():
+        md.append(
+            f"| {key} | {f['window_minutes']} | {f['windows']} | {f['share_over_p95']:.1%} | "
+            f"{f['episodes_per_match_mean']:.2f} | {f['matches_with_any']:.0%} |"
+        )
+    out.with_suffix(".md").write_text("\n".join(md) + "\n")
+    print("\n".join(md))
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

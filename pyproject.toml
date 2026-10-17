@@ -42,7 +42,7 @@ select = ["E", "F", "W", "I", "B", "UP", "SIM", "RUF"]
 
 [tool.mypy]
 python_version = "3.12"
-packages = ["sim", "metrics", "api"]
+packages = ["sim", "metrics", "api", "eval"]
 warn_unused_ignores = true
 
 [[tool.mypy.overrides]]

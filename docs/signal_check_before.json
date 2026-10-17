@@ -1,0 +1,6912 @@
+{
+  "dev": {
+    "summary": {
+      "pressing_spell": {
+        "n": 10,
+        "z_median": 0.40848202887476404,
+        "detected_share": 0.2,
+        "slice_z_median": 0.0625076150216023,
+        "signal_z_median": {
+          "ppda": 0.34828229059009697,
+          "pass_completion": 0.7260001933917087,
+          "field_tilt": 0.5948978037611772
+        },
+        "pass": false
+      },
+      "fatigue_drop": {
+        "n": 9,
+        "z_median": 0.6002579099548979,
+        "detected_share": 0.3333333333333333,
+        "slice_z_median": 0.17735606133736906,
+        "signal_z_median": {
+          "top_speed": 0.48958275585729666,
+          "sprint_count": -0.01574195168994206,
+          "flank_attack_share": 1.0174136322487264
+        },
+        "pass": false
+      },
+      "momentum_shift": {
+        "n": 8,
+        "z_median": 1.343983791329439,
+        "detected_share": 0.25,
+        "slice_z_median": 0.9494864325601766,
+        "signal_z_median": {
+          "possession": 1.8502964928632872,
+          "field_tilt": 0.6508587041189444
+        },
+        "pass": false
+      },
+      "tactical_switch/long_ball": {
+        "n": 4,
+        "z_median": -0.8144183141688781,
+        "detected_share": 0.0,
+        "slice_z_median": -0.2884104757862398,
+        "signal_z_median": {
+          "avg_pass_length": -0.44003993339280756,
+          "pass_completion": -0.5245993550051817
+        },
+        "pass": false
+      },
+      "tactical_switch/wide": {
+        "n": 7,
+        "z_median": 2.0080362682095383,
+        "detected_share": 0.5714285714285714,
+        "slice_z_median": 0.42414416619940165,
+        "signal_z_median": {
+          "width": 2.0080362682095383
+        },
+        "pass": false
+      },
+      "player_arc": {
+        "n": 9,
+        "z_median": 2.3466914202590377,
+        "detected_share": 0.5555555555555556,
+        "slice_z_median": 0.5991304320705841,
+        "signal_z_median": {
+          "progressive_passes": 2.4415568709712625,
+          "touches": 1.258719220313487
+        },
+        "pass": false
+      }
+    },
+    "storylines": {
+      "player_arc": [
+        {
+          "seed": 1000,
+          "storyline_id": "s_02",
+          "minutes": 22,
+          "z": 1.3377891189859383,
+          "signal_z": [
+            2.5317892268920485,
+            0.14378901107982797
+          ],
+          "percentile": 0.9401154401154401,
+          "detected": false,
+          "slice_z_median": 0.5991304320705841
+        },
+        {
+          "seed": 1003,
+          "storyline_id": "s_01",
+          "minutes": 20,
+          "z": 0.07907503949431194,
+          "signal_z": [
+            0.11668116073088619,
+            0.041468918257737686
+          ],
+          "percentile": 0.5507365724219965,
+          "detected": false,
+          "slice_z_median": -0.16244390150059917
+        },
+        {
+          "seed": 1005,
+          "storyline_id": "s_02",
+          "minutes": 20,
+          "z": 1.0578330499621953,
+          "signal_z": [
+            1.410708787027892,
+            0.7049573128964988
+          ],
+          "percentile": 0.8950498673254643,
+          "detected": false,
+          "slice_z_median": 0.01817071938148858
+        },
+        {
+          "seed": 1007,
+          "storyline_id": "s_01",
+          "minutes": 23,
+          "z": 1.203133489500104,
+          "signal_z": [
+            2.4415568709712625,
+            -0.03528989197105466
+          ],
+          "percentile": 0.9224934036939314,
+          "detected": false,
+          "slice_z_median": -0.6813870699832072
+        },
+        {
+          "seed": 1009,
+          "storyline_id": "s_02",
+          "minutes": 22,
+          "z": 3.1244860123972416,
+          "signal_z": [
+            3.036100874885895,
+            3.2128711499085876
+          ],
+          "percentile": 0.9979385693671408,
+          "detected": true,
+          "slice_z_median": 1.2038351012912176
+        },
+        {
+          "seed": 1010,
+          "storyline_id": "s_02",
+          "minutes": 21,
+          "z": 2.6627932774882175,
+          "signal_z": [
+            1.9392625153250467,
+            3.3863240396513885
+          ],
+          "percentile": 0.997478910113449,
+          "detected": true,
+          "slice_z_median": 0.8632735863985312
+        },
+        {
+          "seed": 1012,
+          "storyline_id": "s_01",
+          "minutes": 23,
+          "z": 2.7414782853855533,
+          "signal_z": [
+            4.22423735045762,
+            1.258719220313487
+          ],
+          "percentile": 0.997141600703606,
+          "detected": true,
+          "slice_z_median": 0.7468363753865119
+        },
+        {
+          "seed": 1016,
+          "storyline_id": "s_03",
+          "minutes": 18,
+          "z": 2.3466914202590377,
+          "signal_z": [
+            3.059649655063277,
+            1.6337331854547987
+          ],
+          "percentile": 0.9949893215048464,
+          "detected": true,
+          "slice_z_median": 0.61030698125843
+        },
+        {
+          "seed": 1018,
+          "storyline_id": "s_01",
+          "minutes": 22,
+          "z": 2.733974000913939,
+          "signal_z": [
+            2.2508588644210015,
+            3.2170891374068766
+          ],
+          "percentile": 0.997423211708926,
+          "detected": true,
+          "slice_z_median": 0.5649208565377506
+        }
+      ],
+      "pressing_spell": [
+        {
+          "seed": 1000,
+          "storyline_id": "s_01",
+          "minutes": 11,
+          "z": 1.9146041517341452,
+          "signal_z": [
+            0.35949904387350295,
+            2.9288017728381783,
+            2.455511638490754
+          ],
+          "percentile": 0.9980293801504837,
+          "detected": true,
+          "slice_z_median": 0.3304580866522078
+        },
+        {
+          "seed": 1003,
+          "storyline_id": "s_02",
+          "minutes": 10,
+          "z": 0.08566815564868636,
+          "signal_z": [
+            1.2387622477523161,
+            -0.6281324619040165,
+            -0.3536253189022405
+          ],
+          "percentile": 0.5553441715669318,
+          "detected": false,
+          "slice_z_median": 0.31242549367727385
+        },
+        {
+          "seed": 1005,
+          "storyline_id": "s_03",
+          "minutes": 13,
+          "z": 0.40206717418958243,
+          "signal_z": [
+            -0.08771216859099261,
+            0.5764091849457053,
+            0.7175045062140346
+          ],
+          "percentile": 0.7416055576997298,
+          "detected": false,
+          "slice_z_median": -0.08942796989145552
+        },
+        {
+          "seed": 1007,
+          "storyline_id": "s_03",
+          "minutes": 11,
+          "z": 0.9928363702051932,
+          "signal_z": [
+            -0.05727518300797126,
+            2.476241450374648,
+            0.5595428432489027
+          ],
+          "percentile": 0.9360444285202436,
+          "detected": false,
+          "slice_z_median": 0.35546111075763537
+        },
+        {
+          "seed": 1009,
+          "storyline_id": "s_01",
+          "minutes": 12,
+          "z": 0.01992061398164961,
+          "signal_z": [
+            0.17631507910077607,
+            0.3661515002388117,
+            -0.4827047373946389
+          ],
+          "percentile": 0.5083612040133779,
+          "detected": false,
+          "slice_z_median": -0.16497565708989112
+        },
+        {
+          "seed": 1011,
+          "storyline_id": "s_01",
+          "minutes": 13,
+          "z": 1.8272570914610713,
+          "signal_z": [
+            0.33706553730669103,
+            3.7821987375145416,
+            1.3625069995619816
+          ],
+          "percentile": 0.996912389038981,
+          "detected": true,
+          "slice_z_median": 0.5052172681548053
+        },
+        {
+          "seed": 1014,
+          "storyline_id": "s_02",
+          "minutes": 12,
+          "z": 0.41489688355994564,
+          "signal_z": [
+            0.5339424985547191,
+            0.08049538785166635,
+            0.6302527642734516
+          ],
+          "percentile": 0.7513935340022296,
+          "detected": false,
+          "slice_z_median": -0.34054936785150147
+        },
+        {
+          "seed": 1016,
+          "storyline_id": "s_02",
+          "minutes": 12,
+          "z": -0.3548927946444449,
+          "signal_z": [
+            -1.4365506495309304,
+            1.213723597579924,
+            -0.8418513319823283
+          ],
+          "percentile": 0.28595317725752506,
+          "detected": false,
+          "slice_z_median": -0.34000732712759607
+        },
+        {
+          "seed": 1017,
+          "storyline_id": "s_02",
+          "minutes": 12,
+          "z": 0.6570731348247857,
+          "signal_z": [
+            0.4033483110808033,
+            0.8755912018377122,
+            0.6922798915558417
+          ],
+          "percentile": 0.8522853957636566,
+          "detected": false,
+          "slice_z_median": 0.02654423075054666
+        },
+        {
+          "seed": 1018,
+          "storyline_id": "s_03",
+          "minutes": 10,
+          "z": 0.04121334159130402,
+          "signal_z": [
+            0.49096554039906437,
+            -0.7183899753297404,
+            0.35106445970458805
+          ],
+          "percentile": 0.5266343825665859,
+          "detected": false,
+          "slice_z_median": 0.09847099929265796
+        }
+      ],
+      "fatigue_drop": [
+        {
+          "seed": 1001,
+          "storyline_id": "s_02",
+          "minutes": 16,
+          "z": 0.2836814068811731,
+          "signal_z": [
+            -0.47765025516482895,
+            -0.01574195168994206,
+            1.3444364274982903
+          ],
+          "percentile": 0.746152770005596,
+          "detected": false,
+          "slice_z_median": -0.24121893560163787
+        },
+        {
+          "seed": 1002,
+          "storyline_id": "s_02",
+          "minutes": 19,
+          "z": -0.6740417139409672,
+          "signal_z": [
+            -2.641436621120857,
+            -0.8823422577836169,
+            1.501653737081572
+          ],
+          "percentile": 0.1079892499389201,
+          "detected": false,
+          "slice_z_median": -0.2584436248882575
+        },
+        {
+          "seed": 1008,
+          "storyline_id": "s_01",
+          "minutes": 20,
+          "z": -0.3188841803933801,
+          "signal_z": [
+            -0.03573255839485165,
+            -0.8203269184049689,
+            -0.10059306438031983
+          ],
+          "percentile": 0.2849517906336088,
+          "detected": false,
+          "slice_z_median": -0.24538637303720998
+        },
+        {
+          "seed": 1011,
+          "storyline_id": "s_02",
+          "minutes": 16,
+          "z": 1.6854580942774575,
+          "signal_z": [
+            0.48958275585729666,
+            0.13855045644054084,
+            4.428241070534535
+          ],
+          "percentile": 0.9753077783995523,
+          "detected": true,
+          "slice_z_median": 0.7283130955832862
+        },
+        {
+          "seed": 1013,
+          "storyline_id": "s_01",
+          "minutes": 18,
+          "z": 1.253187406932417,
+          "signal_z": [
+            3.078837318592655,
+            -0.13034835080710724,
+            0.8110732530117025
+          ],
+          "percentile": 0.9586744940522169,
+          "detected": true,
+          "slice_z_median": 0.20127117299274275
+        },
+        {
+          "seed": 1014,
+          "storyline_id": "s_01",
+          "minutes": 16,
+          "z": 1.4510992310161364,
+          "signal_z": [
+            2.9171479599931613,
+            0.4187361008065219,
+            1.0174136322487264
+          ],
+          "percentile": 0.9641158365976497,
+          "detected": true,
+          "slice_z_median": 0.17735606133736906
+        },
+        {
+          "seed": 1016,
+          "storyline_id": "s_01",
+          "minutes": 19,
+          "z": 0.6002579099548979,
+          "signal_z": [
+            0.46651397613283824,
+            1.0695140163573773,
+            0.2647457373744782
+          ],
+          "percentile": 0.8846811629611532,
+          "detected": false,
+          "slice_z_median": 0.40423214981386907
+        },
+        {
+          "seed": 1018,
+          "storyline_id": "s_02",
+          "minutes": 18,
+          "z": 0.8996367338785687,
+          "signal_z": [
+            3.1927636016633927,
+            -1.6838567988863764,
+            1.1900033988586896
+          ],
+          "percentile": 0.932952263247335,
+          "detected": false,
+          "slice_z_median": 0.26459227517069855
+        },
+        {
+          "seed": 1019,
+          "storyline_id": "s_02",
+          "minutes": 18,
+          "z": 0.4215658299313276,
+          "signal_z": [
+            1.0428643887621423,
+            0.1915820811478049,
+            0.030251019884035592
+          ],
+          "percentile": 0.8174725784025954,
+          "detected": false,
+          "slice_z_median": 0.02517007697432642
+        }
+      ],
+      "tactical_switch/wide": [
+        {
+          "seed": 1001,
+          "storyline_id": "s_01",
+          "minutes": 13,
+          "z": 2.0080362682095383,
+          "signal_z": [
+            2.0080362682095383
+          ],
+          "percentile": 0.9828251640293323,
+          "detected": true,
+          "slice_z_median": 0.6576118618746728
+        },
+        {
+          "seed": 1004,
+          "storyline_id": "s_01",
+          "minutes": 15,
+          "z": 2.526590326607914,
+          "signal_z": [
+            2.526590326607914
+          ],
+          "percentile": 0.9949811794228356,
+          "detected": true,
+          "slice_z_median": 0.5968038927971859
+        },
+        {
+          "seed": 1005,
+          "storyline_id": "s_01",
+          "minutes": 15,
+          "z": 2.3833988597270706,
+          "signal_z": [
+            2.3833988597270706
+          ],
+          "percentile": 0.993099121706399,
+          "detected": true,
+          "slice_z_median": 0.405583518330177
+        },
+        {
+          "seed": 1008,
+          "storyline_id": "s_02",
+          "minutes": 16,
+          "z": 1.1686496069227665,
+          "signal_z": [
+            1.1686496069227665
+          ],
+          "percentile": 0.8821475338280227,
+          "detected": false,
+          "slice_z_median": 0.42414416619940165
+        },
+        {
+          "seed": 1010,
+          "storyline_id": "s_01",
+          "minutes": 18,
+          "z": 1.211200745344612,
+          "signal_z": [
+            1.211200745344612
+          ],
+          "percentile": 0.8883309421329507,
+          "detected": false,
+          "slice_z_median": 0.02350055789156436
+        },
+        {
+          "seed": 1012,
+          "storyline_id": "s_02",
+          "minutes": 13,
+          "z": 0.33611310553734075,
+          "signal_z": [
+            0.33611310553734075
+          ],
+          "percentile": 0.6275569278270938,
+          "detected": false,
+          "slice_z_median": 0.19451965278458977
+        },
+        {
+          "seed": 1017,
+          "storyline_id": "s_01",
+          "minutes": 17,
+          "z": 3.357599187115227,
+          "signal_z": [
+            3.357599187115227
+          ],
+          "percentile": 1.0,
+          "detected": true,
+          "slice_z_median": 0.8902621444114391
+        }
+      ],
+      "tactical_switch/long_ball": [
+        {
+          "seed": 1002,
+          "storyline_id": "s_03",
+          "minutes": 12,
+          "z": -0.4743344512937269,
+          "signal_z": [
+            -0.21901823833046138,
+            -0.7296506642569924
+          ],
+          "percentile": 0.2670011148272018,
+          "detected": false,
+          "slice_z_median": -0.3141321694297663
+        },
+        {
+          "seed": 1006,
+          "storyline_id": "s_02",
+          "minutes": 13,
+          "z": 0.23573824736518628,
+          "signal_z": [
+            0.4194093445436526,
+            0.052067150186719986
+          ],
+          "percentile": 0.6358548822848321,
+          "detected": false,
+          "slice_z_median": 0.48603943866952387
+        },
+        {
+          "seed": 1013,
+          "storyline_id": "s_02",
+          "minutes": 12,
+          "z": -1.517900561181371,
+          "signal_z": [
+            -2.716253076609371,
+            -0.31954804575337115
+          ],
+          "percentile": 0.020066889632107024,
+          "detected": false,
+          "slice_z_median": -0.9153174690714396
+        },
+        {
+          "seed": 1015,
+          "storyline_id": "s_01",
+          "minutes": 15,
+          "z": -1.1545021770440294,
+          "signal_z": [
+            -0.6610616284551537,
+            -1.647942725632905
+          ],
+          "percentile": 0.06419907988289418,
+          "detected": false,
+          "slice_z_median": -0.26268878214271324
+        }
+      ],
+      "momentum_shift": [
+        {
+          "seed": 1002,
+          "storyline_id": "s_01",
+          "minutes": 14,
+          "z": 2.3580308450191283,
+          "signal_z": [
+            1.995133524383444,
+            2.7209281656548123
+          ],
+          "percentile": 0.9945804897631473,
+          "detected": true,
+          "slice_z_median": 1.0924848603771866
+        },
+        {
+          "seed": 1004,
+          "storyline_id": "s_02",
+          "minutes": 10,
+          "z": 1.0341052199011551,
+          "signal_z": [
+            1.8660332810809928,
+            0.2021771587213176
+          ],
+          "percentile": 0.864925631269457,
+          "detected": false,
+          "slice_z_median": 1.0752132468513862
+        },
+        {
+          "seed": 1006,
+          "storyline_id": "s_01",
+          "minutes": 14,
+          "z": 0.5048305604519278,
+          "signal_z": [
+            0.5845722659307206,
+            0.42508885497313487
+          ],
+          "percentile": 0.7027298273785628,
+          "detected": false,
+          "slice_z_median": 0.20770458511416193
+        },
+        {
+          "seed": 1007,
+          "storyline_id": "s_02",
+          "minutes": 15,
+          "z": 2.036334027708107,
+          "signal_z": [
+            2.2064369031569804,
+            1.866231152259234
+          ],
+          "percentile": 0.9866164784608951,
+          "detected": true,
+          "slice_z_median": 1.0954447627367525
+        },
+        {
+          "seed": 1010,
+          "storyline_id": "s_03",
+          "minutes": 10,
+          "z": 1.4119759705585477,
+          "signal_z": [
+            1.4208286432521673,
+            1.403123297864928
+          ],
+          "percentile": 0.9363542026980284,
+          "detected": false,
+          "slice_z_median": 0.823759618268967
+        },
+        {
+          "seed": 1013,
+          "storyline_id": "s_03",
+          "minutes": 11,
+          "z": 1.0486756268087942,
+          "signal_z": [
+            1.7790729516615713,
+            0.31827830195601703
+          ],
+          "percentile": 0.8667144392690792,
+          "detected": false,
+          "slice_z_median": 1.5850782303518525
+        },
+        {
+          "seed": 1015,
+          "storyline_id": "s_02",
+          "minutes": 14,
+          "z": 1.3555941289551678,
+          "signal_z": [
+            1.8345597046455815,
+            0.876628553264754
+          ],
+          "percentile": 0.9307507025291047,
+          "detected": false,
+          "slice_z_median": 0.4986582313030121
+        },
+        {
+          "seed": 1019,
+          "storyline_id": "s_01",
+          "minutes": 11,
+          "z": 1.3323734537037102,
+          "signal_z": [
+            2.5450822993462685,
+            0.11966460806115176
+          ],
+          "percentile": 0.9252955929774275,
+          "detected": false,
+          "slice_z_median": 0.5043672205827777
+        }
+      ]
+    }
+  },
+  "calibration": {
+    "summary": {
+      "pressing_spell": {
+        "n": 96,
+        "z_median": 0.7700822317787472,
+        "detected_share": 0.3229166666666667,
+        "slice_z_median": 0.11584790341112941,
+        "signal_z_median": {
+          "ppda": 0.646217669702418,
+          "pass_completion": 1.2219394162804158,
+          "field_tilt": 0.6396321695160108
+        },
+        "pass": false
+      },
+      "fatigue_drop": {
+        "n": 80,
+        "z_median": 1.1687594432166564,
+        "detected_share": 0.5,
+        "slice_z_median": 0.25961810165323773,
+        "signal_z_median": {
+          "top_speed": 1.8077183773822627,
+          "sprint_count": 0.721948804063627,
+          "flank_attack_share": 0.9631392392592121
+        },
+        "pass": false
+      },
+      "momentum_shift": {
+        "n": 93,
+        "z_median": 1.3574900973253943,
+        "detected_share": 0.45161290322580644,
+        "slice_z_median": 0.6241652121815837,
+        "signal_z_median": {
+          "possession": 1.4035943736447343,
+          "field_tilt": 1.28363882905873
+        },
+        "pass": false
+      },
+      "tactical_switch/long_ball": {
+        "n": 41,
+        "z_median": 0.6748631915558673,
+        "detected_share": 0.21951219512195122,
+        "slice_z_median": 0.19436070314218196,
+        "signal_z_median": {
+          "avg_pass_length": 0.4394725896538298,
+          "pass_completion": 0.5521529330613473
+        },
+        "pass": false
+      },
+      "tactical_switch/wide": {
+        "n": 57,
+        "z_median": 1.5336749191664503,
+        "detected_share": 0.49122807017543857,
+        "slice_z_median": 0.5254626203589382,
+        "signal_z_median": {
+          "width": 1.5336749191664503
+        },
+        "pass": false
+      },
+      "player_arc": {
+        "n": 91,
+        "z_median": 1.5782787595510253,
+        "detected_share": 0.5604395604395604,
+        "slice_z_median": 0.3909128582019005,
+        "signal_z_median": {
+          "progressive_passes": 1.8807542010243963,
+          "touches": 1.0580749649026169
+        },
+        "pass": false
+      }
+    },
+    "storylines": {
+      "momentum_shift": [
+        {
+          "seed": 2000,
+          "storyline_id": "s_01",
+          "minutes": 12,
+          "z": 1.9362889155695373,
+          "signal_z": [
+            2.020066238229529,
+            1.8525115929095455
+          ],
+          "percentile": 0.9819769602378298,
+          "detected": true,
+          "slice_z_median": 0.698537769782726
+        },
+        {
+          "seed": 2001,
+          "storyline_id": "s_02",
+          "minutes": 11,
+          "z": 1.7179516591456814,
+          "signal_z": [
+            1.5030739074724582,
+            1.9328294108189044
+          ],
+          "percentile": 0.96900752418488,
+          "detected": true,
+          "slice_z_median": 1.0248813465902025
+        },
+        {
+          "seed": 2002,
+          "storyline_id": "s_02",
+          "minutes": 15,
+          "z": 0.9017833094224053,
+          "signal_z": [
+            1.4542320419513655,
+            0.349334576893445
+          ],
+          "percentile": 0.8266415725637808,
+          "detected": false,
+          "slice_z_median": 0.069523426837549
+        },
+        {
+          "seed": 2003,
+          "storyline_id": "s_02",
+          "minutes": 11,
+          "z": -0.08175706766467637,
+          "signal_z": [
+            -0.2098671467448772,
+            0.04635301141552444
+          ],
+          "percentile": 0.46542457900394124,
+          "detected": false,
+          "slice_z_median": 0.18198628969891267
+        },
+        {
+          "seed": 2006,
+          "storyline_id": "s_01",
+          "minutes": 14,
+          "z": 2.4628939632164615,
+          "signal_z": [
+            2.344590436089719,
+            2.5811974903432042
+          ],
+          "percentile": 0.9967884383781613,
+          "detected": true,
+          "slice_z_median": 0.7524507890087769
+        },
+        {
+          "seed": 2009,
+          "storyline_id": "s_02",
+          "minutes": 12,
+          "z": 0.35066100156350066,
+          "signal_z": [
+            0.3218430260219972,
+            0.37947897710500417
+          ],
+          "percentile": 0.6417688591601635,
+          "detected": false,
+          "slice_z_median": 0.19359408306741913
+        },
+        {
+          "seed": 2012,
+          "storyline_id": "s_03",
+          "minutes": 11,
+          "z": 2.156328906923039,
+          "signal_z": [
+            2.5943409160745676,
+            1.7183168977715102
+          ],
+          "percentile": 0.9906843425295593,
+          "detected": true,
+          "slice_z_median": 1.354511347631973
+        },
+        {
+          "seed": 2013,
+          "storyline_id": "s_01",
+          "minutes": 13,
+          "z": 1.5291089654554346,
+          "signal_z": [
+            1.858325762512484,
+            1.1998921683983852
+          ],
+          "percentile": 0.9550366653801621,
+          "detected": true,
+          "slice_z_median": 0.4598194017187781
+        },
+        {
+          "seed": 2014,
+          "storyline_id": "s_01",
+          "minutes": 11,
+          "z": 1.1294437639665547,
+          "signal_z": [
+            0.9586908611871233,
+            1.3001966667459859
+          ],
+          "percentile": 0.8864206377642422,
+          "detected": false,
+          "slice_z_median": 0.12161971248894549
+        },
+        {
+          "seed": 2016,
+          "storyline_id": "s_03",
+          "minutes": 11,
+          "z": 1.4232903188502626,
+          "signal_z": [
+            1.4354977417026842,
+            1.411082895997841
+          ],
+          "percentile": 0.9405231099964171,
+          "detected": false,
+          "slice_z_median": 0.7389894992148731
+        },
+        {
+          "seed": 2018,
+          "storyline_id": "s_01",
+          "minutes": 10,
+          "z": 2.1131498264191366,
+          "signal_z": [
+            2.83099269673034,
+            1.3953069561079332
+          ],
+          "percentile": 0.9891041162227603,
+          "detected": true,
+          "slice_z_median": 1.28770041468924
+        },
+        {
+          "seed": 2019,
+          "storyline_id": "s_02",
+          "minutes": 14,
+          "z": 1.034243883136333,
+          "signal_z": [
+            0.6428685076339324,
+            1.4256192586387337
+          ],
+          "percentile": 0.8606985146527499,
+          "detected": false,
+          "slice_z_median": 0.6249259593907149
+        },
+        {
+          "seed": 2023,
+          "storyline_id": "s_02",
+          "minutes": 15,
+          "z": 0.5422960339520826,
+          "signal_z": [
+            0.8428687338665485,
+            0.24172333403761667
+          ],
+          "percentile": 0.7135089920535341,
+          "detected": false,
+          "slice_z_median": 0.15529244889737118
+        },
+        {
+          "seed": 2025,
+          "storyline_id": "s_02",
+          "minutes": 12,
+          "z": 1.7813092850425822,
+          "signal_z": [
+            1.9991402097735727,
+            1.563478360311592
+          ],
+          "percentile": 0.9728725380899294,
+          "detected": true,
+          "slice_z_median": 0.27347052272361966
+        },
+        {
+          "seed": 2026,
+          "storyline_id": "s_03",
+          "minutes": 11,
+          "z": 2.9424580434116216,
+          "signal_z": [
+            2.9544446148740517,
+            2.9304714719491916
+          ],
+          "percentile": 0.9992834109638122,
+          "detected": true,
+          "slice_z_median": 1.5278593276493748
+        },
+        {
+          "seed": 2027,
+          "storyline_id": "s_02",
+          "minutes": 14,
+          "z": 0.2643135912411113,
+          "signal_z": [
+            0.12841054774687732,
+            0.40021663473534524
+          ],
+          "percentile": 0.606985146527499,
+          "detected": false,
+          "slice_z_median": 0.5252518264862919
+        },
+        {
+          "seed": 2030,
+          "storyline_id": "s_02",
+          "minutes": 13,
+          "z": 2.319822548797495,
+          "signal_z": [
+            2.072869067382192,
+            2.566776030212797
+          ],
+          "percentile": 0.9947896565032806,
+          "detected": true,
+          "slice_z_median": 0.8565464961104184
+        },
+        {
+          "seed": 2031,
+          "storyline_id": "s_02",
+          "minutes": 14,
+          "z": 1.145925521744405,
+          "signal_z": [
+            1.053956212087557,
+            1.237894831401253
+          ],
+          "percentile": 0.888398233641108,
+          "detected": false,
+          "slice_z_median": 0.6782413853963047
+        },
+        {
+          "seed": 2032,
+          "storyline_id": "s_01",
+          "minutes": 11,
+          "z": 0.7522635266872565,
+          "signal_z": [
+            1.3896729306774909,
+            0.11485412269702208
+          ],
+          "percentile": 0.7823360802579721,
+          "detected": false,
+          "slice_z_median": 0.0521581333747157
+        },
+        {
+          "seed": 2035,
+          "storyline_id": "s_02",
+          "minutes": 10,
+          "z": 1.3574900973253943,
+          "signal_z": [
+            1.269890531827331,
+            1.4450896628234573
+          ],
+          "percentile": 0.927879626426842,
+          "detected": false,
+          "slice_z_median": 0.647743651448381
+        },
+        {
+          "seed": 2039,
+          "storyline_id": "s_01",
+          "minutes": 15,
+          "z": 2.4709995336154567,
+          "signal_z": [
+            2.663191899049396,
+            2.2788071681815176
+          ],
+          "percentile": 0.9964450020911753,
+          "detected": true,
+          "slice_z_median": 0.9059299835166199
+        },
+        {
+          "seed": 2041,
+          "storyline_id": "s_02",
+          "minutes": 13,
+          "z": -0.3076790159407454,
+          "signal_z": [
+            0.18563846256731684,
+            -0.8009964944488077
+          ],
+          "percentile": 0.378039367039753,
+          "detected": false,
+          "slice_z_median": -0.17546422377817153
+        },
+        {
+          "seed": 2042,
+          "storyline_id": "s_02",
+          "minutes": 10,
+          "z": 2.693473252481395,
+          "signal_z": [
+            2.8405165216735084,
+            2.546429983289281
+          ],
+          "percentile": 0.99896229678312,
+          "detected": true,
+          "slice_z_median": 1.5917479284184581
+        },
+        {
+          "seed": 2043,
+          "storyline_id": "s_02",
+          "minutes": 15,
+          "z": 2.0441546250936176,
+          "signal_z": [
+            2.067366469515478,
+            2.0209427806717577
+          ],
+          "percentile": 0.9868255959849436,
+          "detected": true,
+          "slice_z_median": 0.8028974895611324
+        },
+        {
+          "seed": 2046,
+          "storyline_id": "s_01",
+          "minutes": 12,
+          "z": 1.3549301468190889,
+          "signal_z": [
+            1.5162864539200418,
+            1.193573839718136
+          ],
+          "percentile": 0.9312523225566703,
+          "detected": false,
+          "slice_z_median": 0.20600011108167038
+        },
+        {
+          "seed": 2049,
+          "storyline_id": "s_02",
+          "minutes": 13,
+          "z": 1.245531413305041,
+          "signal_z": [
+            0.9296798502505286,
+            1.5613829763595535
+          ],
+          "percentile": 0.9104592821304516,
+          "detected": false,
+          "slice_z_median": 0.8833800600770695
+        },
+        {
+          "seed": 2050,
+          "storyline_id": "s_01",
+          "minutes": 15,
+          "z": 0.16080440532670276,
+          "signal_z": [
+            1.143101348635456,
+            -0.8214925379820505
+          ],
+          "percentile": 0.5700543705562526,
+          "detected": false,
+          "slice_z_median": 0.1971681120580417
+        },
+        {
+          "seed": 2052,
+          "storyline_id": "s_01",
+          "minutes": 10,
+          "z": 2.0616551260961606,
+          "signal_z": [
+            1.5738792749465482,
+            2.549430977245773
+          ],
+          "percentile": 0.987201660325147,
+          "detected": true,
+          "slice_z_median": 1.183887343359285
+        },
+        {
+          "seed": 2054,
+          "storyline_id": "s_02",
+          "minutes": 15,
+          "z": 1.9031811798684106,
+          "signal_z": [
+            2.7697170879489312,
+            1.03664527178789
+          ],
+          "percentile": 0.9820158929318277,
+          "detected": true,
+          "slice_z_median": 1.4529989548905382
+        },
+        {
+          "seed": 2059,
+          "storyline_id": "s_03",
+          "minutes": 12,
+          "z": 1.1917137251616157,
+          "signal_z": [
+            1.1032669454945887,
+            1.2801605048286424
+          ],
+          "percentile": 0.8985507246376812,
+          "detected": false,
+          "slice_z_median": 0.5837484233733754
+        },
+        {
+          "seed": 2060,
+          "storyline_id": "s_01",
+          "minutes": 13,
+          "z": 2.6080172780045787,
+          "signal_z": [
+            2.6388403395288353,
+            2.577194216480322
+          ],
+          "percentile": 0.9976842917792358,
+          "detected": true,
+          "slice_z_median": 1.0054167752324634
+        },
+        {
+          "seed": 2062,
+          "storyline_id": "s_01",
+          "minutes": 10,
+          "z": 1.5485482782368667,
+          "signal_z": [
+            0.9883284466402265,
+            2.108768109833507
+          ],
+          "percentile": 0.9519197509512279,
+          "detected": true,
+          "slice_z_median": 0.8025472054353578
+        },
+        {
+          "seed": 2063,
+          "storyline_id": "s_02",
+          "minutes": 14,
+          "z": 1.3382449621365011,
+          "signal_z": [
+            1.3873061097131536,
+            1.2891838145598489
+          ],
+          "percentile": 0.9297470895222802,
+          "detected": false,
+          "slice_z_median": 0.22710859399460498
+        },
+        {
+          "seed": 2066,
+          "storyline_id": "s_03",
+          "minutes": 13,
+          "z": 1.8090645666994274,
+          "signal_z": [
+            2.0677264035072027,
+            1.550402729891652
+          ],
+          "percentile": 0.9764569664222308,
+          "detected": true,
+          "slice_z_median": 0.9920266040355434
+        },
+        {
+          "seed": 2067,
+          "storyline_id": "s_02",
+          "minutes": 11,
+          "z": 1.0770531698238393,
+          "signal_z": [
+            0.8704675105889488,
+            1.28363882905873
+          ],
+          "percentile": 0.8758509494804729,
+          "detected": false,
+          "slice_z_median": 0.41728964274907016
+        },
+        {
+          "seed": 2068,
+          "storyline_id": "s_02",
+          "minutes": 12,
+          "z": 1.3890343287529427,
+          "signal_z": [
+            0.9962911719159246,
+            1.7817774855899606
+          ],
+          "percentile": 0.9355258268301747,
+          "detected": false,
+          "slice_z_median": 0.6215761024459951
+        },
+        {
+          "seed": 2069,
+          "storyline_id": "s_01",
+          "minutes": 15,
+          "z": 0.3640243770163945,
+          "signal_z": [
+            0.046193823955212134,
+            0.6818549300775769
+          ],
+          "percentile": 0.6495190296946884,
+          "detected": false,
+          "slice_z_median": 0.05732540843411292
+        },
+        {
+          "seed": 2070,
+          "storyline_id": "s_02",
+          "minutes": 14,
+          "z": 0.5625759972221044,
+          "signal_z": [
+            0.8481305735454638,
+            0.2770214208987449
+          ],
+          "percentile": 0.7228020875150541,
+          "detected": false,
+          "slice_z_median": -0.07248410581347509
+        },
+        {
+          "seed": 2071,
+          "storyline_id": "s_01",
+          "minutes": 12,
+          "z": -1.0013950558830351,
+          "signal_z": [
+            -1.161194538302007,
+            -0.8415955734640634
+          ],
+          "percentile": 0.1490152359717577,
+          "detected": false,
+          "slice_z_median": 0.03418967611546825
+        },
+        {
+          "seed": 2072,
+          "storyline_id": "s_01",
+          "minutes": 11,
+          "z": 1.1384795136675927,
+          "signal_z": [
+            0.8394885820047457,
+            1.4374704453304399
+          ],
+          "percentile": 0.8880329630956646,
+          "detected": false,
+          "slice_z_median": 0.7537198412193957
+        },
+        {
+          "seed": 2073,
+          "storyline_id": "s_01",
+          "minutes": 13,
+          "z": -0.224189418480197,
+          "signal_z": [
+            -0.27868429433647884,
+            -0.16969454262391515
+          ],
+          "percentile": 0.4137398687765342,
+          "detected": false,
+          "slice_z_median": -0.45244282675579695
+        },
+        {
+          "seed": 2079,
+          "storyline_id": "s_01",
+          "minutes": 11,
+          "z": 0.7290760596273089,
+          "signal_z": [
+            0.5863285895009147,
+            0.8718235297537033
+          ],
+          "percentile": 0.774095306341813,
+          "detected": false,
+          "slice_z_median": 0.34267352442453686
+        },
+        {
+          "seed": 2080,
+          "storyline_id": "s_01",
+          "minutes": 15,
+          "z": 1.5125855676554711,
+          "signal_z": [
+            1.4398692563518474,
+            1.5853018789590951
+          ],
+          "percentile": 0.9519029694688415,
+          "detected": true,
+          "slice_z_median": 0.386766816086054
+        },
+        {
+          "seed": 2081,
+          "storyline_id": "s_01",
+          "minutes": 10,
+          "z": 3.0739020618542052,
+          "signal_z": [
+            3.529084876682717,
+            2.6187192470256933
+          ],
+          "percentile": 0.99948114839156,
+          "detected": true,
+          "slice_z_median": 1.597622659166844
+        },
+        {
+          "seed": 2082,
+          "storyline_id": "s_03",
+          "minutes": 11,
+          "z": 1.8477592632348614,
+          "signal_z": [
+            2.2323013320334972,
+            1.4632171944362253
+          ],
+          "percentile": 0.9763525618058043,
+          "detected": true,
+          "slice_z_median": 0.9648408602029317
+        },
+        {
+          "seed": 2083,
+          "storyline_id": "s_02",
+          "minutes": 13,
+          "z": 1.6867491491511695,
+          "signal_z": [
+            1.559621325370757,
+            1.813876972931582
+          ],
+          "percentile": 0.9683519876495561,
+          "detected": true,
+          "slice_z_median": 0.500077078875973
+        },
+        {
+          "seed": 2085,
+          "storyline_id": "s_02",
+          "minutes": 11,
+          "z": 2.012636641308311,
+          "signal_z": [
+            2.350469671106165,
+            1.6748036115104576
+          ],
+          "percentile": 0.9853099247581512,
+          "detected": true,
+          "slice_z_median": 1.4296458748372967
+        },
+        {
+          "seed": 2086,
+          "storyline_id": "s_03",
+          "minutes": 10,
+          "z": 1.0669116325448027,
+          "signal_z": [
+            1.205362454524109,
+            0.9284608105654965
+          ],
+          "percentile": 0.8727084053960568,
+          "detected": false,
+          "slice_z_median": 0.6931690896898076
+        },
+        {
+          "seed": 2089,
+          "storyline_id": "s_01",
+          "minutes": 11,
+          "z": 1.7154805211747566,
+          "signal_z": [
+            1.7455501751088793,
+            1.6854108672406338
+          ],
+          "percentile": 0.9684700824077391,
+          "detected": true,
+          "slice_z_median": 0.9812848525993836
+        },
+        {
+          "seed": 2090,
+          "storyline_id": "s_03",
+          "minutes": 10,
+          "z": 1.011986181916855,
+          "signal_z": [
+            1.3235210000854811,
+            0.7004513637482288
+          ],
+          "percentile": 0.860774818401937,
+          "detected": false,
+          "slice_z_median": 0.6289683106005953
+        },
+        {
+          "seed": 2092,
+          "storyline_id": "s_01",
+          "minutes": 14,
+          "z": 2.743394296952352,
+          "signal_z": [
+            2.899736968539997,
+            2.587051625364707
+          ],
+          "percentile": 0.9985949417904456,
+          "detected": true,
+          "slice_z_median": 0.7866927956917397
+        },
+        {
+          "seed": 2095,
+          "storyline_id": "s_02",
+          "minutes": 14,
+          "z": 0.4312866757836373,
+          "signal_z": [
+            0.7527968166164656,
+            0.109776534950809
+          ],
+          "percentile": 0.67442794058611,
+          "detected": false,
+          "slice_z_median": -0.11621431167027291
+        },
+        {
+          "seed": 2098,
+          "storyline_id": "s_02",
+          "minutes": 15,
+          "z": 1.399285786978132,
+          "signal_z": [
+            2.7426148567661737,
+            0.05595671719009039
+          ],
+          "percentile": 0.9370556252613969,
+          "detected": false,
+          "slice_z_median": 0.5878404464954466
+        },
+        {
+          "seed": 2102,
+          "storyline_id": "s_01",
+          "minutes": 11,
+          "z": 0.8320063709695239,
+          "signal_z": [
+            0.879850234071508,
+            0.7841625078675398
+          ],
+          "percentile": 0.8077749910426371,
+          "detected": false,
+          "slice_z_median": -0.09600128866191798
+        },
+        {
+          "seed": 2104,
+          "storyline_id": "s_02",
+          "minutes": 15,
+          "z": 0.3773664849079462,
+          "signal_z": [
+            1.2756639479111849,
+            -0.5209309780952924
+          ],
+          "percentile": 0.6541196152237557,
+          "detected": false,
+          "slice_z_median": 0.45194989716233536
+        },
+        {
+          "seed": 2108,
+          "storyline_id": "s_02",
+          "minutes": 10,
+          "z": -1.0466611229150014,
+          "signal_z": [
+            -1.4968396964456292,
+            -0.5964825493843734
+          ],
+          "percentile": 0.1326530612244898,
+          "detected": false,
+          "slice_z_median": -0.011466417812403262
+        },
+        {
+          "seed": 2112,
+          "storyline_id": "s_02",
+          "minutes": 14,
+          "z": 0.8225151277796618,
+          "signal_z": [
+            1.8336712342679131,
+            -0.18864097870858934
+          ],
+          "percentile": 0.8034925732637495,
+          "detected": false,
+          "slice_z_median": 0.4180257453109224
+        },
+        {
+          "seed": 2118,
+          "storyline_id": "s_01",
+          "minutes": 15,
+          "z": 1.5361029905207741,
+          "signal_z": [
+            2.378329984658923,
+            0.6938759963826251
+          ],
+          "percentile": 0.9539941447093266,
+          "detected": true,
+          "slice_z_median": 0.5345816465457791
+        },
+        {
+          "seed": 2120,
+          "storyline_id": "s_01",
+          "minutes": 14,
+          "z": 1.6126713035014655,
+          "signal_z": [
+            2.7404305004420912,
+            0.48491210656083983
+          ],
+          "percentile": 0.962866318747491,
+          "detected": true,
+          "slice_z_median": 0.3652972779267193
+        },
+        {
+          "seed": 2121,
+          "storyline_id": "s_03",
+          "minutes": 13,
+          "z": 2.2126156334953695,
+          "signal_z": [
+            2.128527691899795,
+            2.2967035750909437
+          ],
+          "percentile": 0.992087996912389,
+          "detected": true,
+          "slice_z_median": 1.0108834091431276
+        },
+        {
+          "seed": 2125,
+          "storyline_id": "s_01",
+          "minutes": 14,
+          "z": 1.143770745190276,
+          "signal_z": [
+            1.30903634909126,
+            0.9785051412892924
+          ],
+          "percentile": 0.8867924528301887,
+          "detected": false,
+          "slice_z_median": 0.4652275139832752
+        },
+        {
+          "seed": 2126,
+          "storyline_id": "s_01",
+          "minutes": 11,
+          "z": 0.3497247810858043,
+          "signal_z": [
+            -0.27086754378559225,
+            0.9703171059572009
+          ],
+          "percentile": 0.6447509853099248,
+          "detected": false,
+          "slice_z_median": -0.20639168075020517
+        },
+        {
+          "seed": 2130,
+          "storyline_id": "s_02",
+          "minutes": 13,
+          "z": 1.1947522418837586,
+          "signal_z": [
+            0.966710359744811,
+            1.4227941240227062
+          ],
+          "percentile": 0.9000385951370128,
+          "detected": false,
+          "slice_z_median": 0.6441679497237236
+        },
+        {
+          "seed": 2132,
+          "storyline_id": "s_02",
+          "minutes": 12,
+          "z": 2.527446539514084,
+          "signal_z": [
+            2.891580529579982,
+            2.163312549448186
+          ],
+          "percentile": 0.9972129319955407,
+          "detected": true,
+          "slice_z_median": 1.2671714195573252
+        },
+        {
+          "seed": 2133,
+          "storyline_id": "s_01",
+          "minutes": 10,
+          "z": 1.5456609112251058,
+          "signal_z": [
+            0.876312969603223,
+            2.2150088528469887
+          ],
+          "percentile": 0.9517468004150813,
+          "detected": true,
+          "slice_z_median": 0.6789275143890481
+        },
+        {
+          "seed": 2134,
+          "storyline_id": "s_03",
+          "minutes": 13,
+          "z": 0.826788429261879,
+          "signal_z": [
+            1.3983762006047116,
+            0.2552006579190464
+          ],
+          "percentile": 0.8041296796603628,
+          "detected": false,
+          "slice_z_median": 0.8225496129102001
+        },
+        {
+          "seed": 2135,
+          "storyline_id": "s_02",
+          "minutes": 12,
+          "z": 1.6611110135354012,
+          "signal_z": [
+            1.899315569726472,
+            1.4229064573443302
+          ],
+          "percentile": 0.9639539204756596,
+          "detected": true,
+          "slice_z_median": 0.334548535894976
+        },
+        {
+          "seed": 2136,
+          "storyline_id": "s_02",
+          "minutes": 11,
+          "z": 1.5496021058303147,
+          "signal_z": [
+            2.50207698120482,
+            0.5971272304558095
+          ],
+          "percentile": 0.9539591544249373,
+          "detected": true,
+          "slice_z_median": 0.9863342752455571
+        },
+        {
+          "seed": 2139,
+          "storyline_id": "s_01",
+          "minutes": 10,
+          "z": -0.8691322202823056,
+          "signal_z": [
+            -0.7753764446734547,
+            -0.9628879958911566
+          ],
+          "percentile": 0.17883085437564855,
+          "detected": false,
+          "slice_z_median": -0.40154597611136067
+        },
+        {
+          "seed": 2143,
+          "storyline_id": "s_01",
+          "minutes": 12,
+          "z": 1.6193436818316247,
+          "signal_z": [
+            2.161507743544421,
+            1.0771796201188282
+          ],
+          "percentile": 0.9607952434039391,
+          "detected": true,
+          "slice_z_median": 0.8219211442001276
+        },
+        {
+          "seed": 2144,
+          "storyline_id": "s_03",
+          "minutes": 11,
+          "z": 0.933651810185159,
+          "signal_z": [
+            1.170761348759468,
+            0.69654227161085
+          ],
+          "percentile": 0.8369759942672877,
+          "detected": false,
+          "slice_z_median": 0.9948570582394198
+        },
+        {
+          "seed": 2150,
+          "storyline_id": "s_01",
+          "minutes": 13,
+          "z": 2.020448207022325,
+          "signal_z": [
+            2.3834197521030234,
+            1.6574766619416266
+          ],
+          "percentile": 0.9847549208799691,
+          "detected": true,
+          "slice_z_median": 1.0005424907011506
+        },
+        {
+          "seed": 2151,
+          "storyline_id": "s_03",
+          "minutes": 10,
+          "z": 1.477572681798165,
+          "signal_z": [
+            1.6141632605614638,
+            1.3409821030348663
+          ],
+          "percentile": 0.9439640262884815,
+          "detected": false,
+          "slice_z_median": 0.6398731698983435
+        },
+        {
+          "seed": 2152,
+          "storyline_id": "s_02",
+          "minutes": 15,
+          "z": 2.2531525970351653,
+          "signal_z": [
+            1.7606381347411195,
+            2.745667059329211
+          ],
+          "percentile": 0.9933082392304475,
+          "detected": true,
+          "slice_z_median": 1.1736915205207668
+        },
+        {
+          "seed": 2157,
+          "storyline_id": "s_01",
+          "minutes": 10,
+          "z": 0.7587829117808018,
+          "signal_z": [
+            0.5877421367080986,
+            0.929823686853505
+          ],
+          "percentile": 0.7907298512625389,
+          "detected": false,
+          "slice_z_median": 0.1942315935724836
+        },
+        {
+          "seed": 2158,
+          "storyline_id": "s_02",
+          "minutes": 14,
+          "z": 1.7544450059179248,
+          "signal_z": [
+            2.145473332048832,
+            1.3634166797870175
+          ],
+          "percentile": 0.9737053392211963,
+          "detected": true,
+          "slice_z_median": 0.38576448391296553
+        },
+        {
+          "seed": 2161,
+          "storyline_id": "s_01",
+          "minutes": 12,
+          "z": 1.6202228950737767,
+          "signal_z": [
+            1.550197351315334,
+            1.6902484388322194
+          ],
+          "percentile": 0.9609810479375697,
+          "detected": true,
+          "slice_z_median": 1.0064575715076067
+        },
+        {
+          "seed": 2163,
+          "storyline_id": "s_03",
+          "minutes": 14,
+          "z": 0.6547787859319393,
+          "signal_z": [
+            0.8163098306989638,
+            0.4932477411649148
+          ],
+          "percentile": 0.7553191489361702,
+          "detected": false,
+          "slice_z_median": 0.4462075516074008
+        },
+        {
+          "seed": 2165,
+          "storyline_id": "s_02",
+          "minutes": 12,
+          "z": 0.802808506402835,
+          "signal_z": [
+            1.0393939623981394,
+            0.5662230504075305
+          ],
+          "percentile": 0.8000743218134523,
+          "detected": false,
+          "slice_z_median": 0.19192952734630986
+        },
+        {
+          "seed": 2167,
+          "storyline_id": "s_03",
+          "minutes": 12,
+          "z": 0.933957562420084,
+          "signal_z": [
+            0.8657426735269409,
+            1.002172451313227
+          ],
+          "percentile": 0.8366778149386845,
+          "detected": false,
+          "slice_z_median": 0.5200796463756164
+        },
+        {
+          "seed": 2172,
+          "storyline_id": "s_01",
+          "minutes": 10,
+          "z": 1.251442568131191,
+          "signal_z": [
+            1.4035943736447343,
+            1.0992907626176476
+          ],
+          "percentile": 0.9093739190591491,
+          "detected": false,
+          "slice_z_median": 0.6399464709370047
+        },
+        {
+          "seed": 2175,
+          "storyline_id": "s_01",
+          "minutes": 14,
+          "z": 1.7412001307783185,
+          "signal_z": [
+            2.271522598907366,
+            1.2108776626492712
+          ],
+          "percentile": 0.9731031714171016,
+          "detected": true,
+          "slice_z_median": 0.9580576911495527
+        },
+        {
+          "seed": 2176,
+          "storyline_id": "s_01",
+          "minutes": 10,
+          "z": 0.10820924893962247,
+          "signal_z": [
+            -0.19889080304914786,
+            0.4153093009283928
+          ],
+          "percentile": 0.5439294361812521,
+          "detected": false,
+          "slice_z_median": 0.27945800305464197
+        },
+        {
+          "seed": 2177,
+          "storyline_id": "s_03",
+          "minutes": 13,
+          "z": 0.9016117713910422,
+          "signal_z": [
+            0.8707079914924258,
+            0.9325155512896586
+          ],
+          "percentile": 0.8284446159783867,
+          "detected": false,
+          "slice_z_median": 0.5591531511931918
+        },
+        {
+          "seed": 2183,
+          "storyline_id": "s_02",
+          "minutes": 11,
+          "z": 1.6120806072735339,
+          "signal_z": [
+            1.9185612469662947,
+            1.305599967580773
+          ],
+          "percentile": 0.9607667502687209,
+          "detected": true,
+          "slice_z_median": 0.7232908102181639
+        },
+        {
+          "seed": 2185,
+          "storyline_id": "s_03",
+          "minutes": 10,
+          "z": 0.39297326294039103,
+          "signal_z": [
+            0.6327193685102469,
+            0.1532271573705351
+          ],
+          "percentile": 0.6539259771705292,
+          "detected": false,
+          "slice_z_median": 0.10488172795566741
+        },
+        {
+          "seed": 2187,
+          "storyline_id": "s_02",
+          "minutes": 11,
+          "z": 2.065055972579764,
+          "signal_z": [
+            2.145565441251241,
+            1.9845465039082872
+          ],
+          "percentile": 0.9874596918667145,
+          "detected": true,
+          "slice_z_median": 0.6241652121815837
+        },
+        {
+          "seed": 2188,
+          "storyline_id": "s_02",
+          "minutes": 13,
+          "z": 0.30510368413283123,
+          "signal_z": [
+            0.5640414987848305,
+            0.04616586948083205
+          ],
+          "percentile": 0.6208027788498649,
+          "detected": false,
+          "slice_z_median": 0.14172296468364887
+        },
+        {
+          "seed": 2191,
+          "storyline_id": "s_03",
+          "minutes": 11,
+          "z": 1.2607238543964863,
+          "signal_z": [
+            0.5095815139646159,
+            2.0118661948283565
+          ],
+          "percentile": 0.9138301683984235,
+          "detected": false,
+          "slice_z_median": 0.46147361580055873
+        },
+        {
+          "seed": 2192,
+          "storyline_id": "s_01",
+          "minutes": 11,
+          "z": 2.7064569783062904,
+          "signal_z": [
+            2.8051082591289904,
+            2.60780569748359
+          ],
+          "percentile": 0.9983876746685776,
+          "detected": true,
+          "slice_z_median": 1.268862084074161
+        },
+        {
+          "seed": 2194,
+          "storyline_id": "s_01",
+          "minutes": 11,
+          "z": 0.08857213050957233,
+          "signal_z": [
+            0.5189740707130195,
+            -0.34182980969387483
+          ],
+          "percentile": 0.5365460408455751,
+          "detected": false,
+          "slice_z_median": 0.20184584415250528
+        },
+        {
+          "seed": 2195,
+          "storyline_id": "s_02",
+          "minutes": 12,
+          "z": 2.210199614513522,
+          "signal_z": [
+            1.506013043773668,
+            2.9143861852533757
+          ],
+          "percentile": 0.9925678186547752,
+          "detected": true,
+          "slice_z_median": 1.2678815276091844
+        },
+        {
+          "seed": 2199,
+          "storyline_id": "s_01",
+          "minutes": 10,
+          "z": 2.2828616409583935,
+          "signal_z": [
+            2.216828592554156,
+            2.3488946893626306
+          ],
+          "percentile": 0.9936008301625735,
+          "detected": true,
+          "slice_z_median": 1.0151442527887409
+        }
+      ],
+      "pressing_spell": [
+        {
+          "seed": 2000,
+          "storyline_id": "s_02",
+          "minutes": 13,
+          "z": 0.5167834845090987,
+          "signal_z": [
+            1.1037481889320844,
+            0.4146171498336386,
+            0.03198511476157337
+          ],
+          "percentile": 0.7987263604785797,
+          "detected": false,
+          "slice_z_median": 0.21666561620861
+        },
+        {
+          "seed": 2003,
+          "storyline_id": "s_01",
+          "minutes": 10,
+          "z": 0.5669928332832229,
+          "signal_z": [
+            0.35863116106453274,
+            1.3859354804130497,
+            -0.04358814162791358
+          ],
+          "percentile": 0.8171912832929782,
+          "detected": false,
+          "slice_z_median": -0.2552159216970565
+        },
+        {
+          "seed": 2004,
+          "storyline_id": "s_02",
+          "minutes": 12,
+          "z": 0.8902778690537616,
+          "signal_z": [
+            0.9905513021307876,
+            0.5456737354278526,
+            1.134608569602645
+          ],
+          "percentile": 0.9128576737272389,
+          "detected": false,
+          "slice_z_median": 0.08404481060853643
+        },
+        {
+          "seed": 2006,
+          "storyline_id": "s_02",
+          "minutes": 15,
+          "z": 1.2532371521623544,
+          "signal_z": [
+            0.8380079778428869,
+            3.240325481430365,
+            -0.31862200278618846
+          ],
+          "percentile": 0.972396486825596,
+          "detected": true,
+          "slice_z_median": -0.05055500577891569
+        },
+        {
+          "seed": 2008,
+          "storyline_id": "s_01",
+          "minutes": 10,
+          "z": 1.1303453086985011,
+          "signal_z": [
+            0.20362697119434853,
+            3.199460912688989,
+            -0.012051957787834017
+          ],
+          "percentile": 0.9558976132826011,
+          "detected": true,
+          "slice_z_median": 0.18345869864896344
+        },
+        {
+          "seed": 2010,
+          "storyline_id": "s_01",
+          "minutes": 14,
+          "z": 0.4078309428753834,
+          "signal_z": [
+            1.104519702754008,
+            0.9630717931910882,
+            -0.8440986673189457
+          ],
+          "percentile": 0.7454837414692894,
+          "detected": false,
+          "slice_z_median": 0.06493536181787397
+        },
+        {
+          "seed": 2011,
+          "storyline_id": "s_01",
+          "minutes": 11,
+          "z": 0.9085064546596288,
+          "signal_z": [
+            0.26525361568422484,
+            1.1447653701268177,
+            1.3155003781678438
+          ],
+          "percentile": 0.915263346470799,
+          "detected": false,
+          "slice_z_median": 0.1191090629740376
+        },
+        {
+          "seed": 2012,
+          "storyline_id": "s_01",
+          "minutes": 13,
+          "z": 0.15776883676692335,
+          "signal_z": [
+            0.2048515732201146,
+            0.29392672788980634,
+            -0.025471790809150924
+          ],
+          "percentile": 0.5930142802006947,
+          "detected": false,
+          "slice_z_median": -0.2071207682238408
+        },
+        {
+          "seed": 2013,
+          "storyline_id": "s_03",
+          "minutes": 10,
+          "z": 1.0330657614013192,
+          "signal_z": [
+            2.5495978031658346,
+            0.3910117237369612,
+            0.1585877573011619
+          ],
+          "percentile": 0.9427533725354549,
+          "detected": false,
+          "slice_z_median": 0.7591755509009688
+        },
+        {
+          "seed": 2015,
+          "storyline_id": "s_02",
+          "minutes": 12,
+          "z": 0.3603901593920254,
+          "signal_z": [
+            0.7842195324295304,
+            0.8841752714348889,
+            -0.587224325688343
+          ],
+          "percentile": 0.720364176885916,
+          "detected": false,
+          "slice_z_median": 0.021767391824482667
+        },
+        {
+          "seed": 2017,
+          "storyline_id": "s_01",
+          "minutes": 15,
+          "z": 1.0207832458904191,
+          "signal_z": [
+            1.3852692114962135,
+            0.7645662842034893,
+            0.9125142419715548
+          ],
+          "percentile": 0.9462567963195315,
+          "detected": false,
+          "slice_z_median": 0.4190055391917442
+        },
+        {
+          "seed": 2020,
+          "storyline_id": "s_02",
+          "minutes": 15,
+          "z": 1.279388179136994,
+          "signal_z": [
+            0.7524379792946193,
+            2.6084108532550556,
+            0.4773157048613077
+          ],
+          "percentile": 0.9765788373065662,
+          "detected": true,
+          "slice_z_median": 0.6372204952658215
+        },
+        {
+          "seed": 2021,
+          "storyline_id": "s_03",
+          "minutes": 11,
+          "z": 2.337138905418943,
+          "signal_z": [
+            2.7829529115977976,
+            2.535607190956485,
+            1.6928566137025454
+          ],
+          "percentile": 0.9996417054819061,
+          "detected": true,
+          "slice_z_median": 1.3038331795458502
+        },
+        {
+          "seed": 2022,
+          "storyline_id": "s_02",
+          "minutes": 13,
+          "z": 0.06691556899798275,
+          "signal_z": [
+            0.6235027361481483,
+            0.09776182934924127,
+            -0.5205178585034413
+          ],
+          "percentile": 0.5331918178309533,
+          "detected": false,
+          "slice_z_median": -0.3868125719958975
+        },
+        {
+          "seed": 2023,
+          "storyline_id": "s_01",
+          "minutes": 12,
+          "z": -0.17303261981954443,
+          "signal_z": [
+            0.2612752195659996,
+            -0.3296033895762282,
+            -0.45076968944840473
+          ],
+          "percentile": 0.3874024526198439,
+          "detected": false,
+          "slice_z_median": 0.013888915590520579
+        },
+        {
+          "seed": 2024,
+          "storyline_id": "s_02",
+          "minutes": 13,
+          "z": 1.3097222691243011,
+          "signal_z": [
+            1.2582654838295015,
+            3.2943530437804007,
+            -0.6234517202369994
+          ],
+          "percentile": 0.9776148205326128,
+          "detected": true,
+          "slice_z_median": 0.6683590866261508
+        },
+        {
+          "seed": 2026,
+          "storyline_id": "s_01",
+          "minutes": 10,
+          "z": 0.5842918241084385,
+          "signal_z": [
+            0.8346059601882032,
+            0.45585315128483206,
+            0.4624163608522802
+          ],
+          "percentile": 0.8227257004496714,
+          "detected": false,
+          "slice_z_median": 0.045086903826186596
+        },
+        {
+          "seed": 2028,
+          "storyline_id": "s_02",
+          "minutes": 11,
+          "z": -0.1542052157978019,
+          "signal_z": [
+            -0.08345446861610414,
+            -1.0474208949674688,
+            0.6682597161901672
+          ],
+          "percentile": 0.4000358294518094,
+          "detected": false,
+          "slice_z_median": -0.3182830664505285
+        },
+        {
+          "seed": 2029,
+          "storyline_id": "s_01",
+          "minutes": 15,
+          "z": 2.3093239437199884,
+          "signal_z": [
+            1.4666741340612537,
+            3.806796069543135,
+            1.6545016275555764
+          ],
+          "percentile": 0.9997908824759515,
+          "detected": true,
+          "slice_z_median": 0.9824818193281445
+        },
+        {
+          "seed": 2032,
+          "storyline_id": "s_03",
+          "minutes": 14,
+          "z": 1.048327481519553,
+          "signal_z": [
+            0.8048547350841747,
+            1.4925413351679386,
+            0.8475863743065452
+          ],
+          "percentile": 0.9484142914492172,
+          "detected": false,
+          "slice_z_median": -0.0700926946932774
+        },
+        {
+          "seed": 2034,
+          "storyline_id": "s_02",
+          "minutes": 10,
+          "z": -0.24024134388541363,
+          "signal_z": [
+            0.44216806044889323,
+            -2.0590175823947185,
+            0.8961254902895845
+          ],
+          "percentile": 0.3559322033898305,
+          "detected": false,
+          "slice_z_median": -0.17671363414045493
+        },
+        {
+          "seed": 2038,
+          "storyline_id": "s_03",
+          "minutes": 11,
+          "z": 1.3391836581034677,
+          "signal_z": [
+            0.04613299514415327,
+            2.9003660161343254,
+            1.0710519630319237
+          ],
+          "percentile": 0.9777857398781798,
+          "detected": true,
+          "slice_z_median": 0.5280487631698575
+        },
+        {
+          "seed": 2039,
+          "storyline_id": "s_02",
+          "minutes": 11,
+          "z": 0.5192901709209093,
+          "signal_z": [
+            -0.07402992579717636,
+            0.7456427091750192,
+            0.8862577293848855
+          ],
+          "percentile": 0.7973844500179147,
+          "detected": false,
+          "slice_z_median": 0.23501294324275776
+        },
+        {
+          "seed": 2040,
+          "storyline_id": "s_02",
+          "minutes": 10,
+          "z": 0.8102653762831018,
+          "signal_z": [
+            1.2159218592592846,
+            1.1288813353766882,
+            0.08599293421333233
+          ],
+          "percentile": 0.8967485299204427,
+          "detected": false,
+          "slice_z_median": 0.4760409853079784
+        },
+        {
+          "seed": 2041,
+          "storyline_id": "s_03",
+          "minutes": 10,
+          "z": 0.643038179145706,
+          "signal_z": [
+            1.2347707235496506,
+            1.8894114242255677,
+            -1.1950676103381
+          ],
+          "percentile": 0.8460740228294708,
+          "detected": false,
+          "slice_z_median": 0.6412294201969112
+        },
+        {
+          "seed": 2043,
+          "storyline_id": "s_03",
+          "minutes": 15,
+          "z": 1.8549074824193976,
+          "signal_z": [
+            0.841633825239,
+            3.6886293235793435,
+            1.0344592984398493
+          ],
+          "percentile": 0.9962358845671268,
+          "detected": true,
+          "slice_z_median": 0.32116389304991355
+        },
+        {
+          "seed": 2044,
+          "storyline_id": "s_01",
+          "minutes": 12,
+          "z": 0.33128258832677787,
+          "signal_z": [
+            -0.24423761620208023,
+            1.174829843230124,
+            0.06325553795228983
+          ],
+          "percentile": 0.7068004459308808,
+          "detected": false,
+          "slice_z_median": 0.20744212552302466
+        },
+        {
+          "seed": 2047,
+          "storyline_id": "s_02",
+          "minutes": 14,
+          "z": 0.11526838043669724,
+          "signal_z": [
+            -1.143057924180981,
+            1.7568255743297299,
+            -0.2679625088386571
+          ],
+          "percentile": 0.5676435166599759,
+          "detected": false,
+          "slice_z_median": -0.02766705057520717
+        },
+        {
+          "seed": 2048,
+          "storyline_id": "s_01",
+          "minutes": 13,
+          "z": 0.6095749397881053,
+          "signal_z": [
+            0.03067748879468439,
+            1.1961217082903777,
+            0.6019256222792536
+          ],
+          "percentile": 0.8344268622153609,
+          "detected": false,
+          "slice_z_median": -0.0316018134796715
+        },
+        {
+          "seed": 2051,
+          "storyline_id": "s_02",
+          "minutes": 14,
+          "z": 1.6720446283430224,
+          "signal_z": [
+            0.977148125312592,
+            2.576006833860222,
+            1.462978925856253
+          ],
+          "percentile": 0.9935768767563228,
+          "detected": true,
+          "slice_z_median": 0.2973425853907514
+        },
+        {
+          "seed": 2055,
+          "storyline_id": "s_02",
+          "minutes": 12,
+          "z": 1.6678267746813296,
+          "signal_z": [
+            1.9409225482633878,
+            1.2634586894016797,
+            1.799099086378921
+          ],
+          "percentile": 0.9938684503901896,
+          "detected": true,
+          "slice_z_median": 0.7650651471942684
+        },
+        {
+          "seed": 2056,
+          "storyline_id": "s_03",
+          "minutes": 11,
+          "z": 0.2539079073374049,
+          "signal_z": [
+            0.11176820406168622,
+            1.6826060397170428,
+            -1.0326505217665143
+          ],
+          "percentile": 0.6635614475098531,
+          "detected": false,
+          "slice_z_median": 0.18039844146233416
+        },
+        {
+          "seed": 2057,
+          "storyline_id": "s_01",
+          "minutes": 12,
+          "z": -0.026867042951124614,
+          "signal_z": [
+            -0.4274878502055192,
+            -0.10607946142477859,
+            0.45296618277692396
+          ],
+          "percentile": 0.4816053511705686,
+          "detected": false,
+          "slice_z_median": -0.4062971210492211
+        },
+        {
+          "seed": 2058,
+          "storyline_id": "s_01",
+          "minutes": 14,
+          "z": 1.3000709487392526,
+          "signal_z": [
+            1.4456341070456438,
+            1.0710413420419422,
+            1.3835373971301717
+          ],
+          "percentile": 0.9759132878362103,
+          "detected": true,
+          "slice_z_median": 0.8196936527775677
+        },
+        {
+          "seed": 2059,
+          "storyline_id": "s_01",
+          "minutes": 14,
+          "z": 0.8948485334987696,
+          "signal_z": [
+            0.22712308903072354,
+            2.861443307531835,
+            -0.40402079606625
+          ],
+          "percentile": 0.918506623845845,
+          "detected": false,
+          "slice_z_median": -0.032164713474813346
+        },
+        {
+          "seed": 2060,
+          "storyline_id": "s_03",
+          "minutes": 11,
+          "z": 0.27663568392794297,
+          "signal_z": [
+            2.1501621794697874,
+            -0.45600471436346834,
+            -0.8642504133224901
+          ],
+          "percentile": 0.6766391974202794,
+          "detected": false,
+          "slice_z_median": 0.13823964415984769
+        },
+        {
+          "seed": 2061,
+          "storyline_id": "s_02",
+          "minutes": 13,
+          "z": -0.028681661741482827,
+          "signal_z": [
+            -0.20320011868780485,
+            -1.0510950230252125,
+            1.1682501564885688
+          ],
+          "percentile": 0.4724044770358935,
+          "detected": false,
+          "slice_z_median": 0.09793112816699663
+        },
+        {
+          "seed": 2062,
+          "storyline_id": "s_02",
+          "minutes": 14,
+          "z": -0.0010152267348301214,
+          "signal_z": [
+            -0.9352986477416124,
+            0.31386248142268686,
+            0.6183904861144353
+          ],
+          "percentile": 0.49377759935768767,
+          "detected": false,
+          "slice_z_median": 0.2440492267501897
+        },
+        {
+          "seed": 2066,
+          "storyline_id": "s_01",
+          "minutes": 14,
+          "z": 0.9257982075132093,
+          "signal_z": [
+            -0.6660700977772073,
+            1.6753864375531038,
+            1.7680782827637318
+          ],
+          "percentile": 0.9259333600963469,
+          "detected": false,
+          "slice_z_median": 0.05608965568661787
+        },
+        {
+          "seed": 2069,
+          "storyline_id": "s_02",
+          "minutes": 15,
+          "z": 1.834120653341083,
+          "signal_z": [
+            0.7624090596339304,
+            2.451340913702762,
+            2.288611986686557
+          ],
+          "percentile": 0.9962358845671268,
+          "detected": true,
+          "slice_z_median": 0.6328257547112871
+        },
+        {
+          "seed": 2071,
+          "storyline_id": "s_03",
+          "minutes": 11,
+          "z": 1.3540916410492663,
+          "signal_z": [
+            0.8354384562293575,
+            1.9404451336181694,
+            1.2863913333002717
+          ],
+          "percentile": 0.9788606234324615,
+          "detected": true,
+          "slice_z_median": 0.3705860737086104
+        },
+        {
+          "seed": 2074,
+          "storyline_id": "s_01",
+          "minutes": 13,
+          "z": -0.11642504856215204,
+          "signal_z": [
+            0.9512666950214577,
+            -0.6621379489151722,
+            -0.6384038917927416
+          ],
+          "percentile": 0.41933616364338094,
+          "detected": false,
+          "slice_z_median": 0.21838840966993867
+        },
+        {
+          "seed": 2075,
+          "storyline_id": "s_02",
+          "minutes": 14,
+          "z": 0.6161598256887152,
+          "signal_z": [
+            0.3686544969475072,
+            0.018199278988779283,
+            1.4616257011298592
+          ],
+          "percentile": 0.8352067442794059,
+          "detected": false,
+          "slice_z_median": -0.1138292161107149
+        },
+        {
+          "seed": 2078,
+          "storyline_id": "s_02",
+          "minutes": 12,
+          "z": -0.5282040576888164,
+          "signal_z": [
+            0.8259305669079311,
+            -1.7292513408737462,
+            -0.6812913991006341
+          ],
+          "percentile": 0.2021553325901152,
+          "detected": false,
+          "slice_z_median": -0.35184405278244085
+        },
+        {
+          "seed": 2088,
+          "storyline_id": "s_01",
+          "minutes": 15,
+          "z": -0.3118191679548535,
+          "signal_z": [
+            0.2570903489479935,
+            0.5994604308674704,
+            -1.7920082836800244
+          ],
+          "percentile": 0.2952739439565036,
+          "detected": false,
+          "slice_z_median": -0.4482514859331312
+        },
+        {
+          "seed": 2089,
+          "storyline_id": "s_03",
+          "minutes": 14,
+          "z": 3.6892836582035162,
+          "signal_z": [
+            5.218496780016219,
+            4.636922480596601,
+            1.2124317139977294
+          ],
+          "percentile": 1.0,
+          "detected": true,
+          "slice_z_median": 2.128136441641748
+        },
+        {
+          "seed": 2091,
+          "storyline_id": "s_02",
+          "minutes": 10,
+          "z": 0.35791227091462724,
+          "signal_z": [
+            1.8950353520739327,
+            0.23360542717479377,
+            -1.0549039665048445
+          ],
+          "percentile": 0.7205119335869942,
+          "detected": false,
+          "slice_z_median": 0.0557347441788391
+        },
+        {
+          "seed": 2092,
+          "storyline_id": "s_03",
+          "minutes": 10,
+          "z": -0.09305130780267627,
+          "signal_z": [
+            -0.4731814747488767,
+            0.3736363731117582,
+            -0.1796088217709103
+          ],
+          "percentile": 0.4425804219993082,
+          "detected": false,
+          "slice_z_median": -0.46477561692901787
+        },
+        {
+          "seed": 2093,
+          "storyline_id": "s_01",
+          "minutes": 14,
+          "z": 0.48816964753840103,
+          "signal_z": [
+            -1.406304019121338,
+            1.684889643657132,
+            1.1859233180794093
+          ],
+          "percentile": 0.7834203131272581,
+          "detected": false,
+          "slice_z_median": 0.3715588677544723
+        },
+        {
+          "seed": 2096,
+          "storyline_id": "s_01",
+          "minutes": 15,
+          "z": 0.9189022058126609,
+          "signal_z": [
+            -0.049806656005360696,
+            1.585927581735722,
+            1.2205856917076219
+          ],
+          "percentile": 0.9286909242994563,
+          "detected": false,
+          "slice_z_median": -0.04692644357004733
+        },
+        {
+          "seed": 2097,
+          "storyline_id": "s_01",
+          "minutes": 12,
+          "z": 1.270336915072579,
+          "signal_z": [
+            1.4409237511683588,
+            0.6043772020684685,
+            1.7657097919809095
+          ],
+          "percentile": 0.9728725380899294,
+          "detected": true,
+          "slice_z_median": 0.6838368230503108
+        },
+        {
+          "seed": 2099,
+          "storyline_id": "s_01",
+          "minutes": 13,
+          "z": 0.5125940606946546,
+          "signal_z": [
+            0.3171146876361417,
+            0.5448992409397044,
+            0.6757682535081176
+          ],
+          "percentile": 0.7966036279428792,
+          "detected": false,
+          "slice_z_median": -0.3257136945282309
+        },
+        {
+          "seed": 2100,
+          "storyline_id": "s_01",
+          "minutes": 15,
+          "z": 0.6122323599784855,
+          "signal_z": [
+            0.6686809044444084,
+            1.9133691232768975,
+            -0.7453529477858495
+          ],
+          "percentile": 0.8347971560016729,
+          "detected": false,
+          "slice_z_median": 0.026505423532466654
+        },
+        {
+          "seed": 2101,
+          "storyline_id": "s_01",
+          "minutes": 15,
+          "z": 0.983478131402212,
+          "signal_z": [
+            0.26926791485258594,
+            2.3625878045469153,
+            0.31857867480713464
+          ],
+          "percentile": 0.939565035549979,
+          "detected": false,
+          "slice_z_median": 0.5255236078216639
+        },
+        {
+          "seed": 2103,
+          "storyline_id": "s_01",
+          "minutes": 14,
+          "z": -0.4407459959715383,
+          "signal_z": [
+            0.3662016129281522,
+            0.06642502497206734,
+            -1.7548646258148344
+          ],
+          "percentile": 0.23946206342834203,
+          "detected": false,
+          "slice_z_median": -0.5305714274483756
+        },
+        {
+          "seed": 2107,
+          "storyline_id": "s_01",
+          "minutes": 11,
+          "z": -0.2704531894982425,
+          "signal_z": [
+            -0.8621012205608545,
+            0.31561198120155487,
+            -0.2648703291354279
+          ],
+          "percentile": 0.33518452167681834,
+          "detected": false,
+          "slice_z_median": -0.5202469338970043
+        },
+        {
+          "seed": 2110,
+          "storyline_id": "s_02",
+          "minutes": 15,
+          "z": 1.7007606870446639,
+          "signal_z": [
+            1.4145177138248586,
+            2.100569449746792,
+            1.5871948975623411
+          ],
+          "percentile": 0.9945629443747386,
+          "detected": true,
+          "slice_z_median": 0.6325042188324355
+        },
+        {
+          "seed": 2111,
+          "storyline_id": "s_02",
+          "minutes": 15,
+          "z": -0.1911313381062131,
+          "signal_z": [
+            0.6119968234851747,
+            -0.4077111622983948,
+            -0.7776796755054193
+          ],
+          "percentile": 0.3682559598494354,
+          "detected": false,
+          "slice_z_median": -0.20622300047875733
+        },
+        {
+          "seed": 2113,
+          "storyline_id": "s_01",
+          "minutes": 15,
+          "z": 1.7424687505268401,
+          "signal_z": [
+            0.5878245075110878,
+            2.7017945363308784,
+            1.9377872077385536
+          ],
+          "percentile": 0.9958176495190297,
+          "detected": true,
+          "slice_z_median": 0.26075291839438314
+        },
+        {
+          "seed": 2118,
+          "storyline_id": "s_03",
+          "minutes": 12,
+          "z": 0.5024222279079638,
+          "signal_z": [
+            1.0748045194388929,
+            0.21830939864618035,
+            0.21415276563881802
+          ],
+          "percentile": 0.7898550724637681,
+          "detected": false,
+          "slice_z_median": -0.08139452608672389
+        },
+        {
+          "seed": 2121,
+          "storyline_id": "s_01",
+          "minutes": 13,
+          "z": 0.187477087822688,
+          "signal_z": [
+            0.699438112955443,
+            0.8740313467550247,
+            -1.0110381962424038
+          ],
+          "percentile": 0.6115399459668082,
+          "detected": false,
+          "slice_z_median": -0.6589998349234509
+        },
+        {
+          "seed": 2122,
+          "storyline_id": "s_02",
+          "minutes": 12,
+          "z": 0.2823277962863644,
+          "signal_z": [
+            -1.668994060432312,
+            2.166522114977868,
+            0.34945533431353687
+          ],
+          "percentile": 0.6789297658862876,
+          "detected": false,
+          "slice_z_median": -0.030818659457893957
+        },
+        {
+          "seed": 2123,
+          "storyline_id": "s_01",
+          "minutes": 14,
+          "z": 2.038369719556523,
+          "signal_z": [
+            1.2693535088546641,
+            4.065121305944457,
+            0.7806343438704486
+          ],
+          "percentile": 0.9987956643918106,
+          "detected": true,
+          "slice_z_median": 1.1731090469017775
+        },
+        {
+          "seed": 2124,
+          "storyline_id": "s_02",
+          "minutes": 10,
+          "z": 2.2019240853680127,
+          "signal_z": [
+            1.4817462835895898,
+            3.656033153802709,
+            1.4679928187117393
+          ],
+          "percentile": 0.9993081978554134,
+          "detected": true,
+          "slice_z_median": 0.604646937682402
+        },
+        {
+          "seed": 2127,
+          "storyline_id": "s_02",
+          "minutes": 13,
+          "z": 0.4701982617795846,
+          "signal_z": [
+            1.2099152103932216,
+            -1.0845087927252284,
+            1.2851883676707607
+          ],
+          "percentile": 0.7765341566962563,
+          "detected": false,
+          "slice_z_median": 0.04912585285478295
+        },
+        {
+          "seed": 2128,
+          "storyline_id": "s_01",
+          "minutes": 14,
+          "z": 1.3512515080551053,
+          "signal_z": [
+            1.3572648721083476,
+            1.6206464086523793,
+            1.0758432434045893
+          ],
+          "percentile": 0.9801284624648735,
+          "detected": true,
+          "slice_z_median": 0.9435499867781522
+        },
+        {
+          "seed": 2129,
+          "storyline_id": "s_02",
+          "minutes": 10,
+          "z": 0.9534194218770887,
+          "signal_z": [
+            0.7724191700742087,
+            1.6790408855413224,
+            0.40879821001573524
+          ],
+          "percentile": 0.9285714285714286,
+          "detected": false,
+          "slice_z_median": -0.22117527946785553
+        },
+        {
+          "seed": 2130,
+          "storyline_id": "s_01",
+          "minutes": 15,
+          "z": 0.5159308690339786,
+          "signal_z": [
+            0.676657768715857,
+            1.0577576912847972,
+            -0.18662285289871863
+          ],
+          "percentile": 0.7915098285236303,
+          "detected": false,
+          "slice_z_median": 0.0536653619046251
+        },
+        {
+          "seed": 2134,
+          "storyline_id": "s_01",
+          "minutes": 12,
+          "z": -0.11491928144665707,
+          "signal_z": [
+            -0.43904873934574723,
+            -0.3360741672151689,
+            0.430365062220945
+          ],
+          "percentile": 0.42735042735042733,
+          "detected": false,
+          "slice_z_median": 0.007504067068233673
+        },
+        {
+          "seed": 2136,
+          "storyline_id": "s_01",
+          "minutes": 12,
+          "z": 0.06711997397915004,
+          "signal_z": [
+            -0.36319308077653173,
+            -0.09632085020360454,
+            0.6608738529175864
+          ],
+          "percentile": 0.5360460795243404,
+          "detected": false,
+          "slice_z_median": 0.0011870981625150174
+        },
+        {
+          "seed": 2140,
+          "storyline_id": "s_02",
+          "minutes": 11,
+          "z": 0.7948293710488544,
+          "signal_z": [
+            0.672222510137926,
+            1.5148225011152117,
+            0.19744310189342584
+          ],
+          "percentile": 0.8908993192404157,
+          "detected": false,
+          "slice_z_median": 0.1125867438482212
+        },
+        {
+          "seed": 2141,
+          "storyline_id": "s_01",
+          "minutes": 13,
+          "z": 0.15788786883183728,
+          "signal_z": [
+            0.6841696055545123,
+            -0.2937222368110713,
+            0.08321623775207083
+          ],
+          "percentile": 0.5932072558857584,
+          "detected": false,
+          "slice_z_median": -0.19715192358841482
+        },
+        {
+          "seed": 2143,
+          "storyline_id": "s_03",
+          "minutes": 10,
+          "z": 1.2866558415469256,
+          "signal_z": [
+            -0.22071006606522936,
+            0.9675018177340777,
+            3.1131757729719283
+          ],
+          "percentile": 0.9723279142165341,
+          "detected": true,
+          "slice_z_median": 1.3363652225889036
+        },
+        {
+          "seed": 2147,
+          "storyline_id": "s_01",
+          "minutes": 12,
+          "z": 0.9323365178624322,
+          "signal_z": [
+            0.45460614735191085,
+            1.364279936917107,
+            0.9781234693182785
+          ],
+          "percentile": 0.9210330732069862,
+          "detected": false,
+          "slice_z_median": 0.16204249358309378
+        },
+        {
+          "seed": 2149,
+          "storyline_id": "s_02",
+          "minutes": 15,
+          "z": 0.4640954479880616,
+          "signal_z": [
+            -0.5398140326800644,
+            0.8642913618044563,
+            1.067809014839793
+          ],
+          "percentile": 0.7710163111668757,
+          "detected": false,
+          "slice_z_median": 0.6684637520218577
+        },
+        {
+          "seed": 2150,
+          "storyline_id": "s_02",
+          "minutes": 14,
+          "z": 0.8953053326096218,
+          "signal_z": [
+            -0.08365731622155537,
+            2.6656114354227083,
+            0.10396187862771256
+          ],
+          "percentile": 0.918506623845845,
+          "detected": false,
+          "slice_z_median": 0.27164473726806365
+        },
+        {
+          "seed": 2151,
+          "storyline_id": "s_02",
+          "minutes": 10,
+          "z": 1.0455817545264157,
+          "signal_z": [
+            0.21602488727838612,
+            1.7206357057972195,
+            1.2000846705036414
+          ],
+          "percentile": 0.9443099273607748,
+          "detected": false,
+          "slice_z_median": 0.22885560657008053
+        },
+        {
+          "seed": 2154,
+          "storyline_id": "s_01",
+          "minutes": 10,
+          "z": 1.5825382852080654,
+          "signal_z": [
+            0.40386843536141054,
+            3.402266761009656,
+            0.9414796592531294
+          ],
+          "percentile": 0.9906606710480802,
+          "detected": true,
+          "slice_z_median": 0.1938617966123623
+        },
+        {
+          "seed": 2162,
+          "storyline_id": "s_02",
+          "minutes": 11,
+          "z": 2.189987518736277,
+          "signal_z": [
+            0.6705089568981207,
+            5.021405967596809,
+            0.8780476317139021
+          ],
+          "percentile": 0.9994625582228592,
+          "detected": true,
+          "slice_z_median": 0.5473696478335279
+        },
+        {
+          "seed": 2163,
+          "storyline_id": "s_01",
+          "minutes": 15,
+          "z": 0.0218463937310119,
+          "signal_z": [
+            0.34561790145073756,
+            1.2477571242704537,
+            -1.5278358445281557
+          ],
+          "percentile": 0.5058552906733584,
+          "detected": false,
+          "slice_z_median": 0.010584148818557107
+        },
+        {
+          "seed": 2164,
+          "storyline_id": "s_02",
+          "minutes": 12,
+          "z": 1.3740439402948226,
+          "signal_z": [
+            1.8400690022111355,
+            0.9630079555526204,
+            1.3190548631207115
+          ],
+          "percentile": 0.9817911557041992,
+          "detected": true,
+          "slice_z_median": 0.6738618220977963
+        },
+        {
+          "seed": 2166,
+          "storyline_id": "s_01",
+          "minutes": 13,
+          "z": 1.5796211606699042,
+          "signal_z": [
+            0.7671747639704803,
+            3.5321047423720398,
+            0.43958397566719243
+          ],
+          "percentile": 0.9911231184870706,
+          "detected": true,
+          "slice_z_median": 0.3272411686916244
+        },
+        {
+          "seed": 2167,
+          "storyline_id": "s_01",
+          "minutes": 15,
+          "z": 1.522887687096264,
+          "signal_z": [
+            1.0114011801070064,
+            1.4908049034569602,
+            2.0664569777248256
+          ],
+          "percentile": 0.9893350062735258,
+          "detected": true,
+          "slice_z_median": 0.0375903256042777
+        },
+        {
+          "seed": 2169,
+          "storyline_id": "s_01",
+          "minutes": 14,
+          "z": 0.5385796678555067,
+          "signal_z": [
+            0.6237544349604275,
+            1.4914215166998042,
+            -0.49943694809371175
+          ],
+          "percentile": 0.802488960256925,
+          "detected": false,
+          "slice_z_median": -0.62872633877261
+        },
+        {
+          "seed": 2171,
+          "storyline_id": "s_01",
+          "minutes": 13,
+          "z": 1.0688841540419307,
+          "signal_z": [
+            0.41747967628492527,
+            1.4507894879765297,
+            1.3383832978643369
+          ],
+          "percentile": 0.9504052489386338,
+          "detected": true,
+          "slice_z_median": 0.22064129565802895
+        },
+        {
+          "seed": 2173,
+          "storyline_id": "s_02",
+          "minutes": 11,
+          "z": 1.3885226453763109,
+          "signal_z": [
+            0.1403784233334314,
+            2.033420629250441,
+            1.99176888354506
+          ],
+          "percentile": 0.9808312432819778,
+          "detected": true,
+          "slice_z_median": 0.1224617321607749
+        },
+        {
+          "seed": 2175,
+          "storyline_id": "s_03",
+          "minutes": 12,
+          "z": 0.11170624917879089,
+          "signal_z": [
+            1.615950010983908,
+            -0.8756846101722983,
+            -0.4051466532752371
+          ],
+          "percentile": 0.5689334819769603,
+          "detected": false,
+          "slice_z_median": 0.02996416402843871
+        },
+        {
+          "seed": 2177,
+          "storyline_id": "s_02",
+          "minutes": 11,
+          "z": 1.1897187331643326,
+          "signal_z": [
+            -0.9473708936844869,
+            3.279829318707017,
+            1.2366977744704681
+          ],
+          "percentile": 0.9643496954496596,
+          "detected": true,
+          "slice_z_median": 0.6331675143494103
+        },
+        {
+          "seed": 2178,
+          "storyline_id": "s_01",
+          "minutes": 13,
+          "z": -0.05721579964913781,
+          "signal_z": [
+            -0.7938219108555659,
+            -0.8001928298743535,
+            1.4223673417825058
+          ],
+          "percentile": 0.4569664222307989,
+          "detected": false,
+          "slice_z_median": 0.022152440882046848
+        },
+        {
+          "seed": 2181,
+          "storyline_id": "s_01",
+          "minutes": 15,
+          "z": 0.918162759871656,
+          "signal_z": [
+            0.9944373940751918,
+            2.45176556972743,
+            -0.6917146841876545
+          ],
+          "percentile": 0.9282726892513593,
+          "detected": false,
+          "slice_z_median": -0.06759850323741816
+        },
+        {
+          "seed": 2184,
+          "storyline_id": "s_01",
+          "minutes": 10,
+          "z": 0.8436801155941146,
+          "signal_z": [
+            -0.04838690983670044,
+            1.438760154314911,
+            1.140667102304133
+          ],
+          "percentile": 0.9047042545831893,
+          "detected": false,
+          "slice_z_median": -0.06856086760093848
+        },
+        {
+          "seed": 2190,
+          "storyline_id": "s_02",
+          "minutes": 10,
+          "z": -0.6171234341440948,
+          "signal_z": [
+            -0.505818937684207,
+            -1.0785933259631573,
+            -0.2669580387849199
+          ],
+          "percentile": 0.16672431684538222,
+          "detected": false,
+          "slice_z_median": -0.9082405253837229
+        },
+        {
+          "seed": 2191,
+          "storyline_id": "s_01",
+          "minutes": 10,
+          "z": 1.2615960607436012,
+          "signal_z": [
+            0.17369053967435596,
+            2.0306425453440853,
+            1.5804550972123625
+          ],
+          "percentile": 0.9693877551020408,
+          "detected": true,
+          "slice_z_median": 0.4654997058533987
+        },
+        {
+          "seed": 2193,
+          "storyline_id": "s_02",
+          "minutes": 13,
+          "z": 0.6541952473154279,
+          "signal_z": [
+            0.8714632963392606,
+            0.3132200391203409,
+            0.7779024064866823
+          ],
+          "percentile": 0.8510227711308375,
+          "detected": false,
+          "slice_z_median": 0.9632838593992434
+        },
+        {
+          "seed": 2195,
+          "storyline_id": "s_01",
+          "minutes": 15,
+          "z": 1.8544943365577915,
+          "signal_z": [
+            0.8162528934662086,
+            3.0110722988005056,
+            1.7361578174066603
+          ],
+          "percentile": 0.9962358845671268,
+          "detected": true,
+          "slice_z_median": 0.726717581546596
+        },
+        {
+          "seed": 2197,
+          "storyline_id": "s_01",
+          "minutes": 14,
+          "z": 0.74533509250864,
+          "signal_z": [
+            1.02210279970368,
+            -0.5596988376232155,
+            1.7736013154454555
+          ],
+          "percentile": 0.8777599357687675,
+          "detected": false,
+          "slice_z_median": -0.034314716384066656
+        }
+      ],
+      "fatigue_drop": [
+        {
+          "seed": 2001,
+          "storyline_id": "s_03",
+          "minutes": 21,
+          "z": 0.6101481354223065,
+          "signal_z": [
+            0.829609429133807,
+            1.4235406546089178,
+            -0.42270567747580495
+          ],
+          "percentile": 0.8893046176309546,
+          "detected": false,
+          "slice_z_median": 0.19747264274755558
+        },
+        {
+          "seed": 2005,
+          "storyline_id": "s_01",
+          "minutes": 17,
+          "z": -0.5255928112886588,
+          "signal_z": [
+            -3.147811572429224,
+            -0.016550036424618168,
+            1.5875831749878657
+          ],
+          "percentile": 0.17388750183580556,
+          "detected": false,
+          "slice_z_median": 0.11839837088386795
+        },
+        {
+          "seed": 2007,
+          "storyline_id": "s_01",
+          "minutes": 19,
+          "z": 2.416371073232292,
+          "signal_z": [
+            0.422963076045754,
+            2.6551371303183986,
+            4.171013013332724
+          ],
+          "percentile": 0.9920188940467465,
+          "detected": true,
+          "slice_z_median": 0.6478388796489863
+        },
+        {
+          "seed": 2013,
+          "storyline_id": "s_02",
+          "minutes": 17,
+          "z": -0.8118483752903206,
+          "signal_z": [
+            -0.13208158329221126,
+            -1.8692629986961897,
+            -0.4342005438825608
+          ],
+          "percentile": 0.06344543985901013,
+          "detected": false,
+          "slice_z_median": -0.5635817338111686
+        },
+        {
+          "seed": 2015,
+          "storyline_id": "s_01",
+          "minutes": 17,
+          "z": 2.026026499448532,
+          "signal_z": [
+            2.822311524709145,
+            1.836162925846953,
+            1.4196050477894981
+          ],
+          "percentile": 0.9860478778087824,
+          "detected": true,
+          "slice_z_median": 0.3383775370268098
+        },
+        {
+          "seed": 2016,
+          "storyline_id": "s_02",
+          "minutes": 20,
+          "z": 0.38500713828349853,
+          "signal_z": [
+            -0.15929555165795925,
+            -0.1450304326512897,
+            1.4593473991597445
+          ],
+          "percentile": 0.8038050964187328,
+          "detected": false,
+          "slice_z_median": 0.3210944034493492
+        },
+        {
+          "seed": 2017,
+          "storyline_id": "s_02",
+          "minutes": 19,
+          "z": 3.718643905873337,
+          "signal_z": [
+            3.4873627732177663,
+            2.498795383935149,
+            5.169773560467094
+          ],
+          "percentile": 0.9996742405733365,
+          "detected": true,
+          "slice_z_median": 0.613565392386841
+        },
+        {
+          "seed": 2020,
+          "storyline_id": "s_01",
+          "minutes": 16,
+          "z": 0.47858539122136506,
+          "signal_z": [
+            0.25883762576412955,
+            0.46528732071685724,
+            0.7116312271831085
+          ],
+          "percentile": 0.84023503077784,
+          "detected": false,
+          "slice_z_median": 0.2417047567548188
+        },
+        {
+          "seed": 2024,
+          "storyline_id": "s_01",
+          "minutes": 22,
+          "z": 2.0499177908295025,
+          "signal_z": [
+            4.6720215492985435,
+            2.712705936956641,
+            -1.2349741137666768
+          ],
+          "percentile": 0.983501552795031,
+          "detected": true,
+          "slice_z_median": 0.3723708442436043
+        },
+        {
+          "seed": 2029,
+          "storyline_id": "s_02",
+          "minutes": 15,
+          "z": 1.1939156146568042,
+          "signal_z": [
+            2.6634643078150932,
+            0.9576979019669645,
+            -0.03941536581164488
+          ],
+          "percentile": 0.9495327102803738,
+          "detected": false,
+          "slice_z_median": 0.4180681710233185
+        },
+        {
+          "seed": 2030,
+          "storyline_id": "s_01",
+          "minutes": 18,
+          "z": 1.6629190149440618,
+          "signal_z": [
+            3.1854135188924535,
+            1.8635954721374517,
+            -0.06025194619771948
+          ],
+          "percentile": 0.9731191101498532,
+          "detected": true,
+          "slice_z_median": 0.35542281256874964
+        },
+        {
+          "seed": 2034,
+          "storyline_id": "s_01",
+          "minutes": 16,
+          "z": 1.6374303770790435,
+          "signal_z": [
+            2.55364535780473,
+            2.0832948733579095,
+            0.2753509000744911
+          ],
+          "percentile": 0.9736989367655288,
+          "detected": true,
+          "slice_z_median": -0.023362608480665743
+        },
+        {
+          "seed": 2035,
+          "storyline_id": "s_01",
+          "minutes": 22,
+          "z": 0.030281917316505386,
+          "signal_z": [
+            1.184001698301998,
+            -0.5149558326074447,
+            -0.5782001137450372
+          ],
+          "percentile": 0.5659937888198758,
+          "detected": false,
+          "slice_z_median": 0.27065700817045485
+        },
+        {
+          "seed": 2038,
+          "storyline_id": "s_01",
+          "minutes": 21,
+          "z": 1.5917085689626467,
+          "signal_z": [
+            0.041637048907216846,
+            -0.023646104367939735,
+            4.757134762348663
+          ],
+          "percentile": 0.97599926993977,
+          "detected": true,
+          "slice_z_median": 0.11317232354251089
+        },
+        {
+          "seed": 2044,
+          "storyline_id": "s_03",
+          "minutes": 16,
+          "z": 0.36262068186307483,
+          "signal_z": [
+            1.36514989328106,
+            0.41183962378276867,
+            -0.6891274714746041
+          ],
+          "percentile": 0.7840654728595411,
+          "detected": false,
+          "slice_z_median": 0.024429518479867667
+        },
+        {
+          "seed": 2045,
+          "storyline_id": "s_01",
+          "minutes": 16,
+          "z": 0.584213332673163,
+          "signal_z": [
+            0.5243525699747801,
+            0.9813005402077873,
+            0.2469868878369216
+          ],
+          "percentile": 0.8718522663682149,
+          "detected": false,
+          "slice_z_median": 0.1628898573964359
+        },
+        {
+          "seed": 2046,
+          "storyline_id": "s_02",
+          "minutes": 15,
+          "z": 1.0491400670811117,
+          "signal_z": [
+            2.1520409988024176,
+            1.5314611536528024,
+            -0.5360819512118845
+          ],
+          "percentile": 0.9391188251001336,
+          "detected": false,
+          "slice_z_median": 0.04855137524651603
+        },
+        {
+          "seed": 2048,
+          "storyline_id": "s_03",
+          "minutes": 18,
+          "z": 1.8700950250109933,
+          "signal_z": [
+            2.9428607871743324,
+            0.2278304056465979,
+            2.43959388221205
+          ],
+          "percentile": 0.9801483083577939,
+          "detected": true,
+          "slice_z_median": 0.21989554238641135
+        },
+        {
+          "seed": 2049,
+          "storyline_id": "s_03",
+          "minutes": 21,
+          "z": 2.0195184173954632,
+          "signal_z": [
+            1.471829692794798,
+            2.14120294082285,
+            2.445522618568742
+          ],
+          "percentile": 0.9822960394232524,
+          "detected": true,
+          "slice_z_median": 0.31982991050633486
+        },
+        {
+          "seed": 2051,
+          "storyline_id": "s_01",
+          "minutes": 19,
+          "z": 1.453172881538622,
+          "signal_z": [
+            0.5536157763120493,
+            2.334237214397716,
+            1.471665653906101
+          ],
+          "percentile": 0.9689714146103103,
+          "detected": true,
+          "slice_z_median": 0.6173830654442126
+        },
+        {
+          "seed": 2056,
+          "storyline_id": "s_01",
+          "minutes": 17,
+          "z": 1.1585015332387552,
+          "signal_z": [
+            0.45402639200884465,
+            0.13082485830152948,
+            2.8906533494058912
+          ],
+          "percentile": 0.9511675723307387,
+          "detected": true,
+          "slice_z_median": 0.36942797676158656
+        },
+        {
+          "seed": 2057,
+          "storyline_id": "s_02",
+          "minutes": 16,
+          "z": 0.3554878602454888,
+          "signal_z": [
+            1.1944617148674623,
+            0.16292606377544058,
+            -0.2909241979064366
+          ],
+          "percentile": 0.7802182428651371,
+          "detected": false,
+          "slice_z_median": 0.0352577434210485
+        },
+        {
+          "seed": 2065,
+          "storyline_id": "s_01",
+          "minutes": 18,
+          "z": 3.2058770023203067,
+          "signal_z": [
+            1.4801943141324505,
+            0.2768911186893891,
+            7.8605455741390795
+          ],
+          "percentile": 0.999150316700139,
+          "detected": true,
+          "slice_z_median": 0.7406169813353727
+        },
+        {
+          "seed": 2068,
+          "storyline_id": "s_01",
+          "minutes": 15,
+          "z": 1.5472954333960682,
+          "signal_z": [
+            2.3519075793379782,
+            0.9043452290813068,
+            1.3856334917689197
+          ],
+          "percentile": 0.9705607476635514,
+          "detected": true,
+          "slice_z_median": 0.10990307040071386
+        },
+        {
+          "seed": 2069,
+          "storyline_id": "s_03",
+          "minutes": 15,
+          "z": 0.5927486604192033,
+          "signal_z": [
+            0.4472966354265592,
+            0.7956705762972132,
+            0.5352787695338375
+          ],
+          "percentile": 0.8695594125500667,
+          "detected": false,
+          "slice_z_median": 0.14053979262515945
+        },
+        {
+          "seed": 2071,
+          "storyline_id": "s_02",
+          "minutes": 17,
+          "z": 0.09727876675663898,
+          "signal_z": [
+            -0.28542378613061153,
+            -0.8360192312755051,
+            1.4132793176760337
+          ],
+          "percentile": 0.6235864297253635,
+          "detected": false,
+          "slice_z_median": -0.08541995932149267
+        },
+        {
+          "seed": 2074,
+          "storyline_id": "s_02",
+          "minutes": 19,
+          "z": 0.9182445587616525,
+          "signal_z": [
+            1.729490078718776,
+            -0.25252250099286633,
+            1.2777660985590478
+          ],
+          "percentile": 0.9397345060672693,
+          "detected": false,
+          "slice_z_median": 0.06856241799376757
+        },
+        {
+          "seed": 2076,
+          "storyline_id": "s_02",
+          "minutes": 22,
+          "z": 0.10996239856479317,
+          "signal_z": [
+            1.6467976282561523,
+            -2.2754986160060366,
+            0.9585881834442639
+          ],
+          "percentile": 0.6317934782608695,
+          "detected": false,
+          "slice_z_median": 0.2576029414985353
+        },
+        {
+          "seed": 2082,
+          "storyline_id": "s_02",
+          "minutes": 15,
+          "z": 1.942155557666415,
+          "signal_z": [
+            2.375421294697023,
+            0.985501407555265,
+            2.465543970746957
+          ],
+          "percentile": 0.9877837116154873,
+          "detected": true,
+          "slice_z_median": 0.6558436463649954
+        },
+        {
+          "seed": 2084,
+          "storyline_id": "s_01",
+          "minutes": 22,
+          "z": 2.7890450626223227,
+          "signal_z": [
+            4.340757094171683,
+            0.9130399805936358,
+            3.1133381131016495
+          ],
+          "percentile": 0.9944681677018633,
+          "detected": true,
+          "slice_z_median": 0.38710196320769863
+        },
+        {
+          "seed": 2085,
+          "storyline_id": "s_03",
+          "minutes": 16,
+          "z": 0.9806125329525454,
+          "signal_z": [
+            0.176654428762851,
+            -1.2763703897215546,
+            4.0415535598163395
+          ],
+          "percentile": 0.9345271404588696,
+          "detected": false,
+          "slice_z_median": -0.0336395547282721
+        },
+        {
+          "seed": 2086,
+          "storyline_id": "s_01",
+          "minutes": 21,
+          "z": 2.5755568618386224,
+          "signal_z": [
+            2.0958309418598984,
+            3.1020400512910915,
+            2.528799592364878
+          ],
+          "percentile": 0.9926993977003102,
+          "detected": true,
+          "slice_z_median": 0.4161833489265844
+        },
+        {
+          "seed": 2087,
+          "storyline_id": "s_02",
+          "minutes": 17,
+          "z": 1.4773022584882949,
+          "signal_z": [
+            2.80868110668148,
+            -0.19299888997429163,
+            1.8162245587576962
+          ],
+          "percentile": 0.9661477456307828,
+          "detected": true,
+          "slice_z_median": 0.3637224531560061
+        },
+        {
+          "seed": 2088,
+          "storyline_id": "s_02",
+          "minutes": 17,
+          "z": 1.8598881605330797,
+          "signal_z": [
+            3.186925207003486,
+            0.7635396319002539,
+            1.6291996426954996
+          ],
+          "percentile": 0.9800264355999413,
+          "detected": true,
+          "slice_z_median": 0.3302802241813952
+        },
+        {
+          "seed": 2090,
+          "storyline_id": "s_02",
+          "minutes": 17,
+          "z": 1.5855002399586808,
+          "signal_z": [
+            2.2532415719620023,
+            -0.03668822079713538,
+            2.5399473687111755
+          ],
+          "percentile": 0.9704802467322661,
+          "detected": true,
+          "slice_z_median": 0.5453822960072907
+        },
+        {
+          "seed": 2091,
+          "storyline_id": "s_03",
+          "minutes": 19,
+          "z": 2.5669719225572365,
+          "signal_z": [
+            4.267319802073775,
+            1.97746132687869,
+            1.4561346387192442
+          ],
+          "percentile": 0.9956836875967098,
+          "detected": true,
+          "slice_z_median": 0.6555093502070726
+        },
+        {
+          "seed": 2093,
+          "storyline_id": "s_02",
+          "minutes": 16,
+          "z": 1.025503431091537,
+          "signal_z": [
+            3.3249030528615195,
+            -0.37128532694714145,
+            0.12289256736023287
+          ],
+          "percentile": 0.9393536653609401,
+          "detected": false,
+          "slice_z_median": 0.17833212101172716
+        },
+        {
+          "seed": 2094,
+          "storyline_id": "s_01",
+          "minutes": 19,
+          "z": 1.215317501286168,
+          "signal_z": [
+            2.624263116907736,
+            0.1001765628099538,
+            0.9215128241408141
+          ],
+          "percentile": 0.9590357520970763,
+          "detected": true,
+          "slice_z_median": 0.29158215414199407
+        },
+        {
+          "seed": 2097,
+          "storyline_id": "s_02",
+          "minutes": 19,
+          "z": 1.7459019081734999,
+          "signal_z": [
+            3.661566373584466,
+            -0.5411898895219605,
+            2.1173292404579938
+          ],
+          "percentile": 0.9758123625702418,
+          "detected": true,
+          "slice_z_median": 0.6376064155351964
+        },
+        {
+          "seed": 2098,
+          "storyline_id": "s_01",
+          "minutes": 21,
+          "z": 1.7058589381166926,
+          "signal_z": [
+            2.5057587697277968,
+            0.7209342205533186,
+            1.8908838240689625
+          ],
+          "percentile": 0.9773681328709618,
+          "detected": true,
+          "slice_z_median": 0.29118081390475253
+        },
+        {
+          "seed": 2102,
+          "storyline_id": "s_02",
+          "minutes": 21,
+          "z": 0.16275980182853092,
+          "signal_z": [
+            0.29214849925912617,
+            -0.1556398892403446,
+            0.3517707954668112
+          ],
+          "percentile": 0.6692827158240555,
+          "detected": false,
+          "slice_z_median": -0.06578430330989063
+        },
+        {
+          "seed": 2103,
+          "storyline_id": "s_02",
+          "minutes": 18,
+          "z": -0.36709747678289767,
+          "signal_z": [
+            2.8068842557611937,
+            -1.7418776559574978,
+            -2.166299030152389
+          ],
+          "percentile": 0.2586899428394871,
+          "detected": false,
+          "slice_z_median": -0.32591461234713814
+        },
+        {
+          "seed": 2104,
+          "storyline_id": "s_01",
+          "minutes": 15,
+          "z": 1.0184524264370325,
+          "signal_z": [
+            2.3019409342034196,
+            0.4537593631790175,
+            0.2996569819286609
+          ],
+          "percentile": 0.9360480640854473,
+          "detected": false,
+          "slice_z_median": 0.08981308151478778
+        },
+        {
+          "seed": 2106,
+          "storyline_id": "s_02",
+          "minutes": 17,
+          "z": 0.5189039145509815,
+          "signal_z": [
+            2.1578286457557883,
+            -0.18786253636068811,
+            -0.4132543657421557
+          ],
+          "percentile": 0.8561462769863416,
+          "detected": false,
+          "slice_z_median": 0.32614336894804
+        },
+        {
+          "seed": 2109,
+          "storyline_id": "s_02",
+          "minutes": 20,
+          "z": 2.044908318766241,
+          "signal_z": [
+            1.8390163048752461,
+            1.1648592873147114,
+            3.1308493641087645
+          ],
+          "percentile": 0.9837293388429752,
+          "detected": true,
+          "slice_z_median": 0.021466920117969007
+        },
+        {
+          "seed": 2111,
+          "storyline_id": "s_01",
+          "minutes": 15,
+          "z": 1.6104986961753898,
+          "signal_z": [
+            1.4789608967184387,
+            3.8394936838894647,
+            -0.48695849208173364
+          ],
+          "percentile": 0.9723631508678238,
+          "detected": true,
+          "slice_z_median": 0.28213955000190943
+        },
+        {
+          "seed": 2115,
+          "storyline_id": "s_02",
+          "minutes": 15,
+          "z": 0.686679146443078,
+          "signal_z": [
+            1.0586532347060815,
+            1.4270864963106262,
+            -0.4257022916874734
+          ],
+          "percentile": 0.8890520694259012,
+          "detected": false,
+          "slice_z_median": 0.005897065393817076
+        },
+        {
+          "seed": 2119,
+          "storyline_id": "s_02",
+          "minutes": 20,
+          "z": 1.5197897365758397,
+          "signal_z": [
+            1.1785934098604185,
+            1.2290325588980606,
+            2.15174324096904
+          ],
+          "percentile": 0.9723657024793388,
+          "detected": true,
+          "slice_z_median": 0.27182835988647447
+        },
+        {
+          "seed": 2120,
+          "storyline_id": "s_02",
+          "minutes": 20,
+          "z": 1.730547711520499,
+          "signal_z": [
+            3.9012400544631154,
+            1.2290325588980608,
+            0.061370521200320216
+          ],
+          "percentile": 0.9767561983471075,
+          "detected": true,
+          "slice_z_median": 0.4097747551342388
+        },
+        {
+          "seed": 2121,
+          "storyline_id": "s_02",
+          "minutes": 17,
+          "z": 1.0003232840688747,
+          "signal_z": [
+            2.427029401843413,
+            0.967703724782154,
+            -0.3937632744189432
+          ],
+          "percentile": 0.9399324423557057,
+          "detected": false,
+          "slice_z_median": 0.18977013919857072
+        },
+        {
+          "seed": 2124,
+          "storyline_id": "s_01",
+          "minutes": 15,
+          "z": -0.4843625198320159,
+          "signal_z": [
+            0.08577326181414915,
+            -1.0789088823760489,
+            -0.459951938934148
+          ],
+          "percentile": 0.19552736982643526,
+          "detected": false,
+          "slice_z_median": -0.4931437571974917
+        },
+        {
+          "seed": 2128,
+          "storyline_id": "s_02",
+          "minutes": 18,
+          "z": 3.3186475123742603,
+          "signal_z": [
+            2.7701338418635415,
+            0.7741845530041215,
+            6.411624142255117
+          ],
+          "percentile": 0.999382048509192,
+          "detected": true,
+          "slice_z_median": 0.7525712735803725
+        },
+        {
+          "seed": 2131,
+          "storyline_id": "s_02",
+          "minutes": 21,
+          "z": 0.5385249920097004,
+          "signal_z": [
+            1.8362099842198794,
+            -0.047370477465920914,
+            -0.17326453072485717
+          ],
+          "percentile": 0.8653038875707246,
+          "detected": false,
+          "slice_z_median": 0.15713117994902506
+        },
+        {
+          "seed": 2133,
+          "storyline_id": "s_02",
+          "minutes": 17,
+          "z": 1.1790173531945578,
+          "signal_z": [
+            0.6039609903328516,
+            0.5879368199097504,
+            2.3451542493410713
+          ],
+          "percentile": 0.9531502423263328,
+          "detected": true,
+          "slice_z_median": 0.43755559442433395
+        },
+        {
+          "seed": 2136,
+          "storyline_id": "s_03",
+          "minutes": 17,
+          "z": 1.5188510290897437,
+          "signal_z": [
+            1.4626773262191495,
+            1.9519574859889262,
+            1.1419182750611556
+          ],
+          "percentile": 0.9675429578499045,
+          "detected": true,
+          "slice_z_median": 0.32067522941984505
+        },
+        {
+          "seed": 2137,
+          "storyline_id": "s_02",
+          "minutes": 20,
+          "z": 0.921636948517869,
+          "signal_z": [
+            1.9114497836908353,
+            1.4872535802691542,
+            -0.6337925184063822
+          ],
+          "percentile": 0.9435261707988981,
+          "detected": false,
+          "slice_z_median": -0.12233374632152642
+        },
+        {
+          "seed": 2138,
+          "storyline_id": "s_01",
+          "minutes": 20,
+          "z": 1.465378777166247,
+          "signal_z": [
+            1.4640665322159678,
+            1.6140721883981535,
+            1.3179976108846196
+          ],
+          "percentile": 0.9713326446280992,
+          "detected": true,
+          "slice_z_median": 0.2459728010345582
+        },
+        {
+          "seed": 2141,
+          "storyline_id": "s_02",
+          "minutes": 15,
+          "z": 1.1240590412774683,
+          "signal_z": [
+            2.2578527179060828,
+            0.6852235472016192,
+            0.42910085872470305
+          ],
+          "percentile": 0.9449265687583445,
+          "detected": false,
+          "slice_z_median": 0.20650022561722964
+        },
+        {
+          "seed": 2144,
+          "storyline_id": "s_01",
+          "minutes": 16,
+          "z": 0.9109139641202638,
+          "signal_z": [
+            1.779226770544646,
+            -2.9917097169800075,
+            3.945224838796153
+          ],
+          "percentile": 0.9266228315612759,
+          "detected": false,
+          "slice_z_median": 0.22122609652087663
+        },
+        {
+          "seed": 2145,
+          "storyline_id": "s_01",
+          "minutes": 18,
+          "z": 1.6374775342985035,
+          "signal_z": [
+            2.2078525092533847,
+            1.139143915933174,
+            1.5654361777089512
+          ],
+          "percentile": 0.9725784025953963,
+          "detected": true,
+          "slice_z_median": 0.36975352741988055
+        },
+        {
+          "seed": 2149,
+          "storyline_id": "s_01",
+          "minutes": 19,
+          "z": 1.6790370265396017,
+          "signal_z": [
+            2.323365989023153,
+            0.3027133372305584,
+            2.4110317533650942
+          ],
+          "percentile": 0.9744278850069223,
+          "detected": true,
+          "slice_z_median": 0.340837730191413
+        },
+        {
+          "seed": 2154,
+          "storyline_id": "s_03",
+          "minutes": 18,
+          "z": 0.9597736220761927,
+          "signal_z": [
+            1.8917989497561898,
+            0.9331361196171496,
+            0.05438579685523837
+          ],
+          "percentile": 0.9396724857098718,
+          "detected": false,
+          "slice_z_median": 0.3983470378127094
+        },
+        {
+          "seed": 2156,
+          "storyline_id": "s_01",
+          "minutes": 15,
+          "z": 1.6571509036631988,
+          "signal_z": [
+            3.489383559729645,
+            0.7229633875739354,
+            0.7591057636860156
+          ],
+          "percentile": 0.9751668891855808,
+          "detected": true,
+          "slice_z_median": 0.35182395919711074
+        },
+        {
+          "seed": 2157,
+          "storyline_id": "s_02",
+          "minutes": 20,
+          "z": 2.185997147829886,
+          "signal_z": [
+            4.165409212474277,
+            2.544584626356711,
+            -0.15200239534132964
+          ],
+          "percentile": 0.9860537190082644,
+          "detected": true,
+          "slice_z_median": 0.3711061895201855
+        },
+        {
+          "seed": 2158,
+          "storyline_id": "s_01",
+          "minutes": 19,
+          "z": 0.41592377382909423,
+          "signal_z": [
+            2.60446725323696,
+            -0.7166002165228929,
+            -0.6400957152267842
+          ],
+          "percentile": 0.8165160029318348,
+          "detected": false,
+          "slice_z_median": -0.2959251849524489
+        },
+        {
+          "seed": 2159,
+          "storyline_id": "s_02",
+          "minutes": 19,
+          "z": 0.8773011547985607,
+          "signal_z": [
+            0.6486359219657625,
+            0.5540887664759893,
+            1.4291787759539305
+          ],
+          "percentile": 0.9356625132339768,
+          "detected": false,
+          "slice_z_median": 0.3039116748668171
+        },
+        {
+          "seed": 2166,
+          "storyline_id": "s_02",
+          "minutes": 18,
+          "z": 0.2557192345597124,
+          "signal_z": [
+            0.653310001464946,
+            0.3164122486405259,
+            -0.20256454642633454
+          ],
+          "percentile": 0.7328904680982543,
+          "detected": false,
+          "slice_z_median": 0.4919852875927377
+        },
+        {
+          "seed": 2169,
+          "storyline_id": "s_03",
+          "minutes": 19,
+          "z": -0.21217017652178485,
+          "signal_z": [
+            -0.22634125255134407,
+            0.3565795006402933,
+            -0.7667487776543038
+          ],
+          "percentile": 0.36875967098297907,
+          "detected": false,
+          "slice_z_median": -0.28477782388966394
+        },
+        {
+          "seed": 2170,
+          "storyline_id": "s_02",
+          "minutes": 20,
+          "z": 2.5272555975499507,
+          "signal_z": [
+            4.1270620766318675,
+            1.566706202229491,
+            1.8879985137884927
+          ],
+          "percentile": 0.9931129476584022,
+          "detected": true,
+          "slice_z_median": 0.3811360881370637
+        },
+        {
+          "seed": 2172,
+          "storyline_id": "s_02",
+          "minutes": 18,
+          "z": 0.3323567180003084,
+          "signal_z": [
+            0.3813569386548775,
+            -0.21012702927989907,
+            0.8258402446259469
+          ],
+          "percentile": 0.7729028271280705,
+          "detected": false,
+          "slice_z_median": 0.27511279288465157
+        },
+        {
+          "seed": 2174,
+          "storyline_id": "s_01",
+          "minutes": 20,
+          "z": 2.3463842221671656,
+          "signal_z": [
+            4.727833871463584,
+            1.3680746473286496,
+            0.9432441477092626
+          ],
+          "percentile": 0.9894111570247934,
+          "detected": true,
+          "slice_z_median": 0.26163326180794017
+        },
+        {
+          "seed": 2176,
+          "storyline_id": "s_03",
+          "minutes": 21,
+          "z": 0.12043670156734256,
+          "signal_z": [
+            0.702076327139037,
+            0.02475161675194168,
+            -0.36551783918895103
+          ],
+          "percentile": 0.6376163533491513,
+          "detected": false,
+          "slice_z_median": -0.28604454958795156
+        },
+        {
+          "seed": 2180,
+          "storyline_id": "s_02",
+          "minutes": 18,
+          "z": 0.9597574790857321,
+          "signal_z": [
+            1.6823215905580884,
+            1.8322071396235662,
+            -0.6352562929244584
+          ],
+          "percentile": 0.9396724857098718,
+          "detected": false,
+          "slice_z_median": 0.24621452991542478
+        },
+        {
+          "seed": 2181,
+          "storyline_id": "s_03",
+          "minutes": 19,
+          "z": 0.4972212933934454,
+          "signal_z": [
+            -0.4045040256448546,
+            0.7551891098723343,
+            1.1409787959528563
+          ],
+          "percentile": 0.8503135434481636,
+          "detected": false,
+          "slice_z_median": 0.13199755761060275
+        },
+        {
+          "seed": 2182,
+          "storyline_id": "s_02",
+          "minutes": 16,
+          "z": 1.8333795976107596,
+          "signal_z": [
+            3.0277791867231643,
+            1.6402604615137935,
+            0.8320991445953207
+          ],
+          "percentile": 0.9807638500279798,
+          "detected": true,
+          "slice_z_median": 0.3060902094267494
+        },
+        {
+          "seed": 2185,
+          "storyline_id": "s_02",
+          "minutes": 17,
+          "z": 1.686748670666179,
+          "signal_z": [
+            0.903830186989231,
+            0.8583421957591794,
+            3.2980736292501263
+          ],
+          "percentile": 0.9754736378322808,
+          "detected": true,
+          "slice_z_median": 0.06498707890353032
+        },
+        {
+          "seed": 2189,
+          "storyline_id": "s_01",
+          "minutes": 20,
+          "z": 0.23411073675184793,
+          "signal_z": [
+            0.8675555302714977,
+            -1.4822881654984252,
+            1.3170648454824714
+          ],
+          "percentile": 0.7194387052341598,
+          "detected": false,
+          "slice_z_median": 0.041388306950994574
+        },
+        {
+          "seed": 2190,
+          "storyline_id": "s_01",
+          "minutes": 17,
+          "z": -1.2261888339017595,
+          "signal_z": [
+            -0.18319565090305012,
+            -4.463061145876389,
+            0.9676902950741603
+          ],
+          "percentile": 0.010133646644147452,
+          "detected": false,
+          "slice_z_median": -0.40593203924761506
+        },
+        {
+          "seed": 2196,
+          "storyline_id": "s_02",
+          "minutes": 16,
+          "z": 0.7947895729775741,
+          "signal_z": [
+            0.23038959603770484,
+            0.6256304115191237,
+            1.5283487113758938
+          ],
+          "percentile": 0.9110240626748741,
+          "detected": false,
+          "slice_z_median": 0.08542134937279539
+        },
+        {
+          "seed": 2198,
+          "storyline_id": "s_01",
+          "minutes": 21,
+          "z": 1.8110709698013796,
+          "signal_z": [
+            3.9268419063320312,
+            0.8376692714943631,
+            0.6687017315777442
+          ],
+          "percentile": 0.9788282533308998,
+          "detected": true,
+          "slice_z_median": 0.020429883144756095
+        }
+      ],
+      "tactical_switch/wide": [
+        {
+          "seed": 2001,
+          "storyline_id": "s_01",
+          "minutes": 14,
+          "z": -0.9358002039968025,
+          "signal_z": [
+            -0.9358002039968025
+          ],
+          "percentile": 0.1655961461260538,
+          "detected": false,
+          "slice_z_median": -0.377019075803957
+        },
+        {
+          "seed": 2002,
+          "storyline_id": "s_01",
+          "minutes": 14,
+          "z": 1.6829674039835223,
+          "signal_z": [
+            1.6829674039835223
+          ],
+          "percentile": 0.9578482537133681,
+          "detected": true,
+          "slice_z_median": 0.38038194175646367
+        },
+        {
+          "seed": 2003,
+          "storyline_id": "s_03",
+          "minutes": 15,
+          "z": 3.021480221018036,
+          "signal_z": [
+            3.021480221018036
+          ],
+          "percentile": 0.999581764951903,
+          "detected": true,
+          "slice_z_median": 0.5974095516368811
+        },
+        {
+          "seed": 2005,
+          "storyline_id": "s_02",
+          "minutes": 17,
+          "z": 1.0999911304798398,
+          "signal_z": [
+            1.0999911304798398
+          ],
+          "percentile": 0.8680967594705614,
+          "detected": false,
+          "slice_z_median": -0.06030106620068967
+        },
+        {
+          "seed": 2009,
+          "storyline_id": "s_01",
+          "minutes": 12,
+          "z": 1.131924179276226,
+          "signal_z": [
+            1.131924179276226
+          ],
+          "percentile": 0.8742103307320699,
+          "detected": false,
+          "slice_z_median": 0.005733094288100255
+        },
+        {
+          "seed": 2014,
+          "storyline_id": "s_02",
+          "minutes": 15,
+          "z": 4.242271953532351,
+          "signal_z": [
+            4.242271953532351
+          ],
+          "percentile": 1.0,
+          "detected": true,
+          "slice_z_median": 1.1234680441799716
+        },
+        {
+          "seed": 2016,
+          "storyline_id": "s_01",
+          "minutes": 18,
+          "z": -1.5168360891760135,
+          "signal_z": [
+            -1.5168360891760135
+          ],
+          "percentile": 0.06575801052128169,
+          "detected": false,
+          "slice_z_median": -0.4152758329562697
+        },
+        {
+          "seed": 2019,
+          "storyline_id": "s_01",
+          "minutes": 18,
+          "z": 0.559622256064374,
+          "signal_z": [
+            0.559622256064374
+          ],
+          "percentile": 0.7034911525585844,
+          "detected": false,
+          "slice_z_median": 0.05300909091439265
+        },
+        {
+          "seed": 2025,
+          "storyline_id": "s_01",
+          "minutes": 13,
+          "z": 1.2457358935373821,
+          "signal_z": [
+            1.2457358935373821
+          ],
+          "percentile": 0.9006175221922038,
+          "detected": false,
+          "slice_z_median": 0.7555513546018876
+        },
+        {
+          "seed": 2026,
+          "storyline_id": "s_02",
+          "minutes": 18,
+          "z": 2.333682665837046,
+          "signal_z": [
+            2.333682665837046
+          ],
+          "percentile": 0.9909134385461502,
+          "detected": true,
+          "slice_z_median": 0.4110578185951063
+        },
+        {
+          "seed": 2027,
+          "storyline_id": "s_01",
+          "minutes": 17,
+          "z": 4.553115928116248,
+          "signal_z": [
+            4.553115928116248
+          ],
+          "percentile": 1.0,
+          "detected": true,
+          "slice_z_median": 1.131434929784466
+        },
+        {
+          "seed": 2036,
+          "storyline_id": "s_02",
+          "minutes": 12,
+          "z": 2.1569212848522388,
+          "signal_z": [
+            2.1569212848522388
+          ],
+          "percentile": 0.9866220735785953,
+          "detected": true,
+          "slice_z_median": 0.7155237195470738
+        },
+        {
+          "seed": 2037,
+          "storyline_id": "s_01",
+          "minutes": 15,
+          "z": 2.0364092277178845,
+          "signal_z": [
+            2.0364092277178845
+          ],
+          "percentile": 0.9843161856963614,
+          "detected": true,
+          "slice_z_median": 0.5724764982532303
+        },
+        {
+          "seed": 2039,
+          "storyline_id": "s_03",
+          "minutes": 12,
+          "z": 0.5980278387136392,
+          "signal_z": [
+            0.5980278387136392
+          ],
+          "percentile": 0.7209215904868079,
+          "detected": false,
+          "slice_z_median": 0.27089507516674305
+        },
+        {
+          "seed": 2042,
+          "storyline_id": "s_01",
+          "minutes": 17,
+          "z": 1.9085148370764988,
+          "signal_z": [
+            1.9085148370764988
+          ],
+          "percentile": 0.9771793701506162,
+          "detected": true,
+          "slice_z_median": 0.21730569972144712
+        },
+        {
+          "seed": 2048,
+          "storyline_id": "s_02",
+          "minutes": 12,
+          "z": 1.3783597471248397,
+          "signal_z": [
+            1.3783597471248397
+          ],
+          "percentile": 0.9240059457450762,
+          "detected": false,
+          "slice_z_median": 0.7384772126063013
+        },
+        {
+          "seed": 2053,
+          "storyline_id": "s_01",
+          "minutes": 13,
+          "z": 5.063537747102625,
+          "signal_z": [
+            5.063537747102625
+          ],
+          "percentile": 1.0,
+          "detected": true,
+          "slice_z_median": 1.6534127945022723
+        },
+        {
+          "seed": 2057,
+          "storyline_id": "s_03",
+          "minutes": 18,
+          "z": 0.9082679643839571,
+          "signal_z": [
+            0.9082679643839571
+          ],
+          "percentile": 0.8192252510760402,
+          "detected": false,
+          "slice_z_median": -0.036070338744199605
+        },
+        {
+          "seed": 2066,
+          "storyline_id": "s_02",
+          "minutes": 18,
+          "z": 2.8138250764524315,
+          "signal_z": [
+            2.8138250764524315
+          ],
+          "percentile": 0.9990435198469632,
+          "detected": true,
+          "slice_z_median": 0.9670909765964332
+        },
+        {
+          "seed": 2076,
+          "storyline_id": "s_01",
+          "minutes": 12,
+          "z": 2.920452304364225,
+          "signal_z": [
+            2.920452304364225
+          ],
+          "percentile": 0.9981419546636938,
+          "detected": true,
+          "slice_z_median": 0.9534912255620865
+        },
+        {
+          "seed": 2077,
+          "storyline_id": "s_02",
+          "minutes": 12,
+          "z": 0.7588899846128452,
+          "signal_z": [
+            0.7588899846128452
+          ],
+          "percentile": 0.770345596432553,
+          "detected": false,
+          "slice_z_median": 0.06515330650264266
+        },
+        {
+          "seed": 2078,
+          "storyline_id": "s_01",
+          "minutes": 12,
+          "z": 0.1922165831582546,
+          "signal_z": [
+            0.1922165831582546
+          ],
+          "percentile": 0.5748792270531401,
+          "detected": false,
+          "slice_z_median": 0.4054346430095769
+        },
+        {
+          "seed": 2080,
+          "storyline_id": "s_02",
+          "minutes": 16,
+          "z": -0.4762259256856684,
+          "signal_z": [
+            -0.4762259256856684
+          ],
+          "percentile": 0.3048886948930598,
+          "detected": false,
+          "slice_z_median": 0.15138780772894048
+        },
+        {
+          "seed": 2089,
+          "storyline_id": "s_02",
+          "minutes": 17,
+          "z": 3.840185732146894,
+          "signal_z": [
+            3.840185732146894
+          ],
+          "percentile": 1.0,
+          "detected": true,
+          "slice_z_median": 1.3158985524570568
+        },
+        {
+          "seed": 2095,
+          "storyline_id": "s_03",
+          "minutes": 17,
+          "z": 0.22271523365539053,
+          "signal_z": [
+            0.22271523365539053
+          ],
+          "percentile": 0.5816978548607942,
+          "detected": false,
+          "slice_z_median": 0.013169287750534822
+        },
+        {
+          "seed": 2099,
+          "storyline_id": "s_02",
+          "minutes": 14,
+          "z": -0.45725138288732564,
+          "signal_z": [
+            -0.45725138288732564
+          ],
+          "percentile": 0.31112003211561623,
+          "detected": false,
+          "slice_z_median": 0.006855309745431429
+        },
+        {
+          "seed": 2101,
+          "storyline_id": "s_02",
+          "minutes": 13,
+          "z": 2.200220656188469,
+          "signal_z": [
+            2.200220656188469
+          ],
+          "percentile": 0.9893863373214975,
+          "detected": true,
+          "slice_z_median": 1.1768078724649227
+        },
+        {
+          "seed": 2102,
+          "storyline_id": "s_03",
+          "minutes": 14,
+          "z": 0.5448716918532897,
+          "signal_z": [
+            0.5448716918532897
+          ],
+          "percentile": 0.7033319951826575,
+          "detected": false,
+          "slice_z_median": -0.3089208855908779
+        },
+        {
+          "seed": 2112,
+          "storyline_id": "s_01",
+          "minutes": 15,
+          "z": 1.2529797681170969,
+          "signal_z": [
+            1.2529797681170969
+          ],
+          "percentile": 0.9025512337933919,
+          "detected": false,
+          "slice_z_median": 0.7240882523033165
+        },
+        {
+          "seed": 2113,
+          "storyline_id": "s_02",
+          "minutes": 16,
+          "z": 2.7931214802788533,
+          "signal_z": [
+            2.7931214802788533
+          ],
+          "percentile": 0.998035792230467,
+          "detected": true,
+          "slice_z_median": 0.8373610638259874
+        },
+        {
+          "seed": 2116,
+          "storyline_id": "s_02",
+          "minutes": 15,
+          "z": 1.0000637720457601,
+          "signal_z": [
+            1.0000637720457601
+          ],
+          "percentile": 0.8412797992471769,
+          "detected": false,
+          "slice_z_median": 0.5254626203589382
+        },
+        {
+          "seed": 2119,
+          "storyline_id": "s_01",
+          "minutes": 12,
+          "z": 2.1121393064240235,
+          "signal_z": [
+            2.1121393064240235
+          ],
+          "percentile": 0.9858788554440728,
+          "detected": true,
+          "slice_z_median": 0.6451723294223135
+        },
+        {
+          "seed": 2122,
+          "storyline_id": "s_03",
+          "minutes": 14,
+          "z": 3.819433605723759,
+          "signal_z": [
+            3.819433605723759
+          ],
+          "percentile": 1.0,
+          "detected": true,
+          "slice_z_median": 0.9610594170294596
+        },
+        {
+          "seed": 2129,
+          "storyline_id": "s_01",
+          "minutes": 18,
+          "z": 2.257020774145805,
+          "signal_z": [
+            2.257020774145805
+          ],
+          "percentile": 0.9890004782400765,
+          "detected": true,
+          "slice_z_median": 0.48924279872756415
+        },
+        {
+          "seed": 2139,
+          "storyline_id": "s_02",
+          "minutes": 13,
+          "z": 1.224755235768399,
+          "signal_z": [
+            1.224755235768399
+          ],
+          "percentile": 0.895021227325357,
+          "detected": false,
+          "slice_z_median": 0.5714541511522055
+        },
+        {
+          "seed": 2140,
+          "storyline_id": "s_01",
+          "minutes": 13,
+          "z": 2.3066423063059527,
+          "signal_z": [
+            2.3066423063059527
+          ],
+          "percentile": 0.9922809725974527,
+          "detected": true,
+          "slice_z_median": 0.8577580957269728
+        },
+        {
+          "seed": 2145,
+          "storyline_id": "s_02",
+          "minutes": 18,
+          "z": 3.893420324821116,
+          "signal_z": [
+            3.893420324821116
+          ],
+          "percentile": 1.0,
+          "detected": true,
+          "slice_z_median": 0.5659955523569717
+        },
+        {
+          "seed": 2146,
+          "storyline_id": "s_02",
+          "minutes": 13,
+          "z": 1.0834868999179605,
+          "signal_z": [
+            1.0834868999179605
+          ],
+          "percentile": 0.8643380934002316,
+          "detected": false,
+          "slice_z_median": 0.2738645636488568
+        },
+        {
+          "seed": 2153,
+          "storyline_id": "s_01",
+          "minutes": 13,
+          "z": 1.937847086260876,
+          "signal_z": [
+            1.937847086260876
+          ],
+          "percentile": 0.978772674642995,
+          "detected": true,
+          "slice_z_median": 0.7016315820301584
+        },
+        {
+          "seed": 2154,
+          "storyline_id": "s_02",
+          "minutes": 18,
+          "z": 0.15969621217619412,
+          "signal_z": [
+            0.15969621217619412
+          ],
+          "percentile": 0.56025824964132,
+          "detected": false,
+          "slice_z_median": -0.25221029056145683
+        },
+        {
+          "seed": 2155,
+          "storyline_id": "s_02",
+          "minutes": 17,
+          "z": 1.3927133317142506,
+          "signal_z": [
+            1.3927133317142506
+          ],
+          "percentile": 0.923779096303058,
+          "detected": false,
+          "slice_z_median": 0.39246711560965436
+        },
+        {
+          "seed": 2159,
+          "storyline_id": "s_01",
+          "minutes": 16,
+          "z": 2.9037859516796662,
+          "signal_z": [
+            2.9037859516796662
+          ],
+          "percentile": 0.9991270187690965,
+          "detected": true,
+          "slice_z_median": 0.7759004553143827
+        },
+        {
+          "seed": 2160,
+          "storyline_id": "s_01",
+          "minutes": 14,
+          "z": 2.0675670162164614,
+          "signal_z": [
+            2.0675670162164614
+          ],
+          "percentile": 0.9839421918908069,
+          "detected": true,
+          "slice_z_median": 0.6476557183253614
+        },
+        {
+          "seed": 2162,
+          "storyline_id": "s_01",
+          "minutes": 16,
+          "z": 3.6423480933216497,
+          "signal_z": [
+            3.6423480933216497
+          ],
+          "percentile": 1.0,
+          "detected": true,
+          "slice_z_median": 1.149996391697869
+        },
+        {
+          "seed": 2171,
+          "storyline_id": "s_02",
+          "minutes": 18,
+          "z": 0.3942149720523192,
+          "signal_z": [
+            0.3942149720523192
+          ],
+          "percentile": 0.6420373027259685,
+          "detected": false,
+          "slice_z_median": -0.6299987469673337
+        },
+        {
+          "seed": 2173,
+          "storyline_id": "s_01",
+          "minutes": 16,
+          "z": 3.4827418954911673,
+          "signal_z": [
+            3.4827418954911673
+          ],
+          "percentile": 1.0,
+          "detected": true,
+          "slice_z_median": 1.5261090977472695
+        },
+        {
+          "seed": 2174,
+          "storyline_id": "s_02",
+          "minutes": 12,
+          "z": 1.7412452358324038,
+          "signal_z": [
+            1.7412452358324038
+          ],
+          "percentile": 0.9650687476774433,
+          "detected": true,
+          "slice_z_median": 0.2808373356016584
+        },
+        {
+          "seed": 2175,
+          "storyline_id": "s_02",
+          "minutes": 16,
+          "z": -1.1171844208814354,
+          "signal_z": [
+            -1.1171844208814354
+          ],
+          "percentile": 0.12745525971191618,
+          "detected": false,
+          "slice_z_median": -0.5862411480053666
+        },
+        {
+          "seed": 2176,
+          "storyline_id": "s_02",
+          "minutes": 15,
+          "z": 0.8378459011241559,
+          "signal_z": [
+            0.8378459011241559
+          ],
+          "percentile": 0.793391886240067,
+          "detected": false,
+          "slice_z_median": 0.22447499345878652
+        },
+        {
+          "seed": 2178,
+          "storyline_id": "s_02",
+          "minutes": 17,
+          "z": 3.7460150477002525,
+          "signal_z": [
+            3.7460150477002525
+          ],
+          "percentile": 1.0,
+          "detected": true,
+          "slice_z_median": 1.086240332024691
+        },
+        {
+          "seed": 2188,
+          "storyline_id": "s_01",
+          "minutes": 14,
+          "z": 1.9977200816495597,
+          "signal_z": [
+            1.9977200816495597
+          ],
+          "percentile": 0.9809313528703332,
+          "detected": true,
+          "slice_z_median": 0.9073436286030518
+        },
+        {
+          "seed": 2189,
+          "storyline_id": "s_02",
+          "minutes": 12,
+          "z": 1.5336749191664503,
+          "signal_z": [
+            1.5336749191664503
+          ],
+          "percentile": 0.9453734671125975,
+          "detected": false,
+          "slice_z_median": 0.10924044679907229
+        },
+        {
+          "seed": 2191,
+          "storyline_id": "s_02",
+          "minutes": 15,
+          "z": 0.8205436032181078,
+          "signal_z": [
+            0.8205436032181078
+          ],
+          "percentile": 0.78732747804266,
+          "detected": false,
+          "slice_z_median": 0.6747975192868685
+        },
+        {
+          "seed": 2193,
+          "storyline_id": "s_01",
+          "minutes": 14,
+          "z": 0.5392155352369118,
+          "signal_z": [
+            0.5392155352369118
+          ],
+          "percentile": 0.7013247691690084,
+          "detected": false,
+          "slice_z_median": 0.18523931025742935
+        },
+        {
+          "seed": 2194,
+          "storyline_id": "s_02",
+          "minutes": 12,
+          "z": 4.527801702260222,
+          "signal_z": [
+            4.527801702260222
+          ],
+          "percentile": 1.0,
+          "detected": true,
+          "slice_z_median": 1.443010972193926
+        },
+        {
+          "seed": 2197,
+          "storyline_id": "s_02",
+          "minutes": 14,
+          "z": -0.41093851916684637,
+          "signal_z": [
+            -0.41093851916684637
+          ],
+          "percentile": 0.3313930148534725,
+          "detected": false,
+          "slice_z_median": -0.28331918504208997
+        },
+        {
+          "seed": 2198,
+          "storyline_id": "s_02",
+          "minutes": 17,
+          "z": 0.8200051328787566,
+          "signal_z": [
+            0.8200051328787566
+          ],
+          "percentile": 0.7893655864901872,
+          "detected": false,
+          "slice_z_median": 0.12445022551640253
+        }
+      ],
+      "player_arc": [
+        {
+          "seed": 2004,
+          "storyline_id": "s_01",
+          "minutes": 24,
+          "z": 2.5850586584324846,
+          "signal_z": [
+            2.3185351795862315,
+            2.8515821372787378
+          ],
+          "percentile": 0.9968209113387495,
+          "detected": true,
+          "slice_z_median": 0.5598248250319258
+        },
+        {
+          "seed": 2008,
+          "storyline_id": "s_02",
+          "minutes": 18,
+          "z": 2.5124218985592135,
+          "signal_z": [
+            1.8807542010243963,
+            3.144089596094031
+          ],
+          "percentile": 0.996057171020207,
+          "detected": true,
+          "slice_z_median": 1.059611225650864
+        },
+        {
+          "seed": 2010,
+          "storyline_id": "s_02",
+          "minutes": 25,
+          "z": 1.4833221007284174,
+          "signal_z": [
+            1.908569236554218,
+            1.0580749649026169
+          ],
+          "percentile": 0.9597009251045495,
+          "detected": true,
+          "slice_z_median": -0.3270847369266635
+        },
+        {
+          "seed": 2011,
+          "storyline_id": "s_02",
+          "minutes": 18,
+          "z": 0.3255989150306387,
+          "signal_z": [
+            0.2133074777441774,
+            0.4378903523171
+          ],
+          "percentile": 0.668145227534089,
+          "detected": false,
+          "slice_z_median": -0.5587506894600337
+        },
+        {
+          "seed": 2012,
+          "storyline_id": "s_02",
+          "minutes": 23,
+          "z": 4.343271290172466,
+          "signal_z": [
+            6.457931716240886,
+            2.2286108641040467
+          ],
+          "percentile": 0.9995602462620933,
+          "detected": true,
+          "slice_z_median": 0.45379788197946563
+        },
+        {
+          "seed": 2018,
+          "storyline_id": "s_02",
+          "minutes": 25,
+          "z": 0.006026903795840005,
+          "signal_z": [
+            0.4952930600126656,
+            -0.4832392524209856
+          ],
+          "percentile": 0.5217336205804081,
+          "detected": false,
+          "slice_z_median": -0.22232853478537548
+        },
+        {
+          "seed": 2021,
+          "storyline_id": "s_02",
+          "minutes": 23,
+          "z": 0.896148365414629,
+          "signal_z": [
+            0.9344341046733169,
+            0.8578626261559409
+          ],
+          "percentile": 0.8593887423043096,
+          "detected": false,
+          "slice_z_median": -0.35006339540770137
+        },
+        {
+          "seed": 2025,
+          "storyline_id": "s_03",
+          "minutes": 20,
+          "z": 3.419135401893826,
+          "signal_z": [
+            3.0076059728150355,
+            3.8306648309726166
+          ],
+          "percentile": 0.9988105041632355,
+          "detected": true,
+          "slice_z_median": 0.8787033109787807
+        },
+        {
+          "seed": 2028,
+          "storyline_id": "s_01",
+          "minutes": 22,
+          "z": 0.44076365140806106,
+          "signal_z": [
+            0.9771852896013637,
+            -0.09565798678524158
+          ],
+          "percentile": 0.7129457843743559,
+          "detected": false,
+          "slice_z_median": -0.01643149763125222
+        },
+        {
+          "seed": 2031,
+          "storyline_id": "s_01",
+          "minutes": 23,
+          "z": 0.5250328069546131,
+          "signal_z": [
+            0.4595140249665927,
+            0.5905515889426335
+          ],
+          "percentile": 0.7432937554969217,
+          "detected": false,
+          "slice_z_median": -0.20085013160874707
+        },
+        {
+          "seed": 2032,
+          "storyline_id": "s_02",
+          "minutes": 24,
+          "z": 1.6432580302280504,
+          "signal_z": [
+            2.8142572171665945,
+            0.47225884328950646
+          ],
+          "percentile": 0.9707994819262923,
+          "detected": true,
+          "slice_z_median": 0.45460030834273696
+        },
+        {
+          "seed": 2033,
+          "storyline_id": "s_02",
+          "minutes": 24,
+          "z": 3.0435537026370616,
+          "signal_z": [
+            3.268087251571152,
+            2.8190201537029718
+          ],
+          "percentile": 0.9977628635346756,
+          "detected": true,
+          "slice_z_median": 0.617574997473671
+        },
+        {
+          "seed": 2036,
+          "storyline_id": "s_01",
+          "minutes": 18,
+          "z": 2.121229200273299,
+          "signal_z": [
+            2.0745098454062423,
+            2.167948555140355
+          ],
+          "percentile": 0.9906357811729917,
+          "detected": true,
+          "slice_z_median": 0.46851887010375887
+        },
+        {
+          "seed": 2037,
+          "storyline_id": "s_02",
+          "minutes": 19,
+          "z": 1.2489613575269958,
+          "signal_z": [
+            1.544927394104181,
+            0.9529953209498105
+          ],
+          "percentile": 0.9276190476190476,
+          "detected": false,
+          "slice_z_median": 0.1303183524611034
+        },
+        {
+          "seed": 2041,
+          "storyline_id": "s_01",
+          "minutes": 25,
+          "z": 5.576662823837188,
+          "signal_z": [
+            7.145723241234924,
+            4.00760240643945
+          ],
+          "percentile": 1.0,
+          "detected": true,
+          "slice_z_median": 0.6584229165874911
+        },
+        {
+          "seed": 2045,
+          "storyline_id": "s_02",
+          "minutes": 22,
+          "z": 1.250630875400883,
+          "signal_z": [
+            1.9569907771322663,
+            0.5442709736694996
+          ],
+          "percentile": 0.930117501546073,
+          "detected": false,
+          "slice_z_median": 0.6684706065231036
+        },
+        {
+          "seed": 2047,
+          "storyline_id": "s_01",
+          "minutes": 23,
+          "z": 1.7083433833914758,
+          "signal_z": [
+            2.4492162695142192,
+            0.9674704972687325
+          ],
+          "percentile": 0.9750439753737907,
+          "detected": true,
+          "slice_z_median": 0.053634232944826
+        },
+        {
+          "seed": 2049,
+          "storyline_id": "s_01",
+          "minutes": 18,
+          "z": 0.9239631500965073,
+          "signal_z": [
+            0.955032788977795,
+            0.8928935112152196
+          ],
+          "percentile": 0.8651223919829144,
+          "detected": false,
+          "slice_z_median": -0.07057022034514976
+        },
+        {
+          "seed": 2050,
+          "storyline_id": "s_02",
+          "minutes": 18,
+          "z": 0.4072924474063483,
+          "signal_z": [
+            0.8295978817067466,
+            -0.015012986894050107
+          ],
+          "percentile": 0.7028092656481025,
+          "detected": false,
+          "slice_z_median": 0.015964241155082215
+        },
+        {
+          "seed": 2052,
+          "storyline_id": "s_02",
+          "minutes": 19,
+          "z": 4.133452589742203,
+          "signal_z": [
+            4.3542807317535015,
+            3.9126244477309036
+          ],
+          "percentile": 0.9994805194805195,
+          "detected": true,
+          "slice_z_median": 1.0879147845823143
+        },
+        {
+          "seed": 2053,
+          "storyline_id": "s_02",
+          "minutes": 23,
+          "z": 5.613533198874897,
+          "signal_z": [
+            6.906808095967665,
+            4.32025830178213
+          ],
+          "percentile": 1.0,
+          "detected": true,
+          "slice_z_median": 1.5639044847430221
+        },
+        {
+          "seed": 2054,
+          "storyline_id": "s_01",
+          "minutes": 22,
+          "z": 3.7437854475538153,
+          "signal_z": [
+            5.227422607134063,
+            2.260148287973568
+          ],
+          "percentile": 0.9988662131519275,
+          "detected": true,
+          "slice_z_median": 0.6931673529884146
+        },
+        {
+          "seed": 2055,
+          "storyline_id": "s_01",
+          "minutes": 24,
+          "z": 3.273245685162534,
+          "signal_z": [
+            3.2041750928798587,
+            3.3423162774452098
+          ],
+          "percentile": 0.9979983515836571,
+          "detected": true,
+          "slice_z_median": 0.542689291229158
+        },
+        {
+          "seed": 2058,
+          "storyline_id": "s_02",
+          "minutes": 21,
+          "z": 1.499165109149029,
+          "signal_z": [
+            2.3305436429229274,
+            0.6677865753751305
+          ],
+          "percentile": 0.9571414719286337,
+          "detected": true,
+          "slice_z_median": 0.2456832251347031
+        },
+        {
+          "seed": 2059,
+          "storyline_id": "s_02",
+          "minutes": 22,
+          "z": 2.3752525481181292,
+          "signal_z": [
+            1.768506732631091,
+            2.9819983636051672
+          ],
+          "percentile": 0.9950525664811379,
+          "detected": true,
+          "slice_z_median": 0.4342590132317619
+        },
+        {
+          "seed": 2060,
+          "storyline_id": "s_02",
+          "minutes": 22,
+          "z": 0.9214128336424222,
+          "signal_z": [
+            1.4342743360758272,
+            0.40855133120901727
+          ],
+          "percentile": 0.8649762935477221,
+          "detected": false,
+          "slice_z_median": -0.33778772046658007
+        },
+        {
+          "seed": 2061,
+          "storyline_id": "s_01",
+          "minutes": 20,
+          "z": 0.7418666252119201,
+          "signal_z": [
+            0.4391897282992156,
+            1.0445435221246246
+          ],
+          "percentile": 0.8162686430597493,
+          "detected": false,
+          "slice_z_median": -0.2119898781552852
+        },
+        {
+          "seed": 2064,
+          "storyline_id": "s_01",
+          "minutes": 24,
+          "z": 1.1094505839815627,
+          "signal_z": [
+            1.6022375033936267,
+            0.6166636645694986
+          ],
+          "percentile": 0.9048628282114682,
+          "detected": false,
+          "slice_z_median": 0.575150408807418
+        },
+        {
+          "seed": 2065,
+          "storyline_id": "s_02",
+          "minutes": 18,
+          "z": 0.9915229698252158,
+          "signal_z": [
+            1.0422794826468138,
+            0.9407664570036178
+          ],
+          "percentile": 0.8812222769837358,
+          "detected": false,
+          "slice_z_median": 0.4332866918400233
+        },
+        {
+          "seed": 2067,
+          "storyline_id": "s_01",
+          "minutes": 25,
+          "z": 3.6992852237619602,
+          "signal_z": [
+            3.1114795410801133,
+            4.287090906443807
+          ],
+          "percentile": 0.9986060068432391,
+          "detected": true,
+          "slice_z_median": 0.9171712710580351
+        },
+        {
+          "seed": 2072,
+          "storyline_id": "s_02",
+          "minutes": 18,
+          "z": 2.029360134472368,
+          "signal_z": [
+            3.040644228113384,
+            1.0180760408313514
+          ],
+          "percentile": 0.9888286512239198,
+          "detected": true,
+          "slice_z_median": 0.5354599591952234
+        },
+        {
+          "seed": 2075,
+          "storyline_id": "s_01",
+          "minutes": 23,
+          "z": 2.327183817839972,
+          "signal_z": [
+            2.477051522325915,
+            2.177316113354029
+          ],
+          "percentile": 0.9940633245382586,
+          "detected": true,
+          "slice_z_median": 0.31464849589944544
+        },
+        {
+          "seed": 2077,
+          "storyline_id": "s_01",
+          "minutes": 21,
+          "z": 1.4972500709615781,
+          "signal_z": [
+            1.2520273714256203,
+            1.742472770497536
+          ],
+          "percentile": 0.9569475419373606,
+          "detected": true,
+          "slice_z_median": -0.03306590824537166
+        },
+        {
+          "seed": 2079,
+          "storyline_id": "s_02",
+          "minutes": 19,
+          "z": 0.24326040612483274,
+          "signal_z": [
+            0.015790375444087762,
+            0.4707304368055777
+          ],
+          "percentile": 0.6317748917748918,
+          "detected": false,
+          "slice_z_median": -0.12447421698324711
+        },
+        {
+          "seed": 2081,
+          "storyline_id": "s_02",
+          "minutes": 23,
+          "z": 2.7747553422866735,
+          "signal_z": [
+            3.546469642179682,
+            2.0030410423936655
+          ],
+          "percentile": 0.9972515391380826,
+          "detected": true,
+          "slice_z_median": 0.7881334317376999
+        },
+        {
+          "seed": 2082,
+          "storyline_id": "s_01",
+          "minutes": 22,
+          "z": 1.372211532235441,
+          "signal_z": [
+            2.105899719224703,
+            0.6385233452461789
+          ],
+          "percentile": 0.9448567305710163,
+          "detected": false,
+          "slice_z_median": 0.6463716553578691
+        },
+        {
+          "seed": 2083,
+          "storyline_id": "s_01",
+          "minutes": 18,
+          "z": 3.3633937583278213,
+          "signal_z": [
+            4.41909666512613,
+            2.3076908515295127
+          ],
+          "percentile": 0.9990964350254641,
+          "detected": true,
+          "slice_z_median": 0.898164971449071
+        },
+        {
+          "seed": 2084,
+          "storyline_id": "s_02",
+          "minutes": 19,
+          "z": 4.289443570365501,
+          "signal_z": [
+            5.634681573129439,
+            2.9442055676015633
+          ],
+          "percentile": 0.9996536796536797,
+          "detected": true,
+          "slice_z_median": 0.9241210918275318
+        },
+        {
+          "seed": 2085,
+          "storyline_id": "s_01",
+          "minutes": 22,
+          "z": 2.3241685480256717,
+          "signal_z": [
+            3.750814337193125,
+            0.8975227588582184
+          ],
+          "percentile": 0.9944341372912802,
+          "detected": true,
+          "slice_z_median": 0.6383672746516194
+        },
+        {
+          "seed": 2086,
+          "storyline_id": "s_02",
+          "minutes": 24,
+          "z": 0.427651200981217,
+          "signal_z": [
+            -0.05190459431815247,
+            0.9072069962805864
+          ],
+          "percentile": 0.7044624985281996,
+          "detected": false,
+          "slice_z_median": -0.3171300097963258
+        },
+        {
+          "seed": 2087,
+          "storyline_id": "s_01",
+          "minutes": 18,
+          "z": 1.9572161522011964,
+          "signal_z": [
+            3.5716782164191865,
+            0.3427540879832061
+          ],
+          "percentile": 0.9855429604074256,
+          "detected": true,
+          "slice_z_median": 0.271901096253417
+        },
+        {
+          "seed": 2090,
+          "storyline_id": "s_01",
+          "minutes": 20,
+          "z": 2.0530339724026474,
+          "signal_z": [
+            2.6457456403812674,
+            1.4603223044240272
+          ],
+          "percentile": 0.9898435355476256,
+          "detected": true,
+          "slice_z_median": 0.7896233207643572
+        },
+        {
+          "seed": 2092,
+          "storyline_id": "s_02",
+          "minutes": 18,
+          "z": 1.441815297061623,
+          "signal_z": [
+            2.677305183483099,
+            0.20632541064014676
+          ],
+          "percentile": 0.9521110563495975,
+          "detected": true,
+          "slice_z_median": 0.13141553836396808
+        },
+        {
+          "seed": 2094,
+          "storyline_id": "s_02",
+          "minutes": 25,
+          "z": 1.0696274414196212,
+          "signal_z": [
+            1.335684435504416,
+            0.8035704473348264
+          ],
+          "percentile": 0.896464326447852,
+          "detected": false,
+          "slice_z_median": 0.5716441071232936
+        },
+        {
+          "seed": 2095,
+          "storyline_id": "s_01",
+          "minutes": 21,
+          "z": 1.6966290168330915,
+          "signal_z": [
+            1.9235581851614234,
+            1.4696998485047599
+          ],
+          "percentile": 0.9751769611170368,
+          "detected": true,
+          "slice_z_median": 0.4701577433028254
+        },
+        {
+          "seed": 2096,
+          "storyline_id": "s_02",
+          "minutes": 22,
+          "z": 1.2952912259956377,
+          "signal_z": [
+            1.7297895046613323,
+            0.8607929473299433
+          ],
+          "percentile": 0.9354772211915069,
+          "detected": false,
+          "slice_z_median": -0.021697489272371896
+        },
+        {
+          "seed": 2100,
+          "storyline_id": "s_02",
+          "minutes": 22,
+          "z": 4.721145422271597,
+          "signal_z": [
+            6.644168379644962,
+            2.7981224648982317
+          ],
+          "percentile": 0.9998969284683571,
+          "detected": true,
+          "slice_z_median": 1.1326768693437936
+        },
+        {
+          "seed": 2105,
+          "storyline_id": "s_02",
+          "minutes": 24,
+          "z": 2.2659543581596653,
+          "signal_z": [
+            3.1448715660397744,
+            1.387037150279556
+          ],
+          "percentile": 0.9932885906040269,
+          "detected": true,
+          "slice_z_median": 0.40670406297444744
+        },
+        {
+          "seed": 2107,
+          "storyline_id": "s_02",
+          "minutes": 23,
+          "z": 3.53848036225192,
+          "signal_z": [
+            3.942086483200785,
+            3.134874241303055
+          ],
+          "percentile": 0.9984608619173263,
+          "detected": true,
+          "slice_z_median": 1.1433983560085443
+        },
+        {
+          "seed": 2108,
+          "storyline_id": "s_03",
+          "minutes": 21,
+          "z": 2.299988583645044,
+          "signal_z": [
+            0.7206757784374276,
+            3.8793013888526606
+          ],
+          "percentile": 0.9936972752836226,
+          "detected": true,
+          "slice_z_median": 0.5687832947526648
+        },
+        {
+          "seed": 2110,
+          "storyline_id": "s_01",
+          "minutes": 24,
+          "z": 1.095153486358098,
+          "signal_z": [
+            0.9733364109409279,
+            1.216970561775268
+          ],
+          "percentile": 0.9016837395502179,
+          "detected": false,
+          "slice_z_median": -0.19578434356886137
+        },
+        {
+          "seed": 2114,
+          "storyline_id": "s_01",
+          "minutes": 22,
+          "z": 2.0039139958183525,
+          "signal_z": [
+            1.4656168539561083,
+            2.5422111376805967
+          ],
+          "percentile": 0.9873222016079158,
+          "detected": true,
+          "slice_z_median": 0.3077096733484122
+        },
+        {
+          "seed": 2115,
+          "storyline_id": "s_01",
+          "minutes": 19,
+          "z": 1.0096363768978664,
+          "signal_z": [
+            1.5221916000274975,
+            0.4970811537682352
+          ],
+          "percentile": 0.8866666666666667,
+          "detected": false,
+          "slice_z_median": 0.2953603290338781
+        },
+        {
+          "seed": 2116,
+          "storyline_id": "s_01",
+          "minutes": 23,
+          "z": 2.6785628930107137,
+          "signal_z": [
+            2.771704476666413,
+            2.585421309355014
+          ],
+          "percentile": 0.9970316622691293,
+          "detected": true,
+          "slice_z_median": 0.643640244214275
+        },
+        {
+          "seed": 2117,
+          "storyline_id": "s_01",
+          "minutes": 24,
+          "z": -0.03614889442704508,
+          "signal_z": [
+            0.2216076872861995,
+            -0.29390547614028967
+          ],
+          "percentile": 0.49464264688567056,
+          "detected": false,
+          "slice_z_median": -0.2700843237692673
+        },
+        {
+          "seed": 2118,
+          "storyline_id": "s_02",
+          "minutes": 20,
+          "z": 6.672994642823143,
+          "signal_z": [
+            8.568709434428024,
+            4.777279851218261
+          ],
+          "percentile": 1.0,
+          "detected": true,
+          "slice_z_median": 2.2039234526602245
+        },
+        {
+          "seed": 2122,
+          "storyline_id": "s_01",
+          "minutes": 18,
+          "z": 2.6714053135245037,
+          "signal_z": [
+            1.3310218328486714,
+            4.011788794200336
+          ],
+          "percentile": 0.9967964514539182,
+          "detected": true,
+          "slice_z_median": 0.9335575561443348
+        },
+        {
+          "seed": 2123,
+          "storyline_id": "s_02",
+          "minutes": 24,
+          "z": 0.8662116780464646,
+          "signal_z": [
+            0.8563626049717711,
+            0.876060751121158
+          ],
+          "percentile": 0.8516425291416461,
+          "detected": false,
+          "slice_z_median": -0.061266072181689626
+        },
+        {
+          "seed": 2125,
+          "storyline_id": "s_02",
+          "minutes": 22,
+          "z": 1.0188062892212792,
+          "signal_z": [
+            0.26536238402362206,
+            1.7722501944189364
+          ],
+          "percentile": 0.8866213151927438,
+          "detected": false,
+          "slice_z_median": 0.2730446581930703
+        },
+        {
+          "seed": 2127,
+          "storyline_id": "s_01",
+          "minutes": 23,
+          "z": 1.5782787595510253,
+          "signal_z": [
+            1.8387800181953,
+            1.3177775009067505
+          ],
+          "percentile": 0.967788038698329,
+          "detected": true,
+          "slice_z_median": -0.18471320283247133
+        },
+        {
+          "seed": 2130,
+          "storyline_id": "s_03",
+          "minutes": 20,
+          "z": 3.2802061180999873,
+          "signal_z": [
+            4.074528546725222,
+            2.485883689474752
+          ],
+          "percentile": 0.9985360051239821,
+          "detected": true,
+          "slice_z_median": 0.7892598976731247
+        },
+        {
+          "seed": 2132,
+          "storyline_id": "s_01",
+          "minutes": 24,
+          "z": 1.2624412485370495,
+          "signal_z": [
+            1.20141509489809,
+            1.3234674021760093
+          ],
+          "percentile": 0.9313552337218887,
+          "detected": false,
+          "slice_z_median": 0.3316365389888248
+        },
+        {
+          "seed": 2134,
+          "storyline_id": "s_02",
+          "minutes": 20,
+          "z": 0.41827247269208356,
+          "signal_z": [
+            1.0682398126863497,
+            -0.23169486730218258
+          ],
+          "percentile": 0.7042730350443773,
+          "detected": false,
+          "slice_z_median": 0.2310563914739525
+        },
+        {
+          "seed": 2135,
+          "storyline_id": "s_01",
+          "minutes": 25,
+          "z": -0.23315671133455343,
+          "signal_z": [
+            0.30028628717542377,
+            -0.7665997098445306
+          ],
+          "percentile": 0.3953871499176277,
+          "detected": false,
+          "slice_z_median": -0.45957760933884323
+        },
+        {
+          "seed": 2138,
+          "storyline_id": "s_02",
+          "minutes": 18,
+          "z": 0.39154457302377227,
+          "signal_z": [
+            0.05123299473796836,
+            0.7318561513095762
+          ],
+          "percentile": 0.6960735994742895,
+          "detected": false,
+          "slice_z_median": 0.243527662484106
+        },
+        {
+          "seed": 2142,
+          "storyline_id": "s_01",
+          "minutes": 21,
+          "z": -0.02495509955795172,
+          "signal_z": [
+            -0.036538523385804204,
+            -0.01337167573009924
+          ],
+          "percentile": 0.49946669252399883,
+          "detected": false,
+          "slice_z_median": 0.31944365506495465
+        },
+        {
+          "seed": 2143,
+          "storyline_id": "s_02",
+          "minutes": 22,
+          "z": 1.2541169871937559,
+          "signal_z": [
+            0.9635768800523234,
+            1.544657094335188
+          ],
+          "percentile": 0.9304267161410018,
+          "detected": false,
+          "slice_z_median": -0.12270078858755157
+        },
+        {
+          "seed": 2144,
+          "storyline_id": "s_02",
+          "minutes": 20,
+          "z": 2.372689198923463,
+          "signal_z": [
+            3.6868102780362917,
+            1.0585681198106336
+          ],
+          "percentile": 0.9946015188946838,
+          "detected": true,
+          "slice_z_median": 0.7250853168914733
+        },
+        {
+          "seed": 2146,
+          "storyline_id": "s_01",
+          "minutes": 19,
+          "z": 0.6771369418081623,
+          "signal_z": [
+            0.4654714318546882,
+            0.8888024517616364
+          ],
+          "percentile": 0.7965367965367965,
+          "detected": false,
+          "slice_z_median": 0.5718514809148243
+        },
+        {
+          "seed": 2148,
+          "storyline_id": "s_02",
+          "minutes": 20,
+          "z": 0.605835335569762,
+          "signal_z": [
+            0.918275635581297,
+            0.293395035558227
+          ],
+          "percentile": 0.7755512855705005,
+          "detected": false,
+          "slice_z_median": -0.20852377596974686
+        },
+        {
+          "seed": 2151,
+          "storyline_id": "s_01",
+          "minutes": 22,
+          "z": 2.0148108292825184,
+          "signal_z": [
+            2.1555999975777196,
+            1.874021660987317
+          ],
+          "percentile": 0.9878375592661307,
+          "detected": true,
+          "slice_z_median": 0.3799849561689421
+        },
+        {
+          "seed": 2152,
+          "storyline_id": "s_01",
+          "minutes": 22,
+          "z": 1.3332503369911044,
+          "signal_z": [
+            1.6556269271417943,
+            1.0108737468404143
+          ],
+          "percentile": 0.9394970109255824,
+          "detected": false,
+          "slice_z_median": 0.13605985149735178
+        },
+        {
+          "seed": 2153,
+          "storyline_id": "s_02",
+          "minutes": 20,
+          "z": 1.126985789645437,
+          "signal_z": [
+            1.5989892412473363,
+            0.6549823380435377
+          ],
+          "percentile": 0.9085003202488792,
+          "detected": false,
+          "slice_z_median": 0.5514208099070844
+        },
+        {
+          "seed": 2155,
+          "storyline_id": "s_01",
+          "minutes": 25,
+          "z": -0.0948410442390047,
+          "signal_z": [
+            -0.37485668332482647,
+            0.18517459484681706
+          ],
+          "percentile": 0.46293245469522243,
+          "detected": false,
+          "slice_z_median": -0.19639680732854523
+        },
+        {
+          "seed": 2160,
+          "storyline_id": "s_02",
+          "minutes": 24,
+          "z": 2.262657030039255,
+          "signal_z": [
+            3.1470659090632704,
+            1.3782481510152398
+          ],
+          "percentile": 0.9932885906040269,
+          "detected": true,
+          "slice_z_median": 0.3842992276378986
+        },
+        {
+          "seed": 2161,
+          "storyline_id": "s_02",
+          "minutes": 23,
+          "z": 1.66657229458686,
+          "signal_z": [
+            1.2074383048912694,
+            2.1257062842824506
+          ],
+          "percentile": 0.9730650835532102,
+          "detected": true,
+          "slice_z_median": 0.8415989103497283
+        },
+        {
+          "seed": 2164,
+          "storyline_id": "s_01",
+          "minutes": 21,
+          "z": 1.0372367809017395,
+          "signal_z": [
+            1.040350959315461,
+            1.0341226024880181
+          ],
+          "percentile": 0.8906234849219432,
+          "detected": false,
+          "slice_z_median": 0.08707738745446081
+        },
+        {
+          "seed": 2165,
+          "storyline_id": "s_01",
+          "minutes": 25,
+          "z": 0.9724048377011129,
+          "signal_z": [
+            1.4072388158665752,
+            0.5375708595356505
+          ],
+          "percentile": 0.8774553288556584,
+          "detected": false,
+          "slice_z_median": -0.0298455770891495
+        },
+        {
+          "seed": 2167,
+          "storyline_id": "s_02",
+          "minutes": 21,
+          "z": 1.4321671906960531,
+          "signal_z": [
+            2.2937092471180236,
+            0.5706251342740828
+          ],
+          "percentile": 0.9512266071948027,
+          "detected": true,
+          "slice_z_median": 0.2688063811773678
+        },
+        {
+          "seed": 2168,
+          "storyline_id": "s_02",
+          "minutes": 22,
+          "z": 3.334652472800564,
+          "signal_z": [
+            4.229238355920148,
+            2.44006658968098
+          ],
+          "percentile": 0.9984539270253556,
+          "detected": true,
+          "slice_z_median": 0.571888522612004
+        },
+        {
+          "seed": 2169,
+          "storyline_id": "s_02",
+          "minutes": 23,
+          "z": 0.7343348036072731,
+          "signal_z": [
+            1.2424156851297197,
+            0.2262539220848265
+          ],
+          "percentile": 0.8159630606860159,
+          "detected": false,
+          "slice_z_median": -0.3171471514327865
+        },
+        {
+          "seed": 2177,
+          "storyline_id": "s_01",
+          "minutes": 18,
+          "z": 0.6321263484896502,
+          "signal_z": [
+            0.5675215002141016,
+            0.6967311967651987
+          ],
+          "percentile": 0.7841301133563332,
+          "detected": false,
+          "slice_z_median": -0.08529120846944299
+        },
+        {
+          "seed": 2179,
+          "storyline_id": "s_01",
+          "minutes": 21,
+          "z": 2.026805168718332,
+          "signal_z": [
+            2.0829571363221997,
+            1.970653201114465
+          ],
+          "percentile": 0.9888490255017939,
+          "detected": true,
+          "slice_z_median": 0.6355775285053024
+        },
+        {
+          "seed": 2180,
+          "storyline_id": "s_01",
+          "minutes": 18,
+          "z": 3.500352905251712,
+          "signal_z": [
+            3.697449424175824,
+            3.3032563863276008
+          ],
+          "percentile": 0.9991785772958764,
+          "detected": true,
+          "slice_z_median": 0.6134926143949833
+        },
+        {
+          "seed": 2182,
+          "storyline_id": "s_01",
+          "minutes": 24,
+          "z": 2.1865554466202752,
+          "signal_z": [
+            2.7760365006540835,
+            1.597074392586467
+          ],
+          "percentile": 0.9922288943836101,
+          "detected": true,
+          "slice_z_median": 0.3909128582019005
+        },
+        {
+          "seed": 2183,
+          "storyline_id": "s_01",
+          "minutes": 20,
+          "z": 4.016447488789539,
+          "signal_z": [
+            5.294864824073477,
+            2.7380301535056013
+          ],
+          "percentile": 0.9994510019214933,
+          "detected": true,
+          "slice_z_median": 0.844525381057785
+        },
+        {
+          "seed": 2184,
+          "storyline_id": "s_02",
+          "minutes": 24,
+          "z": 2.374729767640295,
+          "signal_z": [
+            2.0295410707212556,
+            2.719918464559335
+          ],
+          "percentile": 0.9952902390203697,
+          "detected": true,
+          "slice_z_median": 0.6139467860144365
+        },
+        {
+          "seed": 2186,
+          "storyline_id": "s_01",
+          "minutes": 23,
+          "z": 4.3373320148951615,
+          "signal_z": [
+            5.560178956787324,
+            3.1144850730029994
+          ],
+          "percentile": 0.9995602462620933,
+          "detected": true,
+          "slice_z_median": 0.6433972422036218
+        },
+        {
+          "seed": 2192,
+          "storyline_id": "s_02",
+          "minutes": 18,
+          "z": 0.6993029037124223,
+          "signal_z": [
+            0.9779964209045324,
+            0.4206093865203123
+          ],
+          "percentile": 0.8046656809594217,
+          "detected": false,
+          "slice_z_median": -0.13345711681174205
+        },
+        {
+          "seed": 2196,
+          "storyline_id": "s_01",
+          "minutes": 23,
+          "z": 1.8721557387356995,
+          "signal_z": [
+            3.3939596118371873,
+            0.3503518656342115
+          ],
+          "percentile": 0.9829595426561126,
+          "detected": true,
+          "slice_z_median": 0.48579839927354407
+        },
+        {
+          "seed": 2199,
+          "storyline_id": "s_03",
+          "minutes": 19,
+          "z": -0.36226676702518057,
+          "signal_z": [
+            0.3755167683338973,
+            -1.1000503023842585
+          ],
+          "percentile": 0.3394805194805195,
+          "detected": false,
+          "slice_z_median": 0.04550555013533933
+        }
+      ],
+      "tactical_switch/long_ball": [
+        {
+          "seed": 2007,
+          "storyline_id": "s_02",
+          "minutes": 16,
+          "z": 2.1780374016000903,
+          "signal_z": [
+            2.913870033620383,
+            1.4422047695797975
+          ],
+          "percentile": 0.99257965953732,
+          "detected": true,
+          "slice_z_median": 0.4542443003390241
+        },
+        {
+          "seed": 2015,
+          "storyline_id": "s_03",
+          "minutes": 15,
+          "z": 1.633553426283469,
+          "signal_z": [
+            -0.05327353806787134,
+            3.3203803906348095
+          ],
+          "percentile": 0.9713508992053534,
+          "detected": true,
+          "slice_z_median": 0.6803707073011985
+        },
+        {
+          "seed": 2021,
+          "storyline_id": "s_01",
+          "minutes": 16,
+          "z": 0.6009553195380127,
+          "signal_z": [
+            0.7873263535063,
+            0.41458428556972554
+          ],
+          "percentile": 0.7983413356612833,
+          "detected": false,
+          "slice_z_median": 0.20694935274901405
+        },
+        {
+          "seed": 2022,
+          "storyline_id": "s_01",
+          "minutes": 17,
+          "z": 0.9401759100645843,
+          "signal_z": [
+            -0.8453821442521726,
+            2.7257339643813414
+          ],
+          "percentile": 0.8943404837973528,
+          "detected": false,
+          "slice_z_median": 0.4579197629810715
+        },
+        {
+          "seed": 2033,
+          "storyline_id": "s_01",
+          "minutes": 15,
+          "z": -1.2683102677998375,
+          "signal_z": [
+            -1.813894159967912,
+            -0.7227263756317632
+          ],
+          "percentile": 0.04851526557925554,
+          "detected": false,
+          "slice_z_median": -0.465482753839785
+        },
+        {
+          "seed": 2038,
+          "storyline_id": "s_02",
+          "minutes": 15,
+          "z": 0.1642204069875948,
+          "signal_z": [
+            0.7475128778481038,
+            -0.41907206387291424
+          ],
+          "percentile": 0.6012128816394814,
+          "detected": false,
+          "slice_z_median": -0.3816728958695236
+        },
+        {
+          "seed": 2040,
+          "storyline_id": "s_01",
+          "minutes": 13,
+          "z": 1.156057862364363,
+          "signal_z": [
+            0.4394725896538298,
+            1.8726431350748962
+          ],
+          "percentile": 0.9260903126206098,
+          "detected": false,
+          "slice_z_median": 0.2722073421725015
+        },
+        {
+          "seed": 2043,
+          "storyline_id": "s_01",
+          "minutes": 14,
+          "z": -0.025423510431915305,
+          "signal_z": [
+            -0.2780178553739803,
+            0.22717083451014972
+          ],
+          "percentile": 0.4943797671617824,
+          "detected": false,
+          "slice_z_median": -0.058480288928253424
+        },
+        {
+          "seed": 2044,
+          "storyline_id": "s_02",
+          "minutes": 15,
+          "z": 0.8916581313683569,
+          "signal_z": [
+            0.8100075869698317,
+            0.9733086757668821
+          ],
+          "percentile": 0.884358009201171,
+          "detected": false,
+          "slice_z_median": 0.5423321048276543
+        },
+        {
+          "seed": 2046,
+          "storyline_id": "s_03",
+          "minutes": 14,
+          "z": 0.17022361136326009,
+          "signal_z": [
+            -0.9038214069256284,
+            1.2442686296521486
+          ],
+          "percentile": 0.602167804094741,
+          "detected": false,
+          "slice_z_median": 0.3518162636097355
+        },
+        {
+          "seed": 2056,
+          "storyline_id": "s_02",
+          "minutes": 12,
+          "z": 1.3375892916737278,
+          "signal_z": [
+            0.5503411301750557,
+            2.1248374531724
+          ],
+          "percentile": 0.94908955778521,
+          "detected": false,
+          "slice_z_median": 0.558336412216074
+        },
+        {
+          "seed": 2063,
+          "storyline_id": "s_01",
+          "minutes": 12,
+          "z": -0.07728064911087112,
+          "signal_z": [
+            0.3010091900575834,
+            -0.45557048827932567
+          ],
+          "percentile": 0.4752879970271275,
+          "detected": false,
+          "slice_z_median": -0.21532681351373617
+        },
+        {
+          "seed": 2064,
+          "storyline_id": "s_02",
+          "minutes": 13,
+          "z": 2.506253964600551,
+          "signal_z": [
+            3.461549874874092,
+            1.5509580543270103
+          ],
+          "percentile": 0.9976842917792358,
+          "detected": true,
+          "slice_z_median": 0.6897511826779467
+        },
+        {
+          "seed": 2073,
+          "storyline_id": "s_02",
+          "minutes": 14,
+          "z": 1.033788956625445,
+          "signal_z": [
+            0.999664568144498,
+            1.0679133451063922
+          ],
+          "percentile": 0.9082697711762344,
+          "detected": false,
+          "slice_z_median": 0.09284418413166814
+        },
+        {
+          "seed": 2091,
+          "storyline_id": "s_01",
+          "minutes": 13,
+          "z": 1.4995743714520413,
+          "signal_z": [
+            1.735099159333694,
+            1.2640495835703887
+          ],
+          "percentile": 0.966036279428792,
+          "detected": true,
+          "slice_z_median": 0.6068013390267986
+        },
+        {
+          "seed": 2105,
+          "storyline_id": "s_01",
+          "minutes": 12,
+          "z": -0.7034435679269757,
+          "signal_z": [
+            -1.4596622974349578,
+            0.05277516158100641
+          ],
+          "percentile": 0.17837235228539577,
+          "detected": false,
+          "slice_z_median": -0.4471989966066542
+        },
+        {
+          "seed": 2106,
+          "storyline_id": "s_01",
+          "minutes": 18,
+          "z": -0.021587387819154785,
+          "signal_z": [
+            -0.46123819752988443,
+            0.41806342189157486
+          ],
+          "percentile": 0.5059780009564802,
+          "detected": false,
+          "slice_z_median": 0.19436070314218196
+        },
+        {
+          "seed": 2107,
+          "storyline_id": "s_03",
+          "minutes": 12,
+          "z": -1.2352831880941173,
+          "signal_z": [
+            -1.6326389827146788,
+            -0.8379273934735558
+          ],
+          "percentile": 0.05276848755109625,
+          "detected": false,
+          "slice_z_median": -0.07496803612200434
+        },
+        {
+          "seed": 2108,
+          "storyline_id": "s_01",
+          "minutes": 17,
+          "z": 0.7948278560153617,
+          "signal_z": [
+            0.8503714515095956,
+            0.7392842605211278
+          ],
+          "percentile": 0.857371063441351,
+          "detected": false,
+          "slice_z_median": 0.2536232745731419
+        },
+        {
+          "seed": 2109,
+          "storyline_id": "s_01",
+          "minutes": 12,
+          "z": 0.12583028083541736,
+          "signal_z": [
+            1.4093733965071455,
+            -1.1577128348363108
+          ],
+          "percentile": 0.581753994797473,
+          "detected": false,
+          "slice_z_median": -0.10195128385238758
+        },
+        {
+          "seed": 2110,
+          "storyline_id": "s_03",
+          "minutes": 14,
+          "z": -0.42576820685219186,
+          "signal_z": [
+            -0.26617413454585365,
+            -0.58536227915853
+          ],
+          "percentile": 0.2918506623845845,
+          "detected": false,
+          "slice_z_median": -0.33040853548325677
+        },
+        {
+          "seed": 2114,
+          "storyline_id": "s_02",
+          "minutes": 18,
+          "z": 1.3301113682741137,
+          "signal_z": [
+            1.7352140034779606,
+            0.9250087330702668
+          ],
+          "percentile": 0.9512195121951219,
+          "detected": true,
+          "slice_z_median": 0.3194579072747987
+        },
+        {
+          "seed": 2117,
+          "storyline_id": "s_02",
+          "minutes": 14,
+          "z": -0.26070591673150956,
+          "signal_z": [
+            -0.14909608365294613,
+            -0.37231574981007304
+          ],
+          "percentile": 0.37294259333600965,
+          "detected": false,
+          "slice_z_median": -0.3829653816484681
+        },
+        {
+          "seed": 2126,
+          "storyline_id": "s_02",
+          "minutes": 14,
+          "z": -0.2016855023704222,
+          "signal_z": [
+            -1.1391976480324406,
+            0.7358266432915962
+          ],
+          "percentile": 0.40425531914893614,
+          "detected": false,
+          "slice_z_median": -0.05859044255562523
+        },
+        {
+          "seed": 2131,
+          "storyline_id": "s_01",
+          "minutes": 18,
+          "z": 0.09937187282717691,
+          "signal_z": [
+            -0.6272675110245873,
+            0.8260112566789412
+          ],
+          "percentile": 0.5621712099473936,
+          "detected": false,
+          "slice_z_median": 0.3360780553219077
+        },
+        {
+          "seed": 2137,
+          "storyline_id": "s_01",
+          "minutes": 14,
+          "z": -1.925204663448603,
+          "signal_z": [
+            -1.8243236289975324,
+            -2.0260856978996737
+          ],
+          "percentile": 0.004616619831393015,
+          "detected": false,
+          "slice_z_median": -0.6441230978846159
+        },
+        {
+          "seed": 2142,
+          "storyline_id": "s_02",
+          "minutes": 14,
+          "z": 3.0897021716163087,
+          "signal_z": [
+            2.9755393511926624,
+            3.2038649920399553
+          ],
+          "percentile": 1.0,
+          "detected": true,
+          "slice_z_median": 0.8044120353067703
+        },
+        {
+          "seed": 2147,
+          "storyline_id": "s_02",
+          "minutes": 13,
+          "z": 0.808315712836629,
+          "signal_z": [
+            0.8678794729111744,
+            0.7487519527620834
+          ],
+          "percentile": 0.8577769201080664,
+          "detected": false,
+          "slice_z_median": 0.31066609411268903
+        },
+        {
+          "seed": 2148,
+          "storyline_id": "s_01",
+          "minutes": 13,
+          "z": 1.610390452594632,
+          "signal_z": [
+            -0.10423826892016841,
+            3.3250191741094324
+          ],
+          "percentile": 0.9698957931300656,
+          "detected": true,
+          "slice_z_median": 0.8133690094220494
+        },
+        {
+          "seed": 2156,
+          "storyline_id": "s_02",
+          "minutes": 12,
+          "z": 1.448987911887524,
+          "signal_z": [
+            1.2738476011695776,
+            1.6241282226054705
+          ],
+          "percentile": 0.9600520252694166,
+          "detected": true,
+          "slice_z_median": 0.4190940280178441
+        },
+        {
+          "seed": 2163,
+          "storyline_id": "s_02",
+          "minutes": 12,
+          "z": 0.6748631915558673,
+          "signal_z": [
+            1.2968355567666479,
+            0.05289082634508663
+          ],
+          "percentile": 0.8193979933110368,
+          "detected": false,
+          "slice_z_median": 0.06930311860714328
+        },
+        {
+          "seed": 2168,
+          "storyline_id": "s_01",
+          "minutes": 18,
+          "z": -1.2811155212337533,
+          "signal_z": [
+            0.26808782204116044,
+            -2.830318864508667
+          ],
+          "percentile": 0.04160688665710186,
+          "detected": false,
+          "slice_z_median": -0.15486294376294296
+        },
+        {
+          "seed": 2170,
+          "storyline_id": "s_01",
+          "minutes": 14,
+          "z": 0.28119475480216766,
+          "signal_z": [
+            0.30372824104743706,
+            0.25866126855689825
+          ],
+          "percentile": 0.660578081091931,
+          "detected": false,
+          "slice_z_median": 0.15375950711895958
+        },
+        {
+          "seed": 2179,
+          "storyline_id": "s_02",
+          "minutes": 13,
+          "z": 1.227877925717931,
+          "signal_z": [
+            1.02222810659363,
+            1.433527744842232
+          ],
+          "percentile": 0.9382477807796218,
+          "detected": false,
+          "slice_z_median": 0.16025175563652855
+        },
+        {
+          "seed": 2180,
+          "storyline_id": "s_03",
+          "minutes": 16,
+          "z": -0.16919276044790013,
+          "signal_z": [
+            0.026032690815199742,
+            -0.36441821171100003
+          ],
+          "percentile": 0.42383238760366654,
+          "detected": false,
+          "slice_z_median": -0.36358820100830525
+        },
+        {
+          "seed": 2181,
+          "storyline_id": "s_02",
+          "minutes": 14,
+          "z": 1.175959994926751,
+          "signal_z": [
+            1.8547738771119595,
+            0.49714611274154225
+          ],
+          "percentile": 0.9317543155359294,
+          "detected": false,
+          "slice_z_median": 0.5666281469604109
+        },
+        {
+          "seed": 2185,
+          "storyline_id": "s_01",
+          "minutes": 17,
+          "z": 0.8935947481498089,
+          "signal_z": [
+            1.8149365580987495,
+            -0.02774706179913169
+          ],
+          "percentile": 0.8842994066636239,
+          "detected": false,
+          "slice_z_median": 0.27562431401858256
+        },
+        {
+          "seed": 2186,
+          "storyline_id": "s_02",
+          "minutes": 17,
+          "z": -1.5076983101555184,
+          "signal_z": [
+            -1.910974287727392,
+            -1.1044223325836446
+          ],
+          "percentile": 0.022820629849383843,
+          "detected": false,
+          "slice_z_median": -0.496430879990177
+        },
+        {
+          "seed": 2187,
+          "storyline_id": "s_01",
+          "minutes": 17,
+          "z": 1.369268780153618,
+          "signal_z": [
+            1.2398824131501136,
+            1.4986551471571228
+          ],
+          "percentile": 0.9568690095846646,
+          "detected": true,
+          "slice_z_median": 0.6328480320248693
+        },
+        {
+          "seed": 2190,
+          "storyline_id": "s_03",
+          "minutes": 13,
+          "z": 0.07385453912715627,
+          "signal_z": [
+            -0.13241763464670506,
+            0.2801267129010176
+          ],
+          "percentile": 0.5559629486684677,
+          "detected": false,
+          "slice_z_median": -0.28537450710342943
+        },
+        {
+          "seed": 2199,
+          "storyline_id": "s_02",
+          "minutes": 18,
+          "z": 0.8752713239593122,
+          "signal_z": [
+            1.198389714857277,
+            0.5521529330613473
+          ],
+          "percentile": 0.8792443806791009,
+          "detected": false,
+          "slice_z_median": 0.14854001331291916
+        }
+      ]
+    }
+  },
+  "false_alarms": {
+    "pressing_spell": {
+      "window_minutes": 12,
+      "windows": 5390,
+      "share_over_p95": 0.05139146567717996,
+      "episodes_per_match_mean": 1.44,
+      "matches_with_any": 0.9
+    },
+    "fatigue_drop": {
+      "window_minutes": 18,
+      "windows": 13040,
+      "share_over_p95": 0.04792944785276074,
+      "episodes_per_match_mean": 1.7,
+      "matches_with_any": 0.94
+    },
+    "momentum_shift": {
+      "window_minutes": 12,
+      "windows": 5390,
+      "share_over_p95": 0.06846011131725417,
+      "episodes_per_match_mean": 1.78,
+      "matches_with_any": 0.88
+    },
+    "tactical_switch/long_ball": {
+      "window_minutes": 15,
+      "windows": 4790,
+      "share_over_p95": 0.05177453027139875,
+      "episodes_per_match_mean": 0.94,
+      "matches_with_any": 0.72
+    },
+    "tactical_switch/wide": {
+      "window_minutes": 15,
+      "windows": 4790,
+      "share_over_p95": 0.04759916492693111,
+      "episodes_per_match_mean": 1.12,
+      "matches_with_any": 0.84
+    },
+    "player_arc": {
+      "window_minutes": 21,
+      "windows": 9972,
+      "share_over_p95": 0.04853590052146009,
+      "episodes_per_match_mean": 1.36,
+      "matches_with_any": 0.9
+    }
+  }
+}

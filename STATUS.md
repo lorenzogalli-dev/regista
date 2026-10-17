@@ -10,13 +10,14 @@ Last updated: 2026-10-17. This file can drift: check the real state (run it, que
   - Timing: ~3.5 s simulate + ~2.2 s write per full match (macOS ARM).
 
 ## In progress
-- D2 metrics engine + tools API (next).
+- D2.0 storyline signal check: instruments committed with the "before" tables (`docs/signal_check_before.md`): no storyline type passes. Strengthening round A–F approved (one round, 3 h time-box): tune on calibration 2000–2099 (noise 2200–2249), judge on 2100–2199 (false alarms 2250–2299), dev table as a control only.
 
 ## Blocked
 - Nothing.
 
 ## Open checks
-- Cross-platform determinism: the `simulator-crossplatform` CI job compares Linux output for seed 1000 with the digest recorded on macOS ARM (`tests/data/digest_m_1000.json`). Result: see below once CI has run.
+- Cross-platform determinism: the `simulator-crossplatform` CI job compares Linux output for seed 1000 with the digest recorded on macOS ARM (`tests/data/digest_m_1000.json`).
+  - 2026-10-17, commit 77dc973: **match** on GitHub `ubuntu-latest` (Ubuntu 24.04, CPython 3.12.3, numpy 2.5.4) vs macOS arm64 (CPython 3.12.7). One seed only; re-check whenever numpy or Python changes.
 
 ## Decisions
 - Spec changes approved on 2026-10-17 (see SPEC.md): two overlay tiers, hybrid Verifier, metrics tools behind an MCP server, forced trigger for `momentum_shift`, 2–3 non-overlapping storylines per match, control seeds, revised eval metrics, xG/xT calibrated on the simulator, `duel` cut, single Container App, Burstable PostgreSQL, live daily model-call cap, recorded runs are real pipeline outputs.

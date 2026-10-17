@@ -3,7 +3,13 @@ import itertools
 from sim import roster, storylines
 from sim.generate import simulate
 from sim.rng import streams
-from sim.seeds import CONTROL_SEEDS, DEV_SEEDS, EVAL_SEEDS
+from sim.seeds import (
+    CALIBRATION_CONTROL_SEEDS,
+    CALIBRATION_SEEDS,
+    CONTROL_SEEDS,
+    DEV_SEEDS,
+    EVAL_SEEDS,
+)
 from sim.storylines import MIN
 
 PERIOD_ENDS = [47 * MIN, 95 * MIN]
@@ -16,9 +22,10 @@ def _plan(seed: int, control: bool = False) -> storylines.Modifiers:
 
 
 def test_seed_sets_are_disjoint() -> None:
-    assert not set(DEV_SEEDS) & set(EVAL_SEEDS)
-    assert not set(DEV_SEEDS) & set(CONTROL_SEEDS)
-    assert not set(EVAL_SEEDS) & set(CONTROL_SEEDS)
+    sets = [DEV_SEEDS, EVAL_SEEDS, CONTROL_SEEDS, CALIBRATION_SEEDS, CALIBRATION_CONTROL_SEEDS]
+    for i, a in enumerate(sets):
+        for b in sets[i + 1 :]:
+            assert not set(a) & set(b)
 
 
 def test_two_or_three_non_overlapping_windows_inside_a_period() -> None:
