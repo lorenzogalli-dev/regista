@@ -59,6 +59,10 @@ def test_tracking_sample_within_tolerance(generated: Path) -> None:
 
 
 @pytest.mark.crossplatform
+@pytest.mark.xfail(
+    strict=False,
+    reason="Linux x86 and macOS ARM differ in a few last-decimal tracking values (2026-10-18)",
+)
 def test_tracking_identical(generated: Path) -> None:
     """Informational: exact equality of the full tracking file."""
     recorded = json.loads(RECORDED.read_text())["digest"]
