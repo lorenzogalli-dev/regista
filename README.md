@@ -33,6 +33,29 @@ A full 90+ minute match (events + 10 Hz tracking) takes about 6 s to simulate an
 Apple-silicon laptop. Seed sets: dev 1000–1019 (tuning), eval 5000–5019 (reporting only),
 control 9000–9009 (no storylines).
 
+## Metrics engine and tools
+
+Ingest, state and metrics are plain, deterministic code, not agents: numbers come from tools,
+words from models.
+
+```sh
+uv run metrics summary m_1000              # match summary built from the tools
+uv run python -m metrics.fit               # refit pass difficulty, xG, xT on calibration seeds
+uv run python -m metrics.bench m_1000      # ingest/query cost during a 20x replay
+uv run python -m eval.signal_check --mode tune   # storyline signal check (offline, reads ground truth)
+```
+
+- `metrics/store.py`: live match state, incremental ingest; queries never see past the latest ingested time.
+- `metrics/tools.py`: typed tools (`get_window_stats`, `compare_windows`, `get_player_physical`,
+  `get_sequence`, `get_moment_context`, `get_match_info`).
+- `metrics/mcp_server.py`: the same tools over MCP, mounted in the API at `/mcp/`.
+- Possession is **time-based possession** everywhere it appears.
+- Pass difficulty, xG and xT are fitted on simulator output (calibration seeds), not on real football.
+- The control index (0-100) is a documented heuristic (`metrics/models.py`).
+
+Docs: storyline signal check `docs/signal_check.md` (before: `docs/signal_check_before.md`),
+performance `docs/performance.md`.
+
 ## Develop
 
 ```sh

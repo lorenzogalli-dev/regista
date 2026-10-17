@@ -15,7 +15,13 @@ Last updated: 2026-10-17. This file can drift: check the real state (run it, que
   - Pass: momentum_shift, tactical_switch/long_ball, tactical_switch/wide, player_arc.
   - **Disabled** (median z < 2, code kept): pressing_spell (1.79), fatigue_drop (1.75). `sim/storylines.py: ACTIVE_TYPES`.
   - Changes after the judged run were plausibility-only; active types re-checked on tuning seeds (all pass).
-- D2.1 metrics engine + tools: in progress.
+- D2.1 metrics engine + tools done (2026-10-18):
+  - shared per-event counters (`metrics/counters.py`) used by minute bins and the live store;
+  - fitted on calibration seeds 2000–2199: pass difficulty (AUC 0.716), xG (AUC 0.806), xT 12×8, control-index references (`metrics/params.json`);
+  - `MatchStore` (incremental, no look-ahead), physical metrics skipping the half-time reset and data jumps, sprints ≥ 1 s, tier-0 triggers;
+  - typed tools + MCP server at `/mcp/` (mcp 1.30, compatible with Agent Framework), ground-truth isolation tests;
+  - `metrics summary`, performance at 20×: 0.087 ms per frame p50 vs 5 ms budget (`docs/performance.md`).
+- D3 not started (waiting for approval).
 
 ## Blocked
 - Nothing.
@@ -26,6 +32,10 @@ Last updated: 2026-10-17. This file can drift: check the real state (run it, que
   - 2026-10-18, commit 78d8c4b (after D2.0 simulator changes): events.jsonl and match.json **identical** on Linux; tracking frames sampled every 30 s identical (max abs difference 0.000); the full tracking file differs (some values differ in the last decimal). Treated as a known difference: exact tracking equality is an `xfail(strict=False)` test, events must match exactly.
 
 ## Decisions
+- mcp pinned to 1.x (`>=1.30,<2`): agent-framework-core 1.22 requires `mcp<2` for its MCP tools; mcp 2.x renamed FastMCP and changed APIs.
+- Difficult-pass trigger: SPEC suggested difficulty > 0.8, but difficulty is P(pass fails), and completed passes almost never reach 0.8; the threshold is the 98th percentile of completed calibration passes (0.486).
+- Speed trigger at most once per player per 5 minutes (at 60 s there were ~135 a match).
+- Control index components: team mean possession length, turnovers/min, event-rate variability (30 s buckets), share of team possessions ending in the opponent half; each through a logistic around the calibration median.
 - Spec changes approved on 2026-10-17 (see SPEC.md): two overlay tiers, hybrid Verifier, metrics tools behind an MCP server, forced trigger for `momentum_shift`, 2–3 non-overlapping storylines per match, control seeds, revised eval metrics, xG/xT calibrated on the simulator, `duel` cut, single Container App, Burstable PostgreSQL, live daily model-call cap, recorded runs are real pipeline outputs.
 - Front-end is governed by DESIGN.md; D5 split into D5a (after D2) and D5b (after D3/D4).
 - Personas: analyst / casual / player_focus × en / it / es.
