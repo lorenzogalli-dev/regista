@@ -22,6 +22,8 @@ from sim.storylines import MIN, Modifiers
 DT = TICK_MS / 1000.0
 N_SLOTS = 22
 OFF_PITCH = (-5.0, -5.0)
+JOG_GAIN, JOG_MS = 0.55, 4.5  # off-ball repositioning: m/s per metre to target, cap
+FWD_JOG_GAIN, FWD_JOG_MS = 0.4, 3.4
 
 BallMode = Literal["held", "flight", "dead"]
 
@@ -134,6 +136,17 @@ class Engine:
         self.finishing = np.array([x.finishing for x in a])
         self.defending = np.array([x.defending for x in a])
         self.stamina = np.array([x.stamina for x in a])
+        self.jog = np.zeros(N_SLOTS)
+        self.jog_gain = np.zeros(N_SLOTS)
+        for i in range(N_SLOTS):
+            self._set_jog(i)
+
+    def _set_jog(self, slot: int) -> None:
+        """Off-ball repositioning: speed per metre from target and cap. Forwards drift into
+        shape rather than chase it."""
+        fwd = self._line(slot) == "FWD"
+        self.jog_gain[slot] = FWD_JOG_GAIN if fwd else JOG_GAIN
+        self.jog[slot] = FWD_JOG_MS if fwd else JOG_MS
 
     def _set_slot_attrs(self, slot: int) -> None:
         x = self.players[int(self.slot_pid[slot])].attrs
@@ -143,6 +156,7 @@ class Engine:
             x.defending,
             x.stamina,
         )
+        self._set_jog(slot)
 
     def _schedule(self) -> None:
         """Scheduled substitutions and storyline triggers, as (t_ms, kind, data)."""
@@ -959,7 +973,7 @@ class Engine:
                 ax, ay = PITCH_LENGTH - ax, PITCH_WIDTH - ay
             tgt[sl, 0], tgt[sl, 1] = ax, ay
         dist = np.hypot(*(tgt - self.pos).T)
-        want[:] = np.clip(0.55 * dist, 0.0, 4.5)
+        want[:] = np.minimum(self.jog_gain * dist, self.jog)
 
         running = self.run_until > self.t
         if running.any():

@@ -61,7 +61,9 @@ class WindowStats(BaseModel):
     end_ms: int
     minutes: float
     possession_time_based: float | None = Field(description="share of time in possession (0-1)")
-    field_tilt: float | None = Field(description="share of both teams' final-third touches (0-1)")
+    field_tilt: float | None = Field(
+        description="share of both teams' final-third ball actions (0-1)"
+    )
     ppda: float | None = Field(description="opponent passes per defensive action in their 60%")
     pass_completion: float | None
     passes: int
@@ -100,7 +102,7 @@ class PlayerPhysical(BaseModel):
     sprints: int = Field(description="runs above 7 m/s for at least 1 s")
     top_speed_ms: float = Field(description="max 0.5 s rolling-mean speed")
     top_speed_kmh: float
-    touches: int
+    touches: int = Field(description="on-ball actions; receptions and carries not counted")
     passes: int
     passes_complete: int
     progressive_passes: int

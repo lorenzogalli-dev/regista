@@ -1,5 +1,6 @@
 import math
 
+import numpy as np
 import pytest
 
 from eval import signal_check as sc
@@ -25,3 +26,18 @@ def test_templates_match_simulator_expected_signals() -> None:
         assert [s.metric for s in sl.expected_signals] == [m for m, _, _ in sc.TEMPLATES[key]]
         dirs = [1 if s.direction == "up" else -1 for s in sl.expected_signals]
         assert dirs == [d for _, _, d in sc.TEMPLATES[key]]
+
+
+def test_robust_scale_ignores_heavy_tail() -> None:
+    rng = np.random.default_rng(0)
+    eff = rng.normal(0.0, 1.0, size=(2000, 1))
+    eff[:40] = 50.0  # 2 % extreme outliers
+    med, sd = sc.robust_scale(eff)
+    assert abs(med[0]) < 0.15 and 0.85 < sd[0] < 1.2
+    assert eff.std() > 5  # the classical sd would be dominated by the tail
+
+
+def test_robust_scale_falls_back_when_mad_is_zero() -> None:
+    eff = np.array([[0.0]] * 90 + [[1.0]] * 10)
+    _, sd = sc.robust_scale(eff)
+    assert sd[0] == pytest.approx(0.3, abs=1e-6)

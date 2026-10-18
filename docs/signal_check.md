@@ -1,82 +1,81 @@
-# Storyline signal check - after strengthening (2026-10-18)
+# Storyline signal check (official)
 
-Produced by `uv run python -m eval.signal_check --mode final` (tables 1-3) and `--mode tune` (table 4).
-Before: `docs/signal_check_before.md`.
+Produced once by `uv run python -m eval.signal_check --mode final` on the final simulator
+(2026-10-18). This is the official table. History: `docs/signal_check_before.md` (before
+strengthening), `docs/signal_check_2100.md` (first judged run, superseded).
 
-Protocol
-- Simulator changes were tuned only on calibration seeds 2000-2099 (noise: 2200-2249), in three rounds.
-- The judged table (2100-2199) and the false-alarm table (2250-2299) were computed once, after the third round.
-- Dev seeds (1000-1019) are a control only (4-10 storylines per type).
-- Pass criteria per type: median full-window z in [2, 5], >= 70 % of storylines above the noise p95,
-  median 2-minute slice z < 1.5. z uses the mean and standard deviation of noise windows of the same length.
+## Protocol
+- Storylines judged on seeds 2300-2399; false alarms on no-storyline seeds 2400-2449. Neither
+  set was used for tuning or model fitting (tuning: 2000-2099, noise reference: 2200-2249).
+- Signed effect per signal: metric in the storyline window minus the rest of the match
+  (excluding 3 minutes after the window), times +1/-1 for the expected direction.
+- Noise: the same statistic on sliding windows of the same length on no-storyline matches.
+- Pass criteria per type: median full-window z in [2, 5]; >= 70 % of storylines above the
+  noise p95 of the combined score; median z over 2-minute slices < 1.5.
+- Outcome: pass -> active; fail but detected >= 60 % -> active as a "difficult" storyline,
+  declared in the eval; otherwise disabled (code kept).
 
-Decisions
-- Pass on the judged seeds: momentum_shift, tactical_switch/long_ball, tactical_switch/wide, player_arc.
-- pressing_spell (median z 1.79) and fatigue_drop (1.75) did not pass and are below 2: they are implemented
-  but disabled in the generator (`sim/storylines.py: ACTIVE_TYPES`). Their absolute effects are large
-  (e.g. PPDA in pressing windows about 3.6 vs 12.9 elsewhere on tuning seeds), but 12-20 minute windows of a
-  no-storyline match vary as much (field tilt sd 0.175, PPDA heavy-tailed), so they are not reliably
-  distinguishable from noise with these signals.
-- No type is kept as "difficult" (none failed with median z >= 2).
+## The criterion changed after seeing results
+The first judged run (`docs/signal_check_2100.md`) used a classical z: (effect - noise mean) /
+noise sd. pressing_spell failed only on median z (1.79) while 86 % of its storylines were above
+the noise p95. Its main signal, PPDA, has heavy-tailed noise (a few windows with almost no
+defensive actions give very large values), which inflates the sd and shrinks every z. The
+median z was the wrong statistic for that noise, so z is now robust for all types:
+(effect - noise median) / (1.4826 x noise MAD), falling back to the sd where the MAD is zero.
+This decision was taken after seeing the 2100-2199 results; to keep the judgement honest it
+was applied to every type and the official check was run once on new seeds. No simulator
+tuning was done for pressing_spell or fatigue_drop.
 
-Changes after the judged run. The table "Judged on 2100-2199" describes the simulator as it was
-when judged. Afterwards, the simulator was changed for plausibility and physical realism only:
-- shot rate and conversion, stronger game management at a 2-goal lead;
-- 3-5-2 wing-back and midfield anchors;
-- a red-card storyline player is no longer substituted before the card;
-- pressers sprint only near the ball (forwards had up to ~100 sprints a match);
-- pass success +0.1 logit, tackle rate +9 %.
+## Outcomes
+| type | outcome | why |
+|---|---|---|
+| pressing_spell | active | passes all criteria |
+| momentum_shift | active | passes |
+| tactical_switch/long_ball | active | passes (2.52; it was 2.00 on tuning seeds) |
+| tactical_switch/wide | active | passes |
+| player_arc | active, **difficult** | detected 92 %, but 2-minute slice z 2.44 >= 1.5: the signal is visible too early |
+| fatigue_drop | **disabled** | detected 48 % < 60 %. Its median z (6.32) is above 5 because the robust scale of top speed on noise is tiny (top speed barely changes between windows), so the z of top speed is large even when the combined score is not above the noise p95 |
 
-Two signal-related compensations followed: the `wide` receiver bonus was lowered (its tuning z had
-reached 5.07, above the upper bound of 5) and long balls became contested (-0.4 logit on
-success). The last table re-checks the active types on the tuning seeds only. The judged seeds
-were not re-used. tactical_switch/long_ball sits exactly at the median-z threshold (2.00) there.
+Since fatigue_drop was active in the matches judged here and is now disabled, the storyline mix of
+every seed changed after this run; per-type mechanics did not. Dev seeds are a control only
+(4-9 storylines per type).
 
-### Judged on calibration seeds 2100-2199 (noise 2200-2249)
+<!-- generated by `python -m eval.signal_check --mode final` -->
 
-| type | n | z median | detected (>p95) | >=2 signals over own p95 | 2-min slice z median | per-signal z median | pass |
-|---|---|---|---|---|---|---|---|
-| pressing_spell | 37 | 1.79 | 86% | 43% | 0.28 | ppda 0.88, pass_completion 3.38, field_tilt 1.04 | NO |
-| fatigue_drop | 41 | 1.75 | 66% | 44% | 0.28 | top_speed 2.85, sprint_count 1.09, flank_attack_share 0.78 | NO |
-| momentum_shift | 35 | 2.15 | 83% | 43% | 0.80 | possession 1.54, field_tilt 2.87 | yes |
-| tactical_switch/long_ball | 26 | 2.34 | 88% | 42% | 0.54 | avg_pass_length 3.08, pass_completion 1.62 | yes |
-| tactical_switch/wide | 27 | 4.00 | 96% | n/a | 1.09 | width 4.00 | yes |
-| player_arc | 40 | 4.13 | 92% | 70% | 1.05 | progressive_passes 5.43, touches 2.78 | yes |
+### Official: seeds 2300-2399 (noise 2200-2249)
+
+| type | n | z median | detected (>p95) | >=2 signals over own p95 | 2-min slice z median | per-signal z median | pass | outcome |
+|---|---|---|---|---|---|---|---|---|
+| pressing_spell | 45 | 2.05 | 76% | 53% | 0.43 | ppda 1.31, pass_completion 3.23, field_tilt 1.58 | yes | active |
+| fatigue_drop | 40 | 6.32 | 48% | 25% | 0.33 | top_speed 16.21, sprint_count 1.37, flank_attack_share 2.39 | NO | disabled |
+| momentum_shift | 48 | 2.48 | 83% | 46% | 0.75 | possession 1.65, field_tilt 3.25 | yes | active |
+| tactical_switch/long_ball | 18 | 2.52 | 83% | 50% | 0.79 | avg_pass_length 2.33, pass_completion 2.84 | yes | active |
+| tactical_switch/wide | 15 | 4.35 | 100% | n/a | 1.27 | width 4.35 | yes | active |
+| player_arc | 40 | 3.69 | 92% | 57% | 2.44 | progressive_passes 5.33, touches 2.25 | NO | difficult |
 
 ### Control: dev seeds 1000-1019 (noise 2200-2249)
 
-| type | n | z median | detected (>p95) | >=2 signals over own p95 | 2-min slice z median | per-signal z median | pass |
-|---|---|---|---|---|---|---|---|
-| pressing_spell | 6 | 1.18 | 67% | 17% | 0.01 | ppda 0.83, pass_completion 2.23, field_tilt 0.50 | NO |
-| fatigue_drop | 9 | 1.62 | 67% | 33% | 0.17 | top_speed 2.77, sprint_count 1.28, flank_attack_share -0.02 | NO |
-| momentum_shift | 8 | 2.16 | 75% | 38% | 0.78 | possession 1.46, field_tilt 2.86 | yes |
-| tactical_switch/long_ball | 6 | 3.79 | 100% | 67% | 1.00 | avg_pass_length 5.33, pass_completion 2.03 | yes |
-| tactical_switch/wide | 6 | 3.62 | 100% | n/a | 0.74 | width 3.62 | yes |
-| player_arc | 7 | 3.72 | 100% | 57% | 0.86 | progressive_passes 4.98, touches 2.22 | yes |
+| type | n | z median | detected (>p95) | >=2 signals over own p95 | 2-min slice z median | per-signal z median | pass | outcome |
+|---|---|---|---|---|---|---|---|---|
+| pressing_spell | 6 | 1.56 | 83% | 33% | 0.38 | ppda 0.92, pass_completion 3.04, field_tilt 0.94 | NO | difficult |
+| fatigue_drop | 9 | 6.60 | 56% | 22% | 0.11 | top_speed 16.42, sprint_count 1.12, flank_attack_share 1.37 | NO | disabled |
+| momentum_shift | 8 | 2.19 | 75% | 38% | 0.70 | possession 1.07, field_tilt 3.26 | yes | active |
+| tactical_switch/long_ball | 6 | 2.35 | 100% | 50% | 0.93 | avg_pass_length 2.37, pass_completion 2.46 | yes | active |
+| tactical_switch/wide | 6 | 4.32 | 100% | n/a | 1.35 | width 4.32 | yes | active |
+| player_arc | 7 | 2.03 | 86% | 43% | 1.88 | progressive_passes 3.23, touches 1.60 | NO | difficult |
 
-### False alarms on held-out no-storyline matches (2250-2299)
+### False alarms on held-out no-storyline matches (2400-2449)
 
 | type | rule | window (min) | share of windows | episodes / match | matches with any |
 |---|---|---|---|---|---|
-| pressing_spell | combined score > p95 | 17 | 5.2% | 0.90 | 70% |
-| pressing_spell | >=2 signals over own p95 | 17 | 1.4% | 0.30 | 28% |
-| fatigue_drop | combined score > p95 | 18 | 4.7% | 1.78 | 90% |
-| fatigue_drop | >=2 signals over own p95 | 18 | 0.5% | 0.44 | 34% |
-| momentum_shift | combined score > p95 | 17 | 4.4% | 0.74 | 60% |
-| momentum_shift | >=2 signals over own p95 | 17 | 1.3% | 0.36 | 34% |
-| tactical_switch/long_ball | combined score > p95 | 19 | 6.4% | 0.74 | 62% |
+| pressing_spell | combined score > p95 | 17 | 3.7% | 0.76 | 58% |
+| pressing_spell | >=2 signals over own p95 | 17 | 1.0% | 0.34 | 32% |
+| fatigue_drop | combined score > p95 | 18 | 2.9% | 1.22 | 82% |
+| fatigue_drop | >=2 signals over own p95 | 18 | 1.2% | 0.86 | 68% |
+| momentum_shift | combined score > p95 | 17 | 5.8% | 0.94 | 62% |
+| momentum_shift | >=2 signals over own p95 | 17 | 2.6% | 0.56 | 38% |
+| tactical_switch/long_ball | combined score > p95 | 19 | 4.6% | 0.82 | 62% |
 | tactical_switch/long_ball | >=2 signals over own p95 | 19 | 0.5% | 0.16 | 16% |
-| tactical_switch/wide | combined score > p95 | 19 | 4.4% | 0.74 | 58% |
-| player_arc | combined score > p95 | 21 | 5.3% | 1.36 | 88% |
-| player_arc | >=2 signals over own p95 | 21 | 1.7% | 0.68 | 54% |
-
-### 4. Post-change sanity check: tuning seeds 2000-2099 (noise 2200-2249), final simulator
-
-| type | n | z median | detected (>p95) | >=2 signals over own p95 | 2-min slice z median | per-signal z median | pass |
-|---|---|---|---|---|---|---|---|
-| pressing_spell | 0 | - | - | - | - | - | - |
-| fatigue_drop | 0 | - | - | - | - | - | - |
-| momentum_shift | 66 | 2.94 | 92% | 65% | 0.99 | possession 2.16, field_tilt 3.77 | yes |
-| tactical_switch/long_ball | 32 | 2.00 | 75% | 38% | 0.52 | avg_pass_length 2.07, pass_completion 2.56 | yes |
-| tactical_switch/wide | 38 | 3.64 | 95% | n/a | 0.90 | width 3.64 | yes |
-| player_arc | 68 | 3.46 | 85% | 63% | 0.85 | progressive_passes 4.10, touches 2.57 | yes |
+| tactical_switch/wide | combined score > p95 | 19 | 7.0% | 1.00 | 78% |
+| player_arc | combined score > p95 | 21 | 6.4% | 1.50 | 92% |
+| player_arc | >=2 signals over own p95 | 21 | 1.8% | 0.64 | 54% |

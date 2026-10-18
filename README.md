@@ -42,7 +42,7 @@ words from models.
 uv run metrics summary m_1000              # match summary built from the tools
 uv run python -m metrics.fit               # refit pass difficulty, xG, xT on calibration seeds
 uv run python -m metrics.bench m_1000      # ingest/query cost during a 20x replay
-uv run python -m eval.signal_check --mode tune   # storyline signal check (offline, reads ground truth)
+uv run python -m eval.signal_check --mode tune   # signal check on tuning seeds (offline, reads ground truth)
 ```
 
 - `metrics/store.py`: live match state, incremental ingest; queries never see past the latest ingested time.
@@ -53,8 +53,27 @@ uv run python -m eval.signal_check --mode tune   # storyline signal check (offli
 - Pass difficulty, xG and xT are fitted on simulator output (calibration seeds), not on real football.
 - The control index (0-100) is a documented heuristic (`metrics/models.py`).
 
-Docs: storyline signal check `docs/signal_check.md` (before: `docs/signal_check_before.md`),
-performance `docs/performance.md`.
+Touches follow the event-data convention: one per on-ball action (pass, shot, tackle,
+interception, clearance, ball recovery); receptions and carries are not counted separately.
+
+### Do the hidden storylines move the numbers?
+
+Each storyline type is checked against noise: the same window statistic on matches with no
+storylines, scored with a robust z (median / MAD). Judged once on seeds never used for tuning
+(storylines 2300–2399, no-storyline holdout 2400–2449):
+
+| storyline | median z | detected above noise p95 | outcome |
+|---|---|---|---|
+| pressing_spell | 2.05 | 76 % | active |
+| momentum_shift | 2.48 | 83 % | active |
+| tactical_switch / long_ball | 2.52 | 83 % | active |
+| tactical_switch / wide | 4.35 | 100 % | active |
+| player_arc | 3.69 | 92 % | active, reported as *difficult* (visible too early in 2-minute slices) |
+| fatigue_drop | 6.32 | 48 % | disabled |
+
+On no-storyline holdout matches, requiring two signals above their own noise p95 flags
+0.16–0.64 episodes per match for the active types. Full tables, protocol and the history of the
+criterion: `docs/signal_check.md`. Performance: `docs/performance.md`.
 
 ## Develop
 

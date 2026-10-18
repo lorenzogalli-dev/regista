@@ -20,10 +20,17 @@ TYPES: tuple[StorylineType, ...] = (
     "tactical_switch",
     "player_arc",
 )
-# Types the simulator currently generates. pressing_spell and fatigue_drop are implemented
-# but disabled: in the final signal check (docs/signal_check.md) their median z was below 2,
-# i.e. not reliably distinguishable from noise.
-ACTIVE_TYPES: tuple[StorylineType, ...] = ("momentum_shift", "tactical_switch", "player_arc")
+# Outcomes of the official signal check (docs/signal_check.md, seeds 2300-2449):
+# fatigue_drop is implemented but disabled (detected in 48 % of storylines, below 60 %);
+# player_arc is active as a "difficult" storyline (its signal is already visible in
+# 2-minute slices) and is reported separately in the eval.
+ACTIVE_TYPES: tuple[StorylineType, ...] = (
+    "pressing_spell",
+    "momentum_shift",
+    "tactical_switch",
+    "player_arc",
+)
+DIFFICULT_TYPES: tuple[StorylineType, ...] = ("player_arc",)
 DURATION_MIN: dict[StorylineType, tuple[int, int]] = {
     "pressing_spell": (14, 20),
     "fatigue_drop": (15, 22),

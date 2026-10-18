@@ -7,15 +7,18 @@ window, its complement and sliding windows are all cheap to evaluate. Definition
 - avg_pass_length: mean pass length (m), start to end location.
 - ppda: opponent passes in their own 60 % of the pitch / our defensive actions (tackles,
   interceptions, fouls) in the same zone. Lower = more intense press.
-- field_tilt: our final-third touches / both teams' final-third touches. Touches are
-  passes, carries and shots; the final third starts 70 m from the team's own goal line.
+- field_tilt: our final-third ball actions / both teams' final-third ball actions. Ball
+  actions are passes, carries and shots; the final third starts 70 m from the team's own
+  goal line.
 - possession (time-based possession): share of match time in which the team was the
   possessing team, from kickoff and possession_change events. Dead-ball time counts for
   the team awarded the restart.
 - width: mean distance (m) of our pass and carry start locations from the pitch's long axis.
-- flank_attack_share_{left,right}: share of our final-third touches in the left/right
+- flank_attack_share_{left,right}: share of our final-third ball actions in the left/right
   outer third of the pitch, in our attacking direction.
-- touches (per minute on pitch): passes, carries, shots and pass receptions.
+- touches (per minute on pitch): on-ball actions as in event data (passes, shots, tackles,
+  interceptions, clearances, ball recoveries); receptions and carries are not separate
+  touches.
 - progressive_passes (per minute on pitch): completed passes that advance the ball at
   least 30 m (both ends in own half), 15 m (crossing halfway) or 10 m (both in the
   opponent half).

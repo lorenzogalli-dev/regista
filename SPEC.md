@@ -94,7 +94,7 @@ Storyline types (aim for 5):
 - `tactical_switch` — width/directness change (e.g. switch to long balls).
 - `player_arc` — a player has an outlier game (e.g. many progressive passes, a record sprint).
 
-Status (2026-10-18): `pressing_spell` and `fatigue_drop` are implemented but disabled in the generator; they did not separate from noise in the signal check (`docs/signal_check.md`). Active: `momentum_shift`, `tactical_switch` (`long_ball`, `wide`), `player_arc`.
+Status (2026-10-18, official signal check in `docs/signal_check.md`): active `pressing_spell`, `momentum_shift`, `tactical_switch` (`long_ball`, `wide`); `player_arc` active as a "difficult" storyline (reported separately in the eval); `fatigue_drop` implemented but disabled.
 
 Storyline scheduling:
 - **2–3 storylines per match**, drawn from the seed, with **non-overlapping** windows.
@@ -117,7 +117,7 @@ Storyline scheduling:
 ## 5. Metrics engine (deterministic, no LLM)
 
 Rolling windows (5 and 15 min) plus match totals:
-- Possession %, field tilt (share of final-third touches), PPDA, pass completion.
+- Possession %, field tilt (share of final-third ball actions: passes, carries, shots), PPDA, pass completion.
 - **Pass card**: length, progression, and a **pass difficulty score 0–1** = logistic over (length, receiver pressure, number of defenders near the passing lane, under_pressure flag). Documented formula, unit-tested.
 - **Speed**: ball speed on shots and passes; player top speed, sprint count (> 7 m/s), high-intensity distance (> 5.5 m/s), distance covered.
 - xG (simple logistic on distance + angle + body part), **coefficients fitted on synthetic shots**. xT on a 12×8 grid, **computed by value iteration over simulated matches** (no third-party xT table). Both are documented as "calibrated on the simulator, not on real football".

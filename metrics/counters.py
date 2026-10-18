@@ -17,7 +17,11 @@ PPDA_ZONE_X = 0.6 * PITCH_LENGTH  # opponent's own 60 %
 FLANK_LEFT_Y = PITCH_WIDTH * 2 / 3
 FLANK_RIGHT_Y = PITCH_WIDTH / 3
 DEF_ACTIONS = {"tackle", "interception", "foul"}
-TOUCH_TYPES = {"pass", "carry", "shot"}
+# Field tilt and flank shares count final-third ball actions: passes, carries, shots.
+F3_TYPES = {"pass", "carry", "shot"}
+# Touches follow event-data convention: one per on-ball action. Receptions and carries are
+# not counted separately (a reception, carry and pass is one touch, not three).
+TOUCH_TYPES = {"pass", "shot", "tackle", "interception", "clearance", "ball_recovery"}
 
 TEAM_FIELDS = (
     "passes",
@@ -25,7 +29,7 @@ TEAM_FIELDS = (
     "pass_len_sum",
     "opp_passes_zone",
     "def_actions_zone",
-    "f3_touches",
+    "f3_actions",
     "width_sum",
     "width_n",
     "f3_left",
@@ -62,15 +66,14 @@ def contributions(
     ax, ay = to_attacking(team, per, e["x"], e["y"])
     typ = e["type"]
     player = e["player_id"]
-    if typ in TOUCH_TYPES:
-        if ax >= FINAL_THIRD_X:
-            out.append(("team", team, "f3_touches", 1.0))
-            if ay >= FLANK_LEFT_Y:
-                out.append(("team", team, "f3_left", 1.0))
-            elif ay <= FLANK_RIGHT_Y:
-                out.append(("team", team, "f3_right", 1.0))
-        if player:
-            out.append(("player", player, "touches", 1.0))
+    if typ in F3_TYPES and ax >= FINAL_THIRD_X:
+        out.append(("team", team, "f3_actions", 1.0))
+        if ay >= FLANK_LEFT_Y:
+            out.append(("team", team, "f3_left", 1.0))
+        elif ay <= FLANK_RIGHT_Y:
+            out.append(("team", team, "f3_right", 1.0))
+    if typ in TOUCH_TYPES and player:
+        out.append(("player", player, "touches", 1.0))
     if typ in ("pass", "carry"):
         out.append(("team", team, "width_sum", abs(e["y"] - PITCH_WIDTH / 2)))
         out.append(("team", team, "width_n", 1.0))
@@ -91,8 +94,6 @@ def contributions(
             ex, _ = to_attacking(team, per, e["end_x"], e["end_y"])
             if player and is_progressive(ax, ex):
                 out.append(("player", player, "prog_passes", 1.0))
-            if e["recipient_id"]:
-                out.append(("player", e["recipient_id"], "touches", 1.0))
     if typ in DEF_ACTIONS and ax > PITCH_LENGTH - PPDA_ZONE_X:
         out.append(("team", team, "def_actions_zone", 1.0))
     return out
@@ -135,11 +136,11 @@ def team_metrics(own: dict[str, float], other: dict[str, float]) -> dict[str, fl
         "pass_completion": _ratio(own["passes_complete"], own["passes"]),
         "avg_pass_length": _ratio(own["pass_len_sum"], own["passes"]),
         "ppda": _ratio(own["opp_passes_zone"], max(own["def_actions_zone"], 1.0)),
-        "field_tilt": _ratio(own["f3_touches"], own["f3_touches"] + other["f3_touches"]),
+        "field_tilt": _ratio(own["f3_actions"], own["f3_actions"] + other["f3_actions"]),
         "possession": _ratio(
             own.get("poss_ms", 0.0), own.get("poss_ms", 0.0) + other.get("poss_ms", 0.0)
         ),
         "width": _ratio(own["width_sum"], own["width_n"]),
-        "flank_attack_share_left": _ratio(own["f3_left"], own["f3_touches"]),
-        "flank_attack_share_right": _ratio(own["f3_right"], own["f3_touches"]),
+        "flank_attack_share_left": _ratio(own["f3_left"], own["f3_actions"]),
+        "flank_attack_share_right": _ratio(own["f3_right"], own["f3_actions"]),
     }

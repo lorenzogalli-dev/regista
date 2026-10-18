@@ -9,6 +9,9 @@ from sim.seeds import (
     CONTROL_SEEDS,
     DEV_SEEDS,
     EVAL_SEEDS,
+    SIGNAL_HOLDOUT_SEEDS,
+    SIGNAL_JUDGE_SEEDS,
+    is_control,
 )
 from sim.storylines import MIN
 
@@ -24,10 +27,20 @@ def _plan(
 
 
 def test_seed_sets_are_disjoint() -> None:
-    sets = [DEV_SEEDS, EVAL_SEEDS, CONTROL_SEEDS, CALIBRATION_SEEDS, CALIBRATION_CONTROL_SEEDS]
+    sets = [
+        DEV_SEEDS,
+        EVAL_SEEDS,
+        CONTROL_SEEDS,
+        CALIBRATION_SEEDS,
+        CALIBRATION_CONTROL_SEEDS,
+        SIGNAL_JUDGE_SEEDS,
+        SIGNAL_HOLDOUT_SEEDS,
+    ]
     for i, a in enumerate(sets):
         for b in sets[i + 1 :]:
             assert not set(a) & set(b)
+    assert all(is_control(s) for s in SIGNAL_HOLDOUT_SEEDS)
+    assert not any(is_control(s) for s in SIGNAL_JUDGE_SEEDS)
 
 
 def test_two_or_three_non_overlapping_windows_inside_a_period() -> None:
