@@ -10,6 +10,7 @@ Last updated: 2026-10-18. This file can drift: check the real state (run it, que
   - Timing: ~3.5 s simulate + ~2.2 s write per full match (macOS ARM).
 
 ## In progress
+- D6 (2026-10-18): deployed on Azure Container Apps, https://gtf-app.delightfulbush-9c2f92ce.italynorth.azurecontainerapps.io (image b24b348, 0.25 vCPU / 0.5 GiB, 1 replica). PostgreSQL B1ms, Blob Storage (4 recorded runs + their public match files), App Insights receiving Agent Framework spans. Verified in production: data sync from Blob, all routes, recorded WebSocket, external MCP (6 tools, traversal refused), unknown paths 404, live session on Foundry via managed identity (one moment published end to end), design audit. Live cap 150 model calls/day. Demo video clips and voice-over in docs/video. `infra/post_judging.sh` after 10 Nov.
 - D5b (2026-10-18): broadcast view on real recorded runs (template → verified text, amber state), split view, control room, /graphics, eval report page, landing, second screen and recap; recorded and live share one WebSocket message vocabulary (`agents/live.py`, `api/routes/runs.py`). Review material in `docs/design/d5b/`. Verifier now also receives the key events the Analyst saw (it rejected a true substitution in recorded run m_1009; that run is kept as recorded).
 - D4 evaluation done (2026-10-18): official run once on 20 eval + 10 control seeds (`docs/eval/`): recall 52 %, evidence validity 100 %, 0 unsupported of 81 approved, precision 43 %, precision@3 48 %, 1.8 approved per control match (all evidence-backed), Verifier rejections 15 %, candidate → approval p50 9.5 s.
 - D2.0 storyline signal check done (2026-10-18), official table in `docs/signal_check.md`.
@@ -52,7 +53,8 @@ Cumulative cap 8 EUR (ledger `data/runs/foundry_ledger.jsonl`, local). Prices: A
 | 2026-10-18 | **Official eval**, 20 eval + 10 control, once | 0.73 (0.51–1.09) | 0.385 | see README / docs/eval |
 | 2026-10-18 | Recorded demo runs, full pipeline, m_1000 / m_1003 / m_1009 | 0.27 (0.19–0.41) | 0.133 | first take (generic persona headlines) |
 | 2026-10-18 | Recorded demo runs again, specific persona headlines | 0.27 (0.19–0.41) | 0.115 | kept in data/recorded |
-| | **Cumulative** | | **1.75** | cap 8 EUR |
+| 2026-10-18 | Production live-session check (6 calls, not in the local ledger) | – | ~0.01 | managed identity works |
+| | **Cumulative** | | **~1.76** | cap 8 EUR |
 
 ## Blocked
 - Nothing.
