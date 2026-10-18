@@ -47,6 +47,14 @@ def list_runs() -> list[dict[str, Any]]:
                     for m in r.get("moments", [])
                 ),
                 "cost_eur": r.get("usage", {}).get("cost_eur"),
+                "featured_rejection_at_ms": next(
+                    (
+                        m["candidate"]["t_ms"]
+                        for m in r.get("moments", [])
+                        if m["moment_id"] == (r.get("featured_rejection") or {}).get("moment_id")
+                    ),
+                    None,
+                ),
             }
         )
     return out

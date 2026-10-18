@@ -131,6 +131,7 @@ export function Control() {
           </span>
         </div>
       </header>
+      {stream.header?.provenance && <p className="provenance">{stream.header.provenance}</p>}
 
       <section className="graph-wrap glass">
         <svg viewBox="0 0 1140 300" className="graph" role="img" aria-label="agent pipeline graph">
@@ -230,6 +231,9 @@ export function Control() {
                     </p>
                   ))}
                 {m.result === 'dropped' && m.reason && <p className="reason bad">Dropped: {m.reason}</p>}
+                {stream.header?.featured_rejection?.moment_id === m.id && m.stages.some((s) => s.outcome === 'rejected') && (
+                  <p className="reviewer">{stream.header.featured_rejection.note}</p>
+                )}
               </motion.article>
             ))}
           </AnimatePresence>

@@ -7,7 +7,13 @@ import './pages.css'
 // Landing (DESIGN.md §5.7): one screen.
 
 type Quota = { remaining: number; cap: number }
-type Run = { run_id: string; match_id: string; published: number; rejections: number }
+type Run = {
+  run_id: string
+  match_id: string
+  published: number
+  rejections: number
+  featured_rejection_at_ms: number | null
+}
 
 export function Landing() {
   const [quota, setQuota] = useState<Quota | null>(null)
@@ -22,9 +28,15 @@ export function Landing() {
       .then(setRuns)
       .catch(() => setRuns([]))
   }, [])
-  const first = runs[0]
-  // The control room is most telling on a run where the Verifier sent a claim back.
-  const ctrl = runs.find((r) => r.rejections > 0) ?? first
+  // Demo runs first; the evaluation run is there for the control room.
+  const first = runs.find((r) => r.featured_rejection_at_ms == null) ?? runs[0]
+  // The control room opens on a run whose Verifier rejection was reviewed as an authentic error.
+  const ctrl = runs.find((r) => r.featured_rejection_at_ms != null)
+  const ctrlHref = ctrl
+    ? `/control?run=${ctrl.run_id}&from=${(ctrl.featured_rejection_at_ms ?? 0) - 20000}&speed=2`
+    : first
+      ? `/control?run=${first.run_id}`
+      : '/control'
   const liveOff = quota != null && quota.remaining <= 0
   return (
     <main className="landing">
@@ -57,7 +69,7 @@ export function Landing() {
         </div>
         <nav className="links">
           <a href={first ? `/split?run=${first.run_id}&from=2045000` : '/split'}>Split view: two viewers, one moment</a>
-          <a href={ctrl ? `/control?run=${ctrl.run_id}` : '/control'}>Control room: the agents at work</a>
+          <a href={ctrlHref}>Control room: the agents at work</a>
           <a href="/eval">Evaluation report</a>
           <a href={first ? `/graphics?run=${first.run_id}` : '/graphics'}>Graphics-only output (OBS)</a>
           <a href="/second">Second screen</a>

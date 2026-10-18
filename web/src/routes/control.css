@@ -247,3 +247,18 @@
   line-height: 1.5;
   color: var(--text-2);
 }
+
+.provenance {
+  margin: -8px 0 16px;
+  font-size: 13px;
+  color: var(--text-2);
+}
+.reviewer {
+  margin: 10px 0 0;
+  padding: 8px 12px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--text);
+  background: rgb(242 245 243 / 0.06);
+  border-left: 3px solid var(--text-2);
+}

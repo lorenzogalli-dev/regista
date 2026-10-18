@@ -341,7 +341,7 @@ def moment_overlays(m: dict[str, Any], template: dict[str, Any]) -> list[dict[st
             tier=1,
         )
     ]
-    if m["status"] == "published":
+    if m["status"] in ("published", "approved"):  # approved: eval-mode run, no personas
         x = m["explanation"]
         cue = m["cue"] or {}
         texts = {
@@ -371,7 +371,7 @@ def moment_overlays(m: dict[str, Any], template: dict[str, Any]) -> list[dict[st
                 tier=1,
             )
         )
-        if m["caption"]:
+        if m.get("caption"):
             out.append(
                 overlay(
                     f"{mid}_c",

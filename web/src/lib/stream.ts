@@ -37,6 +37,8 @@ export type RunHeader = {
   models?: Record<string, string>
   provider?: string
   usage?: { calls?: number; cost_eur?: number }
+  provenance?: string | null
+  featured_rejection?: { moment_id: string; note: string } | null
 }
 
 export type MatchMeta = {

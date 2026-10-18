@@ -59,6 +59,8 @@ def run_header(run: dict[str, Any], kind: str) -> Message:
             "models": run.get("models"),
             "provider": run.get("provider"),
             "usage": {k: run.get("usage", {}).get(k) for k in ("calls", "cost_eur")},
+            "provenance": run.get("provenance"),
+            "featured_rejection": run.get("featured_rejection"),
         },
     }
 
