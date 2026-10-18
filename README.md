@@ -87,7 +87,7 @@ goes back to the Analyst once. Narrator, Persona and Director fall back to templ
 ```sh
 uv run python -m agents.run m_1000                 # MODEL_PROVIDER=fake: offline, free
 uv run python -m agents.estimate m_1000 m_1001     # cost estimate of a Foundry run
-MODEL_PROVIDER=foundry uv run python -m agents.run m_1000 --mode eval
+MODEL_PROVIDER=foundry uv run --env-file .env python -m agents.run m_1000 --mode eval
 uv run python -m eval.fit_detector                 # refit the candidate noise reference
 ```
 

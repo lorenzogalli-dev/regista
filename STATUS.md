@@ -29,7 +29,7 @@ Last updated: 2026-10-18. This file can drift: check the real state (run it, que
   - candidate finder in code (2-signal rule, robust z vs noise fitted on 2200-2249): 4.1 candidates per no-storyline match, 5.2 per dev match; on dev seeds 62 % of storylines get a candidate of the right kind in their window (80 % of any kind for the right team);
   - Agent Framework graph workflow Detector → Analyst ⇄ Verifier (hybrid, one retry) → Narrator · Persona · Director → Publish, timeouts and template fallbacks; Analyst tools over MCP (in-process server on the live store);
   - meter + per-run budget cap, cost estimate from real prompt sizes (`agents.estimate`), runs saved as JSON and to PostgreSQL;
-  - Foundry not called yet (waiting for `az login`, quota check and deployments).
+  - Foundry deployments created (`gtf-fast`, `gtf-reasoning`); no model call made yet (waiting for Lore's ok on the cost estimate).
 
 ## Blocked
 - Nothing.
@@ -42,7 +42,7 @@ Last updated: 2026-10-18. This file can drift: check the real state (run it, que
 
 ## Decisions
 - GitHub Models was retired on 2026-07-30 (its endpoint now answers "OK" to any request); development uses the fake client, Foundry only for prompt tuning, eval and recorded runs, each after a cost estimate. Hackathon Azure budget: 10 EUR.
-- Models: GPT-6 Luna for Detector, Verifier, Narrator, Persona, Director; GPT-6 Sol (low reasoning effort) for the Analyst; fallback GPT-5.6 Luna / Sol.
+- Models (final, 2026-10-18): `gtf-fast` = gpt-5.4-mini (Data Zone Standard, 20K TPM) for Detector, Verifier, Narrator, Persona, Director; `gtf-reasoning` = gpt-5-mini (Global Standard, 20K TPM, low reasoning effort) for the Analyst. GPT-6 / GPT-5.6 quota is not available for this subscription (0 TPM in every region). Foundry resource `gtf-foundry`, Italy North. Prices (Azure Retail Prices API, EUR per 1M tokens): gpt-5.4-mini 0.726 in / 4.356 out; gpt-5-mini 0.22 in / 1.76 out.
 - Eval sample: 10 eval + 5 control seeds (budget), declared in the README.
 - mcp pinned to 1.x (`>=1.30,<2`): agent-framework-core 1.22 requires `mcp<2` for its MCP tools; mcp 2.x renamed FastMCP and changed APIs.
 - Difficult-pass trigger: SPEC suggested difficulty > 0.8, but difficulty is P(pass fails), and completed passes almost never reach 0.8; the threshold is the 98th percentile of completed calibration passes (0.491).
