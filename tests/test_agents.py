@@ -194,3 +194,16 @@ def test_cumulative_cap_refuses_calls(match_dir, tmp_path, monkeypatch) -> None:
 
     with pytest.raises(BudgetExceeded, match="cumulative cap"):
         asyncio.run(mw(ctx, nothing))
+
+
+def test_derived_text_may_only_restate_the_claim() -> None:
+    from agents.textcheck import problems
+
+    claim = "Linbridge's time-based possession rose from 43% to 71% after the goal."
+    players = {"p_dun_24": "Piet Falvik"}
+    ok = "Dopo il gol, il possesso del Linbridge è salito dal 43% al 71%."
+    new_number = "Possession rose to 74%."
+    new_player = "El gol de Piet Falvik encendió el cambio."
+    assert problems(ok, claim, players, set(), set()) == []
+    assert "74" in problems(new_number, claim, players, set(), set())[0]
+    assert "Piet Falvik" in problems(new_player, claim, players, set(), set())[0]

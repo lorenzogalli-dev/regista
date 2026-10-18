@@ -133,7 +133,10 @@ def main(argv: list[str] | None = None) -> int:
     if url := os.environ.get("DATABASE_URL"):
         from agents.persist import save_run
 
-        save_run(url, run)
+        try:
+            save_run(url, run)
+        except Exception as e:  # the JSON file is the record; the database is a copy
+            logging.warning("run not saved to the database: %s", e)
     u = run["usage"]
     print(
         f"{path}: {run['candidates']} candidates, {run['status_counts']}, "

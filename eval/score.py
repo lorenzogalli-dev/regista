@@ -2,9 +2,11 @@
 
     uv run python -m eval.score data/runs/r_m_1000_*.json ...
 
-- Storyline recall: share of storylines with at least one approved explanation whose candidate
-  time falls in the window (± 3 min), for the right team (and actor, for player storylines),
-  with a matching `mechanism_tag`. Reported per type.
+- Storyline recall: share of storylines with at least one approved explanation that falls in
+  the window (± 3 min), for the right team (and actor, for player storylines), with a matching
+  `mechanism_tag`. Reported per type. "Falls in" = the midpoint of the explanation's window is
+  inside the storyline window ± 3 min (an explanation is emitted at the end of the window it
+  describes); `recall_strict` uses the emission time instead.
 - Explanation precision: share of approved explanations that match a storyline.
 - Evidence validity: share of approved evidence items that a second, independent path agrees
   with: minute bins built from the match files (metrics.bins), not the live store the Verifier
@@ -89,11 +91,12 @@ def check_evidence(b: B.MinuteBins, ev: dict[str, Any]) -> str:
     return "ok"
 
 
-def matches(m: dict[str, Any], sl: dict[str, Any]) -> bool:
+def matches(m: dict[str, Any], sl: dict[str, Any], strict: bool = False) -> bool:
     x = m["explanation"]
     if m["status"] not in APPROVED or x is None:
         return False
-    t = m["candidate"]["t_ms"]
+    c = m["candidate"]
+    t = c["t_ms"] if strict else (c["window_start_ms"] + c["window_end_ms"]) // 2
     if not (sl["start_ms"] - WINDOW_SLACK_MS <= t <= sl["end_ms"] + WINDOW_SLACK_MS):
         return False
     if x["mechanism_tag"] != sl["type"] or x["team_id"] != sl["team_id"]:
@@ -103,6 +106,7 @@ def matches(m: dict[str, Any], sl: dict[str, Any]) -> bool:
 
 def score(runs: list[dict[str, Any]], data_dir: Path, gt_dir: Path) -> dict[str, Any]:
     recall: dict[str, list[bool]] = defaultdict(list)
+    strict: list[bool] = []
     approved = matched = 0
     ev_counts = {"ok": 0, "bad": 0, "unchecked": 0}
     analysed = rejected = 0
@@ -113,6 +117,7 @@ def score(runs: list[dict[str, Any]], data_dir: Path, gt_dir: Path) -> dict[str,
         b = match_bins(str(data_dir / run["match_id"]))
         for sl in sls:
             recall[storyline_key(sl)].append(any(matches(m, sl) for m in run["moments"]))
+            strict.append(any(matches(m, sl, strict=True) for m in run["moments"]))
         for m in run["moments"]:
             for s in m["stages"]:
                 stage_ms[s["stage"].split("#")[0]].append(s["ms"])
@@ -134,6 +139,7 @@ def score(runs: list[dict[str, Any]], data_dir: Path, gt_dir: Path) -> dict[str,
         "matches": [r["match_id"] for r in runs],
         "storylines": len(all_recall),
         "recall": round(statistics.mean(all_recall), 3) if all_recall else None,
+        "recall_strict": round(statistics.mean(strict), 3) if strict else None,
         "recall_by_type": {k: f"{sum(v)}/{len(v)}" for k, v in sorted(recall.items())},
         "approved": approved,
         "precision": round(matched / approved, 3) if approved else None,

@@ -45,12 +45,12 @@ class Evidence(BaseModel):
 class Explanation(BaseModel):
     """Analyst: why the moment matters, with the evidence behind it."""
 
-    claim: str = Field(
-        max_length=400, description="one or two sentences, no numbers absent from evidence"
-    )
+    claim: str = Field(max_length=700, description="two sentences, ideally under 300 characters")
     mechanism_tag: MechanismTag
     team_id: str
-    player_ids: list[str] = Field(default_factory=list)
+    player_ids: list[str] = Field(
+        default_factory=list, description="player ids such as p_bri_14 (not names)"
+    )
     evidence: list[Evidence] = Field(min_length=1, max_length=4)
     confidence: float = Field(ge=0, le=1)
 
@@ -63,13 +63,15 @@ class TextCheck(BaseModel):
 
 
 class Caption(BaseModel):
-    text: str = Field(max_length=140)
+    text: str = Field(max_length=200, description="one sentence, ideally under 120 characters")
 
 
 class PersonaLine(BaseModel):
     persona_id: str = Field(description="<mode>_<lang>, e.g. casual_it")
-    headline: str = Field(max_length=60)
-    text: str = Field(max_length=240)
+    headline: str = Field(max_length=80, description="under 50 characters")
+    text: str = Field(
+        max_length=500, description="two short sentences, ideally under 240 characters"
+    )
 
 
 class PersonaSet(BaseModel):

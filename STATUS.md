@@ -29,7 +29,24 @@ Last updated: 2026-10-18. This file can drift: check the real state (run it, que
   - candidate finder in code (2-signal rule, robust z vs noise fitted on 2200-2249): 4.1 candidates per no-storyline match, 5.2 per dev match; on dev seeds 62 % of storylines get a candidate of the right kind in their window (80 % of any kind for the right team);
   - Agent Framework graph workflow Detector → Analyst ⇄ Verifier (hybrid, one retry) → Narrator · Persona · Director → Publish, timeouts and template fallbacks; Analyst tools over MCP (in-process server on the live store);
   - meter + per-run budget cap, cost estimate from real prompt sizes (`agents.estimate`), runs saved as JSON and to PostgreSQL;
-  - Foundry deployments created (`gtf-fast`, `gtf-reasoning`); no model call made yet (waiting for Lore's ok on the cost estimate).
+  - Foundry deployments created (`gtf-fast`, `gtf-reasoning`); smoke test and four prompt rounds on dev seeds done (spend table below).
+  - Dev results (round 4, eval mode): held-out dev 1010-1019 recall 52 % (strict 52 %), precision 41 %, evidence validity 100 % (independent minute-bin check), Verifier rejection 9 %; Analyst p50 6.9 s, Detector 1.2 s.
+  - Limits found: ~25 % of storylines get no candidate (mostly player arcs); about half of approved explanations describe ordinary fluctuations the code cannot separate from storylines (same z, same persistence). Further prompt rounds stopped for diminishing returns.
+  - Derived texts (captions, 9 personas) are checked by code against the verified claim (numbers and names); failures fall back to templates.
+
+## Foundry spend (estimate vs actual)
+Cumulative cap 8 EUR (ledger `data/runs/foundry_ledger.jsonl`, local). Prices: Azure Retail Prices API, EUR.
+
+| Date | Run | Estimate (EUR) | Actual (EUR) | Note |
+|---|---|---|---|---|
+| 2026-10-18 | Smoke test, 2 calls | < 0.001 | 0.0005 | auth, SDK, structured output OK |
+| 2026-10-18 | Dev round 1: 10 dev matches, eval mode, 52 candidates | 0.38 (0.27–0.57) | 0.165 | recall 70 %, precision 27.5 % |
+| 2026-10-18 | Dev round 2: team episodes + profile, 31 candidates | 0.25 (0.17–0.37) | 0.117 | recall 50 %, precision 41.7 % (Verifier too strict, wide dropped) |
+| 2026-10-18 | Dev round 3: looser Verifier, fired kinds | 0.25 (0.18–0.38) | 0.139 | recall 50 %, precision 35.7 % (player names not mapped to ids) |
+| 2026-10-18 | Dev round 4: names → ids, Detector keeps player arcs; 20 dev matches (1000-1019) | 0.53 (0.37–0.80) | 0.268 | tuning 1000-1009: recall 65 %, precision 48 %; held-out 1010-1019: recall 52 %, precision 41 % |
+| 2026-10-18 | Full pipeline, 3 dev matches (captions, personas, Director) | 0.16 (0.11–0.24) | 0.070 | persona invented a scorer; texts cut by schema limits |
+| 2026-10-18 | Full pipeline after text check + glossary, same 3 matches | ~0.07 (from previous actual) | 0.073 | no invented facts, no cut texts |
+| | **Cumulative** | | **0.83** | cap 8 EUR |
 
 ## Blocked
 - Nothing.

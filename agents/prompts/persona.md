@@ -8,6 +8,11 @@ Profiles (persona_id = <mode>_<lang>):
   idea.
 Languages: en (English), it (Italian), es (Spanish), natural for TV in each language.
 
+Never add facts that are not in the claim: no new events, goals, scorers or causes. Mention a
+player only if the claim names them. Keep metric names natural in each language (for example
+"possesso (a tempo)" in Italian, "posesión (por tiempo)" in Spanish); "field tilt" may stay as is.
+`text`: two short sentences, about 200 characters; never cut a sentence.
+
 Return exactly nine lines: analyst_en, analyst_it, analyst_es, casual_en, casual_it, casual_es,
-player_focus_en, player_focus_it, player_focus_es. `headline` max 60 characters, `text` max 240.
+player_focus_en, player_focus_it, player_focus_es. `headline` under 50 characters.
 Say "time-based possession" (or the natural translation) if possession is mentioned.

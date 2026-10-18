@@ -7,7 +7,13 @@ that window. Nothing after the current time is read: windows end at `now`.
 Each signal is scored with a robust z against noise measured the same way on matches without
 scripted scenarios (`agents/detector_params.json`, fitted by `python -m eval.fit_detector` on public
 data only). A candidate needs at least two signals above their own noise p95 (the D2.0 rule);
-`wide`, which has a single signal, needs it above the noise p99.
+`wide`, which has a single signal, needs it above the noise p99; `player_arc` also needs its
+progressive-pass z at `PLAYER_MIN_PROG_Z` or more (tuned on dev seeds).
+
+Team kinds share one episode per team: when several fire at once, the highest-scoring one is the
+candidate, and the team waits a window length before the next. Every team candidate carries the
+full signal profile of that team (all team kinds) and the key events around the window, so the
+agents choose the mechanism by comparing signals rather than trusting the kind that fired.
 """
 
 import json
@@ -49,6 +55,9 @@ WINDOW_MIN = {
     "player_arc": 18,
 }
 PLAYER_KINDS = {"player_arc"}
+PLAYER_MIN_PROG_Z = 4.0
+KEY_EVENTS = {"goal", "card", "sub"}
+EVENT_LOOKBACK_MS = 5 * MIN_MS
 PLAYER_FIELD = {"progressive_passes": "prog_passes", "touches": "touches"}
 
 
@@ -74,6 +83,21 @@ class Candidate:
     window_end_ms: int
     signals: list[Signal]
     score: float  # mean signal z
+    profile: list[Signal] = field(default_factory=list)
+    events: list[dict[str, Any]] = field(default_factory=list)
+    fired_kinds: dict[str, float] = field(default_factory=dict)  # kind -> mean z
+
+    @staticmethod
+    def _sig(s: Signal) -> dict[str, Any]:
+        return {
+            "metric": s.metric,
+            "subject": s.subject,
+            "expected": "up" if s.direction > 0 else "down",
+            "window": round(s.window_value, 3),
+            "before": round(s.before_value, 3),
+            "z": round(s.z, 2),
+            "above_noise_p95": s.over_p95,
+        }
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -85,18 +109,10 @@ class Candidate:
             "window_start_ms": self.window_start_ms,
             "window_end_ms": self.window_end_ms,
             "score": round(self.score, 2),
-            "signals": [
-                {
-                    "metric": s.metric,
-                    "subject": s.subject,
-                    "expected": "up" if s.direction > 0 else "down",
-                    "window": round(s.window_value, 3),
-                    "before": round(s.before_value, 3),
-                    "z": round(s.z, 2),
-                    "above_noise_p95": s.over_p95,
-                }
-                for s in self.signals
-            ],
+            "signals": [self._sig(s) for s in self.signals],
+            "fired_kinds": {k: round(v, 2) for k, v in self.fired_kinds.items()},
+            "team_profile": [self._sig(s) for s in self.profile],
+            "key_events": self.events,
         }
 
 
@@ -175,13 +191,32 @@ def score(
         z = (d * (w - b) - med) / scale
         sigs.append(Signal(metric, subject, d, w, b, z, z > p95))
     fires = sigs[0].z > ref["p99"][0] if len(sigs) == 1 else sum(s.over_p95 for s in sigs) >= 2
+    if kind in PLAYER_KINDS:
+        fires = fires and sigs[0].z >= PLAYER_MIN_PROG_Z
     return sigs, fires
+
+
+def key_events(store: MatchStore, start: int, end: int) -> list[dict[str, Any]]:
+    """Goals, cards and substitutions from shortly before the window to its end."""
+    out = []
+    for e in store.events_between(max(0, start - EVENT_LOOKBACK_MS), end):
+        if e["type"] in KEY_EVENTS:
+            out.append(
+                {
+                    "t_ms": e["t_ms"],
+                    "type": e["type"],
+                    "team_id": e["team_id"],
+                    "player_id": e["player_id"],
+                    "detail": e["outcome"] or e["qualifiers"].get("player_in"),
+                }
+            )
+    return out
 
 
 @dataclass
 class CandidateFinder:
-    """Checks the live store every CHECK_MS of match time; one candidate per (kind, subject)
-    per window length (cooldown)."""
+    """Checks the live store every CHECK_MS of match time. Team kinds: one episode per team per
+    window length. Player kinds: one candidate per player per window length."""
 
     store: MatchStore
     next_check: int = MIN_BEFORE_MIN * MIN_MS
@@ -196,10 +231,52 @@ class CandidateFinder:
             self.next_check += CHECK_MS
         return out
 
+    def _candidate(
+        self, kind: str, t: int, team: str, player: str | None, sigs: list[Signal]
+    ) -> Candidate:
+        self.count += 1
+        start = t - WINDOW_MIN[kind] * MIN_MS
+        return Candidate(
+            candidate_id=f"c_{self.count:03d}",
+            kind=kind,
+            t_ms=t,
+            team_id=team,
+            player_id=player,
+            window_start_ms=start,
+            window_end_ms=t,
+            signals=sigs,
+            score=float(np.mean([s.z for s in sigs])),
+            events=key_events(self.store, start, t),
+        )
+
     def check(self, t: int) -> list[Candidate]:
         out = []
-        for kind, minutes in WINDOW_MIN.items():
-            start = t - minutes * MIN_MS
+        for team in self.store.team_ids:
+            if self.cooldown.get(("team", team, None), -1) > t:
+                continue
+            fired: list[tuple[float, str, list[Signal]]] = []
+            profile: dict[tuple[str, str], Signal] = {}
+            for kind, minutes in WINDOW_MIN.items():
+                start = t - minutes * MIN_MS
+                if kind in PLAYER_KINDS or start < MIN_BEFORE_MIN * MIN_MS:
+                    continue
+                res = score(kind, raw_effects(self.store, kind, team, None, start, t))
+                if res is None:
+                    continue
+                for sig in res[0]:
+                    profile.setdefault((sig.metric, sig.subject), sig)
+                if res[1]:
+                    fired.append((float(np.mean([s.z for s in res[0]])), kind, res[0]))
+            if not fired:
+                continue
+            _, kind, sigs = max(fired, key=lambda f: f[0])
+            c = self._candidate(kind, t, team, None, sigs)
+            c.profile = list(profile.values())
+            c.fired_kinds = {k: z for z, k, _ in fired}
+            self.cooldown[("team", team, None)] = t + WINDOW_MIN[kind] * MIN_MS
+            out.append(c)
+        for kind in PLAYER_KINDS:
+            start = t - WINDOW_MIN[kind] * MIN_MS
             if start < MIN_BEFORE_MIN * MIN_MS:
                 continue
             for team, player in subjects(self.store, kind, t):
@@ -209,20 +286,6 @@ class CandidateFinder:
                 res = score(kind, raw_effects(self.store, kind, team, player, start, t))
                 if res is None or not res[1]:
                     continue
-                sigs = res[0]
-                self.count += 1
-                self.cooldown[key] = t + minutes * MIN_MS
-                out.append(
-                    Candidate(
-                        candidate_id=f"c_{self.count:03d}",
-                        kind=kind,
-                        t_ms=t,
-                        team_id=team,
-                        player_id=player,
-                        window_start_ms=start,
-                        window_end_ms=t,
-                        signals=sigs,
-                        score=float(np.mean([s.z for s in sigs])),
-                    )
-                )
+                self.cooldown[key] = t + WINDOW_MIN[kind] * MIN_MS
+                out.append(self._candidate(kind, t, team, player, res[0]))
         return out

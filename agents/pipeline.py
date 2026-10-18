@@ -21,6 +21,7 @@ from agent_framework import Agent, Executor, WorkflowBuilder, WorkflowContext, h
 
 from agents import evidence as E
 from agents import schemas as S
+from agents import textcheck
 from agents.candidates import Candidate
 from agents.config import Role, Settings
 from agents.providers import BudgetExceeded, Meter, make_client, metered, role_options
@@ -118,6 +119,27 @@ class Desk:
         m = self.tools.store.meta
         return m.home.name if m.home.team_id == team_id else m.away.name
 
+    def player_ids(self, refs: list[str]) -> list[str]:
+        """Map player references to ids (models sometimes return names); drop unknown ones."""
+        players = self.tools.store.meta.players
+        out = []
+        for r in refs:
+            hit = next(
+                (p.player_id for p in players if r == p.player_id or r.startswith(p.name)), None
+            )
+            if hit and hit not in out:
+                out.append(hit)
+        return out
+
+    def players_named(self, c: Candidate) -> dict[str, str]:
+        """Names of the players a moment involves (candidate player, key-event players)."""
+        ids = {c.player_id} | {e["player_id"] for e in c.events} - {None}
+        return {
+            p.player_id: f"{p.name} (#{p.shirt}, {p.position}, {self.team_name(p.team_id)})"
+            for p in self.tools.store.meta.players
+            if p.player_id in ids
+        }
+
     def context(self, c: Candidate) -> dict[str, Any]:
         ctx = self.tools.get_moment_context(c.t_ms)
         return {
@@ -177,7 +199,11 @@ class Detect(Executor):
     @handler
     async def run(self, w: MomentWork, ctx: WorkflowContext[MomentWork, MomentWork]) -> None:
         prompt = "Candidate moment:\n" + payload_block(
-            {"context": self.desk.context(w.candidate), "candidate": w.candidate.to_dict()}
+            {
+                "context": self.desk.context(w.candidate),
+                "players": self.desk.players_named(w.candidate),
+                "candidate": w.candidate.to_dict(),
+            }
         )
         v, outcome = await _timed(
             w, "detector", self.desk.ask("detector", prompt, S.DetectorVerdict)
@@ -203,6 +229,7 @@ class Analyse(Executor):
         before, after = E.windows(c)
         data = {
             "context": self.desk.context(c),
+            "players": self.desk.players_named(c),
             "candidate": c.to_dict(),
             "detector": w.verdict.model_dump() if w.verdict else None,
             "team_name": self.desk.team_name(c.team_id),
@@ -222,7 +249,13 @@ class Analyse(Executor):
             w.rejection = f"analyst: {outcome}"
             await ctx.yield_output(w)
             return
+        x.player_ids = self.desk.player_ids(x.player_ids)
         w.explanation = x
+        if x.mechanism_tag == "none":
+            w.status = "dropped"
+            w.rejection = "analyst: no mechanism fits"
+            await ctx.yield_output(w)
+            return
         await ctx.send_message(w)
 
 
@@ -252,7 +285,12 @@ class Verify(Executor):
             data = {
                 "claim": w.explanation.claim,
                 "team": self.desk.team_name(w.explanation.team_id),
-                "players": w.explanation.player_ids,
+                "players": {
+                    p.player_id: p.name
+                    for p in self.desk.tools.store.meta.players
+                    if p.player_id in w.explanation.player_ids
+                    or any(e.subject == p.player_id for e in w.explanation.evidence)
+                },
                 "evidence": [e.model_dump() for e in w.explanation.evidence],
                 "context_numbers": {
                     "window_minutes": round((c.window_end_ms - c.window_start_ms) / 60_000),
@@ -357,7 +395,27 @@ class Direct(Executor):
 
 
 class Publish(Executor):
-    """Fan-in: merges the three parts, filling any failed one with its template."""
+    """Fan-in: merges the three parts, filling any failed one with its template, then checks
+    the derived texts against the verified claim (code) and replaces any that say more."""
+
+    def check_text(self, w: MomentWork) -> None:
+        assert w.explanation is not None and w.caption is not None and w.personas is not None
+        claim = w.explanation.claim
+        players = {p.player_id: p.name for p in self.desk.tools.store.meta.players}
+        allowed = {n for pid, n in players.items() if n in claim}
+        extra = {str(round((w.candidate.window_end_ms - w.candidate.window_start_ms) / 60_000))}
+        if textcheck.problems(w.caption.text, claim, players, allowed, extra):
+            w.caption = template_caption(self.desk, w)
+            w.fallbacks.append("caption:text-check")
+        template = {line.persona_id: line for line in template_personas(w).lines}
+        lines = []
+        for line in w.personas.lines:
+            bad = textcheck.problems(f"{line.headline} {line.text}", claim, players, allowed, extra)
+            if bad:
+                w.fallbacks.append(f"{line.persona_id}:text-check: {bad[0]}")
+                line = template.get(line.persona_id, line)
+            lines.append(line)
+        w.personas = S.PersonaSet(lines=lines)
 
     def __init__(self, desk: Desk, works: dict[str, MomentWork]) -> None:
         super().__init__(id="publisher")
@@ -372,6 +430,7 @@ class Publish(Executor):
         w.personas = got.get("personas") or template_personas(w)
         w.cue = got.get("cue") or DEFAULT_CUE
         w.fallbacks = [k for k in ("caption", "personas", "cue") if got.get(k) is None]
+        self.check_text(w)
         w.status = "published"
         await ctx.yield_output(w)
 
