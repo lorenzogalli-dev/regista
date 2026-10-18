@@ -2,40 +2,35 @@
 
 Last updated: 2026-10-18. This file can drift: check the real state (run it, query it) before trusting it.
 
-## Done
-- D0 skeleton (2026-10-17): repo layout, uv project, ruff/mypy/pytest, FastAPI `/health` with DB check, Docker Compose (PostgreSQL 17 + API), Vite/React/TS scaffold with `/graphics` placeholder, CI, MIT licence.
-- D1 simulator + replay:
-  - `sim generate` (events + 10 Hz tracking, gzip), 5 storyline types as parameter modifiers, control seeds, ground truth written to a separate tree.
-  - Replay over WebSocket (`/ws/replay/{match_id}?speed=&from_ms=`), frame decimation at high speed, `sim watch` terminal client.
-  - Timing: ~3.5 s simulate + ~2.2 s write per full match (macOS ARM).
+## Handoff (2026-10-18)
+All deliverables D0–D6 are done and deployed. Live demo: https://gtf-app.delightfulbush-9c2f92ce.italynorth.azurecontainerapps.io
 
-## In progress
-- D6 (2026-10-18): deployed on Azure Container Apps, https://gtf-app.delightfulbush-9c2f92ce.italynorth.azurecontainerapps.io (image b24b348, 0.25 vCPU / 0.5 GiB, 1 replica). PostgreSQL B1ms, Blob Storage (4 recorded runs + their public match files), App Insights receiving Agent Framework spans. Verified in production: data sync from Blob, all routes, recorded WebSocket, external MCP (6 tools, traversal refused), unknown paths 404, live session on Foundry via managed identity (one moment published end to end), design audit. Live cap 150 model calls/day. Demo video clips and voice-over in docs/video. `infra/post_judging.sh` after 10 Nov.
-- D5b (2026-10-18): broadcast view on real recorded runs (template → verified text, amber state), split view, control room, /graphics, eval report page, landing, second screen and recap; recorded and live share one WebSocket message vocabulary (`agents/live.py`, `api/routes/runs.py`). Review material in `docs/design/d5b/`. Verifier now also receives the key events the Analyst saw (it rejected a true substitution in recorded run m_1009; that run is kept as recorded).
-- D4 evaluation done (2026-10-18): official run once on 20 eval + 10 control seeds (`docs/eval/`): recall 52 %, evidence validity 100 %, 0 unsupported of 81 approved, precision 43 %, precision@3 48 %, 1.8 approved per control match (all evidence-backed), Verifier rejections 15 %, candidate → approval p50 9.5 s.
-- D2.0 storyline signal check done (2026-10-18), official table in `docs/signal_check.md`.
+Next, by hand (Lore):
+- Edit the demo video from `docs/video/clips/` with the voice-over in `docs/video/README.md` (≤ 2 min).
+- Make the GitHub repo public; check the README judge table opens on the live URL.
+- Submit before 27 Oct 2026, 23:59 PT. Keep the app up until 10 Nov 2026.
+- From 11 Nov: `infra/post_judging.sh` (deletes PostgreSQL, scales the app to 0). It refuses to run earlier unless `FORCE=1`.
+
+Operations:
+- Redeploy: push to `main` → CI → `image` workflow pushes `ghcr.io/lorenzogalli-dev/ground-truth-football:<full sha>` (public) → `az containerapp update -n gtf-app -g <rg> --image <that tag>` (or `PHASE=app infra/deploy.sh`). Resource names and endpoints live in `.env` / `.deploy.secrets` (local, not committed). Production currently runs image `b24b348`; later commits changed docs only.
+- Container App `gtf-app`: 0.25 vCPU / 0.5 GiB, 1 replica (load test: ~125 MB RSS, ~3 % CPU). System-assigned identity with *Storage Blob Data Reader* and *Cognitive Services User* (*Cognitive Services OpenAI User* gave 403 on the Foundry project endpoint; the granted role also allows listing keys).
+- At startup the app downloads demo data from Blob through an allowlist (`api/data_sync.py`); ground truth is never uploaded (`infra/upload_data.py`, tested).
+- Live sessions spend Foundry credit: cap 150 model calls/day (`/api/live/quota`). PostgreSQL B1ms bills ~0.0175 EUR/h while it exists.
+- Eval seeds 5000–5019 / 9000–9009 and signal-check seeds 2300–2449 are used: do not re-run the official evaluations.
+
+## Done
+- D0 skeleton (2026-10-17): repo layout, uv project, ruff/mypy/pytest, FastAPI `/health` with DB check, Docker Compose, Vite/React/TS scaffold, CI, MIT licence.
+- D1 simulator + replay: `sim generate` (events + 10 Hz tracking), storylines as parameter modifiers, control seeds, ground truth in a separate tree; replay over WebSocket. ~3.5 s simulate + ~2.2 s write per match.
+- D2.0 storyline signal check (official table `docs/signal_check.md`):
   - Three strengthening rounds tuned on 2000–2099; first judged run on 2100–2199 (`docs/signal_check_2100.md`, superseded).
-  - Criterion changed after that run (approved): robust z (median/MAD) for all types; official check run once on the final simulator, seeds 2300–2399 (noise holdout 2400–2449).
-  - Active: pressing_spell, momentum_shift, tactical_switch (long_ball, wide). player_arc active as **difficult** (2-min slice z 2.44). **Disabled**: fatigue_drop (detected 48 %). `sim/storylines.py: ACTIVE_TYPES, DIFFICULT_TYPES`.
-- D2.1 metrics engine + tools done (2026-10-18):
-  - shared per-event counters (`metrics/counters.py`) used by minute bins and the live store;
-  - fitted on calibration seeds 2000–2199: pass difficulty (AUC 0.715), xG (AUC 0.804), xT 12×8, control-index references (`metrics/params.json`);
-  - `MatchStore` (incremental, no look-ahead), physical metrics skipping the half-time reset and data jumps, sprints ≥ 1 s, tier-0 triggers;
-  - typed tools + MCP server at `/mcp/` (mcp 1.30, compatible with Agent Framework), ground-truth isolation tests;
-  - `metrics summary`, performance at 20×: 0.087 ms per frame p50 vs 5 ms budget (`docs/performance.md`).
-- D5a design system + hero frame (2026-10-18), awaiting Lore's screenshot review (`docs/design/`):
-  - tokens, self-hosted Archivo/Inter (OFL), `motion` 14.3.0; one shared pitch→screen projection for canvas and DOM;
-  - scorebug, player tags, pass trail + pass card (tier 0), AI moment card with verified seal (tier 1) on a recorded clip of m_1000 (`metrics.export_sample`), `/graphics` transparent output, `/design` reference page;
-  - team palettes enforce text contrast ≥ 4.5, marks ≥ 3 on the background, home/away separation and distance from the AI cyan (tested on 6 kit pairs);
-  - `web/scripts/capture.mjs`: real-time screenshots, video (ffmpeg) and a design audit (title-safe, overlaps, contrast, tabular figures, skew).
-- D3 agents + orchestration in progress (2026-10-18), with the fake client:
-  - candidate finder in code (2-signal rule, robust z vs noise fitted on 2200-2249): 4.1 candidates per no-storyline match, 5.2 per dev match; on dev seeds 62 % of storylines get a candidate of the right kind in their window (80 % of any kind for the right team);
-  - Agent Framework graph workflow Detector → Analyst ⇄ Verifier (hybrid, one retry) → Narrator · Persona · Director → Publish, timeouts and template fallbacks; Analyst tools over MCP (in-process server on the live store);
-  - meter + per-run budget cap, cost estimate from real prompt sizes (`agents.estimate`), runs saved as JSON and to PostgreSQL;
-  - Foundry deployments created (`gtf-fast`, `gtf-reasoning`); smoke test and four prompt rounds on dev seeds done (spend table below).
-  - Dev results (round 4, eval mode): held-out dev 1010-1019 recall 52 % (strict 52 %), precision 41 %, evidence validity 100 % (independent minute-bin check), Verifier rejection 9 %; Analyst p50 6.9 s, Detector 1.2 s.
-  - Limits found: ~25 % of storylines get no candidate (mostly player arcs); about half of approved explanations describe ordinary fluctuations the code cannot separate from storylines (same z, same persistence). Further prompt rounds stopped for diminishing returns.
-  - Derived texts (captions, 9 personas) are checked by code against the verified claim (numbers and names); failures fall back to templates.
+  - Criterion changed after that run (approved): robust z (median/MAD) for all types; official check run once on seeds 2300–2399 (noise holdout 2400–2449).
+  - Active: pressing_spell, momentum_shift, tactical_switch (long_ball, wide); player_arc active as **difficult**; **disabled**: fatigue_drop (48 %). `sim/storylines.py: ACTIVE_TYPES, DIFFICULT_TYPES`.
+- D2.1 metrics engine + tools: shared counters, pass difficulty (AUC 0.715), xG (AUC 0.804), xT 12×8, control index (`metrics/params.json`); incremental `MatchStore`; typed tools + MCP server at `/mcp/` with ground-truth isolation tests; 0.087 ms per frame p50 at 20× (`docs/performance.md`).
+- D3 agents + orchestration: candidate finder in code (2-signal rule, robust z vs noise); Agent Framework graph Detector → Analyst ⇄ Verifier (hybrid, one retry) → Narrator · Persona · Director → Publish, with timeouts and template fallbacks; Analyst tools over MCP; derived texts checked by code; per-run budget and cumulative cap; runs saved as JSON and to PostgreSQL. Known limits: ~25 % of storylines get no candidate (mostly player arcs); about half of approved explanations describe ordinary fluctuations with the same signature as storylines.
+- D4 evaluation, official run once on 20 eval + 10 control seeds (`docs/eval/`): recall 52 %, 0 unsupported of 81 approved, evidence validity 100 % of 267 recomputed items (45 not independently recomputable), precision 43 %, precision@3 48 %, 1.8 approved per control match, Verifier rejections 15 %, Analyst p50 6.8 s, cost 0.385 EUR.
+- D5a design system + hero frame (`docs/design/`): tokens, self-hosted OFL fonts, `motion` 14.3.0, shared pitch→screen projection, team palettes with contrast rules, `web/scripts/capture.mjs` (screenshots, video, design audit).
+- D5b views on real recorded runs (`data/recorded/`, `docs/design/d5b/`): broadcast (template → verified card), split view, control room with an authentic Verifier rejection (run r_m_5016, provenance shown), /graphics, eval page, landing, second screen, recap; recorded and live share one WebSocket vocabulary.
+- D6 (2026-10-18): Azure Container Apps + PostgreSQL + Blob + App Insights. Verified in production: `/health` with DB, Blob data sync (4 runs), eval report, live quota, 404 on ground-truth / traversal / unknown paths, every front-end route, recorded WebSocket, external MCP (6 tools, traversal refused), one live moment published end to end on Foundry via managed identity, App Insights spans from Agent Framework, design audit clean. Final README, demo clips and voice-over.
 
 ## Foundry spend (estimate vs actual)
 Cumulative cap 8 EUR (ledger `data/runs/foundry_ledger.jsonl`, local). Prices: Azure Retail Prices API, EUR.
@@ -81,7 +76,7 @@ Cumulative cap 8 EUR (ledger `data/runs/foundry_ledger.jsonl`, local). Prices: A
 - Postgres access: psycopg 3 + plain SQL, idempotent `schema.sql` at startup.
 - Test client: `httpx2` (Starlette's documented TestClient backend; provenance checked 2026-10-17).
 - `data/ground_truth/` is git-ignored and never mounted into the API container.
-- Demo matches and recorded agent runs are generated once and kept as artefacts (location decided in D6); they are never regenerated inside Docker builds.
+- Demo matches and recorded agent runs are generated once and kept as artefacts (Blob Storage in production, `data/recorded/` in the repo); they are never regenerated inside Docker builds.
 - Simulator details:
   - Shot outcomes use `goal | saved | off_target | blocked`; saves `won | parried` (parry → corner).
   - Events do not carry `xg`: xG belongs to the metrics engine (D2), fitted on synthetic shots.
