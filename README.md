@@ -107,13 +107,19 @@ low reasoning effort) on Microsoft Foundry; 282 model calls, 0.39 EUR. Full repo
 |---|---|
 | Storyline recall (approved explanation in the window ± 3 min, right team/player, right mechanism) | **52 %** (23 / 44) |
 | Recall by type | tactical switch 6/8 · player arc 7/9 (rated *difficult* by the signal check) · momentum shift 6/12 · pressing spell 4/15 |
-| Evidence validity (every cited number recomputed by a second, independent code path) | **100 %** (267 checked, 45 not independently checkable) |
+| Evidence validity (cited numbers recomputed by a second, independent code path) | **100 %** of the 267 items recomputed; 45 of 312 (14 %) could not be recomputed independently (see below) |
 | Approved explanations with unsupported evidence | **0** of 81 |
 | Precision (approved explanations that match a planted storyline) | 43 % |
 | Precision@3 (the three moments per match the Director airs) | 48 % |
 | Approved explanations per control match (no storylines planted) | 1.8 |
 | Verifier rejections (claim sent back to the Analyst at least once) | 15 % |
 | Latency p50 / p95: Detector · Analyst · Verifier (text) · candidate → approval | 1.3 / 2.0 s · 6.8 / 9.1 s · 1.1 / 1.5 s · 9.5 / 17.3 s |
+
+Why 45 items are not independently checked: 23 cite xT added and 22 the control index. The
+independent path recomputes from per-minute bins built from the match files, and these two
+metrics need per-event model scores (xT) and possession-level detail (control index) that the
+bins do not keep. They were still verified at approval time by the Verifier's recomputation
+with the metrics tools; they are just not counted in the 100 %.
 
 How to read precision: every approved explanation that does not match a planted storyline still
 cites numbers that the independent recomputation confirms. They are **unplanted but
