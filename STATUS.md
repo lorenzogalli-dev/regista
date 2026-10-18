@@ -1,18 +1,20 @@
 # Status
 
-Last updated: 2026-10-18. This file can drift: check the real state (run it, query it) before trusting it.
+Last updated: 2026-10-19. This file can drift: check the real state (run it, query it) before trusting it.
 
-## Handoff (2026-10-18)
-All deliverables D0–D6 are done and deployed. After D6: UX/design revision and rename to **Regista** (see Done). Live demo: https://gtf-app.delightfulbush-9c2f92ce.italynorth.azurecontainerapps.io
+## Handoff (2026-10-19)
+All deliverables D0–D6 are done. After D6: UX/design revision and rename to **Regista** (see Done), deployed and verified in production on 2026-10-19 (image `ghcr.io/lorenzogalli-dev/regista:a4ff0df…`, revision `gtf-app--0000003`). Live demo: https://gtf-app.delightfulbush-9c2f92ce.italynorth.azurecontainerapps.io (start at `/tour`).
 
 Next, by hand (Lore):
 - Edit the demo video from `docs/video/clips/` with the voice-over in `docs/video/README.md` (≤ 2 min); the guided tour (`docs/design/regista/guided-tour.mp4`) is the backbone.
-- Make the GitHub repo public; check the README judge table opens on the live URL.
+- The GitHub repo `lorenzogalli-dev/regista` is already **public** (made public on 2026-10-18); check the README judge table opens on the live URL.
+- Delete the old GHCR package `ground-truth-football` (production no longer uses it): GitHub → your profile → Packages → `ground-truth-football` → Package settings → Danger zone → Delete this package, type the name to confirm. (Not possible from here: the `gh` token has no `delete:packages` scope.)
 - Submit before 27 Oct 2026, 23:59 PT. Keep the app up until 10 Nov 2026.
 - From 11 Nov: `infra/post_judging.sh` (deletes PostgreSQL, scales the app to 0). It refuses to run earlier unless `FORCE=1`.
+- If a browser still shows another project's favicon on `localhost:5173`, it is the browser's per-origin cache (another Vite project on the same port); the app's icon is `/regista-icon.svg`.
 
 Operations:
-- Redeploy: push to `main` → CI → `image` workflow pushes `ghcr.io/lorenzogalli-dev/regista:<full sha>` (the package name follows the repo name) → `az containerapp update -n gtf-app -g <rg> --image <that tag>` (or `PHASE=app infra/deploy.sh`). Resource names and endpoints live in `.env` / `.deploy.secrets` (local, not committed). Production currently runs image `b24b348`; later commits changed docs only.
+- Redeploy: push to `main` → CI → `image` workflow pushes `ghcr.io/lorenzogalli-dev/regista:<full sha>` (the package name follows the repo name) → `az containerapp update -n gtf-app -g <rg> --image <that tag>` (or `PHASE=app infra/deploy.sh`). Resource names and endpoints live in `.env` / `.deploy.secrets` (local, not committed). Production runs image `regista:a4ff0df…` (revision `gtf-app--0000003`); the package `regista` is public.
 - Container App `gtf-app`: 0.25 vCPU / 0.5 GiB, 1 replica (load test: ~125 MB RSS, ~3 % CPU). System-assigned identity with *Storage Blob Data Reader* and *Cognitive Services User* (*Cognitive Services OpenAI User* gave 403 on the Foundry project endpoint; the granted role also allows listing keys).
 - At startup the app downloads demo data from Blob through an allowlist (`api/data_sync.py`); ground truth is never uploaded (`infra/upload_data.py`, tested).
 - Live sessions spend Foundry credit: cap 150 model calls/day (`/api/live/quota`). PostgreSQL B1ms bills ~0.0175 EUR/h while it exists.
@@ -33,6 +35,8 @@ Operations:
 - D6 (2026-10-18): Azure Container Apps + PostgreSQL + Blob + App Insights. Verified in production: `/health` with DB, Blob data sync (4 runs), eval report, live quota, 404 on ground-truth / traversal / unknown paths, every front-end route, recorded WebSocket, external MCP (6 tools, traversal refused), one live moment published end to end on Foundry via managed identity, App Insights spans from Agent Framework, design audit clean. Final README, demo clips and voice-over.
 
 - UX/design revision + rename (2026-10-18, after D6): project renamed **Regista** ("Reads the game. Directs the broadcast."; Azure resources keep their `gtf-*` names). Guided tour `/tour` (≈ 2 min) as the landing's main action; new landing (problem, what it does, trust schema, results with caveats, explore, under the hood); broadcast player with clickable timeline (tier 0 / tier 1 lanes, goals, shots, red cards, Verifier rejections), next key moment (N), auto-skip of quiet play (×8), moment replay (slow, hold for reading time, Space continues), telestration from match data (`metrics/telestration.py`, `/api/runs/{id}/timeline`), insights feed, evidence panel behind the ✓ seal; control-room tokens moving through the agent graph. Recorded WebSocket accepts `{"type":"pace","speed":…}` (pause, fast-forward, hold). Type: Barlow Condensed / Barlow / Newsreader (OFL, self-hosted); accent green `#7CF25C`. Layout audit `web/scripts/audit.sh` (21 audits at 1920/1440/390, no problems); review material `docs/design/regista/`; demo clips and voice-over rebuilt around the tour. No model calls (recorded runs only).
+- Logo check (2026-10-19): the favicon was drawn by hand in this repo; no file, image or colour comes from another product (repo files hashed against that site's public icons and its CSS colours: no match). Favicon renamed to `/regista-icon.svg` to defeat stale browser caches; wordmark in `docs/brand/`.
+- Production verified on 2026-10-19 (revision `gtf-app--0000003`): `/health` ok with DB; every route incl. `/tour` 200; new icon and fonts served; `/api/runs/{id}/timeline` 200; ground truth, traversal and unknown paths 404; MCP server answers as `regista-metrics`; layout audit (`web/scripts/audit.sh` with `BASE` = production): the audits that completed (player with telestration, insights, timeline) found no layout problem, but the full run was stopped; its fixed `auditAt` delays are tuned on the laptop and fire too early in production (see Open checks).
 
 ## Foundry spend (estimate vs actual)
 Cumulative cap 8 EUR (ledger `data/runs/foundry_ledger.jsonl`, local). Prices: Azure Retail Prices API, EUR.
@@ -57,6 +61,7 @@ Cumulative cap 8 EUR (ledger `data/runs/foundry_ledger.jsonl`, local). Prices: A
 - Nothing.
 
 ## Open checks
+- **Seek latency in production** (measured 2026-10-19): time to first frame on `/ws/recorded/…` is 0.2 s from kick-off, 2.6 s from 34', 6.4 s from 90' (0.25 vCPU; the replay decompresses tracking from the start to reach `from_ms`). Affects "next key moment", timeline clicks and tour steps that start late in a match (control-room step starts at 85'). Possible fixes: a per-match index of byte offsets per minute in the tracking file, or more CPU. Then re-run `BASE=<prod> web/scripts/audit.sh` with longer `auditAt`.
 - Cross-platform determinism: the `simulator-crossplatform` CI job compares Linux output for seed 1000 with the digest recorded on macOS ARM (`tests/data/digest_m_1000.json`).
   - 2026-10-17, commit 77dc973: **match** on GitHub `ubuntu-latest` (Ubuntu 24.04, CPython 3.12.3, numpy 2.5.4) vs macOS arm64 (CPython 3.12.7). One seed only; re-check whenever numpy or Python changes.
   - 2026-10-18, commit 78d8c4b (after D2.0 simulator changes): events.jsonl and match.json **identical** on Linux; tracking frames sampled every 30 s identical (max abs difference 0.000); the full tracking file differs (some values differ in the last decimal). Treated as a known difference: exact tracking equality is an `xfail(strict=False)` test, events must match exactly.
