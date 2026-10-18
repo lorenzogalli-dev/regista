@@ -55,6 +55,7 @@ class Settings:
     )
     agent_timeout_s: float = field(default_factory=lambda: _float("AGENT_TIMEOUT_S", 45.0))
     run_budget_eur: float = field(default_factory=lambda: _float("RUN_BUDGET_EUR", 1.0))
+    total_cap_eur: float = field(default_factory=lambda: _float("FOUNDRY_TOTAL_CAP_EUR", 8.0))
     analyst_max_tool_calls: int = field(
         default_factory=lambda: int(_float("ANALYST_MAX_TOOL_CALLS", 2))
     )

@@ -34,6 +34,7 @@ class Call:
 class Meter:
     settings: Settings
     calls: list[Call] = field(default_factory=list)
+    prior_eur: float = 0.0  # spent by earlier runs (ledger), for the cumulative cap
 
     @property
     def spent_eur(self) -> float:
@@ -76,6 +77,11 @@ def metered(meter: Meter, agent: str, role: Role) -> Callable[..., Awaitable[Non
             raise BudgetExceeded(
                 f"run budget {meter.settings.run_budget_eur} EUR reached "
                 f"({meter.spent_eur:.4f} EUR spent); call to {agent} refused"
+            )
+        if meter.prior_eur + meter.spent_eur >= meter.settings.total_cap_eur:
+            raise BudgetExceeded(
+                f"cumulative cap {meter.settings.total_cap_eur} EUR reached "
+                f"({meter.prior_eur + meter.spent_eur:.4f} EUR); call to {agent} refused"
             )
         t0 = time.perf_counter()
         await call_next()

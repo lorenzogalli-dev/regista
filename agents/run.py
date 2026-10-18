@@ -23,6 +23,7 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any, Literal
 
+from agents import ledger
 from agents.candidates import CandidateFinder
 from agents.config import Settings
 from agents.pipeline import Desk, MomentWork, run_moment
@@ -43,6 +44,8 @@ async def run_match(
     store = MatchStore(io.read_meta(match_dir))
     tools = MatchTools(store)
     meter = Meter(settings)
+    if settings.provider != "fake":
+        meter.prior_eur = ledger.spent()
     finder = CandidateFinder(store)
     moments: list[MomentWork] = []
     stopped: str | None = None
@@ -78,6 +81,16 @@ async def run_match(
                         break
                     raise
         await tool_stack.aclose()
+
+    if settings.provider != "fake":
+        ledger.record(
+            {
+                "what": f"run {store.meta.match_id} {mode}",
+                "provider": settings.provider,
+                "calls": len(meter.calls),
+                "cost_eur": round(meter.spent_eur, 6),
+            }
+        )
 
     counts: dict[str, int] = {}
     for w in moments:

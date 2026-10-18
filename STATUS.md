@@ -43,7 +43,7 @@ Last updated: 2026-10-18. This file can drift: check the real state (run it, que
 ## Decisions
 - GitHub Models was retired on 2026-07-30 (its endpoint now answers "OK" to any request); development uses the fake client, Foundry only for prompt tuning, eval and recorded runs, each after a cost estimate. Hackathon Azure budget: 10 EUR.
 - Models (final, 2026-10-18): `gtf-fast` = gpt-5.4-mini (Data Zone Standard, 20K TPM) for Detector, Verifier, Narrator, Persona, Director; `gtf-reasoning` = gpt-5-mini (Global Standard, 20K TPM, low reasoning effort) for the Analyst. GPT-6 / GPT-5.6 quota is not available for this subscription (0 TPM in every region). Foundry resource `gtf-foundry`, Italy North. Prices (Azure Retail Prices API, EUR per 1M tokens): gpt-5.4-mini 0.726 in / 4.356 out; gpt-5-mini 0.22 in / 1.76 out.
-- Eval sample: 10 eval + 5 control seeds (budget), declared in the README.
+- Eval: full sample, 20 eval + 10 control seeds, run once. Foundry spend capped at 8 EUR cumulative (ledger in `data/runs/foundry_ledger.jsonl`, enforced by `agents.run`).
 - mcp pinned to 1.x (`>=1.30,<2`): agent-framework-core 1.22 requires `mcp<2` for its MCP tools; mcp 2.x renamed FastMCP and changed APIs.
 - Difficult-pass trigger: SPEC suggested difficulty > 0.8, but difficulty is P(pass fails), and completed passes almost never reach 0.8; the threshold is the 98th percentile of completed calibration passes (0.491).
 - Speed trigger at most once per player per 5 minutes (at 60 s there were ~135 a match).

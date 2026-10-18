@@ -92,8 +92,8 @@ uv run python -m eval.fit_detector                 # refit the candidate noise r
 ```
 
 The provider is an env switch (`MODEL_PROVIDER=fake | openai | foundry`, see `.env.example`).
-Every run records tokens, latency and cost per call and stops at `RUN_BUDGET_EUR`. Evaluation
-uses 10 eval and 5 control matches: a sample reduced to keep model spend within budget.
+Every run records tokens, latency and cost per call and stops at `RUN_BUDGET_EUR`; Foundry runs
+also respect a cumulative cap (`FOUNDRY_TOTAL_CAP_EUR`) kept in a local spend ledger.
 
 ## Front-end (web/)
 

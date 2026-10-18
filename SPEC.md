@@ -159,7 +159,7 @@ Principle: **numbers from tools, words from models.** Every claim an agent makes
 
 Ingest, state and metrics are plain code, not agents — say so in the README; it is a design choice, not a gap.
 
-Models: two Foundry deployments from env — `FOUNDRY_MODEL_REASONING` = `gtf-reasoning` (**gpt-5-mini**, Global Standard, low reasoning effort; Analyst only) and `FOUNDRY_MODEL_FAST` = `gtf-fast` (**gpt-5.4-mini**, Data Zone Standard EU; Detector, Verifier, Narrator, Persona, Director). Why these: GPT-6 and GPT-5.6 quota is not available for this subscription (0 TPM in every region, checked 2026-10-18), while these two have default quota; the choice is final, not a fallback. The provider is chosen by env (`MODEL_PROVIDER=fake | openai | foundry`); development and tests use the scripted fake client (GitHub Models was retired on 2026-07-30). Foundry is used only for prompt tuning on a few dev matches, the evaluation and the recorded agent runs, each after a cost estimate (`agents.estimate`) and within a per-run budget cap (`RUN_BUDGET_EUR`). Total Azure spend for the hackathon is capped at 10 EUR.
+Models: two Foundry deployments from env — `FOUNDRY_MODEL_REASONING` = `gtf-reasoning` (**gpt-5-mini**, Global Standard, low reasoning effort; Analyst only) and `FOUNDRY_MODEL_FAST` = `gtf-fast` (**gpt-5.4-mini**, Data Zone Standard EU; Detector, Verifier, Narrator, Persona, Director). Why these: GPT-6 and GPT-5.6 quota is not available for this subscription (0 TPM in every region, checked 2026-10-18), while these two have default quota; the choice is final, not a fallback. The provider is chosen by env (`MODEL_PROVIDER=fake | openai | foundry`); development and tests use the scripted fake client (GitHub Models was retired on 2026-07-30). Foundry is used only for prompt tuning on a few dev matches, the evaluation and the recorded agent runs, each after a cost estimate (`agents.estimate`) and within a per-run budget cap (`RUN_BUDGET_EUR`). Total Azure spend for the hackathon is capped at 10 EUR, of which at most 8 EUR on Foundry models (cumulative cap enforced in code).
 
 Candidate moments are found by code (`agents/candidates.py`): every minute of match time, each storyline type's signals over the recent window are scored against noise (robust z, noise fitted on no-storyline seeds) and a candidate needs two signals above their noise p95 (a single-signal type needs its p99). Only candidates reach the Detector agent, so model calls scale with candidates, not with match time.
 
@@ -200,7 +200,7 @@ Candidate moments are found by code (`agents/candidates.py`): every minute of ma
 
 ## 7. Evaluation harness
 
-Runs seeded matches offline, as fast as possible (not paced): **10 eval seeds (5000–5009) and 5 control seeds (9000–9004)**, a sample reduced for budget reasons and declared as such in the README. It reports:
+Runs the 20 eval seeds (5000–5019) and the 10 control seeds (9000–9009) offline, as fast as possible (not paced), once. It reports:
 - **Storyline recall** — share of hidden storylines for which at least one approved explanation falls in the window (± 3 min), names the right team or actors, and has a `mechanism_tag` matching the storyline type.
 - **Explanation precision** — share of approved explanations that match a storyline. (Evidence correctness is reported separately below, so precision is not trivially 100 %.)
 - **Evidence validity** — share of approved evidence items that pass recomputation by a code path **independent of the Verifier's**.

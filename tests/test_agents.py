@@ -4,6 +4,7 @@ import asyncio
 import os
 from dataclasses import replace
 from pathlib import Path
+from types import SimpleNamespace
 
 import pytest
 
@@ -173,3 +174,23 @@ def test_run_saved_to_postgres(full_run) -> None:
             "SELECT count(*) FROM run_moments WHERE run_id = %s", (full_run["run_id"],)
         ).fetchone()
         assert n is not None and n[0] == len(full_run["moments"])
+
+
+def test_cumulative_cap_refuses_calls(match_dir, tmp_path, monkeypatch) -> None:
+    from agents import ledger
+
+    monkeypatch.setenv("FOUNDRY_LEDGER", str(tmp_path / "ledger.jsonl"))
+    ledger.record({"what": "earlier", "provider": "foundry", "calls": 1, "cost_eur": 8.0})
+    assert ledger.spent() == 8.0
+    from agents.providers import BudgetExceeded, Meter, metered
+
+    meter = Meter(replace(FAKE, total_cap_eur=8.0), prior_eur=ledger.spent())
+    mw = metered(meter, "detector", "fast")
+
+    ctx = SimpleNamespace(messages=[], options={}, result=None)
+
+    async def nothing() -> None:
+        raise AssertionError("call should have been refused")
+
+    with pytest.raises(BudgetExceeded, match="cumulative cap"):
+        asyncio.run(mw(ctx, nothing))
