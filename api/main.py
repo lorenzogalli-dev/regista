@@ -1,14 +1,19 @@
 """FastAPI entry point."""
 
+import os
 from collections.abc import AsyncIterator
 from contextlib import asynccontextmanager
+from pathlib import Path
 from typing import Annotated
 
 from fastapi import Depends, FastAPI
 from fastapi.responses import JSONResponse
+from fastapi.staticfiles import StaticFiles
+from starlette.exceptions import HTTPException as StarletteHTTPException
+from starlette.responses import Response
 from starlette.types import ASGIApp, Receive, Scope, Send
 
-from api import db
+from api import data_sync, db, telemetry
 from api.routes import replay, runs
 from metrics.mcp_server import StoreRegistry, build_server
 
@@ -31,6 +36,8 @@ mcp_mount = _McpMount()
 
 @asynccontextmanager
 async def lifespan(app: FastAPI) -> AsyncIterator[None]:
+    telemetry.setup()
+    data_sync.sync()
     await db.apply_schema()
     server = build_server(registry)
     mcp_mount.app = server.streamable_http_app()
@@ -49,3 +56,22 @@ app.mount("/mcp", mcp_mount)
 async def health(db_ok: Annotated[bool, Depends(db.ping)]) -> JSONResponse:
     body = {"status": "ok" if db_ok else "degraded", "db": "ok" if db_ok else "unreachable"}
     return JSONResponse(body, status_code=200 if db_ok else 503)
+
+
+class _SpaFiles(StaticFiles):
+    """The built front-end: real files when they exist, otherwise index.html (client routes)."""
+
+    async def get_response(self, path: str, scope: Scope) -> Response:
+        try:
+            return await super().get_response(path, scope)
+        except StarletteHTTPException as e:
+            # Unknown API paths stay 404; only front-end routes fall back to the app shell.
+            if e.status_code != 404 or path.split("/")[0] in ("api", "ws", "mcp", "health"):
+                raise
+            return await super().get_response("index.html", scope)
+
+
+WEB_DIST = Path(os.environ.get("WEB_DIST", "web/dist"))
+if (WEB_DIST / "index.html").is_file():
+    # Registered last: API, WebSocket and MCP routes take precedence.
+    app.mount("/", _SpaFiles(directory=WEB_DIST, html=True), name="web")

@@ -121,12 +121,13 @@ def make_client(settings: Settings, role: Role) -> Any:
         return OpenAIChatCompletionClient(model=settings.model(role) or None)
     if settings.provider == "foundry":
         from agent_framework.foundry import FoundryChatClient
-        from azure.identity import AzureCliCredential
+        from azure.identity import DefaultAzureCredential
 
+        # Azure CLI login locally; the container app's managed identity in Azure.
         return FoundryChatClient(
             project_endpoint=settings.project_endpoint,
             model=settings.model(role),
-            credential=AzureCliCredential(),
+            credential=DefaultAzureCredential(),
         )
     raise ValueError(f"unknown MODEL_PROVIDER {settings.provider!r}")
 

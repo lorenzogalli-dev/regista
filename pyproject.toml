@@ -17,6 +17,7 @@ dependencies = [
     "agent-framework-openai==1.17.0",
     "agent-framework-foundry==1.15.0",
     "azure-identity>=1.26.0",
+    "azure-monitor-opentelemetry-exporter>=1.0.0b58",
 ]
 
 [project.scripts]
