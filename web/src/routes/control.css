@@ -15,7 +15,6 @@
 .control h1 {
   margin: 0;
   font-family: var(--font-display);
-  font-stretch: var(--wdth-expanded);
   font-size: 40px;
   font-weight: 800;
   text-transform: uppercase;
@@ -23,7 +22,6 @@
 .control h2 {
   margin: 0 0 12px;
   font-family: var(--font-display);
-  font-stretch: var(--wdth-condensed);
   font-size: 22px;
   font-weight: 800;
   letter-spacing: 0.04em;
@@ -100,7 +98,6 @@
 }
 .node-label {
   font-family: var(--font-display);
-  font-stretch: var(--wdth-condensed);
   font-size: 17px;
   font-weight: 800;
   text-transform: uppercase;
@@ -261,4 +258,41 @@
   color: var(--text);
   background: rgb(242 245 243 / 0.06);
   border-left: 3px solid var(--text-2);
+}
+
+/* moments travelling through the graph */
+.token circle {
+  fill: var(--ai);
+}
+.token .token-halo {
+  fill: var(--ai-glow);
+  animation: token-pulse 1.2s ease-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.token.retry circle {
+  fill: var(--error);
+}
+.token.retry .token-halo {
+  fill: rgb(255 90 95 / 0.35);
+}
+.token-label {
+  font: 700 12px var(--font-body);
+  fill: var(--text);
+  text-anchor: middle;
+}
+@keyframes token-pulse {
+  from {
+    transform: scale(0.6);
+    opacity: 1;
+  }
+  to {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .token .token-halo {
+    animation: none;
+  }
 }

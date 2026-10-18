@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 
 import { ProgramFrame } from '../broadcast/ProgramFrame.tsx'
 import { useSource } from '../lib/hooks.ts'
-import { useMatchStream } from '../lib/stream.ts'
+import { useMatchStream, type Source } from '../lib/stream.ts'
 import './split.css'
 
 // Split view (DESIGN.md §5.2): the same moment for two viewers, side by side, from one stream.
@@ -21,12 +21,38 @@ type RunMoment = { explanation: { player_ids: string[] } | null; status: string 
 export function Split() {
   const params = new URLSearchParams(window.location.search)
   const source = useSource(params)
-  const speed = Number(params.get('speed') ?? 1)
-  const from = Number(params.get('from') ?? 0)
-  const left = params.get('left') ?? 'analyst_en'
-  const right = params.get('right') ?? 'casual_it'
+  return (
+    <SplitView
+      source={source}
+      speed={Number(params.get('speed') ?? 1)}
+      from={Number(params.get('from') ?? 0)}
+      left={params.get('left') ?? 'analyst_en'}
+      right={params.get('right') ?? 'casual_it'}
+      initialFav={params.get('fav')}
+    />
+  )
+}
+
+export function SplitView({
+  source,
+  speed,
+  from,
+  left,
+  right,
+  initialFav,
+  box,
+}: {
+  source: Source | null
+  speed: number
+  from: number
+  left: string
+  right: string
+  initialFav: string | null
+  /** Fit into this box (px) instead of the window. */
+  box?: { width: number; height: number }
+}) {
   const { stream, clock } = useMatchStream(source, speed, from)
-  const [fav, setFav] = useState<string | null>(params.get('fav'))
+  const [fav, setFav] = useState<string | null>(initialFav)
   const [scale, setScale] = useState(0.5)
 
   useEffect(() => {
@@ -41,12 +67,15 @@ export function Split() {
       .catch(() => undefined)
   }, [fav, source])
 
+  const boxW = box?.width
+  const boxH = box?.height
   useEffect(() => {
-    const update = () => setScale(Math.min((window.innerWidth - 48) / 2 / 1920, (window.innerHeight - 120) / 1080))
+    const update = () =>
+      setScale(Math.min(((boxW ?? window.innerWidth) - 48) / 2 / 1920, ((boxH ?? window.innerHeight) - 120) / 1080))
     update()
     window.addEventListener('resize', update)
     return () => window.removeEventListener('resize', update)
-  }, [])
+  }, [boxW, boxH])
 
   if (stream?.error) return <p style={{ padding: 40 }}>{stream.error}</p>
   if (!stream || !clock) return null
@@ -54,7 +83,7 @@ export function Split() {
   return (
     <main className="split">
       <header className="split-head">
-        <span className="split-brand">Ground Truth Football</span>
+        <span className="split-brand">Regista</span>
         <span className="split-note">Same match, same moment, two viewers. Facts are identical; only the telling changes.</span>
       </header>
       <div className="split-panes">

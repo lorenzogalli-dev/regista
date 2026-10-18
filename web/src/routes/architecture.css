@@ -7,7 +7,6 @@
 .arch h1 {
   margin: 6px 0 24px;
   font-family: var(--font-display);
-  font-stretch: var(--wdth-expanded);
   font-size: clamp(28px, 4vw, 52px);
   font-weight: 800;
   text-transform: uppercase;
@@ -39,7 +38,6 @@
 }
 .box-title {
   font-family: var(--font-display);
-  font-stretch: var(--wdth-condensed);
   font-size: 20px;
   font-weight: 800;
   text-transform: uppercase;
@@ -60,7 +58,6 @@
 }
 .agent-label {
   font-family: var(--font-display);
-  font-stretch: var(--wdth-condensed);
   font-size: 18px;
   font-weight: 800;
   text-transform: uppercase;

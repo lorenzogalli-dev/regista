@@ -28,7 +28,7 @@ from agents.providers import Meter
 from metrics.store import MatchStore
 from metrics.tools import MatchTools
 from sim import io
-from sim.replay import replay
+from sim.replay import Pace, replay
 
 Message = dict[str, Any]
 CAP_NOTICE = (
@@ -76,7 +76,7 @@ def timeline(run: dict[str, Any]) -> list[tuple[int, Message]]:
 
 
 async def recorded_stream(
-    run: dict[str, Any], match_dir: Path, speed: float, from_ms: int = 0
+    run: dict[str, Any], match_dir: Path, speed: float, from_ms: int = 0, pace: Pace | None = None
 ) -> AsyncIterator[Message]:
     yield run_header(run, "Recorded agent run")
     if from_ms > 0:
@@ -94,7 +94,7 @@ async def recorded_stream(
                 yield m  # ribbon history and graphics still on air
     items = [it for it in timeline(run) if it[0] >= from_ms]
     i = 0
-    async for msg in replay(match_dir, speed, from_ms):
+    async for msg in replay(match_dir, speed, from_ms, pace=pace):
         now = msg.get("data", {}).get("t_ms") if msg["type"] in ("frame", "event") else None
         if now is not None:
             while i < len(items) and items[i][0] <= now:

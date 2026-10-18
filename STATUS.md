@@ -3,16 +3,16 @@
 Last updated: 2026-10-18. This file can drift: check the real state (run it, query it) before trusting it.
 
 ## Handoff (2026-10-18)
-All deliverables D0–D6 are done and deployed. Live demo: https://gtf-app.delightfulbush-9c2f92ce.italynorth.azurecontainerapps.io
+All deliverables D0–D6 are done and deployed. After D6: UX/design revision and rename to **Regista** (see Done). Live demo: https://gtf-app.delightfulbush-9c2f92ce.italynorth.azurecontainerapps.io
 
 Next, by hand (Lore):
-- Edit the demo video from `docs/video/clips/` with the voice-over in `docs/video/README.md` (≤ 2 min).
+- Edit the demo video from `docs/video/clips/` with the voice-over in `docs/video/README.md` (≤ 2 min); the guided tour (`docs/design/regista/guided-tour.mp4`) is the backbone.
 - Make the GitHub repo public; check the README judge table opens on the live URL.
 - Submit before 27 Oct 2026, 23:59 PT. Keep the app up until 10 Nov 2026.
 - From 11 Nov: `infra/post_judging.sh` (deletes PostgreSQL, scales the app to 0). It refuses to run earlier unless `FORCE=1`.
 
 Operations:
-- Redeploy: push to `main` → CI → `image` workflow pushes `ghcr.io/lorenzogalli-dev/ground-truth-football:<full sha>` (public) → `az containerapp update -n gtf-app -g <rg> --image <that tag>` (or `PHASE=app infra/deploy.sh`). Resource names and endpoints live in `.env` / `.deploy.secrets` (local, not committed). Production currently runs image `b24b348`; later commits changed docs only.
+- Redeploy: push to `main` → CI → `image` workflow pushes `ghcr.io/lorenzogalli-dev/regista:<full sha>` (the package name follows the repo name) → `az containerapp update -n gtf-app -g <rg> --image <that tag>` (or `PHASE=app infra/deploy.sh`). Resource names and endpoints live in `.env` / `.deploy.secrets` (local, not committed). Production currently runs image `b24b348`; later commits changed docs only.
 - Container App `gtf-app`: 0.25 vCPU / 0.5 GiB, 1 replica (load test: ~125 MB RSS, ~3 % CPU). System-assigned identity with *Storage Blob Data Reader* and *Cognitive Services User* (*Cognitive Services OpenAI User* gave 403 on the Foundry project endpoint; the granted role also allows listing keys).
 - At startup the app downloads demo data from Blob through an allowlist (`api/data_sync.py`); ground truth is never uploaded (`infra/upload_data.py`, tested).
 - Live sessions spend Foundry credit: cap 150 model calls/day (`/api/live/quota`). PostgreSQL B1ms bills ~0.0175 EUR/h while it exists.
@@ -31,6 +31,8 @@ Operations:
 - D5a design system + hero frame (`docs/design/`): tokens, self-hosted OFL fonts, `motion` 14.3.0, shared pitch→screen projection, team palettes with contrast rules, `web/scripts/capture.mjs` (screenshots, video, design audit).
 - D5b views on real recorded runs (`data/recorded/`, `docs/design/d5b/`): broadcast (template → verified card), split view, control room with an authentic Verifier rejection (run r_m_5016, provenance shown), /graphics, eval page, landing, second screen, recap; recorded and live share one WebSocket vocabulary.
 - D6 (2026-10-18): Azure Container Apps + PostgreSQL + Blob + App Insights. Verified in production: `/health` with DB, Blob data sync (4 runs), eval report, live quota, 404 on ground-truth / traversal / unknown paths, every front-end route, recorded WebSocket, external MCP (6 tools, traversal refused), one live moment published end to end on Foundry via managed identity, App Insights spans from Agent Framework, design audit clean. Final README, demo clips and voice-over.
+
+- UX/design revision + rename (2026-10-18, after D6): project renamed **Regista** ("Reads the game. Directs the broadcast."; Azure resources keep their `gtf-*` names). Guided tour `/tour` (≈ 2 min) as the landing's main action; new landing (problem, what it does, trust schema, results with caveats, explore, under the hood); broadcast player with clickable timeline (tier 0 / tier 1 lanes, goals, shots, red cards, Verifier rejections), next key moment (N), auto-skip of quiet play (×8), moment replay (slow, hold for reading time, Space continues), telestration from match data (`metrics/telestration.py`, `/api/runs/{id}/timeline`), insights feed, evidence panel behind the ✓ seal; control-room tokens moving through the agent graph. Recorded WebSocket accepts `{"type":"pace","speed":…}` (pause, fast-forward, hold). Type: Barlow Condensed / Barlow / Newsreader (OFL, self-hosted); accent green `#7CF25C`. Layout audit `web/scripts/audit.sh` (21 audits at 1920/1440/390, no problems); review material `docs/design/regista/`; demo clips and voice-over rebuilt around the tour. No model calls (recorded runs only).
 
 ## Foundry spend (estimate vs actual)
 Cumulative cap 8 EUR (ledger `data/runs/foundry_ledger.jsonl`, local). Prices: Azure Retail Prices API, EUR.
@@ -70,6 +72,9 @@ Cumulative cap 8 EUR (ledger `data/runs/foundry_ledger.jsonl`, local). Prices: A
 - Control index components: team mean possession length, turnovers/min, event-rate variability (30 s buckets), share of team possessions ending in the opponent half; each through a logistic around the calibration median.
 - Spec changes approved on 2026-10-17 (see SPEC.md): two overlay tiers, hybrid Verifier, metrics tools behind an MCP server, forced trigger for `momentum_shift`, 2–3 non-overlapping storylines per match, control seeds, revised eval metrics, xG/xT calibrated on the simulator, `duel` cut, single Container App, Burstable PostgreSQL, live daily model-call cap, recorded runs are real pipeline outputs.
 - Front-end is governed by DESIGN.md; D5 split into D5a (after D2) and D5b (after D3/D4).
+- Rename to Regista (2026-10-18): UI, docs, package (`pyproject`), MCP server name, telemetry service name, GitHub repo and GHCR image; Azure resource names (`gtf-*`) unchanged (internal).
+- Telestration is code, not a model: shapes and counts come from public match events in the evidence window; it uses the brand green ("from the data"), never the AI cyan.
+- Landing results say recall 52 % on **20** unseen evaluation matches (the 10 control matches have no storylines and are reported separately).
 - Personas: analyst / casual / player_focus × en / it / es.
 - Agent Framework packages: `agent-framework-core` + `agent-framework-foundry` (not the meta-package). Versions re-checked before D3.
 - TypeScript: version pinned by the Vite template (`~6.0.2`); linter is the template's oxlint.

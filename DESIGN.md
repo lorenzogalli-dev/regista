@@ -1,4 +1,4 @@
-# Ground Truth Football — Design Direction
+# Regista — Design Direction
 
 > Replaces and extends SPEC §8. The quality bar is **broadcast-grade**: every screen should look like it could go on air tonight. Polish here is not decoration; "User Experience & Presentation" is 20 % of the score and the demo video is judged on it.
 
@@ -13,19 +13,22 @@ A viewer should be able to tell at a glance which graphics are measurements and 
 
 ## 2. Identity
 
-- Fictional product name and wordmark only. **No real league, club, broadcaster or sponsor marks, and no proprietary broadcast fonts.**
-- Visual identity must be **distinct from any of the author's other products**: different typeface, palette and shapes.
+- Product name **Regista**, tagline **"Reads the game. Directs the broadcast."** Wordmark: a slanted green tab with a "go on air" notch, then the name in Barlow Condensed 800 (`web/src/brand/Wordmark.tsx`, `web/public/favicon.svg`). The name line, used on the landing and in the README: "In Italian, regista is both the playmaker who reads the game and the TV director who decides what goes on air."
+- **No real league, club, broadcaster or sponsor marks, and no proprietary broadcast fonts.** No code, assets, logos or text from any other product.
 
-### Type (Google Fonts, open licence)
-- **Archivo** (variable, width axis) for everything display: condensed widths for scorebug and lower thirds, expanded for big numbers and titles.
-- **Inter** for body text and UI controls.
+### Type (Google Fonts, SIL OFL, self-hosted under `web/public/fonts`)
+- **Barlow Condensed** (500–800) for everything display: scorebug, lower thirds, headlines, big numbers, titles.
+- **Barlow** (400–700) for body text and UI controls.
+- **Newsreader** italic for the odd editorial line (the name line on the landing). Never on the broadcast layer.
 - Tabular figures everywhere numbers change (`font-variant-numeric: tabular-nums`) so values never jitter.
 
 ### Colour
 - Base: night-stadium dark. Near-black with a green cast (`#06110C` background, `#0C1B14` panels), pitch rendered in deep desaturated greens with subtle mowing stripes.
 - Text: off-white `#F2F5F3`, secondary `#9FB0A7`.
 - **Team colours drive accents dynamically** (from `match.json`); every component must look good with any pair of team colours (test with at least 4 clashing combinations, enforce contrast automatically).
-- **AI insight accent**: one reserved colour not used for any team or data graphic (proposal: electric cyan `#46E5D8`). Used only for agent-written content and the verified seal.
+- **AI insight accent**: one reserved colour not used for any team or data graphic: electric cyan `#46E5D8`. Used only for agent-written content and the verified seal.
+- **Brand accent: Regista green `#7CF25C`** (replaces the earlier yellow/amber highlights in the product chrome). Used for the wordmark, primary buttons, eyebrows, the played part of the timeline, data-graphic ("computed by code") marks and the telestration, which is drawn by code from the match data. Never on agent-written text. Checked: contrast 13.5:1 on the background, ΔE 68 from the AI cyan, ΔE ≥ 57 from every team kit colour in the generated matches.
+- Team colours used as **text** (short names on the ribbon and stat compare) are lightened until they reach 4.5:1 on the panel (`TeamColors.text`); `line` (≥ 3:1) is for marks only.
 - Status: amber for "pending model text" (template shown), red only for errors in the control room.
 - Light theme not required; dark is the product. Respect `prefers-reduced-motion`.
 
@@ -71,17 +74,32 @@ A route `/graphics?match=…&persona=…` renders **only** the overlay layer on 
 1. **Broadcast view** (hero, 16:9): the pitch shot with the full graphics package. The pitch is a top-down 2D render with a **slight perspective tilt** (CSS 3D or WebGL) so it reads like a high camera, not a diagram.
 2. **Split view**: same moment, two personas side by side (e.g. Analyst EN | Casual IT, favourite player). The centrepiece of the video.
 3. **Second screen (mobile)**: vertical feed for a fan: moment cards, favourite-player tracker, language switch. Must look great at 390 px.
-4. **Control room**: the "gallery" behind the broadcast. Live agent pipeline as a node graph (Detector → Analyst → Verifier → Narrator / Persona → Director), each moment flowing through, verifier verdicts, rejected claims in red with the reason, fallbacks in amber, latency per stage. This is where the multi-agent design becomes visible on video.
+4. **Control room**: the "gallery" behind the broadcast. Live agent pipeline as a node graph (Detector → Analyst → Verifier → Narrator / Persona → Director), each moment flowing through, verifier verdicts, rejected claims in red with the reason, fallbacks in amber, latency per stage. Each moment in flight is a token that travels along the graph to the agent working on it (back to the Analyst in red on a retry, on to "On air" when published). This is where the multi-agent design becomes visible on video.
 5. **Eval report**: storyline recall, precision, evidence validity, false alarms on control seeds, latency, as a designed page (not a raw table).
 6. **Recap page**: simple.
-7. **Landing**: one screen: product name, one-sentence pitch, "Watch a recorded match" / "Go live" (live quota shown), link to the control room.
+7. **Landing** (plain English, no jargon above the fold, no real club or player names): hero (tagline, one line, name line, the real broadcast playing a recorded run, primary action **Take the 2-minute tour**); the problem; what it does (three cards: live stats graphics / tactical explanations / made for every fan, each labelled "computed by code" or "written by AI, verified"); why you can trust it, with an animated schema (hidden storyline → AI watches blind → found or false alarm); results as big counting numbers with the caveats in small type and a link to the report; explore (one card per screen, one sentence each); under the hood for experts (animated pipeline and the Microsoft technologies, one line each).
+8. **Guided tour** (`/tour`, ≈ 2 min, the landing's main action and the backbone of the demo video): intro → pass card → top speed → shot speed → template → verified AI card → moment replay with telestration and the evidence → split view → control room with the authentic Verifier rejection → results. Each scene carries a caption with who made what is on screen: **Code** (green), **AI agent · verified** (cyan) or both.
 
 Every replay is labelled **"Recorded agent run"**, live sessions **"Live"**.
+
+## 5b. Watching a match (broadcast player)
+
+Nobody watches 90 minutes, and an AI card that wipes out while the match runs cannot be read.
+
+- **Timeline** under the programme: AI insights (cyan diamonds, tier 1) and data graphics (green ticks, tier 0) on separate lanes, plus goals, shots, red cards and Verifier rejections (red cross). Click a marker to go to just before it; click the track to seek; ←/→ move 30 s.
+- **Next key moment** (button and **N**): about 20 s before the next AI insight, goal, red card or rejection.
+- **Skip quiet play** (on by default, can be turned off): when nothing is on air and the next marker is more than 25 s away, the match runs at ×8 until 6 s before it, with a visible "Skipping quiet play ×8" indicator.
+- **Moment replay** (on by default, can be turned off): when a verified card goes on air, the match slows down and holds like a TV replay. The hold lasts the card's reading time (about 4 words a second plus 2 s, at least 6 s, at most 16 s), with a "Moment replay" bug and its progress bar; Space or **Continue** plays on.
+- **Telestration** during the replay, from the match data (code, green): the zone where the team wins the ball back, the wide channels, its longest passes, a player's progressive passes or its final-third actions, the cited players ringed, and a "From the data" label with the count. It shows the why, not only says it.
+- **Insights feed** beside the programme: every card that has gone on air stays readable, in the chosen persona; its seal opens the evidence; "Watch this moment again" goes back to the template.
+- **The ✓ seal opens the evidence**: for every metric cited, before and after bars with the subject and windows, and the line "Recomputed independently by code from the match data before it went on air."
+- The programme keeps every rule above (title-safe, no overlap, contrast, skew); the player chrome lives outside the 16:9 frame. `&clean=1` gives the bare programme.
 
 ## 6. Quality bar (definition of done for the front-end)
 
 - 60 fps on a 2020+ laptop in the broadcast view; no layout shift when overlays arrive.
-- Works at 1920×1080, 1440×900 and 390 px wide (second screen).
+- Works at 1920×1080, 1440×900 and 390 px wide (second screen, player, landing, tour). `web/scripts/audit.sh` checks the broadcast player (with each kind of telestration, the replay bug, the insights feed and the timeline) and the tour (with the evidence panel open) at all three sizes: title-safe, overlaps, contrast, tabular figures, skew, no horizontal scroll.
+- Motion respects `prefers-reduced-motion` everywhere (count-ups land on their value, pulses and flowing links stop, scroll reveals only fade).
 - No graphic ever overlaps the scorebug or leaves title-safe.
 - Contrast ≥ 4.5:1 for all text over any team colour pair.
 - Screenshot of each screen reviewed by Lore before the delivery is closed.

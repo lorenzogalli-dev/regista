@@ -4,6 +4,7 @@ Recorded runs are real pipeline outputs saved as JSON in RUNS_DIR; replaying one
 model calls. Live sessions run the agents and count against LIVE_DAILY_MODEL_CALL_CAP.
 """
 
+import asyncio
 import json
 import os
 import re
@@ -13,7 +14,11 @@ from typing import Annotated, Any
 from fastapi import APIRouter, HTTPException, Query, WebSocket, WebSocketDisconnect
 
 from agents import live
+from agents.overlays import pipeline_events
 from api.routes.replay import _match_dir
+from metrics.telestration import highlights, run_telestration
+from sim import io
+from sim.replay import Pace
 
 router = APIRouter()
 RUN_ID = re.compile(r"^r_m_\d{1,9}_[0-9a-f]{8}$")
@@ -66,6 +71,33 @@ def get_run(run_id: str) -> dict[str, Any]:
     return {k: v for k, v in run.items() if k != "calls"}
 
 
+@router.get("/api/runs/{run_id}/timeline")
+def get_timeline(run_id: str) -> dict[str, Any]:
+    """Match highlights for the timeline and the telestration of each verified moment."""
+    run = _run(run_id)
+    d = _match_dir(run["match_id"])
+    if d is None:
+        raise HTTPException(404, "match not found")
+    rejections = [
+        {
+            "t_ms": e["at_ms"],
+            "moment_id": e["moment_id"],
+            "stage": e["stage"],
+            "detail": e["detail"],
+        }
+        for m in run.get("moments", [])
+        for e in pipeline_events(m)
+        if e["phase"] == "end" and e.get("outcome") == "rejected"
+    ]
+    return {
+        "duration_ms": io.read_meta(d).period_end_ms[-1],
+        "period_end_ms": io.read_meta(d).period_end_ms,
+        "highlights": highlights(d),
+        "rejections": rejections,
+        "telestration": run_telestration(run, d),
+    }
+
+
 @router.get("/api/eval/report")
 def eval_report() -> dict[str, Any]:
     p = Path(os.environ.get("EVAL_REPORT", "docs/eval/report.json"))
@@ -94,12 +126,29 @@ async def ws_recorded(
         await ws.send_json({"type": "error", "detail": "run not found"})
         await ws.close(code=4404)
         return
+    pace = Pace(speed)
+
+    async def control() -> None:
+        # The client may change the playback rate: {"type": "pace", "speed": 0..100}.
+        try:
+            while True:
+                m = await ws.receive_json()
+                if isinstance(m, dict) and m.get("type") == "pace":
+                    s = m.get("speed")
+                    if isinstance(s, int | float) and 0 <= s <= 100:
+                        pace.set(float(s))
+        except (WebSocketDisconnect, ValueError, RuntimeError):
+            return
+
+    listener = asyncio.create_task(control())
     try:
-        async for msg in live.recorded_stream(run, d, speed, from_ms):
+        async for msg in live.recorded_stream(run, d, speed, from_ms, pace):
             await ws.send_json(msg)
         await ws.close()
     except WebSocketDisconnect:
         return
+    finally:
+        listener.cancel()
 
 
 @router.websocket("/ws/live/{match_id}")

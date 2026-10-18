@@ -17,6 +17,7 @@ const COLOURS = [
   ['--text', '#F2F5F3', 'Text'],
   ['--text-2', '#9FB0A7', 'Secondary text'],
   ['--ai', '#46E5D8', 'AI insight only'],
+  ['--brand', '#7CF25C', 'Regista accent: product chrome, computed-by-code marks'],
   ['--pending', '#F5B544', 'Pending model text'],
   ['--error', '#FF5A5F', 'Errors (control room)'],
   ['--grass-2', '#123222', 'Pitch'],
@@ -75,7 +76,7 @@ export function Design() {
     <MotionConfig reducedMotion="user">
       <main className="design">
         <header className="design-head">
-          <p className="eyebrow">Ground Truth Football · design system · D5a</p>
+          <p className="eyebrow">Regista · design system</p>
           <h1>Verified on air</h1>
           <p className="lede">
             Data graphics are neutral and instant. AI insight is cyan and carries a verified seal. A viewer can tell
@@ -105,15 +106,15 @@ export function Design() {
           <h2>Type</h2>
           <div className="type-specimens">
             <div>
-              <span className="spec-label">Archivo · condensed 72 · scorebug, lower thirds</span>
+              <span className="spec-label">Barlow Condensed 700 · scorebug, lower thirds</span>
               <p className="spec condensed">LIN 1 – 0 DUN · 70:04</p>
             </div>
             <div>
-              <span className="spec-label">Archivo · expanded 118 · titles, big numbers</span>
+              <span className="spec-label">Barlow Condensed 800 · titles, big numbers</span>
               <p className="spec expanded">Turned the pitch</p>
             </div>
             <div>
-              <span className="spec-label">Inter · body and UI</span>
+              <span className="spec-label">Barlow · body and UI</span>
               <p className="spec body">Field tilt up from 21% to 73% in the last 12 minutes.</p>
             </div>
             <div>
@@ -224,8 +225,9 @@ export function Design() {
         )}
 
         <footer className="design-foot">
-          All clubs, players and data are synthetic. Fonts: Archivo and Inter, SIL Open Font License (
-          <a href="/fonts/LICENSES/Archivo-OFL.txt">Archivo</a>, <a href="/fonts/LICENSES/Inter-OFL.txt">Inter</a>).
+          All clubs, players and data are synthetic. Fonts: Barlow, Barlow Condensed and Newsreader, SIL Open Font License (
+          <a href="/fonts/LICENSES/Barlow-OFL.txt">Barlow</a>, <a href="/fonts/LICENSES/BarlowCondensed-OFL.txt">Barlow Condensed</a>,{' '}
+          <a href="/fonts/LICENSES/Newsreader-OFL.txt">Newsreader</a>).
         </footer>
       </main>
     </MotionConfig>

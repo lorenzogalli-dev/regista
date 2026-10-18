@@ -4,7 +4,7 @@ import { ProgramFrame } from '../broadcast/ProgramFrame.tsx'
 import { useClockTick } from '../lib/clock.ts'
 import { useSource } from '../lib/hooks.ts'
 import { matchClock } from '../lib/sample.ts'
-import { useMatchStream, type PipelineEvent } from '../lib/stream.ts'
+import { useMatchStream, type PipelineEvent, type Source } from '../lib/stream.ts'
 import './control.css'
 
 // Control room (DESIGN.md §5.4): the multi-agent pipeline as it runs. Each candidate flows
@@ -43,7 +43,19 @@ type MomentRow = {
   kind: string
   stages: { stage: string; outcome?: string; ms?: number; detail?: string; running: boolean }[]
   result?: string
+  resultAt?: number
   reason?: string
+}
+
+// Where a moment comes from when it reaches a node (the token's path in the graph).
+const PREV: Record<string, string> = {
+  detector: 'candidate',
+  analyst: 'detector',
+  verifier: 'analyst',
+  narrator: 'verifier',
+  persona: 'verifier',
+  director: 'verifier',
+  result: 'director',
 }
 
 function rows(events: PipelineEvent[]): MomentRow[] {
@@ -57,6 +69,7 @@ function rows(events: PipelineEvent[]): MomentRow[] {
     if (e.stage === 'candidate') r.kind = e.detail ?? ''
     else if (e.stage === 'result') {
       r.result = e.outcome
+      r.resultAt = e.at_ms
       r.reason = e.detail
     } else if (e.phase === 'start') r.stages.push({ stage: e.stage, running: true })
     else if (e.phase === 'end') {
@@ -84,8 +97,10 @@ function outcomeClass(o?: string) {
 export function Control() {
   const params = new URLSearchParams(window.location.search)
   const source = useSource(params)
-  const speed = Number(params.get('speed') ?? 4)
-  const from = Number(params.get('from') ?? 0)
+  return <ControlView source={source} speed={Number(params.get('speed') ?? 4)} from={Number(params.get('from') ?? 0)} />
+}
+
+export function ControlView({ source, speed, from }: { source: Source | null; speed: number; from: number }) {
   const { stream, clock } = useMatchStream(source, speed, from)
   const t = useClockTick(clock, 200)
   if (stream?.error) return <p style={{ padding: 40 }}>{stream.error}</p>
@@ -113,6 +128,21 @@ export function Control() {
   }
   const models = stream.header?.models ?? {}
   const pos = new Map(NODES.map((n) => [n.id, n]))
+  // Moments in flight: a token travels to the node now working on it (back to the Analyst,
+  // in red, on a retry), and on to "On air" when it is published.
+  const tokens = moments.flatMap((m) => {
+    const out = m.stages
+      .filter((s) => s.running)
+      .map((s) => {
+        const to = nodeOf(s.stage)
+        const retry = s.stage.startsWith('analyst#') && s.stage !== 'analyst#1'
+        return { key: `${m.id}:${s.stage}`, from: retry ? 'verifier' : (PREV[to] ?? to), to, retry, at: m.at }
+      })
+    if (m.result && m.resultAt != null && t - m.resultAt < 2500 * Math.max(1, speed / 2)) {
+      out.push({ key: `${m.id}:result`, from: 'director', to: 'result', retry: false, at: m.at })
+    }
+    return out
+  })
 
   return (
     <main className="control">
@@ -159,6 +189,28 @@ export function Control() {
               <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--error)" />
             </marker>
           </defs>
+          <AnimatePresence>
+            {tokens.map((k) => {
+              const a = pos.get(k.from)!
+              const b = pos.get(k.to)!
+              return (
+                <motion.g
+                  key={k.key}
+                  className={`token ${k.retry ? 'retry' : ''}`}
+                  initial={{ x: a.x, y: a.y, opacity: 0 }}
+                  animate={{ x: b.x, y: b.y + 46, opacity: 1 }}
+                  exit={{ opacity: 0, scale: 0.4 }}
+                  transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  <circle r="16" className="token-halo" />
+                  <circle r="7" />
+                  <text y="-14" className="token-label">
+                    {stream.meta ? matchClock(k.at, stream.meta.period_end_ms).slice(0, 2) + "'" : ''}
+                  </text>
+                </motion.g>
+              )
+            })}
+          </AnimatePresence>
           {NODES.map((n) => {
             const l = last.get(n.id)
             const med = median(lat.get(n.id) ?? [])

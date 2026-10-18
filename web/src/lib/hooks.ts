@@ -24,16 +24,18 @@ export function useSource(params: URLSearchParams): Source | null {
   return id ? { kind: 'recorded', runId: id } : null
 }
 
+/** `?audit=1` writes the design audit into <pre id="audit">, after `auditAt` ms (default 4 s). */
 export function useAudit(ready: boolean, enabled: boolean) {
   useEffect(() => {
     if (!ready || !enabled) return
+    const delay = Number(new URLSearchParams(window.location.search).get('auditAt') ?? 4000)
     const id = window.setTimeout(() => {
       const pre = document.createElement('pre')
       pre.id = 'audit'
       pre.textContent = JSON.stringify(runAudit())
       pre.style.display = 'none'
       document.body.append(pre)
-    }, 4000)
+    }, delay)
     return () => window.clearTimeout(id)
   }, [ready, enabled])
 }

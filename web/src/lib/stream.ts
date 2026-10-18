@@ -63,13 +63,19 @@ export class MatchStream {
   ended = false
   error: string | null = null
   speed: number
-  private lastT = 0
-  private lastWall = 0
+  /** Playback rate (recorded runs can change it: 0 holds, 1 is the starting speed's pace). */
+  rate: number
+  private lastT = -1
+  private anchorT = 0
+  private anchorWall = 0
   private ws: WebSocket | null = null
   private subs = new Set<() => void>()
+  private firstFrame: (() => void) | null = null
 
-  constructor(url: string, speed: number) {
+  constructor(url: string, speed: number, onFirstFrame?: () => void) {
     this.speed = speed
+    this.rate = speed
+    this.firstFrame = onFirstFrame ?? null
     this.ws = new WebSocket(url)
     this.ws.onmessage = (ev) => this.onMessage(JSON.parse(ev.data as string))
     this.ws.onerror = () => {
@@ -91,6 +97,16 @@ export class MatchStream {
     this.subs.forEach((fn) => fn())
   }
 
+  /** Change the playback rate here and on the server (recorded runs; live sessions ignore it). */
+  setRate(rate: number) {
+    if (rate === this.rate) return
+    const t = this.now()
+    this.anchorT = t
+    this.anchorWall = performance.now()
+    this.rate = rate
+    if (this.ws?.readyState === WebSocket.OPEN) this.ws.send(JSON.stringify({ type: 'pace', speed: rate }))
+  }
+
   private onMessage(m: any) {
     switch (m.type) {
       case 'run':
@@ -102,8 +118,16 @@ export class MatchStream {
       case 'frame':
         this.frames.push(m.data)
         if (this.frames.length > KEEP_FRAMES) this.frames.splice(0, this.frames.length - KEEP_FRAMES)
+        if (this.lastT < 0) {
+          this.anchorT = m.data.t_ms - RENDER_DELAY_MS * Math.max(1, this.rate)
+          this.anchorWall = performance.now()
+        }
         this.lastT = m.data.t_ms
-        this.lastWall = performance.now()
+        if (this.firstFrame) {
+          const fn = this.firstFrame
+          this.firstFrame = null
+          fn()
+        }
         return // frames are read by the clock; no React update per frame
       case 'event':
         this.events.push(m.data)
@@ -127,12 +151,23 @@ export class MatchStream {
     this.notify()
   }
 
-  /** Render time: just behind the newest frame, advancing smoothly between frames. */
+  /** Render time: advances at the playback rate, just behind the newest frame. It never runs
+   * past the data and catches up if it falls far behind (a stalled connection). */
   now(): number {
-    if (!this.lastWall) return 0
-    const el = (performance.now() - this.lastWall) * this.speed
-    const ahead = Math.min(el, 1000 * this.speed)
-    return Math.max(0, this.lastT + ahead - RENDER_DELAY_MS * this.speed)
+    if (this.lastT < 0) return 0
+    const wall = performance.now()
+    let t = this.anchorT + (wall - this.anchorWall) * this.rate
+    const lead = RENDER_DELAY_MS * Math.max(1, this.rate)
+    if (t > this.lastT) {
+      t = this.lastT
+      this.anchorT = t
+      this.anchorWall = wall
+    } else if (this.lastT - t > 2000 * Math.max(1, this.rate) + lead) {
+      t = this.lastT - lead
+      this.anchorT = t
+      this.anchorWall = wall
+    }
+    return Math.max(0, t)
   }
 }
 
@@ -168,24 +203,31 @@ export function streamUrl(src: Source, speed: number, fromMs = 0): string {
 }
 
 /** Open a stream for the component's lifetime; re-renders on non-frame messages. The stream is
- * created inside the effect, so a remount (StrictMode) opens a fresh connection. */
+ * created inside the effect, so a remount (StrictMode) opens a fresh connection. When the URL
+ * changes (a seek), the previous stream stays on screen until the new one has its first frame. */
 export function useMatchStream(src: Source | null, speed: number, fromMs = 0) {
   const url = src ? streamUrl(src, speed, fromMs) : null
   const [state, setState] = useState<{ stream: MatchStream; clock: Clock & { stop(): void } } | null>(null)
   const [, setTick] = useState(0)
   useEffect(() => {
     if (!url) return
-    const stream = new MatchStream(url, speed)
-    const clock = streamClock(stream)
-    const unsub = stream.subscribe(() => setTick((n) => n + 1))
-    // The stream is an external system opened here; storing it is the subscription itself.
-    // eslint-disable-next-line react/set-state-in-effect
-    setState({ stream, clock })
+    let live: { stream: MatchStream; clock: Clock & { stop(): void } } | null = null
+    const stream: MatchStream = new MatchStream(url, speed, () => {
+      const clock = streamClock(stream)
+      live = { stream, clock }
+      setState(live)
+    })
+    const unsub = stream.subscribe(() => {
+      if (stream.error && !live) {
+        live = { stream, clock: streamClock(stream) }
+        setState(live)
+      }
+      setTick((n) => n + 1)
+    })
     return () => {
       unsub()
       stream.close()
-      clock.stop()
-      setState(null)
+      live?.clock.stop()
     }
   }, [url, speed])
   return { stream: state?.stream ?? null, clock: state?.clock ?? null }

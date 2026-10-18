@@ -1,5 +1,5 @@
 [project]
-name = "ground-truth-football"
+name = "regista"
 version = "0.1.0"
 description = "Multi-agent, verifiable match intelligence over synthetic football data."
 readme = "README.md"

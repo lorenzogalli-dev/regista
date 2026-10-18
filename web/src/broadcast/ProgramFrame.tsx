@@ -1,4 +1,4 @@
-import { AnimatePresence, MotionConfig } from 'motion/react'
+import { AnimatePresence, MotionConfig, motion } from 'motion/react'
 import { useMemo } from 'react'
 
 import { teamPalette, type TeamColors } from '../lib/color.ts'
@@ -8,46 +8,15 @@ import { matchClock, possessionAt, type PlayerInfo } from '../lib/sample.ts'
 import { activeOverlays, type MatchStream, type Overlay } from '../lib/stream.ts'
 import './broadcast.css'
 import { SCOREBUG_ZONE, passCardPosition } from './layout.ts'
-import { MomentCard, type Evidence } from './MomentCard.tsx'
+import { KICKER, evidenceItems } from './labels.ts'
+import { MomentCard } from './MomentCard.tsx'
 import { Caption, MomentumRibbon, ShotSpeed, SourceLabel, SpeedBadge, StatCompare } from './Package.tsx'
 import { PassCard, PassTrail } from './PassGraphics.tsx'
 import { PitchCanvas } from './PitchCanvas.tsx'
 import { PlayerTag } from './PlayerTag.tsx'
 import { Scorebug } from './Scorebug.tsx'
 import { Stage } from './Stage.tsx'
-
-const SHARE = new Set(['possession_time_based', 'field_tilt', 'pass_completion'])
-const LABELS: Record<string, string> = {
-  possession_time_based: 'Possession (time-based)',
-  field_tilt: 'Field tilt',
-  ppda: 'PPDA',
-  pass_completion: 'Pass completion',
-  avg_pass_length_m: 'Avg pass length (m)',
-  width_m: 'Width (m)',
-  xt_added: 'xT added',
-  control_index: 'Control index',
-  touches: 'Touches',
-  progressive_passes: 'Progressive passes',
-  passes: 'Passes',
-  sprints: 'Sprints',
-  distance_m: 'Distance (m)',
-  minutes_on_pitch: 'Minutes on pitch',
-}
-const KICKER: Record<string, string> = {
-  pressing_spell: 'Pressing',
-  momentum_shift: 'Momentum',
-  tactical_switch: 'Tactics',
-  player_arc: 'Player',
-}
-
-function evidenceChips(items: any[] = []): Evidence[] {
-  return items.slice(0, 3).map((e) => ({
-    label: LABELS[e.metric] ?? e.metric,
-    before: e.before,
-    after: e.after,
-    unit: SHARE.has(e.metric) ? 'pct' : 'num',
-  }))
-}
+import { ReplayBug, TelestrationLayer, type Telestration } from './Telestration.tsx'
 
 export type ProgramOptions = {
   persona: string
@@ -55,6 +24,9 @@ export type ProgramOptions = {
   graphicsOnly?: boolean
   fit?: boolean
   scale?: number
+  /** Moment replay: the frame is held, the pitch dims and the telestration is drawn. */
+  replay?: { tele: Telestration | null; remaining: number; total: number } | null
+  openEvidence?: boolean
 }
 
 export function ProgramFrame({ stream, clock, opts }: { stream: MatchStream; clock: Clock; opts: ProgramOptions }) {
@@ -78,7 +50,9 @@ export function ProgramFrame({ stream, clock, opts }: { stream: MatchStream; clo
     on.filter((o) => kinds.includes(o.kind)).sort((a, b) => b.show_at_ms - a.show_at_ms)[0] as Overlay | undefined
   const badge = latest(['speed_badge', 'shot_speed'])
   const passCard = latest(['pass_card'])
-  const stat = latest(['stat_compare'])
+  const replay = opts.replay ?? null
+  // During a replay the telestration label owns the top of the frame.
+  const stat = replay ? undefined : latest(['stat_compare'])
   const card = latest(['moment_card'])
   // The Narrator writes captions in English; other languages get the persona card only.
   const caption = opts.persona.endsWith('_en') ? latest(['caption']) : undefined
@@ -101,11 +75,13 @@ export function ProgramFrame({ stream, clock, opts }: { stream: MatchStream; clo
       return { state: 'pending' as const, headline: p.headline, body: p.text, evidence: [], kicker: 'Template · numbers from code' }
     }
     const text = p.texts?.[persona] ?? { headline: p.mechanism_tag, text: p.claim }
+    const ev = evidenceItems(p.evidence, meta)
     return {
       state: 'verified' as const,
       headline: text.headline,
       body: text.text,
-      evidence: evidenceChips(p.evidence),
+      evidence: ev.slice(0, 3),
+      evidenceAll: ev,
       kicker: `${KICKER[p.mechanism_tag] ?? 'Insight'} · ${persona.replace('_', ' ')}`,
     }
   })()
@@ -122,6 +98,25 @@ export function ProgramFrame({ stream, clock, opts }: { stream: MatchStream; clo
         {!opts.graphicsOnly && (
           <PitchCanvas players={meta.players} frames={frames} clock={clock} camera={camera} palette={pal} />
         )}
+        <AnimatePresence>
+          {replay && (
+            <motion.div
+              key="dim"
+              className="replay-dim"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.4 }}
+            />
+          )}
+        </AnimatePresence>
+        <AnimatePresence>
+          {replay?.tele && (
+            <motion.div key={replay.tele.moment_id} initial={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.3 }}>
+              <TelestrationLayer tele={replay.tele} camera={camera} frames={frames} clock={clock} />
+            </motion.div>
+          )}
+        </AnimatePresence>
         <AnimatePresence>
           {pc && passer && (
             <PassTrail
@@ -167,6 +162,7 @@ export function ProgramFrame({ stream, clock, opts }: { stream: MatchStream; clo
           possession={possessionAt(stream.events, t)}
         />
         {stream.header && <SourceLabel kind={stream.header.kind} />}
+        <AnimatePresence>{replay && <ReplayBug key="replay" remaining={replay.remaining} total={replay.total} />}</AnimatePresence>
         <AnimatePresence>
           {stat && (
             <StatCompare
@@ -193,7 +189,9 @@ export function ProgramFrame({ stream, clock, opts }: { stream: MatchStream; clo
         </AnimatePresence>
         <MomentumRibbon points={ribbon} home={meta.home} away={meta.away} colors={pal} endMs={meta.period_end_ms[1]} />
         <AnimatePresence>
-          {cardProps && <MomentCard key={card!.source_moment_id ?? card!.overlay_id} {...cardProps} />}
+          {cardProps && (
+            <MomentCard key={card!.source_moment_id ?? card!.overlay_id} {...cardProps} openEvidence={opts.openEvidence} />
+          )}
         </AnimatePresence>
         <AnimatePresence>{caption && <Caption key={caption.overlay_id} text={caption.payload.text} />}</AnimatePresence>
       </Stage>

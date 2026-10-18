@@ -15,7 +15,6 @@
 }
 .split-brand {
   font-family: var(--font-display);
-  font-stretch: var(--wdth-expanded);
   font-size: 20px;
   font-weight: 800;
   text-transform: uppercase;
@@ -32,7 +31,6 @@
 .split-title {
   margin: 0 0 8px;
   font-family: var(--font-display);
-  font-stretch: var(--wdth-condensed);
   font-size: 22px;
   font-weight: 800;
   letter-spacing: 0.04em;

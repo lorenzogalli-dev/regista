@@ -5,7 +5,8 @@
 //   node scripts/capture.mjs shot  <url> <out.png> [width] [height] [waitMs]
 //   node scripts/capture.mjs video <url> <out.mp4> [seconds] [width] [height]   (needs ffmpeg;
 //                                                         SCROLL=1 scrolls to the bottom)
-//   node scripts/capture.mjs audit <url>          design audit of a /broadcast URL (exit 1 on problems)
+//   node scripts/capture.mjs audit <url> [width] [height]   design audit of a broadcast URL (exit 1 on
+//                                                         problems; &auditAt=<ms> sets when it runs)
 //
 // CHROME overrides the browser path (default: Google Chrome on macOS). TRANSPARENT=1 captures
 // with a transparent page background (for /graphics).
@@ -19,7 +20,7 @@ const CHROME = process.env.CHROME ?? '/Applications/Google Chrome.app/Contents/M
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms))
 
 async function launch(width, height) {
-  const profile = mkdtempSync(join(tmpdir(), 'gtf-chrome-'))
+  const profile = mkdtempSync(join(tmpdir(), 'regista-chrome-'))
   const proc = spawn(CHROME, [
     '--headless=new',
     '--hide-scrollbars',
@@ -94,6 +95,13 @@ async function shot(url, out, width = 1920, height = 1080, waitMs = 2500) {
     const full = Number(width) < 600 // phone width: capture the whole page
     let clip
     if (full) {
+      // Scroll through once so scroll-triggered reveals have played, then back to the top.
+      await cdp.send('Runtime.evaluate', {
+        expression: `(async () => { for (let y = 0; y < document.documentElement.scrollHeight; y += innerHeight / 2) {
+          scrollTo(0, y); await new Promise((r) => setTimeout(r, 120)) } scrollTo(0, 0) })()`,
+        awaitPromise: true,
+      })
+      await sleep(1500)
       const { contentSize } = await cdp.send('Page.getLayoutMetrics')
       clip = { x: 0, y: 0, width: Number(width), height: Math.ceil(contentSize.height), scale: 1 }
     }
@@ -105,7 +113,7 @@ async function shot(url, out, width = 1920, height = 1080, waitMs = 2500) {
 }
 
 async function video(url, out, seconds = 15, width = 1920, height = 1080) {
-  const dir = mkdtempSync(join(tmpdir(), 'gtf-frames-'))
+  const dir = mkdtempSync(join(tmpdir(), 'regista-frames-'))
   const cdp = await launch(Number(width), Number(height))
   const frames = []
   let stoppedAt = 0
@@ -184,17 +192,21 @@ async function video(url, out, seconds = 15, width = 1920, height = 1080) {
   process.exitCode = r.status ?? 1
 }
 
-async function audit(url) {
-  const cdp = await launch(1920, 1080)
+async function audit(url, width = 1920, height = 1080) {
+  const cdp = await launch(Number(width), Number(height))
   try {
     await open(cdp, url + (url.includes('?') ? '&' : '?') + 'audit=1')
-    await sleep(4500)
+    const at = Number(new URL(url).searchParams.get('auditAt') ?? 4000)
+    await sleep(at + 500)
     const { result } = await cdp.send('Runtime.evaluate', {
       expression: "document.getElementById('audit')?.textContent ?? 'null'",
     })
     const report = JSON.parse(result.value)
     if (!report) throw new Error('no audit report')
-    console.log(`${url}: ${Object.keys(report.graphics).length} graphics, ${report.textChecked} text elements`)
+    console.log(
+      `${url} @${width}×${height}: ${Object.keys(report.graphics).length} graphics, ${report.textChecked} text elements` +
+        (report.present?.length ? `; present: ${report.present.join(', ')}` : ''),
+    )
     for (const p of report.problems) console.log(`  PROBLEM ${p}`)
     process.exitCode = report.problems.length ? 1 : 0
   } finally {

@@ -45,7 +45,7 @@ async def lifespan(app: FastAPI) -> AsyncIterator[None]:
         yield
 
 
-app = FastAPI(title="Ground Truth Football", version="0.1.0", lifespan=lifespan)
+app = FastAPI(title="Regista", version="0.1.0", lifespan=lifespan)
 app.include_router(replay.router)
 app.include_router(runs.router)
 # Metrics tools for agents over MCP (streamable HTTP) at /mcp/
@@ -69,6 +69,7 @@ SPA_ROUTES = {
     "recap",
     "architecture",
     "design",
+    "tour",
 }
 
 

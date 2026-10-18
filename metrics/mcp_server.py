@@ -79,7 +79,7 @@ def allowed_hosts() -> list[str]:
 
 def build_server(registry: StoreRegistry) -> FastMCP:
     mcp = FastMCP(
-        "ground-truth-football-metrics",
+        "regista-metrics",
         instructions=INSTRUCTIONS,
         streamable_http_path="/",
         stateless_http=True,

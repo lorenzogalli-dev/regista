@@ -145,9 +145,9 @@ export function StatCompare({
     <div className="stat-anchor" data-testid="stat-compare">
       <motion.div className="stat-compare glass" {...wipe()}>
         <div className="stat-head unskew">
-          <span style={{ color: colors[home.team_id].line }}>{home.short}</span>
+          <span style={{ color: colors[home.team_id].text }}>{home.short}</span>
           <span className="tier0-label">Last {minutes} min</span>
-          <span style={{ color: colors[away.team_id].line }}>{away.short}</span>
+          <span style={{ color: colors[away.team_id].text }}>{away.short}</span>
         </div>
         {items.map((it, i) => {
           const hv = it.h ?? 0
@@ -207,9 +207,9 @@ export function MomentumRibbon({
     <div className="ribbon-anchor" data-testid="momentum-ribbon">
       <div className="ribbon glass">
         <span className="ribbon-label unskew">
-          <span style={{ color: colors[home.team_id].line }}>{home.short}</span>
+          <span style={{ color: colors[home.team_id].text }}>{home.short}</span>
           <span className="tier0-label">Control</span>
-          <span style={{ color: colors[away.team_id].line }}>{away.short}</span>
+          <span style={{ color: colors[away.team_id].text }}>{away.short}</span>
         </span>
         <svg width={W} height={H} viewBox={`0 0 ${W} ${H}`} className="ribbon-svg" aria-hidden>
           <line x1="0" x2={W} y1={H / 2} y2={H / 2} stroke="rgba(242,245,243,0.18)" />

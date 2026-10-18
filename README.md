@@ -1,9 +1,14 @@
-# Ground Truth Football
+# Regista
 
-**Verified on air.** A multi-agent system that watches a football match, explains what changed
-and why in broadcast graphics for different viewers, and checks every number it cites against
-a code recomputation before it goes on screen. Built on Microsoft Agent Framework and Microsoft
-Foundry, deployed on Azure, and measured against hidden storylines the agents never see.
+**Reads the game. Directs the broadcast.** AI match graphics and tactical explanations,
+generated live, and checked before they go on air: a multi-agent system that watches a football
+match, explains what changed and why in broadcast graphics for different viewers, and checks
+every number it cites against a code recomputation before it goes on screen. Built on Microsoft
+Agent Framework and Microsoft Foundry, deployed on Azure, and measured against hidden
+storylines the agents never see.
+
+In Italian, *regista* is both the playmaker who reads the game and the TV director who decides
+what goes on air. (Until 18 October 2026 the project was called *Ground Truth Football*.)
 
 All data is synthetic; all clubs, players, venues and competitions are fictional.
 
@@ -13,8 +18,9 @@ All data is synthetic; all clubs, players, venues and competitions are fictional
 
 | Start here | What you see |
 |---|---|
-| `/` | Landing: recorded matches, live session (with today's remaining model calls) |
-| `/broadcast` | Broadcast view of a **recorded agent run**: data graphics from code, then an AI card that appears as an amber template and turns into the verified text with its seal |
+| `/tour` | **Guided tour, about 2 minutes**: the best moments of the recorded runs in sequence, each with a caption saying whether code or an AI agent made it |
+| `/` | Landing: what it does, why it can be trusted, results, and links to every screen |
+| `/broadcast` | Broadcast player on a **recorded agent run**: clickable timeline of key moments, "next key moment" (N), auto-skip of quiet play, moment replay with telestration, insights feed, and the evidence behind every AI card (press the ✓ seal) |
 | `/split` | The same moment for two viewers: Analyst in English, casual fan in Italian with a favourite player |
 | `/control` (from the landing) | Control room: the agent graph at work, with a real Verifier rejection and its reason |
 | `/graphics` | The overlay layer alone, transparent 1920×1080, for OBS or a vision mixer |
@@ -185,9 +191,12 @@ Broadcast graphics follow `DESIGN.md` ("Verified on air"). Every replay is a **R
 run**: a real, saved output of the pipeline (`data/recorded/`), replayed with zero model calls;
 live sessions are labelled **Live**. Routes:
 
-- `/` — landing; `/broadcast?run=<id>&persona=analyst_en` — broadcast view with the full package
-  (scorebug, player tags, pass card, speed and shot badges, stat compare, momentum ribbon, AI
-  moment card: amber template first, then the verified text with its seal; caption);
+- `/tour` — guided tour (≈ 2 min; `?step=<n>` starts at a step);
+- `/` — landing; `/broadcast?run=<id>&persona=analyst_en` — broadcast player with the full
+  package (scorebug, player tags, pass card, speed and shot badges, stat compare, momentum
+  ribbon, AI moment card: amber template first, then the verified text with its seal; caption),
+  plus the match timeline, next key moment (N), auto-skip of quiet play, moment replay (Space
+  continues) and the insights feed; `&clean=1` shows the bare 16:9 programme;
   `/broadcast?live=m_1000` — live session over the API WebSocket (agents run, daily cap);
 - `/split?run=<id>&left=analyst_en&right=casual_it` — same moment for two viewers;
 - `/control?run=<id>` — control room: the agent graph, verdicts, Verifier rejections with the
@@ -197,17 +206,23 @@ live sessions are labelled **Live**. Routes:
 - `/design` — design reference.
 
 Streams: `/ws/recorded/{run_id}` and `/ws/live/{match_id}` send the same messages (`frame`,
-`event`, `overlay`, `pipeline`), so every screen works on both.
+`event`, `overlay`, `pipeline`), so every screen works on both. On a recorded run the client can
+change the playback rate (`{"type": "pace", "speed": 0..100}`, 0 holds the stream): that is how
+the player pauses, fast-forwards quiet play and holds a moment replay; seeking reconnects with
+`from_ms`. `/api/runs/{id}/timeline` gives the timeline markers (goals, shots, red cards, Verifier
+rejections) and the telestration of each verified moment, computed by code from the public
+match events (`metrics/telestration.py`): where the team wins the ball back, how wide it plays,
+its longest passes, a player's progressive passes, or its final-third actions.
 
 The pitch canvas and every DOM overlay go through one projection (`web/src/lib/projection.ts`),
-so tags and trails stay on the players with the pitch tilted. Fonts (Archivo, Inter) are
-self-hosted under `web/public/fonts` with their SIL OFL licences. Review material:
-`docs/design/`.
+so tags and trails stay on the players with the pitch tilted. Fonts (Barlow Condensed, Barlow,
+Newsreader) are self-hosted under `web/public/fonts` with their SIL OFL licences. Review
+material: `docs/design/`.
 
 ```sh
-cd web && npm run dev                  # http://localhost:5173/broadcast?sample=hero_m_1000
+cd web && npm run dev                  # http://localhost:5173/tour
 npm test                               # projection and team-colour tests (node --test)
-npm run capture -- audit "http://localhost:5173/broadcast?sample=hero_m_1000&t=4268900"
+./scripts/audit.sh                     # layout audit: replays, telestration, evidence, insights at 1920, 1440, 390 px
 ```
 
 ## Azure deployment
@@ -231,7 +246,7 @@ is a Container App secret.
 
 Model choice: GPT-6 / GPT-5.6 quota is not available for this subscription, so the agents use
 gpt-5.4-mini and gpt-5-mini, which have default quota. Model spend for the whole project
-(prompt tuning, evaluation, recorded runs) was about 1.75 EUR, tracked per call; live sessions
+(prompt tuning, evaluation, recorded runs) was about 1.76 EUR, tracked per call; live sessions
 are capped at 150 model calls per day. `infra/post_judging.sh` removes PostgreSQL and lets the
 app scale to zero after the judging period.
 

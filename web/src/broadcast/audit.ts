@@ -16,6 +16,9 @@ const GRAPHICS = [
   '.ribbon',
   '.caption',
   '.source',
+  '.tele-label',
+  '.replay-bug',
+  '.evidence-panel',
 ]
 const SKEW_TAN = Math.tan((-5 * Math.PI) / 180)
 
@@ -108,8 +111,23 @@ export function runAudit(): Record<string, unknown> {
     }
   })
 
+  // Page chrome around the programme (player, insights feed, timeline): no horizontal scroll,
+  // and every chrome panel inside the viewport width.
+  const doc = document.documentElement
+  if (doc.scrollWidth > window.innerWidth + 1) problems.push(`horizontal scroll: ${doc.scrollWidth} > ${window.innerWidth}`)
+  for (const sel of ['.insights', '.player-bar', '.tl', '.player-top']) {
+    document.querySelectorAll(sel).forEach((el) => {
+      const r = el.getBoundingClientRect()
+      if (r.width && (r.left < -0.5 || r.right > window.innerWidth + 0.5)) problems.push(`${sel} outside the viewport: ${Math.round(r.left)}–${Math.round(r.right)}`)
+    })
+  }
+  const present = ['telestration', 'replay-bug', 'evidence-panel', 'insights', 'timeline'].filter((id) =>
+    document.querySelector(`[data-testid="${id}"]`),
+  )
+
   return {
     viewport: [window.innerWidth, window.innerHeight],
+    present,
     scale,
     graphics: seen,
     textChecked: checked,

@@ -113,7 +113,11 @@ export function PassCard({
             <small>m</small>
           </Stat>
           <Stat label="Progression">
-            +<CountUp value={pass.pass_progression_m} decimals={1} delay={0.2} />
+            <CountUp
+              value={pass.pass_progression_m}
+              delay={0.2}
+              format={(v) => `${v >= 0 ? '+' : '−'}${Math.abs(v).toFixed(1)}`}
+            />
             <small>m</small>
           </Stat>
           <Stat label="Difficulty">

@@ -1,6 +1,7 @@
 """Replay a generated match as a paced, time-ordered stream of events and tracking frames."""
 
 import asyncio
+import contextlib
 import heapq
 import time
 from collections.abc import AsyncIterator, Awaitable, Callable, Iterator
@@ -37,6 +38,24 @@ def merged(match_dir: Path, speed: float, from_ms: int = 0) -> Iterator[Message]
         yield msg
 
 
+class Pace:
+    """A playback rate a client can change mid-stream (0 holds the stream)."""
+
+    def __init__(self, speed: float) -> None:
+        self.speed = speed
+        self.changed = asyncio.Event()
+
+    def set(self, speed: float) -> None:
+        self.speed = speed
+        self.changed.set()
+
+    async def wait(self, timeout: float | None) -> None:
+        """Sleep until `timeout` elapses or the rate changes."""
+        self.changed.clear()
+        with contextlib.suppress(TimeoutError):
+            await asyncio.wait_for(self.changed.wait(), timeout)
+
+
 async def replay(
     match_dir: Path,
     speed: float = 1.0,
@@ -44,17 +63,35 @@ async def replay(
     *,
     now: Callable[[], float] = time.monotonic,
     sleep: Callable[[float], Awaitable[None]] = asyncio.sleep,
+    pace: Pace | None = None,
 ) -> AsyncIterator[Message]:
-    """Yield messages paced so that match time advances `speed` times faster than wall time."""
+    """Yield messages paced so that match time advances `speed` times faster than wall time.
+
+    With `pace`, the rate follows `pace.speed` as it changes (frame decimation stays as for
+    the starting `speed`).
+    """
     if speed <= 0:
         raise ValueError("speed must be positive")
     meta = io.read_meta(match_dir)
     yield {"type": "meta", "data": meta.model_dump(), "speed": speed, "from_ms": from_ms}
-    start = now()
+    anchor_t, anchor_wall, rate = float(from_ms), now(), speed
     for msg in merged(match_dir, speed, from_ms):
-        due = (msg["data"]["t_ms"] - from_ms) / 1000.0 / speed
-        wait = due - (now() - start)
-        if wait > 0:
-            await sleep(wait)
+        t = msg["data"]["t_ms"]
+        while True:
+            if pace is not None and pace.speed != rate:
+                # Re-anchor at the match time reached so far at the old rate.
+                wall = now()
+                anchor_t = min(float(t), anchor_t + (wall - anchor_wall) * rate * 1000.0)
+                anchor_wall, rate = wall, pace.speed
+            if rate <= 0:
+                await pace.wait(None)  # type: ignore[union-attr]
+                continue
+            wait = (t - anchor_t) / 1000.0 / rate - (now() - anchor_wall)
+            if wait <= 0:
+                break
+            if pace is None:
+                await sleep(wait)
+                break
+            await pace.wait(wait)
         yield msg
     yield {"type": "end"}

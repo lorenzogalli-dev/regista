@@ -1,4 +1,6 @@
-# Ground Truth Football — Technical Spec
+# Regista — Technical Spec
+
+> The project was called *Ground Truth Football* until 2026-10-18; the name changed, the spec did not.
 
 > Microsoft × Premier League Hackathon (submission deadline: 27 Oct 2026, 23:59 PT)
 > Target category: **Best Multi-Agent System** (+ Grand Prize eligibility)

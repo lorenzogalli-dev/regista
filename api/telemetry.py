@@ -15,7 +15,7 @@ def setup() -> bool:
     from azure.monitor.opentelemetry.exporter import AzureMonitorTraceExporter
 
     configure_otel_providers(
-        service_name="ground-truth-football",
+        service_name="regista",
         exporters=[AzureMonitorTraceExporter(connection_string=cs)],
     )
     log.info("tracing to Application Insights")

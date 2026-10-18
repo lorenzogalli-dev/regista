@@ -123,7 +123,7 @@ export function PitchCanvas({ players: roster, frames, clock, camera, palette }:
       ctx.strokeStyle = 'rgba(6, 17, 12, 0.85)'
       ctx.stroke()
       ctx.fillStyle = team.ink
-      ctx.font = `700 ${Math.round(r * 1.05)}px Archivo`
+      ctx.font = `700 ${Math.round(r * 1.05)}px 'Barlow Condensed'`
       ctx.fontStretch = 'condensed'
       ctx.textAlign = 'center'
       ctx.textBaseline = 'middle'

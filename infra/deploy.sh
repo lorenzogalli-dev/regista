@@ -22,7 +22,7 @@ PG=${PG:-${SUFFIX}-pg}
 ENVNAME=gtf-env
 APP=gtf-app
 FOUNDRY=${FOUNDRY:-gtf-foundry}
-IMAGE=ghcr.io/lorenzogalli-dev/ground-truth-football:${1:?image tag, or - with PHASE=infra}
+IMAGE=ghcr.io/lorenzogalli-dev/regista:${1:?image tag, or - with PHASE=infra}
 set -a; source .env; set +a
 
 if [[ "${PHASE:-all}" != app ]]; then

@@ -7,7 +7,6 @@
 .second h1 {
   margin: 4px 0 14px;
   font-family: var(--font-display);
-  font-stretch: var(--wdth-expanded);
   font-size: 34px;
   font-weight: 800;
   text-transform: uppercase;
@@ -64,7 +63,6 @@
 .card2 h2 {
   margin: 10px 0 6px;
   font-family: var(--font-display);
-  font-stretch: var(--wdth-condensed);
   font-size: 24px;
   font-weight: 800;
   text-transform: uppercase;

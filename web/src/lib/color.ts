@@ -98,6 +98,8 @@ export type TeamColors = {
   ink: string
   /** Team colour for lines and marks on the dark background, contrast ≥ 3. */
   line: string
+  /** Team colour for text on the dark panels, contrast ≥ 4.5. */
+  text: string
 }
 
 function candidates(colors: string[]): string[] {
@@ -128,9 +130,16 @@ function separate(c: string, avoid: string): string {
   return f
 }
 
+/** Lighten `c` until it reads as text on the panel colour. */
+function textOnPanel(c: string): string {
+  let f = c
+  for (let i = 0; i < 20 && contrast(f, PANEL) < TEXT_CONTRAST; i++) f = mix(f, '#ffffff', 0.08)
+  return f
+}
+
 function teamColors(base: string): TeamColors {
   const { fill, ink } = withReadableInk(base)
-  return { fill, ink, line: visibleOnBg(base) }
+  return { fill, ink, line: visibleOnBg(base), text: textOnPanel(base) }
 }
 
 /** Palettes for both teams from their kit colours (`match.json` `colors`, primary first). */

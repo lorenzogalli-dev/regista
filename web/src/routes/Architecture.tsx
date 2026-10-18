@@ -28,7 +28,7 @@ const AZURE = [
 export function Architecture() {
   return (
     <main className="arch">
-      <p className="eyebrow">Ground Truth Football · architecture</p>
+      <p className="eyebrow">Regista · architecture</p>
       <h1>Numbers from tools, words from models</h1>
       <svg viewBox="0 0 1500 380" className="arch-svg" role="img" aria-label="architecture">
         <defs>

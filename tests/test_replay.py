@@ -4,7 +4,7 @@ import itertools
 from fastapi.testclient import TestClient
 
 from api.main import app
-from sim.replay import frame_stride, merged, replay
+from sim.replay import Pace, frame_stride, merged, replay
 
 
 def test_frame_stride() -> None:
@@ -59,3 +59,33 @@ def test_websocket_unknown_match(monkeypatch, tmp_path) -> None:
     monkeypatch.setenv("MATCH_DATA_DIR", str(tmp_path))
     with TestClient(app) as client, client.websocket_connect("/ws/replay/m_42") as ws:
         assert ws.receive_json()["type"] == "error"
+
+
+def test_pace_holds_and_changes_rate(sample_dirs) -> None:
+    out, _ = sample_dirs
+
+    async def run() -> tuple[int, float]:
+        pace = Pace(1.0)
+        seen: list[int] = []
+
+        async def consume() -> None:
+            async for m in replay(out, 1.0, 5_000_000, pace=pace):
+                if m["type"] in ("frame", "event"):
+                    seen.append(m["data"]["t_ms"])
+
+        task = asyncio.create_task(consume())
+        await asyncio.sleep(0.25)
+        pace.set(0)
+        await asyncio.sleep(0.05)
+        held = len(seen)
+        await asyncio.sleep(0.3)
+        assert len(seen) == held, "a held stream must not advance"
+        pace.set(50.0)
+        await asyncio.sleep(0.4)
+        task.cancel()
+        return held, (seen[-1] - 5_000_000) / 1000
+
+    held, reached_s = asyncio.run(run())
+    assert held > 0
+    # ~0.25 s at 1x plus ~0.4 s at 50x ≈ 20 s of match time (frames are not decimated).
+    assert 12 < reached_s < 28

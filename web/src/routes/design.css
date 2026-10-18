@@ -8,7 +8,6 @@
 .design-head h1 {
   margin: 4px 0 10px;
   font-family: var(--font-display);
-  font-stretch: var(--wdth-expanded);
   font-size: clamp(40px, 8vw, 84px);
   font-weight: 800;
   line-height: 0.95;
@@ -49,7 +48,6 @@
 .design h2 {
   margin: 0 0 20px;
   font-family: var(--font-display);
-  font-stretch: var(--wdth-condensed);
   font-size: 30px;
   font-weight: 800;
   letter-spacing: 0.04em;
@@ -107,14 +105,12 @@
 }
 .spec.condensed {
   font-family: var(--font-display);
-  font-stretch: var(--wdth-condensed);
   font-size: 40px;
   font-weight: 800;
   text-transform: uppercase;
 }
 .spec.expanded {
   font-family: var(--font-display);
-  font-stretch: var(--wdth-expanded);
   font-size: 34px;
   font-weight: 800;
   text-transform: uppercase;

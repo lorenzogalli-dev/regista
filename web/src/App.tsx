@@ -8,6 +8,7 @@ import { Landing } from './routes/Landing.tsx'
 import { Recap } from './routes/Recap.tsx'
 import { Second } from './routes/Second.tsx'
 import { Split } from './routes/Split.tsx'
+import { Tour } from './routes/Tour.tsx'
 
 // Minimal path switch; a router is introduced only when there are enough screens to need one.
 export default function App() {
@@ -21,5 +22,6 @@ export default function App() {
   if (path.startsWith('/second')) return <Second />
   if (path.startsWith('/recap')) return <Recap />
   if (path.startsWith('/architecture')) return <Architecture />
+  if (path.startsWith('/tour')) return <Tour />
   return <Landing />
 }
