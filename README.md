@@ -1,19 +1,64 @@
 # Ground Truth Football
 
-A multi-agent system on Microsoft Foundry that turns a live stream of synthetic football events and tracking into explainable, personalised on-screen intelligence, and measures how often its explanations are right against a hidden ground truth the agents never see.
+**Verified on air.** A multi-agent system that watches a football match, explains what changed
+and why in broadcast graphics for different viewers, and checks every number it cites against
+a code recomputation before it goes on screen. Built on Microsoft Agent Framework and Microsoft
+Foundry, deployed on Azure, and measured against hidden storylines the agents never see.
 
-> Work in progress for the Microsoft × Premier League Hackathon. All data is synthetic; all clubs, players, venues and competitions are fictional.
+All data is synthetic; all clubs, players, venues and competitions are fictional.
 
-- Technical spec: [`SPEC.md`](SPEC.md)
-- Design direction: [`DESIGN.md`](DESIGN.md)
-- Progress: [`STATUS.md`](STATUS.md)
+## Live demo
+
+**https://gtf-app.delightfulbush-9c2f92ce.italynorth.azurecontainerapps.io**
+
+| Start here | What you see |
+|---|---|
+| `/` | Landing: recorded matches, live session (with today's remaining model calls) |
+| `/broadcast` | Broadcast view of a **recorded agent run**: data graphics from code, then an AI card that appears as an amber template and turns into the verified text with its seal |
+| `/split` | The same moment for two viewers: Analyst in English, casual fan in Italian with a favourite player |
+| `/control` (from the landing) | Control room: the agent graph at work, with a real Verifier rejection and its reason |
+| `/graphics` | The overlay layer alone, transparent 1920×1080, for OBS or a vision mixer |
+| `/eval` | Evaluation report |
+| `/broadcast?live=m_1000&speed=4` | Live session: the agents run for real on Foundry (capped per day) |
+
+Recorded agent runs are real, saved outputs of the pipeline, replayed with zero model calls.
+Live sessions call the models and stop when the daily cap is reached.
+
+## How it works
+
+```
+simulator ──► live store + metrics engine (code) ──► MCP server: 6 typed tools
+                       │
+                 candidates (code: 2 signals above their noise level)
+                       │
+   Agent Framework workflow:  Detector → Analyst ⇄ Verifier → Narrator · Persona ×9 · Director
+                       │                    (code recomputes every number, a model checks the
+                       │                     wording; one retry with the reason)
+                       ▼
+     overlay timeline: tier 0 data graphics at once, tier 1 template → verified text
+                       ▼
+     WebSocket ──► broadcast front-end (React), /graphics for OBS
+```
+
+- **Numbers from tools, words from models.** Ingest, state and metrics are deterministic code;
+  agents read numbers only through the metrics tools (MCP). Every number in a claim must come
+  from the evidence, which the Verifier recomputes with the same tools before approving.
+- **Six agents with distinct roles**: Detector (is this worth explaining?), Analyst (why it
+  matters, with evidence), Verifier (hybrid: code + model), Narrator (caption), Persona (nine
+  viewer profiles: analyst, casual, player focus × English, Italian, Spanish), Director (when and
+  how long on air). Failures fall back to templates, so the broadcast never stops.
+- **Captions and persona lines are checked by code** against the verified claim: a line that
+  adds a number or a player the claim does not contain is replaced by a template.
+- **Ground truth is isolated by construction**: it is written to a separate directory, never
+  mounted, uploaded or copied into the image; tests scan the runtime code for any reference.
 
 ## Run locally
 
-Requirements: Docker, [uv](https://docs.astral.sh/uv/), Node 22.
+Requirements: Docker, [uv](https://docs.astral.sh/uv/), Node 22. Agents run offline with the
+scripted fake client by default (`MODEL_PROVIDER=fake`); Foundry needs `az login` and `.env`.
 
 ```sh
-cp .env.example .env            # optional for now; model settings are needed from D3
+cp .env.example .env            # model settings for MODEL_PROVIDER=foundry
 docker compose up -d --build    # PostgreSQL + API on :8000
 curl localhost:8000/health      # {"status":"ok","db":"ok"}
 
@@ -165,6 +210,31 @@ npm test                               # projection and team-colour tests (node 
 npm run capture -- audit "http://localhost:5173/broadcast?sample=hero_m_1000&t=4268900"
 ```
 
+## Azure deployment
+
+`infra/deploy.sh` (Azure CLI) creates, in Italy North:
+
+| Service | Use |
+|---|---|
+| Azure Container Apps | one container: FastAPI backend + built front-end (0.25 vCPU / 0.5 GiB, one replica) |
+| Microsoft Foundry | `gtf-fast` = gpt-5.4-mini (Detector, Verifier, Narrator, Persona, Director), `gtf-reasoning` = gpt-5-mini (Analyst, low reasoning effort) |
+| Azure Database for PostgreSQL Flexible | runs and moments (Burstable B1ms) |
+| Azure Blob Storage | demo matches and recorded runs, downloaded at startup (read-only, allowlist of public files) |
+| Application Insights | OpenTelemetry traces from Agent Framework |
+| GitHub Actions + GHCR | CI; the image is pushed only after CI passes |
+
+The container app has a managed identity with two roles: *Storage Blob Data Reader* on the
+storage account and *Cognitive Services User* on the Foundry resource (model calls for live
+sessions; it is the narrowest built-in role that covers Foundry project inference, and it also
+allows reading account keys). No keys are stored in the app or the repo; the database password
+is a Container App secret.
+
+Model choice: GPT-6 / GPT-5.6 quota is not available for this subscription, so the agents use
+gpt-5.4-mini and gpt-5-mini, which have default quota. Model spend for the whole project
+(prompt tuning, evaluation, recorded runs) was about 1.75 EUR, tracked per call; live sessions
+are capped at 150 model calls per day. `infra/post_judging.sh` removes PostgreSQL and lets the
+app scale to zero after the judging period.
+
 ## Develop
 
 ```sh
@@ -174,6 +244,12 @@ uv run mypy
 uv run pytest                    # fast suite
 uv run pytest -m slow            # plausibility over 20 dev seeds
 ```
+
+## Documents
+
+[`SPEC.md`](SPEC.md) (technical spec) · [`DESIGN.md`](DESIGN.md) (design direction) ·
+[`STATUS.md`](STATUS.md) (progress, decisions, spend) · [`docs/`](docs) (signal check, evaluation,
+design review, demo video clips and voice-over).
 
 ## Licence
 

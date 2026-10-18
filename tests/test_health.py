@@ -60,5 +60,12 @@ def test_front_end_routes_fall_back_to_the_app_shell_but_api_stays_404(
     assert client.get("/control?run=x").status_code == 200
     assert client.get("/api/nope").status_code == 404
     assert client.get("/api/matches/..%2Fx").status_code == 404
+    for path in (
+        "/ground_truth/m_1000/storylines.json",
+        "/data/x",
+        "/.env",
+        "/api/runs/..%2F..%2F.env",
+    ):
+        assert client.get(path).status_code == 404, path
     monkeypatch.delenv("WEB_DIST")
     importlib.reload(api.main)

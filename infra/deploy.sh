@@ -5,6 +5,7 @@
 #
 #   infra/deploy.sh <image-tag>          e.g. infra/deploy.sh 02375f8...
 #   PHASE=infra infra/deploy.sh -        everything except the Container App
+#   PHASE=app infra/deploy.sh <tag>      only the Container App, on existing infrastructure
 #
 # Needs: az login, the containerapp extension, the Foundry settings in .env. Secrets (database
 # password, App Insights connection string) go into Container App secrets, never into the repo.
@@ -24,6 +25,7 @@ FOUNDRY=${FOUNDRY:-gtf-foundry}
 IMAGE=ghcr.io/lorenzogalli-dev/ground-truth-football:${1:?image tag, or - with PHASE=infra}
 set -a; source .env; set +a
 
+if [[ "${PHASE:-all}" != app ]]; then
 for ns in Microsoft.App Microsoft.OperationalInsights Microsoft.Insights Microsoft.DBforPostgreSQL Microsoft.Storage; do
   az provider register --namespace "$ns" --wait --only-show-errors
 done
@@ -50,10 +52,19 @@ az postgres flexible-server create -g "$RG" -n "$PG" -l "$LOC" --tier Burstable 
   --storage-size 32 --version 17 --admin-user gtfadmin --admin-password "$PG_PASS" \
   --public-access 0.0.0.0 --yes -o none
 az postgres flexible-server db create --resource-group "$RG" --server-name "$PG" --name gtf -o none
+fi  # end of infrastructure
+
+if [[ "${PHASE:-all}" == app ]]; then
+  source .deploy.secrets  # PG_PASS from the infra phase
+  STORAGE_ID=$(az storage account show -g "$RG" -n "$STORAGE" --query id -o tsv)
+  LOGS_ID=$(az monitor log-analytics workspace show -g "$RG" -n "$LOGS" --query customerId -o tsv)
+  LOGS_KEY=$(az monitor log-analytics workspace get-shared-keys -g "$RG" -n "$LOGS" --query primarySharedKey -o tsv)
+  AI_CS=$(az monitor app-insights component show -g "$RG" -a "$INSIGHTS" --query connectionString -o tsv)
+fi
 DATABASE_URL="postgresql://gtfadmin:${PG_PASS}@${PG}.postgres.database.azure.com:5432/gtf?sslmode=require"
 
 # --- Container App ---------------------------------------------------------------------------
-az containerapp env create -g "$RG" -n "$ENVNAME" -l "$LOC" \
+[[ "${PHASE:-all}" == app ]] || az containerapp env create -g "$RG" -n "$ENVNAME" -l "$LOC" \
   --logs-workspace-id "$LOGS_ID" --logs-workspace-key "$LOGS_KEY" -o none
 if [[ "${PHASE:-all}" == infra ]]; then
   # Keep the generated database password for the second phase (local file, git-ignored).
@@ -80,7 +91,7 @@ az role assignment create --assignee-object-id "$PRINCIPAL" --assignee-principal
   --role "Storage Blob Data Reader" --scope "$STORAGE_ID" -o none
 FOUNDRY_ID=$(az cognitiveservices account show -g "$RG" -n "$FOUNDRY" --query id -o tsv)
 az role assignment create --assignee-object-id "$PRINCIPAL" --assignee-principal-type ServicePrincipal \
-  --role "Cognitive Services OpenAI User" --scope "$FOUNDRY_ID" -o none
+  --role "Cognitive Services User" --scope "$FOUNDRY_ID" -o none
 az containerapp revision restart -g "$RG" -n "$APP" \
   --revision "$(az containerapp show -g "$RG" -n "$APP" --query properties.latestRevisionName -o tsv)" -o none
 

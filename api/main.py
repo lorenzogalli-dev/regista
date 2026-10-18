@@ -58,6 +58,20 @@ async def health(db_ok: Annotated[bool, Depends(db.ping)]) -> JSONResponse:
     return JSONResponse(body, status_code=200 if db_ok else 503)
 
 
+SPA_ROUTES = {
+    "",
+    "broadcast",
+    "split",
+    "control",
+    "graphics",
+    "eval",
+    "second",
+    "recap",
+    "architecture",
+    "design",
+}
+
+
 class _SpaFiles(StaticFiles):
     """The built front-end: real files when they exist, otherwise index.html (client routes)."""
 
@@ -65,8 +79,8 @@ class _SpaFiles(StaticFiles):
         try:
             return await super().get_response(path, scope)
         except StarletteHTTPException as e:
-            # Unknown API paths stay 404; only front-end routes fall back to the app shell.
-            if e.status_code != 404 or path.split("/")[0] in ("api", "ws", "mcp", "health"):
+            # Only the front-end's own routes fall back to the app shell; anything else is 404.
+            if e.status_code != 404 or path.split("/")[0] not in SPA_ROUTES:
                 raise
             return await super().get_response("index.html", scope)
 
