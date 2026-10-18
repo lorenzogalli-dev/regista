@@ -1,0 +1,181 @@
+.design {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 56px 16px 80px;
+  box-sizing: border-box;
+}
+
+.design-head h1 {
+  margin: 4px 0 10px;
+  font-family: var(--font-display);
+  font-stretch: var(--wdth-expanded);
+  font-size: clamp(40px, 8vw, 84px);
+  font-weight: 800;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+.eyebrow,
+.spec-label {
+  display: block;
+  margin: 0 0 6px;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-2);
+}
+.lede {
+  max-width: 640px;
+  font-size: 19px;
+  line-height: 1.5;
+  color: var(--text-2);
+}
+.design-head nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 14px;
+}
+.design a {
+  color: var(--text);
+  text-underline-offset: 4px;
+}
+
+.design section {
+  margin-top: 56px;
+  padding-top: 20px;
+  border-top: 1px solid var(--hairline);
+}
+.design h2 {
+  margin: 0 0 20px;
+  font-family: var(--font-display);
+  font-stretch: var(--wdth-condensed);
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.note {
+  max-width: 720px;
+  margin: -8px 0 20px;
+  color: var(--text-2);
+  line-height: 1.5;
+}
+
+.swatches {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px 24px;
+  padding-right: 6px; /* room for the slant overhang */
+}
+@media (max-width: 640px) {
+  .swatches {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+.swatch {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-size: 13px;
+}
+.swatch .chip {
+  height: 56px;
+  margin-bottom: 6px;
+  transform: skewX(var(--skew));
+  box-shadow: inset 0 0 0 1px var(--hairline);
+}
+.role {
+  font-size: 12.5px;
+  color: var(--text-2);
+}
+
+.type-specimens {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr));
+  gap: 32px 40px;
+}
+.type-specimens > div,
+.components > div,
+.pair {
+  min-width: 0;
+}
+.spec {
+  margin: 0;
+  line-height: 1.1;
+  overflow-wrap: anywhere;
+}
+.spec.condensed {
+  font-family: var(--font-display);
+  font-stretch: var(--wdth-condensed);
+  font-size: 40px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+.spec.expanded {
+  font-family: var(--font-display);
+  font-stretch: var(--wdth-expanded);
+  font-size: 34px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+.spec.body {
+  font-size: 20px;
+  line-height: 1.45;
+}
+
+.pairs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 560px), 1fr));
+  gap: 36px 40px;
+}
+.pair table {
+  width: 100%;
+  margin-top: 12px;
+  border-collapse: collapse;
+  font-size: 12.5px;
+  color: var(--text-2);
+}
+.pair td {
+  padding: 4px 8px 4px 0;
+  white-space: nowrap;
+}
+.pair tr {
+  display: flex;
+  flex-wrap: wrap;
+}
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 4px;
+  vertical-align: -1px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px var(--hairline);
+}
+
+.components {
+  display: grid;
+  gap: 40px;
+}
+
+/* Broadcast components shown in flow instead of positioned on the stage. */
+.inline-bug .scorebug-anchor,
+.inline-card .pass-card-anchor,
+.inline-card .moment-anchor {
+  position: relative;
+  inset: auto;
+}
+.inline-bug {
+  padding: 4px 8px;
+}
+.fit {
+  width: 100%;
+  overflow: hidden;
+}
+
+.design-foot {
+  margin-top: 64px;
+  font-size: 13px;
+  color: var(--text-2);
+}

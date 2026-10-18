@@ -1,0 +1,127 @@
+/* Design tokens (DESIGN.md). Fonts are self-hosted under /fonts (SIL OFL, see /fonts/LICENSES). */
+
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
+  font-display: block;
+  src: url('/fonts/archivo-latin.woff2') format('woff2');
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC,
+    U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
+  font-display: block;
+  src: url('/fonts/archivo-latin-ext.woff2') format('woff2');
+  unicode-range:
+    U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F,
+    U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: block;
+  src: url('/fonts/inter-latin.woff2') format('woff2');
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC,
+    U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: block;
+  src: url('/fonts/inter-latin-ext.woff2') format('woff2');
+  unicode-range:
+    U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F,
+    U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+:root {
+  /* colour */
+  --bg: #06110c;
+  --panel: #0c1b14;
+  --glass: rgb(12 27 20 / 0.74);
+  --glass-strong: rgb(9 21 15 / 0.88);
+  --highlight: rgb(255 255 255 / 0.09);
+  --hairline: rgb(242 245 243 / 0.14);
+  --text: #f2f5f3;
+  --text-2: #9fb0a7;
+  --ai: #46e5d8;
+  --ai-ink: #06110c;
+  --ai-glow: rgb(70 229 216 / 0.35);
+  --pending: #f5b544;
+  --error: #ff5a5f;
+  --grass-1: #0f2a1c;
+  --grass-2: #123222;
+  --pitch-line: rgb(222 236 228 / 0.55);
+
+  /* type */
+  --font-display: 'Archivo', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --wdth-condensed: 72%;
+  --wdth-normal: 100%;
+  --wdth-expanded: 118%;
+
+  /* shape */
+  --skew: -5deg;
+  --unskew: 5deg;
+  --blur: 14px;
+
+  /* broadcast frame: 1920×1080 stage, title-safe 5 % */
+  --stage-w: 1920px;
+  --stage-h: 1080px;
+  --safe-x: 96px;
+  --safe-y: 54px;
+
+  /* motion */
+  --in: 320ms;
+  --out: 260ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+  color-scheme: dark;
+  font-family: var(--font-body);
+  font-variant-numeric: tabular-nums;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Dark glass panel with a 1 px inner highlight (never a flat grey box). */
+.glass {
+  background: var(--glass);
+  backdrop-filter: blur(var(--blur)) saturate(1.2);
+  -webkit-backdrop-filter: blur(var(--blur)) saturate(1.2);
+  box-shadow:
+    inset 0 1px 0 var(--highlight),
+    inset 0 0 0 1px rgb(255 255 255 / 0.04),
+    0 12px 32px rgb(0 0 0 / 0.35);
+}
+
+.glass-strong {
+  background: var(--glass-strong);
+  backdrop-filter: blur(var(--blur)) saturate(1.2);
+  -webkit-backdrop-filter: blur(var(--blur)) saturate(1.2);
+  box-shadow:
+    inset 0 1px 0 var(--highlight),
+    inset 0 0 0 1px rgb(255 255 255 / 0.04),
+    0 16px 40px rgb(0 0 0 / 0.45);
+}
+
+/* Slanted container; children inside `.unskew` stay upright. */
+.slant {
+  transform: skewX(var(--skew));
+}
+.unskew {
+  display: inline-block;
+  transform: skewX(var(--unskew));
+}
+
+.num {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1;
+}

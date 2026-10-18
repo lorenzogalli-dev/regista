@@ -75,6 +75,25 @@ On no-storyline holdout matches, requiring two signals above their own noise p95
 0.16–0.64 episodes per match for the active types. Full tables, protocol and the history of the
 criterion: `docs/signal_check.md`. Performance: `docs/performance.md`.
 
+## Front-end (web/)
+
+Broadcast graphics follow `DESIGN.md` ("Verified on air"). Routes:
+
+- `/broadcast?sample=hero_m_1000` — 16:9 broadcast frame over a recorded clip (`&t=<ms>` freezes it);
+- `/graphics?sample=hero_m_1000` — the overlay layer alone, transparent, 1920×1080, for OBS or a vision mixer;
+- `/design` — design reference: tokens, type, team colours over clashing kits, components.
+
+The pitch canvas and every DOM overlay go through one projection (`web/src/lib/projection.ts`),
+so tags and trails stay on the players with the pitch tilted. Fonts (Archivo, Inter) are
+self-hosted under `web/public/fonts` with their SIL OFL licences. Review material:
+`docs/design/`.
+
+```sh
+cd web && npm run dev                  # http://localhost:5173/broadcast?sample=hero_m_1000
+npm test                               # projection and team-colour tests (node --test)
+npm run capture -- audit "http://localhost:5173/broadcast?sample=hero_m_1000&t=4268900"
+```
+
 ## Develop
 
 ```sh

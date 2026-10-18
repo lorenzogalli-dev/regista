@@ -20,7 +20,12 @@ Last updated: 2026-10-18. This file can drift: check the real state (run it, que
   - `MatchStore` (incremental, no look-ahead), physical metrics skipping the half-time reset and data jumps, sprints ≥ 1 s, tier-0 triggers;
   - typed tools + MCP server at `/mcp/` (mcp 1.30, compatible with Agent Framework), ground-truth isolation tests;
   - `metrics summary`, performance at 20×: 0.087 ms per frame p50 vs 5 ms budget (`docs/performance.md`).
-- D3 not started: waits for Azure / Foundry setup by Lore. Next: D5a plan.
+- D5a design system + hero frame (2026-10-18), awaiting Lore's screenshot review (`docs/design/`):
+  - tokens, self-hosted Archivo/Inter (OFL), `motion` 14.3.0; one shared pitch→screen projection for canvas and DOM;
+  - scorebug, player tags, pass trail + pass card (tier 0), AI moment card with verified seal (tier 1) on a recorded clip of m_1000 (`metrics.export_sample`), `/graphics` transparent output, `/design` reference page;
+  - team palettes enforce text contrast ≥ 4.5, marks ≥ 3 on the background, home/away separation and distance from the AI cyan (tested on 6 kit pairs);
+  - `web/scripts/capture.mjs`: real-time screenshots, video (ffmpeg) and a design audit (title-safe, overlaps, contrast, tabular figures, skew).
+- D3 not started: waits for Azure / Foundry setup by Lore.
 
 ## Blocked
 - Nothing.
@@ -29,6 +34,7 @@ Last updated: 2026-10-18. This file can drift: check the real state (run it, que
 - Cross-platform determinism: the `simulator-crossplatform` CI job compares Linux output for seed 1000 with the digest recorded on macOS ARM (`tests/data/digest_m_1000.json`).
   - 2026-10-17, commit 77dc973: **match** on GitHub `ubuntu-latest` (Ubuntu 24.04, CPython 3.12.3, numpy 2.5.4) vs macOS arm64 (CPython 3.12.7). One seed only; re-check whenever numpy or Python changes.
   - 2026-10-18, commit 78d8c4b (after D2.0 simulator changes): events.jsonl and match.json **identical** on Linux; tracking frames sampled every 30 s identical (max abs difference 0.000); the full tracking file differs (some values differ in the last decimal). Treated as a known difference: exact tracking equality is an `xfail(strict=False)` test, events must match exactly.
+  - 2026-10-18, commit 3af8a07 (final simulator): full tracking file **identical** on Linux too (the xfail passed). Kept non-strict: one seed only.
 
 ## Decisions
 - mcp pinned to 1.x (`>=1.30,<2`): agent-framework-core 1.22 requires `mcp<2` for its MCP tools; mcp 2.x renamed FastMCP and changed APIs.
