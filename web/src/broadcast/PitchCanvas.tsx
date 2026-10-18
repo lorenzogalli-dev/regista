@@ -3,7 +3,7 @@ import { useEffect, useMemo, useRef } from 'react'
 import type { TeamColors } from '../lib/color.ts'
 import { useClockFrame, type Clock } from '../lib/clock.ts'
 import { STAGE, type Camera, type Vec2 } from '../lib/projection.ts'
-import { positionsAt, type PlayerInfo, type Sample } from '../lib/sample.ts'
+import { positionsAt, type Frame, type PlayerInfo } from '../lib/sample.ts'
 import { pitchGeometry, type PitchGeometry } from './pitchGeometry.ts'
 
 const PLAYER_RADIUS_M = 1.15
@@ -63,20 +63,18 @@ function drawPitch(ctx: CanvasRenderingContext2D, g: PitchGeometry) {
 }
 
 type Props = {
-  sample: Sample
+  players: PlayerInfo[]
+  frames: () => Frame[]
   clock: Clock
   camera: Camera
   palette: Record<string, TeamColors>
 }
 
-export function PitchCanvas({ sample, clock, camera, palette }: Props) {
+export function PitchCanvas({ players: roster, frames, clock, camera, palette }: Props) {
   const ref = useRef<HTMLCanvasElement>(null)
   const geometry = useMemo(() => pitchGeometry(camera), [camera])
   const background = useRef<HTMLCanvasElement | null>(null)
-  const players = useMemo(
-    () => new Map<string, PlayerInfo>(sample.match.players.map((p) => [p.player_id, p])),
-    [sample],
-  )
+  const players = useMemo(() => new Map<string, PlayerInfo>(roster.map((p) => [p.player_id, p])), [roster])
   const dpr = Math.min(2, window.devicePixelRatio || 1)
 
   useEffect(() => {
@@ -98,7 +96,12 @@ export function PitchCanvas({ sample, clock, camera, palette }: Props) {
     ctx.setTransform(1, 0, 0, 1, 0, 0)
     ctx.drawImage(bg, 0, 0)
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
-    const pos = positionsAt(sample.frames, t)
+    const fs = frames()
+    if (!fs.length) {
+      ctx.setTransform(1, 0, 0, 1, 0, 0)
+      return
+    }
+    const pos = positionsAt(fs, t)
 
     // Painter's order: far players first.
     const order = [...pos.players.entries()].sort((a, b) => b[1].y - a[1].y)

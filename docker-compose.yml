@@ -23,6 +23,8 @@ services:
     environment:
       DATABASE_URL: postgresql://gtf:gtf@db:5432/gtf
       MATCH_DATA_DIR: /app/data/generated
+      RUNS_DIR: /app/data/recorded
+      EVAL_REPORT: /app/docs/eval/report.json
     env_file:
       - path: .env
         required: false
@@ -35,6 +37,8 @@ services:
     volumes:
       - ./data/samples:/app/data/samples:ro
       - ./data/generated:/app/data/generated:ro
+      - ./data/recorded:/app/data/recorded:ro
+      - ./docs/eval:/app/docs/eval:ro
 
 volumes:
   pgdata:

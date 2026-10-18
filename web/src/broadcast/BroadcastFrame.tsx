@@ -88,7 +88,7 @@ export function BroadcastFrame({
   return (
     <MotionConfig reducedMotion="user">
       <Stage fit={!graphicsOnly} transparent={graphicsOnly}>
-        {!graphicsOnly && clock && <PitchCanvas sample={sample} clock={clock} camera={camera} palette={pal} />}
+        {!graphicsOnly && clock && <PitchCanvas players={sample.match.players} frames={() => sample.frames} clock={clock} camera={camera} palette={pal} />}
         {clock && (
           <>
             <AnimatePresence>
@@ -108,7 +108,7 @@ export function BroadcastFrame({
                   key="passer"
                   player={passer}
                   colors={pal[passer.team_id]}
-                  frames={sample.frames}
+                  frames={() => sample.frames}
                   clock={clock}
                   camera={camera}
                 />
@@ -118,7 +118,7 @@ export function BroadcastFrame({
                   key="receiver"
                   player={receiver}
                   colors={pal[receiver.team_id]}
-                  frames={sample.frames}
+                  frames={() => sample.frames}
                   clock={clock}
                   camera={camera}
                 />

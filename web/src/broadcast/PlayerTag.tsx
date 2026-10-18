@@ -22,13 +22,15 @@ export function PlayerTag({
 }: {
   player: PlayerInfo
   colors: TeamColors
-  frames: Frame[]
+  frames: () => Frame[]
   clock: Clock
   camera: Camera
 }) {
   const ref = useRef<HTMLDivElement>(null)
   useClockFrame(clock, (t) => {
-    const p = positionsAt(frames, t).players.get(player.player_id)
+    const fs = frames()
+    if (!fs.length) return
+    const p = positionsAt(fs, t).players.get(player.player_id)
     if (!p || !ref.current) return
     const { left, top } = anchorAt(camera, p)
     const r = 1.3 * camera.scaleAt(p)
@@ -36,19 +38,25 @@ export function PlayerTag({
     const k = stage.width / STAGE.width
     const w = (ref.current.firstElementChild?.getBoundingClientRect().width ?? 160) / k
     const above = top - 2 * r - 14
-    const box = { left: left - w / 2, right: left + w / 2, top: above - TAG_H, bottom: above }
-    const clash = [...document.querySelectorAll(PANELS)].some((el) => {
+    const below = top + r + TAG_H + 10
+    const panels = [...(ref.current.closest('.stage') ?? document).querySelectorAll(PANELS)].map((el) => {
       const b = el.getBoundingClientRect()
-      const a = {
+      return {
         left: (b.left - stage.left) / k,
         right: (b.right - stage.left) / k,
         top: (b.top - stage.top) / k,
         bottom: (b.bottom - stage.top) / k,
       }
-      return box.left < a.right && a.left < box.right && box.top < a.bottom && a.top < box.bottom
     })
-    const y = clash ? top + r + TAG_H + 10 : above
-    ref.current.style.transform = `translate(${left}px, ${y}px)`
+    const clashes = (bottom: number) =>
+      panels.some(
+        (a) => left - w / 2 < a.right && a.left < left + w / 2 && bottom - TAG_H < a.bottom && a.top < bottom,
+      )
+    // Above the player; below if that collides with a panel; hidden if both do (the panel
+    // then already names the player, e.g. the pass card).
+    const y = !clashes(above) ? above : !clashes(below) ? below : null
+    ref.current.style.visibility = y === null ? 'hidden' : 'visible'
+    if (y !== null) ref.current.style.transform = `translate(${left}px, ${y}px)`
   })
   return (
     <div ref={ref} className="tag-anchor" data-testid={`tag-${player.player_id}`}>

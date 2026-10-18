@@ -1,0 +1,5250 @@
+{
+ "run_id": "r_m_1009_99a9845c",
+ "match_id": "m_1009",
+ "mode": "full",
+ "kind": "recorded agent run",
+ "provider": "foundry",
+ "models": {
+  "fast": "gtf-fast",
+  "reasoning": "gtf-reasoning",
+  "reasoning_effort": "low"
+ },
+ "started_at": "2026-10-18T13:10:59.236502+00:00",
+ "wall_s": 87.3,
+ "candidates": 6,
+ "status_counts": {
+  "published": 5,
+  "dropped": 1
+ },
+ "budget_stopped": null,
+ "usage": {
+  "provider": "foundry",
+  "calls": 35,
+  "tokens_in": 43743,
+  "tokens_out": 10451,
+  "cost_eur": 0.04853,
+  "estimated": false,
+  "by_agent": {
+   "detector": {
+    "calls": 6,
+    "tokens_in": 7551,
+    "tokens_out": 337,
+    "eur": 0.00695
+   },
+   "analyst": {
+    "calls": 7,
+    "tokens_in": 25018,
+    "tokens_out": 6198,
+    "eur": 0.01641
+   },
+   "verifier": {
+    "calls": 7,
+    "tokens_in": 5714,
+    "tokens_out": 265,
+    "eur": 0.0053
+   },
+   "director": {
+    "calls": 5,
+    "tokens_in": 1447,
+    "tokens_out": 140,
+    "eur": 0.00166
+   },
+   "narrator": {
+    "calls": 5,
+    "tokens_in": 1248,
+    "tokens_out": 159,
+    "eur": 0.0016
+   },
+   "persona": {
+    "calls": 5,
+    "tokens_in": 2765,
+    "tokens_out": 3352,
+    "eur": 0.01661
+   }
+  }
+ },
+ "calls": [
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1012,
+   "tokens_out": 52,
+   "reasoning_tokens": 0,
+   "latency_ms": 1445,
+   "cost_eur": 0.0009612188,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3503,
+   "tokens_out": 806,
+   "reasoning_tokens": 384,
+   "latency_ms": 6200,
+   "cost_eur": 0.0021891394000000002,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 761,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1375,
+   "cost_eur": 0.0006265363,
+   "estimated": false
+  },
+  {
+   "agent": "director",
+   "role": "fast",
+   "tokens_in": 289,
+   "tokens_out": 28,
+   "reasoning_tokens": 0,
+   "latency_ms": 1616,
+   "cost_eur": 0.0003317792,
+   "estimated": false
+  },
+  {
+   "agent": "narrator",
+   "role": "fast",
+   "tokens_in": 244,
+   "tokens_out": 31,
+   "reasoning_tokens": 0,
+   "latency_ms": 1724,
+   "cost_eur": 0.00031217690000000004,
+   "estimated": false
+  },
+  {
+   "agent": "persona",
+   "role": "fast",
+   "tokens_in": 550,
+   "tokens_out": 658,
+   "reasoning_tokens": 0,
+   "latency_ms": 4185,
+   "cost_eur": 0.0032654822,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1332,
+   "tokens_out": 59,
+   "reasoning_tokens": 0,
+   "latency_ms": 1184,
+   "cost_eur": 0.0012240301,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3467,
+   "tokens_out": 893,
+   "reasoning_tokens": 384,
+   "latency_ms": 8158,
+   "cost_eur": 0.0023343307,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 804,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1030,
+   "cost_eur": 0.0006577543,
+   "estimated": false
+  },
+  {
+   "agent": "director",
+   "role": "fast",
+   "tokens_in": 289,
+   "tokens_out": 28,
+   "reasoning_tokens": 0,
+   "latency_ms": 1000,
+   "cost_eur": 0.0003317792,
+   "estimated": false
+  },
+  {
+   "agent": "narrator",
+   "role": "fast",
+   "tokens_in": 248,
+   "tokens_out": 31,
+   "reasoning_tokens": 0,
+   "latency_ms": 1023,
+   "cost_eur": 0.00031508090000000006,
+   "estimated": false
+  },
+  {
+   "agent": "persona",
+   "role": "fast",
+   "tokens_in": 550,
+   "tokens_out": 610,
+   "reasoning_tokens": 0,
+   "latency_ms": 3161,
+   "cost_eur": 0.0030563990000000004,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1319,
+   "tokens_out": 56,
+   "reasoning_tokens": 0,
+   "latency_ms": 1051,
+   "cost_eur": 0.0012015244,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3502,
+   "tokens_out": 1268,
+   "reasoning_tokens": 704,
+   "latency_ms": 8715,
+   "cost_eur": 0.0030019931999999997,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 838,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1052,
+   "cost_eur": 0.0006824383,
+   "estimated": false
+  },
+  {
+   "agent": "director",
+   "role": "fast",
+   "tokens_in": 293,
+   "tokens_out": 28,
+   "reasoning_tokens": 0,
+   "latency_ms": 1001,
+   "cost_eur": 0.0003346832,
+   "estimated": false
+  },
+  {
+   "agent": "narrator",
+   "role": "fast",
+   "tokens_in": 270,
+   "tokens_out": 29,
+   "reasoning_tokens": 0,
+   "latency_ms": 1033,
+   "cost_eur": 0.0003223411,
+   "estimated": false
+  },
+  {
+   "agent": "persona",
+   "role": "fast",
+   "tokens_in": 572,
+   "tokens_out": 675,
+   "reasoning_tokens": 0,
+   "latency_ms": 3719,
+   "cost_eur": 0.0033555045,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1109,
+   "tokens_out": 53,
+   "reasoning_tokens": 0,
+   "latency_ms": 1156,
+   "cost_eur": 0.0010359967000000002,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3694,
+   "tokens_out": 773,
+   "reasoning_tokens": 192,
+   "latency_ms": 6421,
+   "cost_eur": 0.0021730827,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 839,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 969,
+   "cost_eur": 0.0006831643,
+   "estimated": false
+  },
+  {
+   "agent": "narrator",
+   "role": "fast",
+   "tokens_in": 249,
+   "tokens_out": 32,
+   "reasoning_tokens": 0,
+   "latency_ms": 932,
+   "cost_eur": 0.00032016280000000003,
+   "estimated": false
+  },
+  {
+   "agent": "director",
+   "role": "fast",
+   "tokens_in": 289,
+   "tokens_out": 28,
+   "reasoning_tokens": 0,
+   "latency_ms": 1107,
+   "cost_eur": 0.0003317792,
+   "estimated": false
+  },
+  {
+   "agent": "persona",
+   "role": "fast",
+   "tokens_in": 554,
+   "tokens_out": 717,
+   "reasoning_tokens": 0,
+   "latency_ms": 3593,
+   "cost_eur": 0.0035253843,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1390,
+   "tokens_out": 59,
+   "reasoning_tokens": 0,
+   "latency_ms": 1191,
+   "cost_eur": 0.0012661381,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3593,
+   "tokens_out": 939,
+   "reasoning_tokens": 512,
+   "latency_ms": 7612,
+   "cost_eur": 0.0024430061,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 872,
+   "tokens_out": 85,
+   "reasoning_tokens": 0,
+   "latency_ms": 1410,
+   "cost_eur": 0.0010033235,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3668,
+   "tokens_out": 832,
+   "reasoning_tokens": 448,
+   "latency_ms": 7086,
+   "cost_eur": 0.0022711968000000003,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 851,
+   "tokens_out": 95,
+   "reasoning_tokens": 0,
+   "latency_ms": 1702,
+   "cost_eur": 0.0010316365,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1389,
+   "tokens_out": 58,
+   "reasoning_tokens": 0,
+   "latency_ms": 1256,
+   "cost_eur": 0.0012610562,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3591,
+   "tokens_out": 687,
+   "reasoning_tokens": 384,
+   "latency_ms": 6148,
+   "cost_eur": 0.0019990713,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 749,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 989,
+   "cost_eur": 0.0006178243,
+   "estimated": false
+  },
+  {
+   "agent": "director",
+   "role": "fast",
+   "tokens_in": 287,
+   "tokens_out": 28,
+   "reasoning_tokens": 0,
+   "latency_ms": 1007,
+   "cost_eur": 0.0003303272,
+   "estimated": false
+  },
+  {
+   "agent": "narrator",
+   "role": "fast",
+   "tokens_in": 237,
+   "tokens_out": 36,
+   "reasoning_tokens": 0,
+   "latency_ms": 1081,
+   "cost_eur": 0.00032887439999999997,
+   "estimated": false
+  },
+  {
+   "agent": "persona",
+   "role": "fast",
+   "tokens_in": 539,
+   "tokens_out": 692,
+   "reasoning_tokens": 0,
+   "latency_ms": 3383,
+   "cost_eur": 0.0034055967999999997,
+   "estimated": false
+  }
+ ],
+ "moments": [
+  {
+   "moment_id": "mo_001",
+   "candidate": {
+    "candidate_id": "c_001",
+    "kind": "player_arc",
+    "t_ms": 1680000,
+    "team_id": "t_elm",
+    "player_id": "p_elm_27",
+    "window_start_ms": 600000,
+    "window_end_ms": 1680000,
+    "score": 3.74,
+    "signals": [
+     {
+      "metric": "progressive_passes",
+      "subject": "p_elm_27",
+      "expected": "up",
+      "window": 0.444,
+      "before": 0.0,
+      "z": 5.4,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "touches",
+      "subject": "p_elm_27",
+      "expected": "up",
+      "window": 1.111,
+      "before": 0.5,
+      "z": 2.09,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {},
+    "team_profile": [],
+    "key_events": [
+     {
+      "t_ms": 505100,
+      "type": "card",
+      "team_id": "t_esk",
+      "player_id": "p_esk_20",
+      "detail": "yellow"
+     },
+     {
+      "t_ms": 911900,
+      "type": "card",
+      "team_id": "t_elm",
+      "player_id": "p_elm_03",
+      "detail": "yellow"
+     },
+     {
+      "t_ms": 1309800,
+      "type": "goal",
+      "team_id": "t_esk",
+      "player_id": null,
+      "detail": null
+     },
+     {
+      "t_ms": 1579200,
+      "type": "card",
+      "team_id": "t_esk",
+      "player_id": "p_esk_16",
+      "detail": "yellow"
+     }
+    ]
+   },
+   "status": "published",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "player_arc",
+    "salience": 3,
+    "reason": "Nico Irlow’s involvement jumped sharply, with a clear rise in progressive passing and touches over the window."
+   },
+   "explanation": {
+    "claim": "Nico Irlow became a clear driving force: his progressive passes rose from 0 to 8 and his touches from 5 to 20 across the 18-minute window, increasing his involvement on the ball. That coincides with Elmholm Vale’s field tilt rising to 36%, meaning Irlow’s influence is pushing play higher and creating more attacking presence.",
+    "mechanism_tag": "player_arc",
+    "team_id": "t_elm",
+    "player_ids": [
+     "p_elm_27"
+    ],
+    "evidence": [
+     {
+      "tool": "get_player_physical",
+      "subject": "p_elm_27",
+      "metric": "progressive_passes",
+      "before_start_ms": 0,
+      "before_end_ms": 600000,
+      "after_start_ms": 600000,
+      "after_end_ms": 1680000,
+      "before": 0.0,
+      "after": 8.0
+     },
+     {
+      "tool": "get_player_physical",
+      "subject": "p_elm_27",
+      "metric": "touches",
+      "before_start_ms": 0,
+      "before_end_ms": 600000,
+      "after_start_ms": 600000,
+      "after_end_ms": 1680000,
+      "before": 5.0,
+      "after": 20.0
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_elm",
+      "metric": "field_tilt",
+      "before_start_ms": 0,
+      "before_end_ms": 600000,
+      "after_start_ms": 600000,
+      "after_end_ms": 1680000,
+      "before": 0.173,
+      "after": 0.361
+     }
+    ],
+    "confidence": 0.9
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": {
+    "text": "Nico Irlow is increasingly dictating play as Elmholm Vale push higher in the match."
+   },
+   "personas": [
+    {
+     "persona_id": "analyst_en",
+     "headline": "Irlow lifts Elmholm Vale",
+     "text": "Nico Irlow became the clear driving force for Elmholm Vale. His progressive passes rose from 0 to 8 and his touches from 5 to 20 across the 18-minute window, while field tilt climbed to 36%."
+    },
+    {
+     "persona_id": "analyst_it",
+     "headline": "Irlow trascina l'Elmholm Vale",
+     "text": "Nico Irlow è diventato il motore chiaro dell'Elmholm Vale. I suoi passaggi progressivi sono saliti da 0 a 8 e i tocchi da 5 a 20 nella finestra di 18 minuti, con field tilt al 36%."
+    },
+    {
+     "persona_id": "analyst_es",
+     "headline": "Irlow impulsa a Elmholm Vale",
+     "text": "Nico Irlow se convirtió en la fuerza clara de Elmholm Vale. Sus pases progresivos subieron de 0 a 8 y sus toques de 5 a 20 en la ventana de 18 minutos, con el field tilt en 36%."
+    },
+    {
+     "persona_id": "casual_en",
+     "headline": "Irlow gets Elmholm moving",
+     "text": "Nico Irlow is making a real difference for Elmholm Vale. He went from 0 to 8 progressive passes and from 5 to 20 touches, and that is helping them spend more time higher up the pitch."
+    },
+    {
+     "persona_id": "casual_it",
+     "headline": "Irlow fa salire l'Elmholm Vale",
+     "text": "Nico Irlow sta facendo davvero la differenza per l'Elmholm Vale. È passato da 0 a 8 passaggi progressivi e da 5 a 20 tocchi, aiutando la squadra a stare più in alto."
+    },
+    {
+     "persona_id": "casual_es",
+     "headline": "Irlow hace crecer a Elmholm",
+     "text": "Nico Irlow está marcando la diferencia para Elmholm Vale. Pasó de 0 a 8 pases progresivos y de 5 a 20 toques, y eso ayuda al equipo a instalarse más arriba."
+    },
+    {
+     "persona_id": "player_focus_en",
+     "headline": "Irlow takes charge",
+     "text": "Nico Irlow has become Elmholm Vale’s main driving force. His progressive passes jumped from 0 to 8 and his touches from 5 to 20, while field tilt rose to 36%."
+    },
+    {
+     "persona_id": "player_focus_it",
+     "headline": "Irlow prende in mano l'Elmholm Vale",
+     "text": "Nico Irlow è diventato il motore principale dell'Elmholm Vale. I suoi passaggi progressivi sono saliti da 0 a 8 e i tocchi da 5 a 20, con field tilt al 36%."
+    },
+    {
+     "persona_id": "player_focus_es",
+     "headline": "Irlow toma el mando",
+     "text": "Nico Irlow se ha convertido en la fuerza principal de Elmholm Vale. Sus pases progresivos subieron de 0 a 8 y sus toques de 5 a 20, con el field tilt en 36%."
+    }
+   ],
+   "cue": {
+    "show": true,
+    "delay_ms": 0,
+    "duration_ms": 6000,
+    "priority": 2
+   },
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1446,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 6201,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 5,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1376,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "director",
+     "ms": 1616,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "narrator",
+     "ms": 1725,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "persona",
+     "ms": 4186,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_002",
+   "candidate": {
+    "candidate_id": "c_002",
+    "kind": "tactical_switch/long_ball",
+    "t_ms": 1740000,
+    "team_id": "t_elm",
+    "player_id": null,
+    "window_start_ms": 780000,
+    "window_end_ms": 1740000,
+    "score": 1.98,
+    "signals": [
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_elm",
+      "expected": "up",
+      "window": 29.027,
+      "before": 25.956,
+      "z": 2.05,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_elm",
+      "expected": "down",
+      "window": 0.735,
+      "before": 0.831,
+      "z": 1.92,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "tactical_switch/long_ball": 1.98
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_elm",
+      "expected": "down",
+      "window": 36.0,
+      "before": 14.0,
+      "z": -3.57,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_esk",
+      "expected": "down",
+      "window": 0.906,
+      "before": 0.864,
+      "z": -0.79,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_elm",
+      "expected": "up",
+      "window": 0.213,
+      "before": 0.403,
+      "z": -1.24,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "possession",
+      "subject": "t_elm",
+      "expected": "up",
+      "window": 0.444,
+      "before": 0.602,
+      "z": -1.35,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_elm",
+      "expected": "up",
+      "window": 29.027,
+      "before": 25.956,
+      "z": 2.05,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_elm",
+      "expected": "down",
+      "window": 0.735,
+      "before": 0.831,
+      "z": 1.92,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "width",
+      "subject": "t_elm",
+      "expected": "up",
+      "window": 17.223,
+      "before": 16.076,
+      "z": 1.03,
+      "above_noise_p95": false
+     }
+    ],
+    "key_events": [
+     {
+      "t_ms": 505100,
+      "type": "card",
+      "team_id": "t_esk",
+      "player_id": "p_esk_20",
+      "detail": "yellow"
+     },
+     {
+      "t_ms": 911900,
+      "type": "card",
+      "team_id": "t_elm",
+      "player_id": "p_elm_03",
+      "detail": "yellow"
+     },
+     {
+      "t_ms": 1309800,
+      "type": "goal",
+      "team_id": "t_esk",
+      "player_id": null,
+      "detail": null
+     },
+     {
+      "t_ms": 1579200,
+      "type": "card",
+      "team_id": "t_esk",
+      "player_id": "p_esk_16",
+      "detail": "yellow"
+     },
+     {
+      "t_ms": 1698200,
+      "type": "card",
+      "team_id": "t_esk",
+      "player_id": "p_esk_06",
+      "detail": "yellow"
+     }
+    ]
+   },
+   "status": "published",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "tactical_switch",
+    "salience": 3,
+    "reason": "Elmholm Vale’s passing became noticeably longer with slightly worse completion, fitting a long-ball adjustment even though possession and field tilt did not move much."
+   },
+   "explanation": {
+    "claim": "Elmholm Vale shifted into a long-ball approach: their average pass length rose from 26.0m to 29.0m while pass completion fell from 83% to 73%. At the same time PPDA jumped from 14.0 to 36.0 and their control index dropped (66.7 → 49.5), so they lost control despite longer passes.",
+    "mechanism_tag": "tactical_switch",
+    "team_id": "t_elm",
+    "player_ids": [],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_elm",
+      "metric": "avg_pass_length_m",
+      "before_start_ms": 0,
+      "before_end_ms": 780000,
+      "after_start_ms": 780000,
+      "after_end_ms": 1740000,
+      "before": 26.0,
+      "after": 29.0
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_elm",
+      "metric": "pass_completion",
+      "before_start_ms": 0,
+      "before_end_ms": 780000,
+      "after_start_ms": 780000,
+      "after_end_ms": 1740000,
+      "before": 0.831,
+      "after": 0.735
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_elm",
+      "metric": "ppda",
+      "before_start_ms": 0,
+      "before_end_ms": 780000,
+      "after_start_ms": 780000,
+      "after_end_ms": 1740000,
+      "before": 14.0,
+      "after": 36.0
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_elm",
+      "metric": "control_index",
+      "before_start_ms": 0,
+      "before_end_ms": 780000,
+      "after_start_ms": 780000,
+      "after_end_ms": 1740000,
+      "before": 66.7,
+      "after": 49.5
+     }
+    ],
+    "confidence": 0.8
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": {
+    "text": "Elmholm Vale go longer now, but their completion and control have dipped as Eskdale stay ahead."
+   },
+   "personas": [
+    {
+     "persona_id": "analyst_en",
+     "headline": "Elmholm Vale lose control",
+     "text": "Elmholm Vale shifted to a long-ball approach. Average pass length rose from 26.0m to 29.0m, pass completion fell from 83% to 73%, PPDA jumped from 14.0 to 36.0, and control index dropped from 66.7 to 49.5."
+    },
+    {
+     "persona_id": "analyst_it",
+     "headline": "Elmholm Vale perdono il controllo",
+     "text": "Elmholm Vale è passata a un gioco più diretto. La lunghezza media del passaggio è salita da 26.0m a 29.0m, la precisione è scesa da 83% a 73%, la PPDA è salita da 14.0 a 36.0 e l'indice di controllo è calato da 66.7 a 49.5."
+    },
+    {
+     "persona_id": "analyst_es",
+     "headline": "Elmholm Vale pierde el control",
+     "text": "Elmholm Vale se pasó a un juego más largo. La longitud media de pase subió de 26.0m a 29.0m, el acierto bajó de 83% a 73%, la PPDA saltó de 14.0 a 36.0 y el índice de control cayó de 66.7 a 49.5."
+    },
+    {
+     "persona_id": "casual_en",
+     "headline": "Elmholm Vale go more direct",
+     "text": "Elmholm Vale started going long more often. Their passes got longer, but accuracy dropped and they lost control of the game."
+    },
+    {
+     "persona_id": "casual_it",
+     "headline": "Elmholm Vale va più in verticale",
+     "text": "Elmholm Vale ha scelto più spesso la palla lunga. I passaggi sono diventati più lunghi, ma la precisione è calata e hanno perso il controllo della partita."
+    },
+    {
+     "persona_id": "casual_es",
+     "headline": "Elmholm Vale juega más directo",
+     "text": "Elmholm Vale empezó a buscar más el juego largo. Los pases se hicieron más largos, pero bajó el acierto y perdieron el control del partido."
+    },
+    {
+     "persona_id": "player_focus_en",
+     "headline": "Elmholm Vale shift style",
+     "text": "Elmholm Vale changed the way they played. The long-ball approach brought longer passes, but less accuracy, a higher PPDA, and a lower control index."
+    },
+    {
+     "persona_id": "player_focus_it",
+     "headline": "Elmholm Vale cambia registro",
+     "text": "Elmholm Vale ha cambiato modo di giocare. Con il gioco lungo i passaggi sono diventati più lunghi, ma sono calati precisione, controllo e gestione senza palla."
+    },
+    {
+     "persona_id": "player_focus_es",
+     "headline": "Elmholm Vale cambia el plan",
+     "text": "Elmholm Vale cambió su forma de jugar. Con el juego largo, los pases fueron más largos, pero bajó el acierto y también su control del partido."
+    }
+   ],
+   "cue": {
+    "show": true,
+    "delay_ms": 0,
+    "duration_ms": 6500,
+    "priority": 2
+   },
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1185,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 8159,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 9,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1031,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "director",
+     "ms": 1000,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "narrator",
+     "ms": 1024,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "persona",
+     "ms": 3162,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_003",
+   "candidate": {
+    "candidate_id": "c_003",
+    "kind": "tactical_switch/wide",
+    "t_ms": 2040000,
+    "team_id": "t_esk",
+    "player_id": null,
+    "window_start_ms": 1080000,
+    "window_end_ms": 2040000,
+    "score": 2.94,
+    "signals": [
+     {
+      "metric": "width",
+      "subject": "t_esk",
+      "expected": "up",
+      "window": 14.435,
+      "before": 11.034,
+      "z": 2.94,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "tactical_switch/wide": 2.94
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_esk",
+      "expected": "down",
+      "window": 3.714,
+      "before": 9.375,
+      "z": 0.91,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_elm",
+      "expected": "down",
+      "window": 0.747,
+      "before": 0.794,
+      "z": 0.93,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_esk",
+      "expected": "up",
+      "window": 0.674,
+      "before": 0.706,
+      "z": -0.21,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "possession",
+      "subject": "t_esk",
+      "expected": "up",
+      "window": 0.485,
+      "before": 0.485,
+      "z": -0.0,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_esk",
+      "expected": "up",
+      "window": 23.335,
+      "before": 24.255,
+      "z": -0.55,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_esk",
+      "expected": "down",
+      "window": 0.859,
+      "before": 0.906,
+      "z": 0.94,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "width",
+      "subject": "t_esk",
+      "expected": "up",
+      "window": 14.435,
+      "before": 11.034,
+      "z": 2.94,
+      "above_noise_p95": true
+     }
+    ],
+    "key_events": [
+     {
+      "t_ms": 911900,
+      "type": "card",
+      "team_id": "t_elm",
+      "player_id": "p_elm_03",
+      "detail": "yellow"
+     },
+     {
+      "t_ms": 1309800,
+      "type": "goal",
+      "team_id": "t_esk",
+      "player_id": null,
+      "detail": null
+     },
+     {
+      "t_ms": 1579200,
+      "type": "card",
+      "team_id": "t_esk",
+      "player_id": "p_esk_16",
+      "detail": "yellow"
+     },
+     {
+      "t_ms": 1698200,
+      "type": "card",
+      "team_id": "t_esk",
+      "player_id": "p_esk_06",
+      "detail": "yellow"
+     },
+     {
+      "t_ms": 1970400,
+      "type": "card",
+      "team_id": "t_esk",
+      "player_id": "p_esk_03",
+      "detail": "yellow"
+     },
+     {
+      "t_ms": 2036100,
+      "type": "card",
+      "team_id": "t_esk",
+      "player_id": "p_esk_16",
+      "detail": "red"
+     }
+    ]
+   },
+   "status": "published",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "tactical_switch",
+    "salience": 3,
+    "reason": "Eskdale’s width rises clearly above normal, which fits a sustained move to stretch play even though possession and pressure stay broadly unchanged."
+   },
+   "explanation": {
+    "claim": "Eskdale Athletic shifted to much wider play — width rose from 10.9 m to 14.4 m — stretching Elmholm Vale and changing how they attack. The switch happened without a big possession gain (45.0% → 45.5%) but with a PPDA fall (8.5 → 4.2) and a small drop in Eskdale pass completion (92.0% → 85.9%), so they are probing wider channels rather than holding longer spells.",
+    "mechanism_tag": "tactical_switch",
+    "team_id": "t_esk",
+    "player_ids": [],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_esk",
+      "metric": "width_m",
+      "before_start_ms": 120000,
+      "before_end_ms": 1080000,
+      "after_start_ms": 1080000,
+      "after_end_ms": 2040000,
+      "before": 10.9,
+      "after": 14.4
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_esk",
+      "metric": "ppda",
+      "before_start_ms": 120000,
+      "before_end_ms": 1080000,
+      "after_start_ms": 1080000,
+      "after_end_ms": 2040000,
+      "before": 8.5,
+      "after": 4.21
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_esk",
+      "metric": "possession_time_based",
+      "before_start_ms": 120000,
+      "before_end_ms": 1080000,
+      "after_start_ms": 1080000,
+      "after_end_ms": 2040000,
+      "before": 0.45,
+      "after": 0.455
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_esk",
+      "metric": "pass_completion",
+      "before_start_ms": 120000,
+      "before_end_ms": 1080000,
+      "after_start_ms": 1080000,
+      "after_end_ms": 2040000,
+      "before": 0.92,
+      "after": 0.859
+     }
+    ],
+    "confidence": 0.8
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": {
+    "text": "Eskdale Athletic are probing wider, stretching Elmholm Vale without a major rise in possession."
+   },
+   "personas": [
+    {
+     "persona_id": "analyst_en",
+     "headline": "Eskdale widen and press higher",
+     "text": "Eskdale Athletic have gone much wider, with width up from 10.9 m to 14.4 m, stretching Elmholm Vale. Possession barely changed at 45.0% to 45.5%, but PPDA fell from 8.5 to 4.2."
+    },
+    {
+     "persona_id": "analyst_it",
+     "headline": "Eskdale allarga il gioco",
+     "text": "Eskdale Athletic ha aperto molto di più il campo: la width è salita da 10.9 m a 14.4 m, allungando Elmholm Vale. Il possesso (a tempo) è quasi fermo, 45.0% a 45.5%, ma il PPDA scende da 8.5 a 4.2."
+    },
+    {
+     "persona_id": "analyst_es",
+     "headline": "Eskdale cambia por fuera",
+     "text": "Eskdale Athletic se ha abierto mucho más: la width sube de 10.9 m a 14.4 m y estira a Elmholm Vale. La posesión (por tiempo) casi no cambia, 45.0% a 45.5%, pero el PPDA cae de 8.5 a 4.2."
+    },
+    {
+     "persona_id": "casual_en",
+     "headline": "Eskdale stretch the pitch",
+     "text": "Eskdale Athletic are playing much wider now, so Elmholm Vale have to cover more ground. They have not kept the ball much more, but they are pressing harder and looking to attack in wider lanes."
+    },
+    {
+     "persona_id": "casual_it",
+     "headline": "Eskdale allarga il campo",
+     "text": "Eskdale Athletic sta giocando molto più largo, e così Elmholm Vale deve coprire più spazio. Non tengono il pallone molto di più, ma pressano con più intensità e cercano corsie più ampie."
+    },
+    {
+     "persona_id": "casual_es",
+     "headline": "Eskdale abre el campo",
+     "text": "Eskdale Athletic está jugando mucho más abierto, así que Elmholm Vale tiene que cubrir más espacio. No tienen mucho más la posesión, pero presionan más y buscan atacar por fuera."
+    },
+    {
+     "persona_id": "player_focus_en",
+     "headline": "Eskdale widen their attack",
+     "text": "Eskdale Athletic have changed their attack by going much wider, with width rising from 10.9 m to 14.4 m. They are not keeping the ball much longer, but the press is stronger and the wide channels are the focus."
+    },
+    {
+     "persona_id": "player_focus_it",
+     "headline": "Eskdale punta sulle corsie",
+     "text": "Eskdale Athletic ha cambiato il proprio attacco andando molto più largo, con la width salita da 10.9 m a 14.4 m. Non sta tenendo il pallone molto di più, ma il pressing è più forte e il focus è sulle corsie larghe."
+    },
+    {
+     "persona_id": "player_focus_es",
+     "headline": "Eskdale ataca más abierto",
+     "text": "Eskdale Athletic ha cambiado su ataque abriéndose mucho más, con la width de 10.9 m a 14.4 m. No está reteniendo más la pelota, pero la presión es mayor y el foco está en los carriles abiertos."
+    }
+   ],
+   "cue": {
+    "show": true,
+    "delay_ms": 0,
+    "duration_ms": 6200,
+    "priority": 2
+   },
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1051,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 8715,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 8,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1053,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "director",
+     "ms": 1001,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "narrator",
+     "ms": 1034,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "persona",
+     "ms": 3719,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_004",
+   "candidate": {
+    "candidate_id": "c_004",
+    "kind": "player_arc",
+    "t_ms": 5280000,
+    "team_id": "t_elm",
+    "player_id": "p_elm_21",
+    "window_start_ms": 4200000,
+    "window_end_ms": 5280000,
+    "score": 3.81,
+    "signals": [
+     {
+      "metric": "progressive_passes",
+      "subject": "p_elm_21",
+      "expected": "up",
+      "window": 0.667,
+      "before": 0.229,
+      "z": 5.32,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "touches",
+      "subject": "p_elm_21",
+      "expected": "up",
+      "window": 1.5,
+      "before": 0.829,
+      "z": 2.3,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {},
+    "team_profile": [],
+    "key_events": [
+     {
+      "t_ms": 4217700,
+      "type": "sub",
+      "team_id": "t_esk",
+      "player_id": "p_esk_25",
+      "detail": "p_esk_18"
+     },
+     {
+      "t_ms": 4923900,
+      "type": "sub",
+      "team_id": "t_elm",
+      "player_id": "p_elm_24",
+      "detail": "p_elm_07"
+     },
+     {
+      "t_ms": 5029000,
+      "type": "sub",
+      "team_id": "t_elm",
+      "player_id": "p_elm_27",
+      "detail": "p_elm_10"
+     },
+     {
+      "t_ms": 5057000,
+      "type": "sub",
+      "team_id": "t_esk",
+      "player_id": "p_esk_02",
+      "detail": "p_esk_27"
+     },
+     {
+      "t_ms": 5199100,
+      "type": "sub",
+      "team_id": "t_elm",
+      "player_id": "p_elm_06",
+      "detail": "p_elm_19"
+     }
+    ]
+   },
+   "status": "published",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "player_arc",
+    "salience": 3,
+    "reason": "Kian Dordor’s progressive passing and involvement rose well above his earlier level, fitting a clear late-game individual impact."
+   },
+   "explanation": {
+    "claim": "Kian Dordor of Elmholm Vale suddenly drove the team’s attack: his progressive passes rose from 5 to 12 and his touches from 14 to 27 in the moment, helping Elmholm’s time-based possession jump to 49.7% and their PPDA fall to 19.0. That individual spike coincides with Elmholm taking sustained control of the game late on.",
+    "mechanism_tag": "player_arc",
+    "team_id": "t_elm",
+    "player_ids": [
+     "p_elm_21"
+    ],
+    "evidence": [
+     {
+      "tool": "get_player_physical",
+      "subject": "p_elm_21",
+      "metric": "progressive_passes",
+      "before_start_ms": 3120000,
+      "before_end_ms": 4200000,
+      "after_start_ms": 4200000,
+      "after_end_ms": 5280000,
+      "before": 5.0,
+      "after": 12.0
+     },
+     {
+      "tool": "get_player_physical",
+      "subject": "p_elm_21",
+      "metric": "touches",
+      "before_start_ms": 3120000,
+      "before_end_ms": 4200000,
+      "after_start_ms": 4200000,
+      "after_end_ms": 5280000,
+      "before": 14.0,
+      "after": 27.0
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_elm",
+      "metric": "possession_time_based",
+      "before_start_ms": 3120000,
+      "before_end_ms": 4200000,
+      "after_start_ms": 4200000,
+      "after_end_ms": 5280000,
+      "before": 0.228,
+      "after": 0.497
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_elm",
+      "metric": "ppda",
+      "before_start_ms": 3120000,
+      "before_end_ms": 4200000,
+      "after_start_ms": 4200000,
+      "after_end_ms": 5280000,
+      "before": 50.0,
+      "after": 19.0
+     }
+    ],
+    "confidence": 0.8
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": {
+    "text": "Kian Dordor drives Elmholm Vale forward, as their possession rises and pressure intensifies late on."
+   },
+   "personas": [
+    {
+     "persona_id": "analyst_en",
+     "headline": "Dordor lifts Elmholm late",
+     "text": "Kian Dordor suddenly drove Elmholm Vale’s attack. His progressive passes went from 5 to 12 and his touches from 14 to 27, with time-based possession up to 49.7% and PPDA down to 19.0."
+    },
+    {
+     "persona_id": "analyst_it",
+     "headline": "Dordor cambia l’inerzia del finale",
+     "text": "Kian Dordor ha spinto all’improvviso l’attacco dell’Elmholm Vale. I suoi passaggi progressivi sono saliti da 5 a 12 e i tocchi da 14 a 27, con possesso (a tempo) al 49.7% e PPDA sceso a 19.0."
+    },
+    {
+     "persona_id": "analyst_es",
+     "headline": "Dordor impulsa a Elmholm al final",
+     "text": "Kian Dordor impulsó de golpe el ataque del Elmholm Vale. Sus pases progresivos subieron de 5 a 12 y sus toques de 14 a 27, con posesión (por tiempo) al 49.7% y PPDA bajando a 19.0."
+    },
+    {
+     "persona_id": "casual_en",
+     "headline": "Elmholm seize control late",
+     "text": "Kian Dordor gave Elmholm Vale a big lift in attack. He went from 5 to 12 progressive passes and from 14 to 27 touches, and the team’s time-based possession rose to 49.7%."
+    },
+    {
+     "persona_id": "casual_it",
+     "headline": "Elmholm prende il controllo tardi",
+     "text": "Kian Dordor ha dato una grossa spinta all’Elmholm Vale in attacco. È passato da 5 a 12 passaggi progressivi e da 14 a 27 tocchi, mentre il possesso (a tempo) è salito al 49.7%."
+    },
+    {
+     "persona_id": "casual_es",
+     "headline": "Elmholm toma el mando al final",
+     "text": "Kian Dordor le dio un gran impulso al ataque del Elmholm Vale. Pasó de 5 a 12 pases progresivos y de 14 a 27 toques, y la posesión (por tiempo) subió al 49.7%."
+    },
+    {
+     "persona_id": "player_focus_en",
+     "headline": "Dordor sparks Elmholm’s surge",
+     "text": "Kian Dordor suddenly took over the attacking load for Elmholm Vale. His progressive passes jumped from 5 to 12 and his touches from 14 to 27, helping time-based possession reach 49.7%."
+    },
+    {
+     "persona_id": "player_focus_it",
+     "headline": "Dordor trascina l’Elmholm",
+     "text": "Kian Dordor ha preso in mano la fase offensiva dell’Elmholm Vale. I suoi passaggi progressivi sono saliti da 5 a 12 e i tocchi da 14 a 27, aiutando il possesso (a tempo) a salire al 49.7%."
+    },
+    {
+     "persona_id": "player_focus_es",
+     "headline": "Dordor enciende a Elmholm",
+     "text": "Kian Dordor tomó de golpe el peso ofensivo del Elmholm Vale. Sus pases progresivos subieron de 5 a 12 y sus toques de 14 a 27, ayudando a que la posesión (por tiempo) llegara al 49.7%."
+    }
+   ],
+   "cue": {
+    "show": true,
+    "delay_ms": 0,
+    "duration_ms": 6000,
+    "priority": 2
+   },
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1156,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 6421,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 10,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 969,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "narrator",
+     "ms": 932,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "director",
+     "ms": 1108,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "persona",
+     "ms": 3593,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_005",
+   "candidate": {
+    "candidate_id": "c_005",
+    "kind": "tactical_switch/wide",
+    "t_ms": 5400000,
+    "team_id": "t_esk",
+    "player_id": null,
+    "window_start_ms": 4440000,
+    "window_end_ms": 5400000,
+    "score": 3.43,
+    "signals": [
+     {
+      "metric": "width",
+      "subject": "t_esk",
+      "expected": "up",
+      "window": 16.061,
+      "before": 12.077,
+      "z": 3.43,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "tactical_switch/wide": 3.43
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_esk",
+      "expected": "down",
+      "window": 7.125,
+      "before": 5.973,
+      "z": -0.2,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_elm",
+      "expected": "down",
+      "window": 0.786,
+      "before": 0.776,
+      "z": -0.18,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_esk",
+      "expected": "up",
+      "window": 0.708,
+      "before": 0.776,
+      "z": -0.44,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "possession",
+      "subject": "t_esk",
+      "expected": "up",
+      "window": 0.492,
+      "before": 0.584,
+      "z": -0.79,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_esk",
+      "expected": "up",
+      "window": 25.298,
+      "before": 25.142,
+      "z": 0.15,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_esk",
+      "expected": "down",
+      "window": 0.869,
+      "before": 0.885,
+      "z": 0.32,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "width",
+      "subject": "t_esk",
+      "expected": "up",
+      "window": 16.061,
+      "before": 12.077,
+      "z": 3.43,
+      "above_noise_p95": true
+     }
+    ],
+    "key_events": [
+     {
+      "t_ms": 4217700,
+      "type": "sub",
+      "team_id": "t_esk",
+      "player_id": "p_esk_25",
+      "detail": "p_esk_18"
+     },
+     {
+      "t_ms": 4923900,
+      "type": "sub",
+      "team_id": "t_elm",
+      "player_id": "p_elm_24",
+      "detail": "p_elm_07"
+     },
+     {
+      "t_ms": 5029000,
+      "type": "sub",
+      "team_id": "t_elm",
+      "player_id": "p_elm_27",
+      "detail": "p_elm_10"
+     },
+     {
+      "t_ms": 5057000,
+      "type": "sub",
+      "team_id": "t_esk",
+      "player_id": "p_esk_02",
+      "detail": "p_esk_27"
+     },
+     {
+      "t_ms": 5199100,
+      "type": "sub",
+      "team_id": "t_elm",
+      "player_id": "p_elm_06",
+      "detail": "p_elm_19"
+     },
+     {
+      "t_ms": 5285900,
+      "type": "sub",
+      "team_id": "t_esk",
+      "player_id": "p_esk_03",
+      "detail": "p_esk_07"
+     }
+    ]
+   },
+   "status": "dropped",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "tactical_switch",
+    "salience": 3,
+    "reason": "Eskdale’s width jumps clearly above its norm and the late substitutions fit a shape change, even though possession and field tilt do not move much."
+   },
+   "explanation": {
+    "claim": "Eskdale Athletic widened their attack late: team width rose from 11.5 m to 16.1 m while time-based possession fell from 76.2% to 49.2%. That tactical switch (with late substitutions) stretched play but reduced control and chance quality—xT added dropped from 0.477 to 0.169, so chances became rarer.",
+    "mechanism_tag": "tactical_switch",
+    "team_id": "t_esk",
+    "player_ids": [
+     "p_esk_25",
+     "p_esk_02",
+     "p_esk_03"
+    ],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_esk",
+      "metric": "width_m",
+      "before_start_ms": 3480000,
+      "before_end_ms": 4440000,
+      "after_start_ms": 4440000,
+      "after_end_ms": 5400000,
+      "before": 11.5,
+      "after": 16.1
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_esk",
+      "metric": "possession_time_based",
+      "before_start_ms": 3480000,
+      "before_end_ms": 4440000,
+      "after_start_ms": 4440000,
+      "after_end_ms": 5400000,
+      "before": 0.762,
+      "after": 0.492
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_esk",
+      "metric": "xt_added",
+      "before_start_ms": 3480000,
+      "before_end_ms": 4440000,
+      "after_start_ms": 4440000,
+      "after_end_ms": 5400000,
+      "before": 0.477,
+      "after": 0.169
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_esk",
+      "metric": "control_index",
+      "before_start_ms": 3480000,
+      "before_end_ms": 4440000,
+      "after_start_ms": 4440000,
+      "after_end_ms": 5400000,
+      "before": 73.0,
+      "after": 53.0
+     }
+    ],
+    "confidence": 0.75
+   },
+   "attempts": 2,
+   "rejection": "The claim says \"late substitutions,\" but the evidence provided contains no substitution data or named substitution event.; The claim says \"reduced control\" and \"chance quality\"; the control index does drop from 73.0 to 53.0 and xT added drops from 0.477 to 0.169, so this part is consistent. No other factual issues found.",
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1192,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 7612,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 13,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1410,
+     "outcome": "rejected",
+     "detail": "The claim says the late substitutions were Cordell and Calmore, but the evidence only identifies players by IDs and does not show any substitution event or who was subbed in.; The claim adds tactical intent like 'deliberately stretched the pitch' and 'to relieve pressure and push play wider,' which "
+    },
+    {
+     "stage": "analyst#2",
+     "ms": 7086,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 12,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1703,
+     "outcome": "rejected",
+     "detail": "The claim says \"late substitutions,\" but the evidence provided contains no substitution data or named substitution event.; The claim says \"reduced control\" and \"chance quality\"; the control index does drop from 73.0 to 53.0 and xT added drops from 0.477 to 0.169, so this part is consistent. No other"
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_006",
+   "candidate": {
+    "candidate_id": "c_006",
+    "kind": "tactical_switch/wide",
+    "t_ms": 5400000,
+    "team_id": "t_elm",
+    "player_id": null,
+    "window_start_ms": 4440000,
+    "window_end_ms": 5400000,
+    "score": 2.75,
+    "signals": [
+     {
+      "metric": "width",
+      "subject": "t_elm",
+      "expected": "up",
+      "window": 19.395,
+      "before": 16.208,
+      "z": 2.75,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "tactical_switch/wide": 2.75
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_elm",
+      "expected": "down",
+      "window": 33.0,
+      "before": 17.6,
+      "z": -2.5,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_esk",
+      "expected": "down",
+      "window": 0.861,
+      "before": 0.886,
+      "z": 0.5,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_elm",
+      "expected": "up",
+      "window": 0.292,
+      "before": 0.224,
+      "z": 0.44,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "possession",
+      "subject": "t_elm",
+      "expected": "up",
+      "window": 0.508,
+      "before": 0.416,
+      "z": 0.79,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_elm",
+      "expected": "up",
+      "window": 25.898,
+      "before": 27.465,
+      "z": -0.98,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_elm",
+      "expected": "down",
+      "window": 0.795,
+      "before": 0.773,
+      "z": -0.44,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "width",
+      "subject": "t_elm",
+      "expected": "up",
+      "window": 19.395,
+      "before": 16.208,
+      "z": 2.75,
+      "above_noise_p95": true
+     }
+    ],
+    "key_events": [
+     {
+      "t_ms": 4217700,
+      "type": "sub",
+      "team_id": "t_esk",
+      "player_id": "p_esk_25",
+      "detail": "p_esk_18"
+     },
+     {
+      "t_ms": 4923900,
+      "type": "sub",
+      "team_id": "t_elm",
+      "player_id": "p_elm_24",
+      "detail": "p_elm_07"
+     },
+     {
+      "t_ms": 5029000,
+      "type": "sub",
+      "team_id": "t_elm",
+      "player_id": "p_elm_27",
+      "detail": "p_elm_10"
+     },
+     {
+      "t_ms": 5057000,
+      "type": "sub",
+      "team_id": "t_esk",
+      "player_id": "p_esk_02",
+      "detail": "p_esk_27"
+     },
+     {
+      "t_ms": 5199100,
+      "type": "sub",
+      "team_id": "t_elm",
+      "player_id": "p_elm_06",
+      "detail": "p_elm_19"
+     },
+     {
+      "t_ms": 5285900,
+      "type": "sub",
+      "team_id": "t_esk",
+      "player_id": "p_esk_03",
+      "detail": "p_esk_07"
+     }
+    ]
+   },
+   "status": "published",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "tactical_switch",
+    "salience": 3,
+    "reason": "Elmholm Vale’s width rose clearly above its usual level, and the late substitutions fit a switch to stretch play without needing a possession swing."
+   },
+   "explanation": {
+    "claim": "Elmholm Vale switched to noticeably wider play: average width rose from 15.8 m to 19.4 m, stretching Eskdale's shape. The switch coincided with time-based possession rising from 24% to 51% and field-tilt rising from 14% to 27%, creating more sustained attacking chances.",
+    "mechanism_tag": "tactical_switch",
+    "team_id": "t_elm",
+    "player_ids": [],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_elm",
+      "metric": "width_m",
+      "before_start_ms": 3480000,
+      "before_end_ms": 4440000,
+      "after_start_ms": 4440000,
+      "after_end_ms": 5400000,
+      "before": 15.8,
+      "after": 19.4
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_elm",
+      "metric": "possession_time_based",
+      "before_start_ms": 3480000,
+      "before_end_ms": 4440000,
+      "after_start_ms": 4440000,
+      "after_end_ms": 5400000,
+      "before": 0.238,
+      "after": 0.508
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_elm",
+      "metric": "field_tilt",
+      "before_start_ms": 3480000,
+      "before_end_ms": 4440000,
+      "after_start_ms": 4440000,
+      "after_end_ms": 5400000,
+      "before": 0.138,
+      "after": 0.27
+     }
+    ],
+    "confidence": 0.8
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": {
+    "text": "Elmholm Vale switched to noticeably wider play: average width rose from 15.8 m to 19.4 m, stretching Eskdale's shape. The switch coincided w"
+   },
+   "personas": [
+    {
+     "persona_id": "analyst_en",
+     "headline": "Elmholm Vale stretch Eskdale",
+     "text": "Elmholm Vale went much wider, with average width up from 15.8 m to 19.4 m and stretching Eskdale’s shape. That matched time-based possession rising from 24% to 51% and field-tilt from 14% to 27%."
+    },
+    {
+     "persona_id": "analyst_it",
+     "headline": "Elmholm Vale allarga il campo",
+     "text": "Elmholm Vale ha giocato molto più largo, con la larghezza media salita da 15.8 m a 19.4 m e la forma di Eskdale allungata. Insieme sono saliti possesso (a tempo) da 24% a 51% e field tilt da 14% a 27%."
+    },
+    {
+     "persona_id": "analyst_es",
+     "headline": "Elmholm Vale estira a Eskdale",
+     "text": "Elmholm Vale abrió mucho más el juego, con la anchura media subiendo de 15.8 m a 19.4 m y la estructura de Eskdale estirada. Eso fue con posesión (por tiempo) del 24% al 51% y field tilt del 14% al 27%."
+    },
+    {
+     "persona_id": "casual_en",
+     "headline": "Elmholm Vale get wider",
+     "text": "Elmholm Vale started playing much wider, and that pulled Eskdale out of shape. It also led to more control, with time-based possession up from 24% to 51% and field tilt from 14% to 27%."
+    },
+    {
+     "persona_id": "casual_it",
+     "headline": "Elmholm Vale si apre",
+     "text": "Elmholm Vale ha iniziato a giocare molto più largo, mettendo in difficoltà la forma di Eskdale. Così è salito anche il possesso (a tempo), da 24% a 51%, e il field tilt da 14% a 27%."
+    },
+    {
+     "persona_id": "casual_es",
+     "headline": "Elmholm Vale se abre",
+     "text": "Elmholm Vale empezó a jugar mucho más abierto y eso desordenó a Eskdale. También les dio más control, con posesión (por tiempo) del 24% al 51% y field tilt del 14% al 27%."
+    },
+    {
+     "persona_id": "player_focus_en",
+     "headline": "Elmholm Vale widen the pitch",
+     "text": "For Elmholm Vale, the key change was playing much wider and stretching Eskdale’s shape. That helped time-based possession rise from 24% to 51% and field tilt from 14% to 27%."
+    },
+    {
+     "persona_id": "player_focus_it",
+     "headline": "Elmholm Vale allarga il gioco",
+     "text": "Per Elmholm Vale la chiave è stata giocare molto più largo e allungare la forma di Eskdale. Questo ha fatto salire il possesso (a tempo) da 24% a 51% e il field tilt da 14% a 27%."
+    },
+    {
+     "persona_id": "player_focus_es",
+     "headline": "Elmholm Vale ensancha el campo",
+     "text": "La clave de Elmholm Vale fue jugar mucho más abierto y estirar la forma de Eskdale. Eso hizo subir la posesión (por tiempo) de 24% a 51% y el field tilt de 14% a 27%."
+    }
+   ],
+   "cue": {
+    "show": true,
+    "delay_ms": 0,
+    "duration_ms": 6000,
+    "priority": 2
+   },
+   "fallbacks": [
+    "caption:text-check"
+   ],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1257,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 6149,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 10,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 990,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "director",
+     "ms": 1007,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "narrator",
+     "ms": 1083,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "persona",
+     "ms": 3384,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  }
+ ],
+ "overlays": [
+  {
+   "overlay_id": "o0_0001",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 60000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": null,
+     "t_elm": null
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0002",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 120000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": null,
+     "t_elm": null
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0003",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 180000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 79.5,
+     "t_elm": null
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0004",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 240000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 75.9,
+     "t_elm": 77.5
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0005",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 300000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 74.8,
+     "t_elm": 70.1
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0006",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 360000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 73.2,
+     "t_elm": 75.8
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0007",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 420000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 66.0,
+     "t_elm": 66.3
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0008",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 480000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 66.6,
+     "t_elm": 55.0
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0009",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 540000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 55.4,
+     "t_elm": 55.9
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0010",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 600000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 62.9,
+     "t_elm": 53.7
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0011",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 650300,
+   "duration_ms": 6000,
+   "priority": 3,
+   "kind": "pass_card",
+   "anchor": {
+    "type": "pitch",
+    "x": 28.83,
+    "y": 34.32
+   },
+   "payload": {
+    "player_id": "p_elm_03",
+    "recipient_id": "p_elm_02",
+    "team_id": "t_elm",
+    "x": 28.83,
+    "y": 34.32,
+    "end_x": 67.29,
+    "end_y": 62.7,
+    "pass_length_m": 47.8,
+    "pass_progression_m": -38.5,
+    "pass_difficulty": 0.528,
+    "ball_speed_ms": 25.0
+   }
+  },
+  {
+   "overlay_id": "o0_0012",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 660000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 62.3,
+     "t_elm": 61.2
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0013",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 669200,
+   "duration_ms": 6000,
+   "priority": 3,
+   "kind": "pass_card",
+   "anchor": {
+    "type": "pitch",
+    "x": 10.48,
+    "y": 10.05
+   },
+   "payload": {
+    "player_id": "p_elm_06",
+    "recipient_id": "p_elm_02",
+    "team_id": "t_elm",
+    "x": 10.48,
+    "y": 10.05,
+    "end_x": 59.24,
+    "end_y": 60.25,
+    "pass_length_m": 70.0,
+    "pass_progression_m": -48.8,
+    "pass_difficulty": 0.522,
+    "ball_speed_ms": 25.0
+   }
+  },
+  {
+   "overlay_id": "o0_0014",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 720000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 45.7,
+     "t_elm": 62.1
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0015",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 780000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 50.4,
+     "t_elm": 67.7
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0016",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 828100,
+   "duration_ms": 6000,
+   "priority": 3,
+   "kind": "pass_card",
+   "anchor": {
+    "type": "pitch",
+    "x": 24.69,
+    "y": 32.09
+   },
+   "payload": {
+    "player_id": "p_elm_03",
+    "recipient_id": "p_elm_25",
+    "team_id": "t_elm",
+    "x": 24.69,
+    "y": 32.09,
+    "end_x": 53.95,
+    "end_y": 33.33,
+    "pass_length_m": 29.3,
+    "pass_progression_m": -29.3,
+    "pass_difficulty": 0.552,
+    "ball_speed_ms": 18.24
+   }
+  },
+  {
+   "overlay_id": "o0_0017",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 840000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 56.6,
+     "t_elm": 77.5
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0018",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 900000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 49.3,
+     "t_elm": 74.3
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0019",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 902000,
+   "duration_ms": 9000,
+   "priority": 3,
+   "kind": "stat_compare",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "window_minutes": 15,
+    "teams": {
+     "t_esk": {
+      "possession_time_based": 0.431,
+      "field_tilt": 0.633,
+      "ppda": 9.43
+     },
+     "t_elm": {
+      "possession_time_based": 0.569,
+      "field_tilt": 0.367,
+      "ppda": 15.0
+     }
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0020",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 960000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 57.6,
+     "t_elm": 73.5
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0021",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 1008600,
+   "duration_ms": 3500,
+   "priority": 3,
+   "kind": "speed_badge",
+   "anchor": {
+    "type": "player",
+    "player_id": "p_elm_06"
+   },
+   "payload": {
+    "value": 33.6,
+    "unit": "km/h",
+    "player_id": "p_elm_06",
+    "team_id": "t_elm"
+   }
+  },
+  {
+   "overlay_id": "o0_0022",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 1020000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 75.6,
+     "t_elm": 72.8
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0023",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 1080000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 68.1,
+     "t_elm": 50.7
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0024",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 1118500,
+   "duration_ms": 6000,
+   "priority": 3,
+   "kind": "pass_card",
+   "anchor": {
+    "type": "pitch",
+    "x": 34.89,
+    "y": 34.29
+   },
+   "payload": {
+    "player_id": "p_elm_03",
+    "recipient_id": "p_elm_24",
+    "team_id": "t_elm",
+    "x": 34.89,
+    "y": 34.29,
+    "end_x": 70.87,
+    "end_y": 5.26,
+    "pass_length_m": 46.2,
+    "pass_progression_m": -36.0,
+    "pass_difficulty": 0.512,
+    "ball_speed_ms": 25.0
+   }
+  },
+  {
+   "overlay_id": "o0_0025",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 1140000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 61.0,
+     "t_elm": 41.3
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0026",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 1200000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 60.6,
+     "t_elm": 46.0
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0027",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 1260000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 54.6,
+     "t_elm": 45.6
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0028",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 1320000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 58.5,
+     "t_elm": 44.5
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0029",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 1361100,
+   "duration_ms": 6000,
+   "priority": 3,
+   "kind": "pass_card",
+   "anchor": {
+    "type": "pitch",
+    "x": 60.63,
+    "y": 19.94
+   },
+   "payload": {
+    "player_id": "p_elm_21",
+    "recipient_id": "p_elm_06",
+    "team_id": "t_elm",
+    "x": 60.63,
+    "y": 19.94,
+    "end_x": 41.48,
+    "end_y": 5.32,
+    "pass_length_m": 24.1,
+    "pass_progression_m": 19.2,
+    "pass_difficulty": 0.501,
+    "ball_speed_ms": 18.11
+   }
+  },
+  {
+   "overlay_id": "o0_0030",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 1369300,
+   "duration_ms": 6000,
+   "priority": 3,
+   "kind": "pass_card",
+   "anchor": {
+    "type": "pitch",
+    "x": 62.69,
+    "y": 3.08
+   },
+   "payload": {
+    "player_id": "p_elm_24",
+    "recipient_id": "p_elm_27",
+    "team_id": "t_elm",
+    "x": 62.69,
+    "y": 3.08,
+    "end_x": 62.09,
+    "end_y": 45.12,
+    "pass_length_m": 42.0,
+    "pass_progression_m": 0.6,
+    "pass_difficulty": 0.498,
+    "ball_speed_ms": 25.0
+   }
+  },
+  {
+   "overlay_id": "o0_0031",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 1380000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 51.6,
+     "t_elm": 42.8
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0032",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 1396900,
+   "duration_ms": 6000,
+   "priority": 3,
+   "kind": "pass_card",
+   "anchor": {
+    "type": "pitch",
+    "x": 81.88,
+    "y": 60.31
+   },
+   "payload": {
+    "player_id": "p_elm_02",
+    "recipient_id": "p_elm_29",
+    "team_id": "t_elm",
+    "x": 81.88,
+    "y": 60.31,
+    "end_x": 52.0,
+    "end_y": 63.03,
+    "pass_length_m": 30.0,
+    "pass_progression_m": 29.9,
+    "pass_difficulty": 0.559,
+    "ball_speed_ms": 19.26
+   }
+  },
+  {
+   "overlay_id": "o0_0033",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 1404700,
+   "duration_ms": 6000,
+   "priority": 3,
+   "kind": "pass_card",
+   "anchor": {
+    "type": "pitch",
+    "x": 53.54,
+    "y": 50.88
+   },
+   "payload": {
+    "player_id": "p_elm_27",
+    "recipient_id": "p_elm_06",
+    "team_id": "t_elm",
+    "x": 53.54,
+    "y": 50.88,
+    "end_x": 37.54,
+    "end_y": 8.21,
+    "pass_length_m": 45.6,
+    "pass_progression_m": 16.0,
+    "pass_difficulty": 0.506,
+    "ball_speed_ms": 24.33
+   }
+  },
+  {
+   "overlay_id": "o0_0034",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 1440000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 54.9,
+     "t_elm": 36.5
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0035",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 1479800,
+   "duration_ms": 6000,
+   "priority": 3,
+   "kind": "pass_card",
+   "anchor": {
+    "type": "pitch",
+    "x": 44.87,
+    "y": 51.18
+   },
+   "payload": {
+    "player_id": "p_elm_27",
+    "recipient_id": "p_elm_02",
+    "team_id": "t_elm",
+    "x": 44.87,
+    "y": 51.18,
+    "end_x": 72.86,
+    "end_y": 64.39,
+    "pass_length_m": 31.0,
+    "pass_progression_m": -28.0,
+    "pass_difficulty": 0.569,
+    "ball_speed_ms": 16.49
+   }
+  },
+  {
+   "overlay_id": "o0_0036",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 1486500,
+   "duration_ms": 3500,
+   "priority": 3,
+   "kind": "speed_badge",
+   "anchor": {
+    "type": "player",
+    "player_id": "p_elm_03"
+   },
+   "payload": {
+    "value": 33.1,
+    "unit": "km/h",
+    "player_id": "p_elm_03",
+    "team_id": "t_elm"
+   }
+  },
+  {
+   "overlay_id": "o0_0037",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 1500000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 48.2,
+     "t_elm": 37.3
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0038",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 1560000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 51.4,
+     "t_elm": 38.2
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0039",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 1620000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 46.7,
+     "t_elm": 43.6
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0040",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 1680000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 54.4,
+     "t_elm": 59.9
+    }
+   }
+  },
+  {
+   "overlay_id": "mo_001_t",
+   "source_moment_id": "mo_001",
+   "tier": 1,
+   "show_at_ms": 1681446,
+   "duration_ms": 15000,
+   "priority": 2,
+   "kind": "moment_card",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "headline": "Nico Irlow: driving the play?",
+    "text": "Last 18 minutes vs before: Progressive passes per minute 0.0 → 0.4; Touches per minute 0.5 → 1.1.",
+    "team_id": "t_elm",
+    "player_id": "p_elm_27",
+    "state": "pending"
+   }
+  },
+  {
+   "overlay_id": "mo_001_v",
+   "source_moment_id": "mo_001",
+   "tier": 1,
+   "show_at_ms": 1693214,
+   "duration_ms": 6000,
+   "priority": 2,
+   "kind": "moment_card",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "state": "verified",
+    "replaces": "mo_001_t",
+    "claim": "Nico Irlow became a clear driving force: his progressive passes rose from 0 to 8 and his touches from 5 to 20 across the 18-minute window, increasing his involvement on the ball. That coincides with Elmholm Vale’s field tilt rising to 36%, meaning Irlow’s influence is pushing play higher and creating more attacking presence.",
+    "mechanism_tag": "player_arc",
+    "team_id": "t_elm",
+    "player_ids": [
+     "p_elm_27"
+    ],
+    "texts": {
+     "analyst_en": {
+      "headline": "Irlow lifts Elmholm Vale",
+      "text": "Nico Irlow became the clear driving force for Elmholm Vale. His progressive passes rose from 0 to 8 and his touches from 5 to 20 across the 18-minute window, while field tilt climbed to 36%."
+     },
+     "analyst_it": {
+      "headline": "Irlow trascina l'Elmholm Vale",
+      "text": "Nico Irlow è diventato il motore chiaro dell'Elmholm Vale. I suoi passaggi progressivi sono saliti da 0 a 8 e i tocchi da 5 a 20 nella finestra di 18 minuti, con field tilt al 36%."
+     },
+     "analyst_es": {
+      "headline": "Irlow impulsa a Elmholm Vale",
+      "text": "Nico Irlow se convirtió en la fuerza clara de Elmholm Vale. Sus pases progresivos subieron de 0 a 8 y sus toques de 5 a 20 en la ventana de 18 minutos, con el field tilt en 36%."
+     },
+     "casual_en": {
+      "headline": "Irlow gets Elmholm moving",
+      "text": "Nico Irlow is making a real difference for Elmholm Vale. He went from 0 to 8 progressive passes and from 5 to 20 touches, and that is helping them spend more time higher up the pitch."
+     },
+     "casual_it": {
+      "headline": "Irlow fa salire l'Elmholm Vale",
+      "text": "Nico Irlow sta facendo davvero la differenza per l'Elmholm Vale. È passato da 0 a 8 passaggi progressivi e da 5 a 20 tocchi, aiutando la squadra a stare più in alto."
+     },
+     "casual_es": {
+      "headline": "Irlow hace crecer a Elmholm",
+      "text": "Nico Irlow está marcando la diferencia para Elmholm Vale. Pasó de 0 a 8 pases progresivos y de 5 a 20 toques, y eso ayuda al equipo a instalarse más arriba."
+     },
+     "player_focus_en": {
+      "headline": "Irlow takes charge",
+      "text": "Nico Irlow has become Elmholm Vale’s main driving force. His progressive passes jumped from 0 to 8 and his touches from 5 to 20, while field tilt rose to 36%."
+     },
+     "player_focus_it": {
+      "headline": "Irlow prende in mano l'Elmholm Vale",
+      "text": "Nico Irlow è diventato il motore principale dell'Elmholm Vale. I suoi passaggi progressivi sono saliti da 0 a 8 e i tocchi da 5 a 20, con field tilt al 36%."
+     },
+     "player_focus_es": {
+      "headline": "Irlow toma el mando",
+      "text": "Nico Irlow se ha convertido en la fuerza principal de Elmholm Vale. Sus pases progresivos subieron de 0 a 8 y sus toques de 5 a 20, con el field tilt en 36%."
+     }
+    },
+    "seal": {
+     "passed": 3,
+     "total": 3
+    },
+    "evidence": [
+     {
+      "tool": "get_player_physical",
+      "subject": "p_elm_27",
+      "metric": "progressive_passes",
+      "before_start_ms": 0,
+      "before_end_ms": 600000,
+      "after_start_ms": 600000,
+      "after_end_ms": 1680000,
+      "before": 0.0,
+      "after": 8.0
+     },
+     {
+      "tool": "get_player_physical",
+      "subject": "p_elm_27",
+      "metric": "touches",
+      "before_start_ms": 0,
+      "before_end_ms": 600000,
+      "after_start_ms": 600000,
+      "after_end_ms": 1680000,
+      "before": 5.0,
+      "after": 20.0
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_elm",
+      "metric": "field_tilt",
+      "before_start_ms": 0,
+      "before_end_ms": 600000,
+      "after_start_ms": 600000,
+      "after_end_ms": 1680000,
+      "before": 0.173,
+      "after": 0.361
+     }
+    ],
+    "fallbacks": []
+   }
+  },
+  {
+   "overlay_id": "mo_001_c",
+   "source_moment_id": "mo_001",
+   "tier": 1,
+   "show_at_ms": 1693214,
+   "duration_ms": 8000,
+   "priority": 3,
+   "kind": "caption",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "text": "Nico Irlow is increasingly dictating play as Elmholm Vale push higher in the match."
+   }
+  },
+  {
+   "overlay_id": "o0_0041",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 1740000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 55.0,
+     "t_elm": 62.3
+    }
+   }
+  },
+  {
+   "overlay_id": "mo_002_t",
+   "source_moment_id": "mo_002",
+   "tier": 1,
+   "show_at_ms": 1741185,
+   "duration_ms": 15000,
+   "priority": 2,
+   "kind": "moment_card",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "headline": "Elmholm Vale: going direct?",
+    "text": "Last 16 minutes vs before: Average pass length 26.0 → 29.0; Pass completion 83% → 73%.",
+    "team_id": "t_elm",
+    "player_id": null,
+    "state": "pending"
+   }
+  },
+  {
+   "overlay_id": "mo_002_v",
+   "source_moment_id": "mo_002",
+   "tier": 1,
+   "show_at_ms": 1753546,
+   "duration_ms": 6500,
+   "priority": 2,
+   "kind": "moment_card",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "state": "verified",
+    "replaces": "mo_002_t",
+    "claim": "Elmholm Vale shifted into a long-ball approach: their average pass length rose from 26.0m to 29.0m while pass completion fell from 83% to 73%. At the same time PPDA jumped from 14.0 to 36.0 and their control index dropped (66.7 → 49.5), so they lost control despite longer passes.",
+    "mechanism_tag": "tactical_switch",
+    "team_id": "t_elm",
+    "player_ids": [],
+    "texts": {
+     "analyst_en": {
+      "headline": "Elmholm Vale lose control",
+      "text": "Elmholm Vale shifted to a long-ball approach. Average pass length rose from 26.0m to 29.0m, pass completion fell from 83% to 73%, PPDA jumped from 14.0 to 36.0, and control index dropped from 66.7 to 49.5."
+     },
+     "analyst_it": {
+      "headline": "Elmholm Vale perdono il controllo",
+      "text": "Elmholm Vale è passata a un gioco più diretto. La lunghezza media del passaggio è salita da 26.0m a 29.0m, la precisione è scesa da 83% a 73%, la PPDA è salita da 14.0 a 36.0 e l'indice di controllo è calato da 66.7 a 49.5."
+     },
+     "analyst_es": {
+      "headline": "Elmholm Vale pierde el control",
+      "text": "Elmholm Vale se pasó a un juego más largo. La longitud media de pase subió de 26.0m a 29.0m, el acierto bajó de 83% a 73%, la PPDA saltó de 14.0 a 36.0 y el índice de control cayó de 66.7 a 49.5."
+     },
+     "casual_en": {
+      "headline": "Elmholm Vale go more direct",
+      "text": "Elmholm Vale started going long more often. Their passes got longer, but accuracy dropped and they lost control of the game."
+     },
+     "casual_it": {
+      "headline": "Elmholm Vale va più in verticale",
+      "text": "Elmholm Vale ha scelto più spesso la palla lunga. I passaggi sono diventati più lunghi, ma la precisione è calata e hanno perso il controllo della partita."
+     },
+     "casual_es": {
+      "headline": "Elmholm Vale juega más directo",
+      "text": "Elmholm Vale empezó a buscar más el juego largo. Los pases se hicieron más largos, pero bajó el acierto y perdieron el control del partido."
+     },
+     "player_focus_en": {
+      "headline": "Elmholm Vale shift style",
+      "text": "Elmholm Vale changed the way they played. The long-ball approach brought longer passes, but less accuracy, a higher PPDA, and a lower control index."
+     },
+     "player_focus_it": {
+      "headline": "Elmholm Vale cambia registro",
+      "text": "Elmholm Vale ha cambiato modo di giocare. Con il gioco lungo i passaggi sono diventati più lunghi, ma sono calati precisione, controllo e gestione senza palla."
+     },
+     "player_focus_es": {
+      "headline": "Elmholm Vale cambia el plan",
+      "text": "Elmholm Vale cambió su forma de jugar. Con el juego largo, los pases fueron más largos, pero bajó el acierto y también su control del partido."
+     }
+    },
+    "seal": {
+     "passed": 4,
+     "total": 4
+    },
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_elm",
+      "metric": "avg_pass_length_m",
+      "before_start_ms": 0,
+      "before_end_ms": 780000,
+      "after_start_ms": 780000,
+      "after_end_ms": 1740000,
+      "before": 26.0,
+      "after": 29.0
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_elm",
+      "metric": "pass_completion",
+      "before_start_ms": 0,
+      "before_end_ms": 780000,
+      "after_start_ms": 780000,
+      "after_end_ms": 1740000,
+      "before": 0.831,
+      "after": 0.735
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_elm",
+      "metric": "ppda",
+      "before_start_ms": 0,
+      "before_end_ms": 780000,
+      "after_start_ms": 780000,
+      "after_end_ms": 1740000,
+      "before": 14.0,
+      "after": 36.0
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_elm",
+      "metric": "control_index",
+      "before_start_ms": 0,
+      "before_end_ms": 780000,
+      "after_start_ms": 780000,
+      "after_end_ms": 1740000,
+      "before": 66.7,
+      "after": 49.5
+     }
+    ],
+    "fallbacks": []
+   }
+  },
+  {
+   "overlay_id": "mo_002_c",
+   "source_moment_id": "mo_002",
+   "tier": 1,
+   "show_at_ms": 1753546,
+   "duration_ms": 8000,
+   "priority": 3,
+   "kind": "caption",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "text": "Elmholm Vale go longer now, but their completion and control have dipped as Eskdale stay ahead."
+   }
+  },
+  {
+   "overlay_id": "o0_0042",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 1800000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 48.6,
+     "t_elm": 51.8
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0043",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 1802000,
+   "duration_ms": 9000,
+   "priority": 3,
+   "kind": "stat_compare",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "window_minutes": 15,
+    "teams": {
+     "t_esk": {
+      "possession_time_based": 0.517,
+      "field_tilt": 0.774,
+      "ppda": 4.82
+     },
+     "t_elm": {
+      "possession_time_based": 0.483,
+      "field_tilt": 0.226,
+      "ppda": 34.0
+     }
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0044",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 1860000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 49.7,
+     "t_elm": 53.6
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0045",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 1920000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 48.0,
+     "t_elm": 41.8
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0046",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 1980000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 53.9,
+     "t_elm": 39.5
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0047",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 2024400,
+   "duration_ms": 6000,
+   "priority": 3,
+   "kind": "pass_card",
+   "anchor": {
+    "type": "pitch",
+    "x": 34.44,
+    "y": 19.1
+   },
+   "payload": {
+    "player_id": "p_elm_21",
+    "recipient_id": "p_elm_24",
+    "team_id": "t_elm",
+    "x": 34.44,
+    "y": 19.1,
+    "end_x": 68.29,
+    "end_y": 4.19,
+    "pass_length_m": 37.0,
+    "pass_progression_m": -33.9,
+    "pass_difficulty": 0.626,
+    "ball_speed_ms": 20.13
+   }
+  },
+  {
+   "overlay_id": "o0_0048",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 2040000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 48.8,
+     "t_elm": 37.4
+    }
+   }
+  },
+  {
+   "overlay_id": "mo_003_t",
+   "source_moment_id": "mo_003",
+   "tier": 1,
+   "show_at_ms": 2041051,
+   "duration_ms": 15000,
+   "priority": 2,
+   "kind": "moment_card",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "headline": "Eskdale Athletic: stretching the pitch?",
+    "text": "Last 16 minutes vs before: Width 11.0 → 14.4.",
+    "team_id": "t_esk",
+    "player_id": null,
+    "state": "pending"
+   }
+  },
+  {
+   "overlay_id": "mo_003_v",
+   "source_moment_id": "mo_003",
+   "tier": 1,
+   "show_at_ms": 2054546,
+   "duration_ms": 6200,
+   "priority": 2,
+   "kind": "moment_card",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "state": "verified",
+    "replaces": "mo_003_t",
+    "claim": "Eskdale Athletic shifted to much wider play — width rose from 10.9 m to 14.4 m — stretching Elmholm Vale and changing how they attack. The switch happened without a big possession gain (45.0% → 45.5%) but with a PPDA fall (8.5 → 4.2) and a small drop in Eskdale pass completion (92.0% → 85.9%), so they are probing wider channels rather than holding longer spells.",
+    "mechanism_tag": "tactical_switch",
+    "team_id": "t_esk",
+    "player_ids": [],
+    "texts": {
+     "analyst_en": {
+      "headline": "Eskdale widen and press higher",
+      "text": "Eskdale Athletic have gone much wider, with width up from 10.9 m to 14.4 m, stretching Elmholm Vale. Possession barely changed at 45.0% to 45.5%, but PPDA fell from 8.5 to 4.2."
+     },
+     "analyst_it": {
+      "headline": "Eskdale allarga il gioco",
+      "text": "Eskdale Athletic ha aperto molto di più il campo: la width è salita da 10.9 m a 14.4 m, allungando Elmholm Vale. Il possesso (a tempo) è quasi fermo, 45.0% a 45.5%, ma il PPDA scende da 8.5 a 4.2."
+     },
+     "analyst_es": {
+      "headline": "Eskdale cambia por fuera",
+      "text": "Eskdale Athletic se ha abierto mucho más: la width sube de 10.9 m a 14.4 m y estira a Elmholm Vale. La posesión (por tiempo) casi no cambia, 45.0% a 45.5%, pero el PPDA cae de 8.5 a 4.2."
+     },
+     "casual_en": {
+      "headline": "Eskdale stretch the pitch",
+      "text": "Eskdale Athletic are playing much wider now, so Elmholm Vale have to cover more ground. They have not kept the ball much more, but they are pressing harder and looking to attack in wider lanes."
+     },
+     "casual_it": {
+      "headline": "Eskdale allarga il campo",
+      "text": "Eskdale Athletic sta giocando molto più largo, e così Elmholm Vale deve coprire più spazio. Non tengono il pallone molto di più, ma pressano con più intensità e cercano corsie più ampie."
+     },
+     "casual_es": {
+      "headline": "Eskdale abre el campo",
+      "text": "Eskdale Athletic está jugando mucho más abierto, así que Elmholm Vale tiene que cubrir más espacio. No tienen mucho más la posesión, pero presionan más y buscan atacar por fuera."
+     },
+     "player_focus_en": {
+      "headline": "Eskdale widen their attack",
+      "text": "Eskdale Athletic have changed their attack by going much wider, with width rising from 10.9 m to 14.4 m. They are not keeping the ball much longer, but the press is stronger and the wide channels are the focus."
+     },
+     "player_focus_it": {
+      "headline": "Eskdale punta sulle corsie",
+      "text": "Eskdale Athletic ha cambiato il proprio attacco andando molto più largo, con la width salita da 10.9 m a 14.4 m. Non sta tenendo il pallone molto di più, ma il pressing è più forte e il focus è sulle corsie larghe."
+     },
+     "player_focus_es": {
+      "headline": "Eskdale ataca más abierto",
+      "text": "Eskdale Athletic ha cambiado su ataque abriéndose mucho más, con la width de 10.9 m a 14.4 m. No está reteniendo más la pelota, pero la presión es mayor y el foco está en los carriles abiertos."
+     }
+    },
+    "seal": {
+     "passed": 4,
+     "total": 4
+    },
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_esk",
+      "metric": "width_m",
+      "before_start_ms": 120000,
+      "before_end_ms": 1080000,
+      "after_start_ms": 1080000,
+      "after_end_ms": 2040000,
+      "before": 10.9,
+      "after": 14.4
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_esk",
+      "metric": "ppda",
+      "before_start_ms": 120000,
+      "before_end_ms": 1080000,
+      "after_start_ms": 1080000,
+      "after_end_ms": 2040000,
+      "before": 8.5,
+      "after": 4.21
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_esk",
+      "metric": "possession_time_based",
+      "before_start_ms": 120000,
+      "before_end_ms": 1080000,
+      "after_start_ms": 1080000,
+      "after_end_ms": 2040000,
+      "before": 0.45,
+      "after": 0.455
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_esk",
+      "metric": "pass_completion",
+      "before_start_ms": 120000,
+      "before_end_ms": 1080000,
+      "after_start_ms": 1080000,
+      "after_end_ms": 2040000,
+      "before": 0.92,
+      "after": 0.859
+     }
+    ],
+    "fallbacks": []
+   }
+  },
+  {
+   "overlay_id": "mo_003_c",
+   "source_moment_id": "mo_003",
+   "tier": 1,
+   "show_at_ms": 2054546,
+   "duration_ms": 8000,
+   "priority": 3,
+   "kind": "caption",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "text": "Eskdale Athletic are probing wider, stretching Elmholm Vale without a major rise in possession."
+   }
+  },
+  {
+   "overlay_id": "o0_0049",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 2100000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 52.0,
+     "t_elm": 40.6
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0050",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 2160000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 44.7,
+     "t_elm": 31.0
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0051",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 2220000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 46.9,
+     "t_elm": 35.3
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0052",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 2280000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 47.7,
+     "t_elm": 32.7
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0053",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 2340000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 52.5,
+     "t_elm": 38.3
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0054",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 2400000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 49.4,
+     "t_elm": 37.5
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0055",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 2460000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 53.8,
+     "t_elm": 47.8
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0056",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 2520000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 56.1,
+     "t_elm": 54.0
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0057",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 2580000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 61.8,
+     "t_elm": 55.3
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0058",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 2596800,
+   "duration_ms": 3500,
+   "priority": 3,
+   "kind": "speed_badge",
+   "anchor": {
+    "type": "player",
+    "player_id": "p_elm_06"
+   },
+   "payload": {
+    "value": 33.4,
+    "unit": "km/h",
+    "player_id": "p_elm_06",
+    "team_id": "t_elm"
+   }
+  },
+  {
+   "overlay_id": "o0_0059",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 2640000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 50.1,
+     "t_elm": 46.0
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0060",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 2700000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 57.0,
+     "t_elm": 56.7
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0061",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 2702000,
+   "duration_ms": 9000,
+   "priority": 3,
+   "kind": "stat_compare",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "window_minutes": 15,
+    "teams": {
+     "t_esk": {
+      "possession_time_based": 0.516,
+      "field_tilt": 0.686,
+      "ppda": 4.0
+     },
+     "t_elm": {
+      "possession_time_based": 0.484,
+      "field_tilt": 0.314,
+      "ppda": 6.8
+     }
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0062",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 2731000,
+   "duration_ms": 5000,
+   "priority": 2,
+   "kind": "shot_speed",
+   "anchor": {
+    "type": "player",
+    "player_id": "p_esk_03"
+   },
+   "payload": {
+    "value": 110.4,
+    "unit": "km/h",
+    "player_id": "p_esk_03",
+    "team_id": "t_esk",
+    "xg": 0.09,
+    "outcome": "off_target"
+   }
+  },
+  {
+   "overlay_id": "o0_0063",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 2760000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 55.5,
+     "t_elm": 49.0
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0064",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 2820000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 49.8,
+     "t_elm": 50.1
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0065",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 2880000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 56.2,
+     "t_elm": 47.4
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0066",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 2896800,
+   "duration_ms": 3500,
+   "priority": 3,
+   "kind": "speed_badge",
+   "anchor": {
+    "type": "player",
+    "player_id": "p_elm_06"
+   },
+   "payload": {
+    "value": 34.8,
+    "unit": "km/h",
+    "player_id": "p_elm_06",
+    "team_id": "t_elm"
+   }
+  },
+  {
+   "overlay_id": "o0_0067",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 2940000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 60.4,
+     "t_elm": 48.7
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0068",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 3000000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 50.9,
+     "t_elm": 37.5
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0069",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 3060000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 55.1,
+     "t_elm": 36.3
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0070",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 3120000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 52.6,
+     "t_elm": 32.4
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0071",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 3180000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 41.4,
+     "t_elm": 22.5
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0072",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 3240000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 55.0,
+     "t_elm": 28.2
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0073",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 3300000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 59.7,
+     "t_elm": 33.1
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0074",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 3360000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 50.1,
+     "t_elm": 30.4
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0075",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 3420000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 45.5,
+     "t_elm": 40.3
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0076",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 3480000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 51.0,
+     "t_elm": 44.5
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0077",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 3540000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 51.0,
+     "t_elm": 44.5
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0078",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 3600000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 54.9,
+     "t_elm": 45.2
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0079",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 3602000,
+   "duration_ms": 9000,
+   "priority": 3,
+   "kind": "stat_compare",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "window_minutes": 15,
+    "teams": {
+     "t_esk": {
+      "possession_time_based": 0.728,
+      "field_tilt": 0.865,
+      "ppda": 6.2
+     },
+     "t_elm": {
+      "possession_time_based": 0.272,
+      "field_tilt": 0.135,
+      "ppda": 41.0
+     }
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0080",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 3660000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 64.6,
+     "t_elm": 47.5
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0081",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 3720000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 70.1,
+     "t_elm": 44.1
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0082",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 3780000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 74.4,
+     "t_elm": 50.0
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0083",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 3840000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 69.8,
+     "t_elm": 57.2
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0084",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 3900000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 75.3,
+     "t_elm": 74.1
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0085",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 3960000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 61.2,
+     "t_elm": 68.1
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0086",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 3997300,
+   "duration_ms": 6000,
+   "priority": 3,
+   "kind": "pass_card",
+   "anchor": {
+    "type": "pitch",
+    "x": 11.33,
+    "y": 32.35
+   },
+   "payload": {
+    "player_id": "p_esk_24",
+    "recipient_id": "p_esk_02",
+    "team_id": "t_esk",
+    "x": 11.33,
+    "y": 32.35,
+    "end_x": 59.0,
+    "end_y": 6.32,
+    "pass_length_m": 54.3,
+    "pass_progression_m": -47.7,
+    "pass_difficulty": 0.591,
+    "ball_speed_ms": 25.0
+   }
+  },
+  {
+   "overlay_id": "o0_0087",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 4020000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 60.8,
+     "t_elm": 69.9
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0088",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 4080000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 66.5,
+     "t_elm": 65.4
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0089",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 4140000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 70.1,
+     "t_elm": 70.9
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0090",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 4200000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 71.2,
+     "t_elm": 55.1
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0091",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 4228400,
+   "duration_ms": 6000,
+   "priority": 3,
+   "kind": "pass_card",
+   "anchor": {
+    "type": "pitch",
+    "x": 24.71,
+    "y": 37.32
+   },
+   "payload": {
+    "player_id": "p_elm_21",
+    "recipient_id": "p_elm_29",
+    "team_id": "t_elm",
+    "x": 24.71,
+    "y": 37.32,
+    "end_x": 62.39,
+    "end_y": 6.73,
+    "pass_length_m": 48.5,
+    "pass_progression_m": 37.7,
+    "pass_difficulty": 0.535,
+    "ball_speed_ms": 25.0
+   }
+  },
+  {
+   "overlay_id": "o0_0092",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 4259800,
+   "duration_ms": 6000,
+   "priority": 3,
+   "kind": "pass_card",
+   "anchor": {
+    "type": "pitch",
+    "x": 86.09,
+    "y": 59.21
+   },
+   "payload": {
+    "player_id": "p_elm_06",
+    "recipient_id": "p_elm_14",
+    "team_id": "t_elm",
+    "x": 86.09,
+    "y": 59.21,
+    "end_x": 35.3,
+    "end_y": 45.69,
+    "pass_length_m": 52.6,
+    "pass_progression_m": -50.8,
+    "pass_difficulty": 0.574,
+    "ball_speed_ms": 25.0
+   }
+  },
+  {
+   "overlay_id": "o0_0093",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 4260000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 81.4,
+     "t_elm": 51.3
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0094",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 4278200,
+   "duration_ms": 3500,
+   "priority": 3,
+   "kind": "speed_badge",
+   "anchor": {
+    "type": "player",
+    "player_id": "p_esk_18"
+   },
+   "payload": {
+    "value": 33.1,
+    "unit": "km/h",
+    "player_id": "p_esk_18",
+    "team_id": "t_esk"
+   }
+  },
+  {
+   "overlay_id": "o0_0095",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 4320000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 78.2,
+     "t_elm": 58.1
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0096",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 4339800,
+   "duration_ms": 5000,
+   "priority": 2,
+   "kind": "shot_speed",
+   "anchor": {
+    "type": "player",
+    "player_id": "p_esk_03"
+   },
+   "payload": {
+    "value": 126.0,
+    "unit": "km/h",
+    "player_id": "p_esk_03",
+    "team_id": "t_esk",
+    "xg": 0.04,
+    "outcome": "blocked"
+   }
+  },
+  {
+   "overlay_id": "o0_0097",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 4380000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 70.7,
+     "t_elm": 59.6
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0098",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 4440000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 63.7,
+     "t_elm": 54.7
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0099",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 4500000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 63.1,
+     "t_elm": 58.8
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0100",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 4502000,
+   "duration_ms": 9000,
+   "priority": 3,
+   "kind": "stat_compare",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "window_minutes": 15,
+    "teams": {
+     "t_esk": {
+      "possession_time_based": 0.728,
+      "field_tilt": 0.846,
+      "ppda": 9.0
+     },
+     "t_elm": {
+      "possession_time_based": 0.272,
+      "field_tilt": 0.154,
+      "ppda": 37.0
+     }
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0101",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 4560000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 58.6,
+     "t_elm": 45.5
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0102",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 4620000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 51.5,
+     "t_elm": 45.0
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0103",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 4680000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 53.7,
+     "t_elm": 42.9
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0104",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 4740000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 59.9,
+     "t_elm": 46.1
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0105",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 4764400,
+   "duration_ms": 3500,
+   "priority": 3,
+   "kind": "speed_badge",
+   "anchor": {
+    "type": "player",
+    "player_id": "p_esk_14"
+   },
+   "payload": {
+    "value": 33.2,
+    "unit": "km/h",
+    "player_id": "p_esk_14",
+    "team_id": "t_esk"
+   }
+  },
+  {
+   "overlay_id": "o0_0106",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 4800000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 49.7,
+     "t_elm": 46.6
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0107",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 4860000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 55.1,
+     "t_elm": 56.2
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0108",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 4920000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 57.4,
+     "t_elm": 57.9
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0109",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 4980000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 58.9,
+     "t_elm": 68.0
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0110",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 5040000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 57.5,
+     "t_elm": 63.3
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0111",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 5064000,
+   "duration_ms": 6000,
+   "priority": 3,
+   "kind": "pass_card",
+   "anchor": {
+    "type": "pitch",
+    "x": 47.88,
+    "y": 2.67
+   },
+   "payload": {
+    "player_id": "p_elm_02",
+    "recipient_id": "p_elm_07",
+    "team_id": "t_elm",
+    "x": 47.88,
+    "y": 2.67,
+    "end_x": 26.6,
+    "end_y": 59.35,
+    "pass_length_m": 60.5,
+    "pass_progression_m": -21.3,
+    "pass_difficulty": 0.65,
+    "ball_speed_ms": 25.0
+   }
+  },
+  {
+   "overlay_id": "o0_0112",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 5100000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 65.3,
+     "t_elm": 67.7
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0113",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 5160000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 74.6,
+     "t_elm": 64.7
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0114",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 5220000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 64.9,
+     "t_elm": 51.8
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0115",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 5280000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 64.9,
+     "t_elm": 51.8
+    }
+   }
+  },
+  {
+   "overlay_id": "mo_004_t",
+   "source_moment_id": "mo_004",
+   "tier": 1,
+   "show_at_ms": 5281156,
+   "duration_ms": 15000,
+   "priority": 2,
+   "kind": "moment_card",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "headline": "Kian Dordor: driving the play?",
+    "text": "Last 18 minutes vs before: Progressive passes per minute 0.2 → 0.7; Touches per minute 0.8 → 1.5.",
+    "team_id": "t_elm",
+    "player_id": "p_elm_21",
+    "state": "pending"
+   }
+  },
+  {
+   "overlay_id": "mo_004_v",
+   "source_moment_id": "mo_004",
+   "tier": 1,
+   "show_at_ms": 5292149,
+   "duration_ms": 6000,
+   "priority": 2,
+   "kind": "moment_card",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "state": "verified",
+    "replaces": "mo_004_t",
+    "claim": "Kian Dordor of Elmholm Vale suddenly drove the team’s attack: his progressive passes rose from 5 to 12 and his touches from 14 to 27 in the moment, helping Elmholm’s time-based possession jump to 49.7% and their PPDA fall to 19.0. That individual spike coincides with Elmholm taking sustained control of the game late on.",
+    "mechanism_tag": "player_arc",
+    "team_id": "t_elm",
+    "player_ids": [
+     "p_elm_21"
+    ],
+    "texts": {
+     "analyst_en": {
+      "headline": "Dordor lifts Elmholm late",
+      "text": "Kian Dordor suddenly drove Elmholm Vale’s attack. His progressive passes went from 5 to 12 and his touches from 14 to 27, with time-based possession up to 49.7% and PPDA down to 19.0."
+     },
+     "analyst_it": {
+      "headline": "Dordor cambia l’inerzia del finale",
+      "text": "Kian Dordor ha spinto all’improvviso l’attacco dell’Elmholm Vale. I suoi passaggi progressivi sono saliti da 5 a 12 e i tocchi da 14 a 27, con possesso (a tempo) al 49.7% e PPDA sceso a 19.0."
+     },
+     "analyst_es": {
+      "headline": "Dordor impulsa a Elmholm al final",
+      "text": "Kian Dordor impulsó de golpe el ataque del Elmholm Vale. Sus pases progresivos subieron de 5 a 12 y sus toques de 14 a 27, con posesión (por tiempo) al 49.7% y PPDA bajando a 19.0."
+     },
+     "casual_en": {
+      "headline": "Elmholm seize control late",
+      "text": "Kian Dordor gave Elmholm Vale a big lift in attack. He went from 5 to 12 progressive passes and from 14 to 27 touches, and the team’s time-based possession rose to 49.7%."
+     },
+     "casual_it": {
+      "headline": "Elmholm prende il controllo tardi",
+      "text": "Kian Dordor ha dato una grossa spinta all’Elmholm Vale in attacco. È passato da 5 a 12 passaggi progressivi e da 14 a 27 tocchi, mentre il possesso (a tempo) è salito al 49.7%."
+     },
+     "casual_es": {
+      "headline": "Elmholm toma el mando al final",
+      "text": "Kian Dordor le dio un gran impulso al ataque del Elmholm Vale. Pasó de 5 a 12 pases progresivos y de 14 a 27 toques, y la posesión (por tiempo) subió al 49.7%."
+     },
+     "player_focus_en": {
+      "headline": "Dordor sparks Elmholm’s surge",
+      "text": "Kian Dordor suddenly took over the attacking load for Elmholm Vale. His progressive passes jumped from 5 to 12 and his touches from 14 to 27, helping time-based possession reach 49.7%."
+     },
+     "player_focus_it": {
+      "headline": "Dordor trascina l’Elmholm",
+      "text": "Kian Dordor ha preso in mano la fase offensiva dell’Elmholm Vale. I suoi passaggi progressivi sono saliti da 5 a 12 e i tocchi da 14 a 27, aiutando il possesso (a tempo) a salire al 49.7%."
+     },
+     "player_focus_es": {
+      "headline": "Dordor enciende a Elmholm",
+      "text": "Kian Dordor tomó de golpe el peso ofensivo del Elmholm Vale. Sus pases progresivos subieron de 5 a 12 y sus toques de 14 a 27, ayudando a que la posesión (por tiempo) llegara al 49.7%."
+     }
+    },
+    "seal": {
+     "passed": 4,
+     "total": 4
+    },
+    "evidence": [
+     {
+      "tool": "get_player_physical",
+      "subject": "p_elm_21",
+      "metric": "progressive_passes",
+      "before_start_ms": 3120000,
+      "before_end_ms": 4200000,
+      "after_start_ms": 4200000,
+      "after_end_ms": 5280000,
+      "before": 5.0,
+      "after": 12.0
+     },
+     {
+      "tool": "get_player_physical",
+      "subject": "p_elm_21",
+      "metric": "touches",
+      "before_start_ms": 3120000,
+      "before_end_ms": 4200000,
+      "after_start_ms": 4200000,
+      "after_end_ms": 5280000,
+      "before": 14.0,
+      "after": 27.0
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_elm",
+      "metric": "possession_time_based",
+      "before_start_ms": 3120000,
+      "before_end_ms": 4200000,
+      "after_start_ms": 4200000,
+      "after_end_ms": 5280000,
+      "before": 0.228,
+      "after": 0.497
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_elm",
+      "metric": "ppda",
+      "before_start_ms": 3120000,
+      "before_end_ms": 4200000,
+      "after_start_ms": 4200000,
+      "after_end_ms": 5280000,
+      "before": 50.0,
+      "after": 19.0
+     }
+    ],
+    "fallbacks": []
+   }
+  },
+  {
+   "overlay_id": "mo_004_c",
+   "source_moment_id": "mo_004",
+   "tier": 1,
+   "show_at_ms": 5292149,
+   "duration_ms": 8000,
+   "priority": 3,
+   "kind": "caption",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "text": "Kian Dordor drives Elmholm Vale forward, as their possession rises and pressure intensifies late on."
+   }
+  },
+  {
+   "overlay_id": "o0_0116",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 5340000,
+   "duration_ms": 3500,
+   "priority": 3,
+   "kind": "speed_badge",
+   "anchor": {
+    "type": "player",
+    "player_id": "p_esk_27"
+   },
+   "payload": {
+    "value": 33.1,
+    "unit": "km/h",
+    "player_id": "p_esk_27",
+    "team_id": "t_esk"
+   }
+  },
+  {
+   "overlay_id": "o0_0117",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 5340000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 46.7,
+     "t_elm": 45.1
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0118",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 5400000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 44.3,
+     "t_elm": 46.4
+    }
+   }
+  },
+  {
+   "overlay_id": "mo_005_t",
+   "source_moment_id": "mo_005",
+   "tier": 1,
+   "show_at_ms": 5401192,
+   "duration_ms": 15000,
+   "priority": 2,
+   "kind": "moment_card",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "headline": "Eskdale Athletic: stretching the pitch?",
+    "text": "Last 16 minutes vs before: Width 12.1 → 16.1.",
+    "team_id": "t_esk",
+    "player_id": null,
+    "state": "pending"
+   }
+  },
+  {
+   "overlay_id": "mo_006_t",
+   "source_moment_id": "mo_006",
+   "tier": 1,
+   "show_at_ms": 5401257,
+   "duration_ms": 15000,
+   "priority": 2,
+   "kind": "moment_card",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "headline": "Elmholm Vale: stretching the pitch?",
+    "text": "Last 16 minutes vs before: Width 16.2 → 19.4.",
+    "team_id": "t_elm",
+    "player_id": null,
+    "state": "pending"
+   }
+  },
+  {
+   "overlay_id": "o0_0119",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 5402000,
+   "duration_ms": 9000,
+   "priority": 3,
+   "kind": "stat_compare",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "window_minutes": 15,
+    "teams": {
+     "t_esk": {
+      "possession_time_based": 0.492,
+      "field_tilt": 0.708,
+      "ppda": 7.12
+     },
+     "t_elm": {
+      "possession_time_based": 0.508,
+      "field_tilt": 0.292,
+      "ppda": 33.0
+     }
+    }
+   }
+  },
+  {
+   "overlay_id": "mo_006_v",
+   "source_moment_id": "mo_006",
+   "tier": 1,
+   "show_at_ms": 5411790,
+   "duration_ms": 6000,
+   "priority": 2,
+   "kind": "moment_card",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "state": "verified",
+    "replaces": "mo_006_t",
+    "claim": "Elmholm Vale switched to noticeably wider play: average width rose from 15.8 m to 19.4 m, stretching Eskdale's shape. The switch coincided with time-based possession rising from 24% to 51% and field-tilt rising from 14% to 27%, creating more sustained attacking chances.",
+    "mechanism_tag": "tactical_switch",
+    "team_id": "t_elm",
+    "player_ids": [],
+    "texts": {
+     "analyst_en": {
+      "headline": "Elmholm Vale stretch Eskdale",
+      "text": "Elmholm Vale went much wider, with average width up from 15.8 m to 19.4 m and stretching Eskdale’s shape. That matched time-based possession rising from 24% to 51% and field-tilt from 14% to 27%."
+     },
+     "analyst_it": {
+      "headline": "Elmholm Vale allarga il campo",
+      "text": "Elmholm Vale ha giocato molto più largo, con la larghezza media salita da 15.8 m a 19.4 m e la forma di Eskdale allungata. Insieme sono saliti possesso (a tempo) da 24% a 51% e field tilt da 14% a 27%."
+     },
+     "analyst_es": {
+      "headline": "Elmholm Vale estira a Eskdale",
+      "text": "Elmholm Vale abrió mucho más el juego, con la anchura media subiendo de 15.8 m a 19.4 m y la estructura de Eskdale estirada. Eso fue con posesión (por tiempo) del 24% al 51% y field tilt del 14% al 27%."
+     },
+     "casual_en": {
+      "headline": "Elmholm Vale get wider",
+      "text": "Elmholm Vale started playing much wider, and that pulled Eskdale out of shape. It also led to more control, with time-based possession up from 24% to 51% and field tilt from 14% to 27%."
+     },
+     "casual_it": {
+      "headline": "Elmholm Vale si apre",
+      "text": "Elmholm Vale ha iniziato a giocare molto più largo, mettendo in difficoltà la forma di Eskdale. Così è salito anche il possesso (a tempo), da 24% a 51%, e il field tilt da 14% a 27%."
+     },
+     "casual_es": {
+      "headline": "Elmholm Vale se abre",
+      "text": "Elmholm Vale empezó a jugar mucho más abierto y eso desordenó a Eskdale. También les dio más control, con posesión (por tiempo) del 24% al 51% y field tilt del 14% al 27%."
+     },
+     "player_focus_en": {
+      "headline": "Elmholm Vale widen the pitch",
+      "text": "For Elmholm Vale, the key change was playing much wider and stretching Eskdale’s shape. That helped time-based possession rise from 24% to 51% and field tilt from 14% to 27%."
+     },
+     "player_focus_it": {
+      "headline": "Elmholm Vale allarga il gioco",
+      "text": "Per Elmholm Vale la chiave è stata giocare molto più largo e allungare la forma di Eskdale. Questo ha fatto salire il possesso (a tempo) da 24% a 51% e il field tilt da 14% a 27%."
+     },
+     "player_focus_es": {
+      "headline": "Elmholm Vale ensancha el campo",
+      "text": "La clave de Elmholm Vale fue jugar mucho más abierto y estirar la forma de Eskdale. Eso hizo subir la posesión (por tiempo) de 24% a 51% y el field tilt de 14% a 27%."
+     }
+    },
+    "seal": {
+     "passed": 3,
+     "total": 3
+    },
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_elm",
+      "metric": "width_m",
+      "before_start_ms": 3480000,
+      "before_end_ms": 4440000,
+      "after_start_ms": 4440000,
+      "after_end_ms": 5400000,
+      "before": 15.8,
+      "after": 19.4
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_elm",
+      "metric": "possession_time_based",
+      "before_start_ms": 3480000,
+      "before_end_ms": 4440000,
+      "after_start_ms": 4440000,
+      "after_end_ms": 5400000,
+      "before": 0.238,
+      "after": 0.508
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_elm",
+      "metric": "field_tilt",
+      "before_start_ms": 3480000,
+      "before_end_ms": 4440000,
+      "after_start_ms": 4440000,
+      "after_end_ms": 5400000,
+      "before": 0.138,
+      "after": 0.27
+     }
+    ],
+    "fallbacks": [
+     "caption:text-check"
+    ]
+   }
+  },
+  {
+   "overlay_id": "mo_006_c",
+   "source_moment_id": "mo_006",
+   "tier": 1,
+   "show_at_ms": 5411790,
+   "duration_ms": 8000,
+   "priority": 3,
+   "kind": "caption",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "text": "Elmholm Vale switched to noticeably wider play: average width rose from 15.8 m to 19.4 m, stretching Eskdale's shape. The switch coincided w"
+   }
+  },
+  {
+   "overlay_id": "mo_005_w",
+   "source_moment_id": "mo_005",
+   "tier": 1,
+   "show_at_ms": 5419028,
+   "duration_ms": 0,
+   "priority": 3,
+   "kind": "moment_card",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "state": "withdrawn",
+    "replaces": "mo_005_t",
+    "reason": "The claim says \"late substitutions,\" but the evidence provided contains no substitution data or named substitution event.; The claim says \"reduced control\" and \"chance quality\"; the control index does drop from 73.0 to 53.0 and xT added drops from 0.477 to 0.169, so this part is consistent. No other factual issues found."
+   }
+  },
+  {
+   "overlay_id": "o0_0120",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 5460000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 44.2,
+     "t_elm": 46.4
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0121",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 5520000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 52.2,
+     "t_elm": 46.3
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0122",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 5576900,
+   "duration_ms": 6000,
+   "priority": 3,
+   "kind": "pass_card",
+   "anchor": {
+    "type": "pitch",
+    "x": 50.17,
+    "y": 49.1
+   },
+   "payload": {
+    "player_id": "p_elm_21",
+    "recipient_id": "p_elm_29",
+    "team_id": "t_elm",
+    "x": 50.17,
+    "y": 49.1,
+    "end_x": 65.42,
+    "end_y": 7.82,
+    "pass_length_m": 44.0,
+    "pass_progression_m": 15.2,
+    "pass_difficulty": 0.689,
+    "ball_speed_ms": 24.62
+   }
+  },
+  {
+   "overlay_id": "o0_0123",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 5580000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 52.6,
+     "t_elm": 39.4
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0124",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 5640000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 73.1,
+     "t_elm": 54.4
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0125",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 5700000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 70.6,
+     "t_elm": 66.2
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0126",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 5721200,
+   "duration_ms": 6000,
+   "priority": 3,
+   "kind": "pass_card",
+   "anchor": {
+    "type": "pitch",
+    "x": 54.96,
+    "y": 51.15
+   },
+   "payload": {
+    "player_id": "p_elm_21",
+    "recipient_id": "p_elm_29",
+    "team_id": "t_elm",
+    "x": 54.96,
+    "y": 51.15,
+    "end_x": 68.38,
+    "end_y": 8.28,
+    "pass_length_m": 44.9,
+    "pass_progression_m": 13.4,
+    "pass_difficulty": 0.697,
+    "ball_speed_ms": 23.46
+   }
+  },
+  {
+   "overlay_id": "o0_0127",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 5760000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_esk": 61.1,
+     "t_elm": 68.6
+    }
+   }
+  }
+ ]
+}

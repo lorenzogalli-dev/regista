@@ -14,5 +14,6 @@ player only if the claim names them. Keep metric names natural in each language 
 `text`: two short sentences, about 200 characters; never cut a sentence.
 
 Return exactly nine lines: analyst_en, analyst_it, analyst_es, casual_en, casual_it, casual_es,
-player_focus_en, player_focus_it, player_focus_es. `headline` under 50 characters.
+player_focus_en, player_focus_it, player_focus_es. `headline` under 50 characters: specific to this moment (who and what changed, for example
+"Linbridge take control" or "Falvik drives Dunhurst on"), never just the mechanism name.
 Say "time-based possession" (or the natural translation) if possession is mentioned.

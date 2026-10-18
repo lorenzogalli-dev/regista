@@ -5,7 +5,18 @@
 import { PANEL, contrast } from '../lib/color.ts'
 import { SAFE, STAGE } from '../lib/projection.ts'
 
-const GRAPHICS = ['.scorebug', '.pass-card', '.moment', '.tag', '.seal']
+const GRAPHICS = [
+  '.scorebug',
+  '.pass-card',
+  '.moment',
+  '.tag',
+  '.seal',
+  '.badge',
+  '.stat-compare',
+  '.ribbon',
+  '.caption',
+  '.source',
+]
 const SKEW_TAN = Math.tan((-5 * Math.PI) / 180)
 
 type Rect = { left: number; top: number; right: number; bottom: number }
@@ -48,6 +59,7 @@ export function runAudit(): Record<string, unknown> {
 
   for (const sel of GRAPHICS) {
     document.querySelectorAll(sel).forEach((el, i) => {
+      if (getComputedStyle(el).visibility === 'hidden') return
       const r = stageRect(el, stage, scale)
       seen[`${sel}#${i}`] = r
       if (

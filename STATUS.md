@@ -10,6 +10,7 @@ Last updated: 2026-10-18. This file can drift: check the real state (run it, que
   - Timing: ~3.5 s simulate + ~2.2 s write per full match (macOS ARM).
 
 ## In progress
+- D5b (2026-10-18): broadcast view on real recorded runs (template → verified text, amber state), split view, control room, /graphics, eval report page, landing, second screen and recap; recorded and live share one WebSocket message vocabulary (`agents/live.py`, `api/routes/runs.py`). Review material in `docs/design/d5b/`. Verifier now also receives the key events the Analyst saw (it rejected a true substitution in recorded run m_1009; that run is kept as recorded).
 - D4 evaluation done (2026-10-18): official run once on 20 eval + 10 control seeds (`docs/eval/`): recall 52 %, evidence validity 100 %, 0 unsupported of 81 approved, precision 43 %, precision@3 48 %, 1.8 approved per control match (all evidence-backed), Verifier rejections 15 %, candidate → approval p50 9.5 s.
 - D2.0 storyline signal check done (2026-10-18), official table in `docs/signal_check.md`.
   - Three strengthening rounds tuned on 2000–2099; first judged run on 2100–2199 (`docs/signal_check_2100.md`, superseded).
@@ -49,7 +50,9 @@ Cumulative cap 8 EUR (ledger `data/runs/foundry_ledger.jsonl`, local). Prices: A
 | 2026-10-18 | Full pipeline after text check + glossary, same 3 matches | ~0.07 (from previous actual) | 0.073 | no invented facts, no cut texts |
 | 2026-10-18 | Dev report, final config, 20 dev matches | 0.53 | 0.281 | recall 51 %, precision 38 %, P@3 44 %, 0 unsupported |
 | 2026-10-18 | **Official eval**, 20 eval + 10 control, once | 0.73 (0.51–1.09) | 0.385 | see README / docs/eval |
-| | **Cumulative** | | **1.50** | cap 8 EUR |
+| 2026-10-18 | Recorded demo runs, full pipeline, m_1000 / m_1003 / m_1009 | 0.27 (0.19–0.41) | 0.133 | first take (generic persona headlines) |
+| 2026-10-18 | Recorded demo runs again, specific persona headlines | 0.27 (0.19–0.41) | 0.115 | kept in data/recorded |
+| | **Cumulative** | | **1.75** | cap 8 EUR |
 
 ## Blocked
 - Nothing.

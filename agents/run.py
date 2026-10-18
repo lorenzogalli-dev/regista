@@ -26,6 +26,7 @@ from typing import Any, Literal
 from agents import ledger
 from agents.candidates import CandidateFinder
 from agents.config import Settings
+from agents.overlays import Tier0Feed, moment_overlays, template_card
 from agents.pipeline import Desk, MomentWork, run_moment
 from agents.providers import BudgetExceeded, Meter
 from metrics.store import MatchStore
@@ -47,6 +48,9 @@ async def run_match(
     if settings.provider != "fake":
         meter.prior_eur = ledger.spent()
     finder = CandidateFinder(store)
+    feed = Tier0Feed(store)
+    tier0: list[dict[str, Any]] = []
+    templates: dict[str, dict[str, Any]] = {}
     moments: list[MomentWork] = []
     stopped: str | None = None
     t0 = time.perf_counter()
@@ -67,9 +71,15 @@ async def run_match(
                 store.ingest_frame(m["data"])
             else:
                 store.ingest_event(m["data"])
+            if mode == "full" and m["type"] == "frame":
+                tier0.extend(feed.poll())
             if store.now_ms < finder.next_check or stopped:
                 continue
             for c in finder.poll():
+                player = next(
+                    (p.name for p in store.meta.players if p.player_id == c.player_id), None
+                )
+                templates[c.candidate_id] = template_card(c, desk.team_name(c.team_id), player)
                 try:
                     moments.append(await run_moment(desk, c, mode))
                 except BudgetExceeded as e:
@@ -114,6 +124,17 @@ async def run_match(
         "usage": meter.summary(),
         "calls": [vars(c) for c in meter.calls],
         "moments": [w.to_dict() for w in moments],
+        "overlays": sorted(
+            tier0
+            + [
+                o
+                for w in moments
+                for o in moment_overlays(w.to_dict(), templates[w.candidate.candidate_id])
+            ],
+            key=lambda o: o["show_at_ms"],
+        )
+        if mode == "full"
+        else [],
     }
 
 

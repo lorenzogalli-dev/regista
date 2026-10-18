@@ -96,7 +96,9 @@ def _verifier(p: dict[str, Any]) -> S.TextCheck:
 def _persona(p: dict[str, Any]) -> S.PersonaSet:
     return S.PersonaSet(
         lines=[
-            S.PersonaLine(persona_id=f"{mode}_{lang}", headline=p["headline"][:60], text=p["claim"])
+            S.PersonaLine(
+                persona_id=f"{mode}_{lang}", headline=p["mechanism"][:60], text=p["claim"]
+            )
             for mode in S.PERSONA_MODES
             for lang in S.LANGS
         ]

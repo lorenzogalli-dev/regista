@@ -1,0 +1,4792 @@
+{
+ "run_id": "r_m_1003_ac9d4e3d",
+ "match_id": "m_1003",
+ "mode": "full",
+ "kind": "recorded agent run",
+ "provider": "foundry",
+ "models": {
+  "fast": "gtf-fast",
+  "reasoning": "gtf-reasoning",
+  "reasoning_effort": "low"
+ },
+ "started_at": "2026-10-18T13:10:04.764105+00:00",
+ "wall_s": 54.1,
+ "candidates": 5,
+ "status_counts": {
+  "published": 4,
+  "dropped": 1
+ },
+ "budget_stopped": null,
+ "usage": {
+  "provider": "foundry",
+  "calls": 25,
+  "tokens_in": 28561,
+  "tokens_out": 6828,
+  "cost_eur": 0.0339,
+  "estimated": false,
+  "by_agent": {
+   "detector": {
+    "calls": 5,
+    "tokens_in": 6328,
+    "tokens_out": 278,
+    "eur": 0.00581
+   },
+   "analyst": {
+    "calls": 4,
+    "tokens_in": 14279,
+    "tokens_out": 3604,
+    "eur": 0.00948
+   },
+   "verifier": {
+    "calls": 4,
+    "tokens_in": 3421,
+    "tokens_out": 68,
+    "eur": 0.00278
+   },
+   "director": {
+    "calls": 4,
+    "tokens_in": 1168,
+    "tokens_out": 120,
+    "eur": 0.00137
+   },
+   "narrator": {
+    "calls": 4,
+    "tokens_in": 1078,
+    "tokens_out": 127,
+    "eur": 0.00134
+   },
+   "persona": {
+    "calls": 4,
+    "tokens_in": 2287,
+    "tokens_out": 2631,
+    "eur": 0.01312
+   }
+  }
+ },
+ "calls": [
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1244,
+   "tokens_out": 59,
+   "reasoning_tokens": 0,
+   "latency_ms": 1475,
+   "cost_eur": 0.0011601421,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3398,
+   "tokens_out": 1112,
+   "reasoning_tokens": 576,
+   "latency_ms": 7870,
+   "cost_eur": 0.0027045688,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 850,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1137,
+   "cost_eur": 0.0006911503000000001,
+   "estimated": false
+  },
+  {
+   "agent": "director",
+   "role": "fast",
+   "tokens_in": 285,
+   "tokens_out": 34,
+   "reasoning_tokens": 0,
+   "latency_ms": 1523,
+   "cost_eur": 0.0003550106,
+   "estimated": false
+  },
+  {
+   "agent": "narrator",
+   "role": "fast",
+   "tokens_in": 266,
+   "tokens_out": 31,
+   "reasoning_tokens": 0,
+   "latency_ms": 1609,
+   "cost_eur": 0.00032814890000000004,
+   "estimated": false
+  },
+  {
+   "agent": "persona",
+   "role": "fast",
+   "tokens_in": 573,
+   "tokens_out": 665,
+   "reasoning_tokens": 0,
+   "latency_ms": 3971,
+   "cost_eur": 0.0033126715,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1195,
+   "tokens_out": 54,
+   "reasoning_tokens": 0,
+   "latency_ms": 1358,
+   "cost_eur": 0.0011027886,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1164,
+   "tokens_out": 55,
+   "reasoning_tokens": 0,
+   "latency_ms": 1005,
+   "cost_eur": 0.0010846385,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3366,
+   "tokens_out": 814,
+   "reasoning_tokens": 384,
+   "latency_ms": 6433,
+   "cost_eur": 0.0021730786,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 871,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1034,
+   "cost_eur": 0.0007063963,
+   "estimated": false
+  },
+  {
+   "agent": "director",
+   "role": "fast",
+   "tokens_in": 293,
+   "tokens_out": 30,
+   "reasoning_tokens": 0,
+   "latency_ms": 1039,
+   "cost_eur": 0.000343395,
+   "estimated": false
+  },
+  {
+   "agent": "narrator",
+   "role": "fast",
+   "tokens_in": 283,
+   "tokens_out": 34,
+   "reasoning_tokens": 0,
+   "latency_ms": 1153,
+   "cost_eur": 0.0003535586,
+   "estimated": false
+  },
+  {
+   "agent": "persona",
+   "role": "fast",
+   "tokens_in": 586,
+   "tokens_out": 674,
+   "reasoning_tokens": 0,
+   "latency_ms": 3307,
+   "cost_eur": 0.0033613126,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1493,
+   "tokens_out": 59,
+   "reasoning_tokens": 0,
+   "latency_ms": 1097,
+   "cost_eur": 0.0013409161,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3698,
+   "tokens_out": 886,
+   "reasoning_tokens": 320,
+   "latency_ms": 6433,
+   "cost_eur": 0.0023728314,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 839,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 983,
+   "cost_eur": 0.0006831643,
+   "estimated": false
+  },
+  {
+   "agent": "director",
+   "role": "fast",
+   "tokens_in": 295,
+   "tokens_out": 28,
+   "reasoning_tokens": 0,
+   "latency_ms": 977,
+   "cost_eur": 0.0003361352,
+   "estimated": false
+  },
+  {
+   "agent": "narrator",
+   "role": "fast",
+   "tokens_in": 261,
+   "tokens_out": 32,
+   "reasoning_tokens": 0,
+   "latency_ms": 1067,
+   "cost_eur": 0.0003288748,
+   "estimated": false
+  },
+  {
+   "agent": "persona",
+   "role": "fast",
+   "tokens_in": 559,
+   "tokens_out": 552,
+   "reasoning_tokens": 0,
+   "latency_ms": 3066,
+   "cost_eur": 0.0028102908,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1232,
+   "tokens_out": 51,
+   "reasoning_tokens": 0,
+   "latency_ms": 1202,
+   "cost_eur": 0.0011165829000000002,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3817,
+   "tokens_out": 792,
+   "reasoning_tokens": 384,
+   "latency_ms": 6437,
+   "cost_eur": 0.0022335807999999996,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 861,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 991,
+   "cost_eur": 0.0006991363,
+   "estimated": false
+  },
+  {
+   "agent": "narrator",
+   "role": "fast",
+   "tokens_in": 268,
+   "tokens_out": 30,
+   "reasoning_tokens": 0,
+   "latency_ms": 1057,
+   "cost_eur": 0.000325245,
+   "estimated": false
+  },
+  {
+   "agent": "director",
+   "role": "fast",
+   "tokens_in": 295,
+   "tokens_out": 28,
+   "reasoning_tokens": 0,
+   "latency_ms": 1049,
+   "cost_eur": 0.0003361352,
+   "estimated": false
+  },
+  {
+   "agent": "persona",
+   "role": "fast",
+   "tokens_in": 569,
+   "tokens_out": 740,
+   "reasoning_tokens": 0,
+   "latency_ms": 3188,
+   "cost_eur": 0.00363646,
+   "estimated": false
+  }
+ ],
+ "moments": [
+  {
+   "moment_id": "mo_001",
+   "candidate": {
+    "candidate_id": "c_001",
+    "kind": "pressing_spell",
+    "t_ms": 1860000,
+    "team_id": "t_bri",
+    "player_id": null,
+    "window_start_ms": 960000,
+    "window_end_ms": 1860000,
+    "score": 2.05,
+    "signals": [
+     {
+      "metric": "ppda",
+      "subject": "t_bri",
+      "expected": "down",
+      "window": 5.273,
+      "before": 27.0,
+      "z": 3.5,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_wil",
+      "expected": "down",
+      "window": 0.812,
+      "before": 0.855,
+      "z": 0.84,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_bri",
+      "expected": "up",
+      "window": 0.616,
+      "before": 0.339,
+      "z": 1.81,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "pressing_spell": 2.05
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_bri",
+      "expected": "down",
+      "window": 5.273,
+      "before": 27.0,
+      "z": 3.5,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_wil",
+      "expected": "down",
+      "window": 0.812,
+      "before": 0.855,
+      "z": 0.84,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_bri",
+      "expected": "up",
+      "window": 0.616,
+      "before": 0.339,
+      "z": 1.81,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "possession",
+      "subject": "t_bri",
+      "expected": "up",
+      "window": 0.475,
+      "before": 0.297,
+      "z": 1.53,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_bri",
+      "expected": "up",
+      "window": 27.094,
+      "before": 26.358,
+      "z": 0.53,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_bri",
+      "expected": "down",
+      "window": 0.785,
+      "before": 0.786,
+      "z": 0.02,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "width",
+      "subject": "t_bri",
+      "expected": "up",
+      "window": 15.638,
+      "before": 16.71,
+      "z": -0.85,
+      "above_noise_p95": false
+     }
+    ],
+    "key_events": [
+     {
+      "t_ms": 871700,
+      "type": "card",
+      "team_id": "t_bri",
+      "player_id": "p_bri_10",
+      "detail": "yellow"
+     },
+     {
+      "t_ms": 1719200,
+      "type": "card",
+      "team_id": "t_bri",
+      "player_id": "p_bri_14",
+      "detail": "yellow"
+     }
+    ]
+   },
+   "status": "published",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "pressing_spell",
+    "salience": 4,
+    "reason": "Brinhaven’s PPDA drops sharply with a matching lift in field tilt and possession, pointing to a sustained pressing uptick rather than noise."
+   },
+   "explanation": {
+    "claim": "Brinhaven Wanderers have stepped up their press from 16–31', with PPDA collapsing from 24.33 to 5.27: their time-based possession rose from 31.0% to 47.5% and field tilt from 36.2% to 61.6%. Wilgate’s pass completion edged down to 81.2%, so Brinhaven now control territory and are disrupting Wilgate’s passing.",
+    "mechanism_tag": "pressing_spell",
+    "team_id": "t_bri",
+    "player_ids": [
+     "p_bri_14",
+     "p_bri_10"
+    ],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_bri",
+      "metric": "ppda",
+      "before_start_ms": 60000,
+      "before_end_ms": 960000,
+      "after_start_ms": 960000,
+      "after_end_ms": 1860000,
+      "before": 24.33,
+      "after": 5.27
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_bri",
+      "metric": "possession_time_based",
+      "before_start_ms": 60000,
+      "before_end_ms": 960000,
+      "after_start_ms": 960000,
+      "after_end_ms": 1860000,
+      "before": 0.31,
+      "after": 0.475
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_bri",
+      "metric": "field_tilt",
+      "before_start_ms": 60000,
+      "before_end_ms": 960000,
+      "after_start_ms": 960000,
+      "after_end_ms": 1860000,
+      "before": 0.362,
+      "after": 0.616
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_wil",
+      "metric": "pass_completion",
+      "before_start_ms": 60000,
+      "before_end_ms": 960000,
+      "after_start_ms": 960000,
+      "after_end_ms": 1860000,
+      "before": 0.841,
+      "after": 0.812
+     }
+    ],
+    "confidence": 0.9
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": {
+    "text": "Brinhaven Wanderers have stepped up their press, gaining territory and disrupting Wilgate’s passing."
+   },
+   "personas": [
+    {
+     "persona_id": "analyst_en",
+     "headline": "Brinhaven seize control",
+     "text": "Brinhaven Wanderers have raised the press from 16–31', with PPDA falling from 24.33 to 5.27. Time-based possession, field tilt and territorial control all swing their way, while Wilgate’s pass completion slips to 81.2%."
+    },
+    {
+     "persona_id": "analyst_it",
+     "headline": "Brinhaven cambiano l’inerzia",
+     "text": "Il Brinhaven Wanderers ha alzato il pressing tra 16–31', con il PPDA crollato da 24.33 a 5.27. La possesso (a tempo) sale dal 31.0% al 47.5% e il field tilt dal 36.2% al 61.6%."
+    },
+    {
+     "persona_id": "analyst_es",
+     "headline": "Brinhaven toma el mando",
+     "text": "Brinhaven Wanderers sube la presión entre 16–31', con el PPDA cayendo de 24.33 a 5.27. La posesión (por tiempo) pasa de 31.0% a 47.5% y el field tilt de 36.2% a 61.6%."
+    },
+    {
+     "persona_id": "casual_en",
+     "headline": "Brinhaven turn the screw",
+     "text": "Brinhaven Wanderers have really stepped up the press from 16–31'. That’s why they’re spending more time in Wilgate’s half and making Wilgate’s passing less clean."
+    },
+    {
+     "persona_id": "casual_it",
+     "headline": "Brinhaven alzano il ritmo",
+     "text": "Il Brinhaven Wanderers ha alzato il pressing tra 16–31' e si vede subito. Ora passa più tempo nella metà campo di Wilgate e rende più difficile il loro giro palla."
+    },
+    {
+     "persona_id": "casual_es",
+     "headline": "Brinhaven aprieta más",
+     "text": "Brinhaven Wanderers ha subido el nivel de presión entre 16–31'. Así pasa más tiempo en campo rival y le complica mucho los pases a Wilgate."
+    },
+    {
+     "persona_id": "player_focus_en",
+     "headline": "Brinhaven press as one",
+     "text": "Brinhaven Wanderers have stepped up the press from 16–31', and the whole side is squeezing higher. That shift is lifting time-based possession and field tilt while Wilgate’s pass completion dips to 81.2%."
+    },
+    {
+     "persona_id": "player_focus_it",
+     "headline": "Brinhaven stringe insieme",
+     "text": "Brinhaven Wanderers ha alzato il pressing tra 16–31', con la squadra più alta e più aggressiva. Crescono possesso (a tempo) e field tilt, mentre il pass completion di Wilgate scende all’81.2%."
+    },
+    {
+     "persona_id": "player_focus_es",
+     "headline": "Brinhaven aprieta en bloque",
+     "text": "Brinhaven Wanderers ha subido el pressing entre 16–31', con todo el equipo empujando más arriba. Eso eleva la posesión (por tiempo) y el field tilt, y baja el pass completion de Wilgate a 81.2%."
+    }
+   ],
+   "cue": {
+    "show": true,
+    "delay_ms": 0,
+    "duration_ms": 10000,
+    "priority": 1
+   },
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1476,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 7871,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 6,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1138,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "director",
+     "ms": 1524,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "narrator",
+     "ms": 1610,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "persona",
+     "ms": 3971,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_002",
+   "candidate": {
+    "candidate_id": "c_002",
+    "kind": "pressing_spell",
+    "t_ms": 3120000,
+    "team_id": "t_wil",
+    "player_id": null,
+    "window_start_ms": 2220000,
+    "window_end_ms": 3120000,
+    "score": 1.78,
+    "signals": [
+     {
+      "metric": "ppda",
+      "subject": "t_wil",
+      "expected": "down",
+      "window": 4.833,
+      "before": 7.769,
+      "z": 0.46,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_bri",
+      "expected": "down",
+      "window": 0.61,
+      "before": 0.767,
+      "z": 3.06,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_wil",
+      "expected": "up",
+      "window": 0.778,
+      "before": 0.497,
+      "z": 1.83,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "pressing_spell": 1.78
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_wil",
+      "expected": "down",
+      "window": 4.833,
+      "before": 7.769,
+      "z": 0.46,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_bri",
+      "expected": "down",
+      "window": 0.61,
+      "before": 0.767,
+      "z": 3.06,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_wil",
+      "expected": "up",
+      "window": 0.778,
+      "before": 0.497,
+      "z": 1.83,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "possession",
+      "subject": "t_wil",
+      "expected": "up",
+      "window": 0.787,
+      "before": 0.6,
+      "z": 1.6,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_wil",
+      "expected": "up",
+      "window": 25.454,
+      "before": 25.301,
+      "z": 0.15,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_wil",
+      "expected": "down",
+      "window": 0.83,
+      "before": 0.826,
+      "z": -0.07,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "width",
+      "subject": "t_wil",
+      "expected": "up",
+      "window": 14.629,
+      "before": 15.173,
+      "z": -0.4,
+      "above_noise_p95": false
+     }
+    ],
+    "key_events": [
+     {
+      "t_ms": 2047200,
+      "type": "card",
+      "team_id": "t_bri",
+      "player_id": "p_bri_16",
+      "detail": "yellow"
+     }
+    ]
+   },
+   "status": "dropped",
+   "detector": {
+    "keep": false,
+    "mechanism_hint": "none",
+    "salience": 1,
+    "reason": "Wilgate’s field tilt and possession only rise modestly, while pressing itself does not move enough to support a clear pressing spell."
+   },
+   "explanation": null,
+   "attempts": 0,
+   "rejection": "detector: Wilgate’s field tilt and possession only rise modestly, while pressing itself does not move enough to support a clear pressing spell.",
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1359,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_003",
+   "candidate": {
+    "candidate_id": "c_003",
+    "kind": "tactical_switch/long_ball",
+    "t_ms": 3240000,
+    "team_id": "t_bri",
+    "player_id": null,
+    "window_start_ms": 2280000,
+    "window_end_ms": 3240000,
+    "score": 1.97,
+    "signals": [
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_bri",
+      "expected": "up",
+      "window": 29.488,
+      "before": 26.58,
+      "z": 1.94,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_bri",
+      "expected": "down",
+      "window": 0.653,
+      "before": 0.753,
+      "z": 1.99,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "tactical_switch/long_ball": 1.97
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_bri",
+      "expected": "down",
+      "window": 17.6,
+      "before": 7.435,
+      "z": -1.66,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_wil",
+      "expected": "down",
+      "window": 0.855,
+      "before": 0.819,
+      "z": -0.68,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_bri",
+      "expected": "up",
+      "window": 0.364,
+      "before": 0.469,
+      "z": -0.69,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "possession",
+      "subject": "t_bri",
+      "expected": "up",
+      "window": 0.244,
+      "before": 0.388,
+      "z": -1.23,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_bri",
+      "expected": "up",
+      "window": 29.488,
+      "before": 26.58,
+      "z": 1.94,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_bri",
+      "expected": "down",
+      "window": 0.653,
+      "before": 0.753,
+      "z": 1.99,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "width",
+      "subject": "t_bri",
+      "expected": "up",
+      "window": 15.714,
+      "before": 15.797,
+      "z": -0.01,
+      "above_noise_p95": false
+     }
+    ],
+    "key_events": [
+     {
+      "t_ms": 2047200,
+      "type": "card",
+      "team_id": "t_bri",
+      "player_id": "p_bri_16",
+      "detail": "yellow"
+     }
+    ]
+   },
+   "status": "published",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "tactical_switch",
+    "salience": 3,
+    "reason": "Brinhaven’s passing became noticeably longer and less secure at the same time, which fits a coherent shift toward direct play."
+   },
+   "explanation": {
+    "claim": "Brinhaven Wanderers shifted into more direct play around the 51st minute: their average pass length rose from 27.0m to 29.5m while pass completion fell from 70.4% to 65.3%. That change coincided with their time-based possession dropping from 48.1% to 23.2% and field tilt falling from 61.8% to 31.7%, so this is a tactical switch toward longer, riskier passes rather than taking control of the game.",
+    "mechanism_tag": "tactical_switch",
+    "team_id": "t_bri",
+    "player_ids": [
+     "p_bri_16"
+    ],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_bri",
+      "metric": "avg_pass_length_m",
+      "before_start_ms": 1320000,
+      "before_end_ms": 2280000,
+      "after_start_ms": 2280000,
+      "after_end_ms": 3240000,
+      "before": 27.0,
+      "after": 29.5
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_bri",
+      "metric": "pass_completion",
+      "before_start_ms": 1320000,
+      "before_end_ms": 2280000,
+      "after_start_ms": 2280000,
+      "after_end_ms": 3240000,
+      "before": 0.704,
+      "after": 0.653
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_bri",
+      "metric": "possession_time_based",
+      "before_start_ms": 1320000,
+      "before_end_ms": 2280000,
+      "after_start_ms": 2280000,
+      "after_end_ms": 3240000,
+      "before": 0.481,
+      "after": 0.232
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_bri",
+      "metric": "field_tilt",
+      "before_start_ms": 1320000,
+      "before_end_ms": 2280000,
+      "after_start_ms": 2280000,
+      "after_end_ms": 3240000,
+      "before": 0.618,
+      "after": 0.317
+     }
+    ],
+    "confidence": 0.8
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": {
+    "text": "Brinhaven Wanderers have gone more direct since the 51st minute, with longer passes and less possession."
+   },
+   "personas": [
+    {
+     "persona_id": "analyst_en",
+     "headline": "Brinhaven go more direct",
+     "text": "Around the 51st minute, Brinhaven Wanderers shifted to more direct play. Average pass length rose from 27.0m to 29.5m, while pass completion fell from 70.4% to 65.3%, and field tilt dropped from 61.8% to 31.7%."
+    },
+    {
+     "persona_id": "analyst_it",
+     "headline": "Brinhaven più diretti",
+     "text": "Intorno al 51° minuto, il Brinhaven Wanderers è passato a un gioco più diretto. La lunghezza media dei passaggi è salita da 27.0m a 29.5m, mentre il completamento è sceso dal 70.4% al 65.3%."
+    },
+    {
+     "persona_id": "analyst_es",
+     "headline": "Brinhaven cambia el plan",
+     "text": "Alrededor del minuto 51, Brinhaven Wanderers pasó a un juego más directo. La longitud media de pase subió de 27.0m a 29.5m, y la precisión cayó de 70.4% a 65.3%, con el field tilt bajando de 61.8% a 31.7%."
+    },
+    {
+     "persona_id": "casual_en",
+     "headline": "Brinhaven turn more direct",
+     "text": "Around the 51st minute, Brinhaven Wanderers started playing more directly. Their passes got longer, but less of them came off, and that meant they were not keeping control of the game."
+    },
+    {
+     "persona_id": "casual_it",
+     "headline": "Brinhaven va più lungo",
+     "text": "Intorno al 51° minuto, il Brinhaven Wanderers ha scelto un gioco più diretto. I passaggi sono diventati più lunghi e meno precisi, quindi la squadra ha preso meno controllo della partita."
+    },
+    {
+     "persona_id": "casual_es",
+     "headline": "Brinhaven se va más directo",
+     "text": "Alrededor del minuto 51, Brinhaven Wanderers empezó a jugar más directo. Sus pases se hicieron más largos y menos precisos, así que dejó de llevar el control del partido."
+    },
+    {
+     "persona_id": "player_focus_en",
+     "headline": "Tactical Switch",
+     "text": "Brinhaven Wanderers shifted into more direct play around the 51st minute: their average pass length rose from 27.0m to 29.5m while pass completion fell from 70.4% to 65.3%. That change coincided with their time-based possession dropping fro"
+    },
+    {
+     "persona_id": "player_focus_it",
+     "headline": "Tactical Switch",
+     "text": "Brinhaven Wanderers shifted into more direct play around the 51st minute: their average pass length rose from 27.0m to 29.5m while pass completion fell from 70.4% to 65.3%. That change coincided with their time-based possession dropping fro"
+    },
+    {
+     "persona_id": "player_focus_es",
+     "headline": "Tactical Switch",
+     "text": "Brinhaven Wanderers shifted into more direct play around the 51st minute: their average pass length rose from 27.0m to 29.5m while pass completion fell from 70.4% to 65.3%. That change coincided with their time-based possession dropping fro"
+    }
+   ],
+   "cue": {
+    "show": true,
+    "delay_ms": 0,
+    "duration_ms": 7017,
+    "priority": 2
+   },
+   "fallbacks": [
+    "player_focus_en:text-check: names Kian Ralovic, who is not part of the verified claim",
+    "player_focus_it:text-check: names Kian Ralovic, who is not part of the verified claim",
+    "player_focus_es:text-check: names Kian Ralovic, who is not part of the verified claim"
+   ],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1006,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 6434,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 11,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1034,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "director",
+     "ms": 1040,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "narrator",
+     "ms": 1154,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "persona",
+     "ms": 3307,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_004",
+   "candidate": {
+    "candidate_id": "c_004",
+    "kind": "momentum_shift",
+    "t_ms": 4560000,
+    "team_id": "t_bri",
+    "player_id": null,
+    "window_start_ms": 3660000,
+    "window_end_ms": 4560000,
+    "score": 2.29,
+    "signals": [
+     {
+      "metric": "possession",
+      "subject": "t_bri",
+      "expected": "up",
+      "window": 0.612,
+      "before": 0.325,
+      "z": 2.47,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_bri",
+      "expected": "up",
+      "window": 0.718,
+      "before": 0.394,
+      "z": 2.1,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "momentum_shift": 2.29
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_bri",
+      "expected": "down",
+      "window": 14.333,
+      "before": 10.033,
+      "z": -0.71,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_wil",
+      "expected": "down",
+      "window": 0.853,
+      "before": 0.855,
+      "z": 0.04,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_bri",
+      "expected": "up",
+      "window": 0.718,
+      "before": 0.394,
+      "z": 2.1,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "possession",
+      "subject": "t_bri",
+      "expected": "up",
+      "window": 0.612,
+      "before": 0.325,
+      "z": 2.47,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_bri",
+      "expected": "up",
+      "window": 29.85,
+      "before": 27.159,
+      "z": 1.8,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_bri",
+      "expected": "down",
+      "window": 0.826,
+      "before": 0.727,
+      "z": -1.96,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "width",
+      "subject": "t_bri",
+      "expected": "up",
+      "window": 15.229,
+      "before": 15.695,
+      "z": -0.34,
+      "above_noise_p95": false
+     }
+    ],
+    "key_events": [
+     {
+      "t_ms": 3957700,
+      "type": "sub",
+      "team_id": "t_bri",
+      "player_id": "p_bri_28",
+      "detail": "p_bri_20"
+     },
+     {
+      "t_ms": 3974500,
+      "type": "sub",
+      "team_id": "t_wil",
+      "player_id": "p_wil_14",
+      "detail": "p_wil_28"
+     },
+     {
+      "t_ms": 4102900,
+      "type": "sub",
+      "team_id": "t_wil",
+      "player_id": "p_wil_23",
+      "detail": "p_wil_04"
+     },
+     {
+      "t_ms": 4275500,
+      "type": "sub",
+      "team_id": "t_bri",
+      "player_id": "p_bri_10",
+      "detail": "p_bri_05"
+     },
+     {
+      "t_ms": 4277000,
+      "type": "card",
+      "team_id": "t_wil",
+      "player_id": "p_wil_24",
+      "detail": "yellow"
+     },
+     {
+      "t_ms": 4305000,
+      "type": "sub",
+      "team_id": "t_bri",
+      "player_id": "p_bri_09",
+      "detail": "p_bri_21"
+     },
+     {
+      "t_ms": 4441500,
+      "type": "sub",
+      "team_id": "t_wil",
+      "player_id": "p_wil_29",
+      "detail": "p_wil_10"
+     }
+    ]
+   },
+   "status": "published",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "momentum_shift",
+    "salience": 3,
+    "reason": "Brinhaven’s possession and field tilt rise together over the window, with a late Wilgate yellow and multiple subs fitting a mild sustained swing."
+   },
+   "explanation": {
+    "claim": "Brinhaven Wanderers have taken over the game: time-based possession rose from 22.8% to 61.2% and their field tilt jumped from 30.4% to 71.8% across the window. Wilgate Harriers’ possession fell from 77.2% to 38.8%, so Brinhaven’s control of the final third now matters for the remainder of the match.",
+    "mechanism_tag": "momentum_shift",
+    "team_id": "t_bri",
+    "player_ids": [],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_bri",
+      "metric": "possession_time_based",
+      "before_start_ms": 2760000,
+      "before_end_ms": 3660000,
+      "after_start_ms": 3660000,
+      "after_end_ms": 4560000,
+      "before": 0.228,
+      "after": 0.612
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_bri",
+      "metric": "field_tilt",
+      "before_start_ms": 2760000,
+      "before_end_ms": 3660000,
+      "after_start_ms": 3660000,
+      "after_end_ms": 4560000,
+      "before": 0.304,
+      "after": 0.718
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_wil",
+      "metric": "possession_time_based",
+      "before_start_ms": 2760000,
+      "before_end_ms": 3660000,
+      "after_start_ms": 3660000,
+      "after_end_ms": 4560000,
+      "before": 0.772,
+      "after": 0.388
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_wil",
+      "metric": "field_tilt",
+      "before_start_ms": 2760000,
+      "before_end_ms": 3660000,
+      "after_start_ms": 3660000,
+      "after_end_ms": 4560000,
+      "before": 0.696,
+      "after": 0.282
+     }
+    ],
+    "confidence": 0.9
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": {
+    "text": "Brinhaven Wanderers have taken control, with possession and final-third pressure now firmly in their favour."
+   },
+   "personas": [
+    {
+     "persona_id": "analyst_en",
+     "headline": "Brinhaven seize control",
+     "text": "Brinhaven Wanderers have taken over the game. Time-based possession rose from 22.8% to 61.2%, and field tilt jumped from 30.4% to 71.8%."
+    },
+    {
+     "persona_id": "analyst_it",
+     "headline": "Brinhaven prendono il comando",
+     "text": "Il Brinhaven Wanderers ha preso in mano la partita. Il possesso (a tempo) è salito dal 22.8% al 61.2% e il field tilt dal 30.4% al 71.8%."
+    },
+    {
+     "persona_id": "analyst_es",
+     "headline": "Brinhaven cambia el partido",
+     "text": "Brinhaven Wanderers se ha adueñado del juego. La posesión (por tiempo) subió de 22.8% a 61.2% y el field tilt saltó de 30.4% a 71.8%."
+    },
+    {
+     "persona_id": "casual_en",
+     "headline": "Brinhaven now on top",
+     "text": "Brinhaven Wanderers have taken control of the match. Their time-based possession and field tilt have both surged, so they’re now dictating play."
+    },
+    {
+     "persona_id": "casual_it",
+     "headline": "Brinhaven adesso comanda",
+     "text": "Il Brinhaven Wanderers ha preso il controllo della partita. Possesso (a tempo) e field tilt sono cresciuti tanto, e ora detta i ritmi."
+    },
+    {
+     "persona_id": "casual_es",
+     "headline": "Brinhaven manda ahora",
+     "text": "Brinhaven Wanderers se ha hecho con el control del partido. La posesión (por tiempo) y el field tilt han subido mucho, así que ahora manda el juego."
+    },
+    {
+     "persona_id": "player_focus_en",
+     "headline": "Brinhaven drive the final third",
+     "text": "Brinhaven Wanderers have taken over the game. Their control of the final third is the key change now, with time-based possession and field tilt both up."
+    },
+    {
+     "persona_id": "player_focus_it",
+     "headline": "Brinhaven spingono avanti",
+     "text": "Il Brinhaven Wanderers ha preso il comando della gara. Il punto chiave ora è il controllo dell’ultimo terzo, con possesso (a tempo) e field tilt in forte աճo."
+    },
+    {
+     "persona_id": "player_focus_es",
+     "headline": "Brinhaven domina arriba",
+     "text": "Brinhaven Wanderers se ha adueñado del partido. La clave ahora es el control del último tercio, con la posesión (por tiempo) y el field tilt al alza."
+    }
+   ],
+   "cue": {
+    "show": true,
+    "delay_ms": 0,
+    "duration_ms": 6000,
+    "priority": 2
+   },
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1098,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 6434,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 5,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 984,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "director",
+     "ms": 977,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "narrator",
+     "ms": 1068,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "persona",
+     "ms": 3067,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_005",
+   "candidate": {
+    "candidate_id": "c_005",
+    "kind": "player_arc",
+    "t_ms": 4620000,
+    "team_id": "t_bri",
+    "player_id": "p_bri_14",
+    "window_start_ms": 3540000,
+    "window_end_ms": 4620000,
+    "score": 4.14,
+    "signals": [
+     {
+      "metric": "progressive_passes",
+      "subject": "p_bri_14",
+      "expected": "up",
+      "window": 0.556,
+      "before": 0.051,
+      "z": 6.13,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "touches",
+      "subject": "p_bri_14",
+      "expected": "up",
+      "window": 1.0,
+      "before": 0.373,
+      "z": 2.15,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {},
+    "team_profile": [],
+    "key_events": [
+     {
+      "t_ms": 3957700,
+      "type": "sub",
+      "team_id": "t_bri",
+      "player_id": "p_bri_28",
+      "detail": "p_bri_20"
+     },
+     {
+      "t_ms": 3974500,
+      "type": "sub",
+      "team_id": "t_wil",
+      "player_id": "p_wil_14",
+      "detail": "p_wil_28"
+     },
+     {
+      "t_ms": 4102900,
+      "type": "sub",
+      "team_id": "t_wil",
+      "player_id": "p_wil_23",
+      "detail": "p_wil_04"
+     },
+     {
+      "t_ms": 4275500,
+      "type": "sub",
+      "team_id": "t_bri",
+      "player_id": "p_bri_10",
+      "detail": "p_bri_05"
+     },
+     {
+      "t_ms": 4277000,
+      "type": "card",
+      "team_id": "t_wil",
+      "player_id": "p_wil_24",
+      "detail": "yellow"
+     },
+     {
+      "t_ms": 4305000,
+      "type": "sub",
+      "team_id": "t_bri",
+      "player_id": "p_bri_09",
+      "detail": "p_bri_21"
+     },
+     {
+      "t_ms": 4441500,
+      "type": "sub",
+      "team_id": "t_wil",
+      "player_id": "p_wil_29",
+      "detail": "p_wil_10"
+     }
+    ]
+   },
+   "status": "published",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "player_arc",
+    "salience": 3,
+    "reason": "Garovic’s passing involvement jumped sharply over the window, with more touches and progressive passes than his earlier level."
+   },
+   "explanation": {
+    "claim": "From 59'–77' Emil Alak drove Brinhaven’s takeover: his progressive passes rose from 0 to 10 and his touches from 4 to 18, while Brinhaven’s time-based possession climbed from 22.0% to 56.6% and field tilt from 29.6% to 64.4%. This surge moved play into Brinhaven’s final third and handed them sustained control and attacking momentum.",
+    "mechanism_tag": "player_arc",
+    "team_id": "t_bri",
+    "player_ids": [
+     "p_bri_14"
+    ],
+    "evidence": [
+     {
+      "tool": "get_player_physical",
+      "subject": "p_bri_14",
+      "metric": "progressive_passes",
+      "before_start_ms": 2460000,
+      "before_end_ms": 3540000,
+      "after_start_ms": 3540000,
+      "after_end_ms": 4620000,
+      "before": 0.0,
+      "after": 10.0
+     },
+     {
+      "tool": "get_player_physical",
+      "subject": "p_bri_14",
+      "metric": "touches",
+      "before_start_ms": 2460000,
+      "before_end_ms": 3540000,
+      "after_start_ms": 3540000,
+      "after_end_ms": 4620000,
+      "before": 4.0,
+      "after": 18.0
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_bri",
+      "metric": "possession_time_based",
+      "before_start_ms": 2460000,
+      "before_end_ms": 3540000,
+      "after_start_ms": 3540000,
+      "after_end_ms": 4620000,
+      "before": 0.22,
+      "after": 0.566
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_bri",
+      "metric": "field_tilt",
+      "before_start_ms": 2460000,
+      "before_end_ms": 3540000,
+      "after_start_ms": 3540000,
+      "after_end_ms": 4620000,
+      "before": 0.296,
+      "after": 0.644
+     }
+    ],
+    "confidence": 0.9
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": {
+    "text": "Brinhaven have taken control, with Emil Alak driving their sustained pressure and possession higher."
+   },
+   "personas": [
+    {
+     "persona_id": "analyst_en",
+     "headline": "Alak powers Brinhaven's swing",
+     "text": "From 59'–77', Emil Alak drove the change: progressive passes rose from 0 to 10 and touches from 4 to 18. Brinhaven’s time-based possession climbed from 22.0% to 56.6%, with field tilt up to 64.4%."
+    },
+    {
+     "persona_id": "analyst_it",
+     "headline": "Alak trascina Brinhaven",
+     "text": "Tra il 59' e il 77', Emil Alak ha guidato la svolta: i passaggi progressivi sono saliti da 0 a 10 e i tocchi da 4 a 18. Il possesso (a tempo) di Brinhaven è salito dal 22.0% al 56.6%, con field tilt al 64.4%."
+    },
+    {
+     "persona_id": "analyst_es",
+     "headline": "Alak impulsa a Brinhaven",
+     "text": "Del 59' al 77', Emil Alak marcó el giro: los pases progresivos subieron de 0 a 10 y los toques de 4 a 18. La posesión (por tiempo) de Brinhaven pasó del 22.0% al 56.6%, y el field tilt al 64.4%."
+    },
+    {
+     "persona_id": "casual_en",
+     "headline": "Alak lifts Brinhaven",
+     "text": "From 59'–77', Emil Alak helped Brinhaven take over the game. Their time-based possession rose from 22.0% to 56.6%, and field tilt climbed to 64.4%."
+    },
+    {
+     "persona_id": "casual_it",
+     "headline": "Alak alza Brinhaven",
+     "text": "Tra il 59' e il 77', Emil Alak ha aiutato Brinhaven a prendersi la partita. Il possesso (a tempo) è salito dal 22.0% al 56.6% e il field tilt al 64.4%."
+    },
+    {
+     "persona_id": "casual_es",
+     "headline": "Alak cambia el ritmo",
+     "text": "Del 59' al 77', Emil Alak ayudó a Brinhaven a adueñarse del partido. La posesión (por tiempo) subió del 22.0% al 56.6% y el field tilt llegó al 64.4%."
+    },
+    {
+     "persona_id": "player_focus_en",
+     "headline": "Alak sparks Brinhaven control",
+     "text": "Emil Alak was the driver from 59'–77', with progressive passes jumping from 0 to 10 and touches from 4 to 18. That helped Brinhaven push play into the final third and keep control."
+    },
+    {
+     "persona_id": "player_focus_it",
+     "headline": "Alak accende Brinhaven",
+     "text": "Emil Alak è stato il motore tra il 59' e il 77', con i passaggi progressivi saliti da 0 a 10 e i tocchi da 4 a 18. Così Brinhaven ha spinto il gioco nell'ultimo terzo e tenuto il controllo."
+    },
+    {
+     "persona_id": "player_focus_es",
+     "headline": "Alak marca el cambio",
+     "text": "Emil Alak fue el motor del tramo 59'–77', con los pases progresivos subiendo de 0 a 10 y los toques de 4 a 18. Así Brinhaven llevó el juego al último tercio y sostuvo el control."
+    }
+   ],
+   "cue": {
+    "show": true,
+    "delay_ms": 0,
+    "duration_ms": 6000,
+    "priority": 2
+   },
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1203,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 6437,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 13,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 992,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "narrator",
+     "ms": 1058,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "director",
+     "ms": 1050,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "persona",
+     "ms": 3188,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  }
+ ],
+ "overlays": [
+  {
+   "overlay_id": "o0_0001",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 60000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 60.1,
+     "t_wil": null
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0002",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 120000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 45.3,
+     "t_wil": null
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0003",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 180000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 47.6,
+     "t_wil": 53.7
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0004",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 240000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 46.9,
+     "t_wil": 52.3
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0005",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 300000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 50.2,
+     "t_wil": 56.6
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0006",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 343100,
+   "duration_ms": 3500,
+   "priority": 3,
+   "kind": "speed_badge",
+   "anchor": {
+    "type": "player",
+    "player_id": "p_wil_23"
+   },
+   "payload": {
+    "value": 33.1,
+    "unit": "km/h",
+    "player_id": "p_wil_23",
+    "team_id": "t_wil"
+   }
+  },
+  {
+   "overlay_id": "o0_0007",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 360000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 50.7,
+     "t_wil": 58.6
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0008",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 420000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 57.6,
+     "t_wil": 63.2
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0009",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 480000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 58.2,
+     "t_wil": 53.4
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0010",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 540000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 66.3,
+     "t_wil": 62.6
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0011",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 600000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 65.0,
+     "t_wil": 61.3
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0012",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 660000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 66.7,
+     "t_wil": 61.9
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0013",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 720000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 57.8,
+     "t_wil": 59.6
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0014",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 780000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 68.1,
+     "t_wil": 62.7
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0015",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 840000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 65.8,
+     "t_wil": 63.2
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0016",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 900000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 53.6,
+     "t_wil": 48.9
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0017",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 902000,
+   "duration_ms": 9000,
+   "priority": 3,
+   "kind": "stat_compare",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "window_minutes": 15,
+    "teams": {
+     "t_bri": {
+      "possession_time_based": 0.317,
+      "field_tilt": 0.356,
+      "ppda": 24.33
+     },
+     "t_wil": {
+      "possession_time_based": 0.683,
+      "field_tilt": 0.644,
+      "ppda": 5.57
+     }
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0018",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 960000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 57.2,
+     "t_wil": 52.6
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0019",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 966500,
+   "duration_ms": 6000,
+   "priority": 3,
+   "kind": "pass_card",
+   "anchor": {
+    "type": "pitch",
+    "x": 68.01,
+    "y": 20.29
+   },
+   "payload": {
+    "player_id": "p_bri_15",
+    "recipient_id": "p_bri_08",
+    "team_id": "t_bri",
+    "x": 68.01,
+    "y": 20.29,
+    "end_x": 22.51,
+    "end_y": 11.18,
+    "pass_length_m": 46.4,
+    "pass_progression_m": -45.5,
+    "pass_difficulty": 0.514,
+    "ball_speed_ms": 23.99
+   }
+  },
+  {
+   "overlay_id": "o0_0020",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 979900,
+   "duration_ms": 3500,
+   "priority": 3,
+   "kind": "speed_badge",
+   "anchor": {
+    "type": "player",
+    "player_id": "p_wil_16"
+   },
+   "payload": {
+    "value": 33.2,
+    "unit": "km/h",
+    "player_id": "p_wil_16",
+    "team_id": "t_wil"
+   }
+  },
+  {
+   "overlay_id": "o0_0021",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 1020000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 47.9,
+     "t_wil": 51.6
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0022",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 1080000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 45.2,
+     "t_wil": 53.7
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0023",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 1140000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 46.4,
+     "t_wil": 54.8
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0024",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 1199500,
+   "duration_ms": 6000,
+   "priority": 3,
+   "kind": "pass_card",
+   "anchor": {
+    "type": "pitch",
+    "x": 81.45,
+    "y": 36.0
+   },
+   "payload": {
+    "player_id": "p_bri_15",
+    "recipient_id": "p_bri_12",
+    "team_id": "t_bri",
+    "x": 81.45,
+    "y": 36.0,
+    "end_x": 34.56,
+    "end_y": 25.41,
+    "pass_length_m": 48.1,
+    "pass_progression_m": -46.9,
+    "pass_difficulty": 0.53,
+    "ball_speed_ms": 25.0
+   }
+  },
+  {
+   "overlay_id": "o0_0025",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 1200000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 54.9,
+     "t_wil": 70.4
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0026",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 1254700,
+   "duration_ms": 6000,
+   "priority": 3,
+   "kind": "pass_card",
+   "anchor": {
+    "type": "pitch",
+    "x": 42.85,
+    "y": 48.32
+   },
+   "payload": {
+    "player_id": "p_bri_09",
+    "recipient_id": "p_bri_18",
+    "team_id": "t_bri",
+    "x": 42.85,
+    "y": 48.32,
+    "end_x": 62.16,
+    "end_y": 8.7,
+    "pass_length_m": 44.1,
+    "pass_progression_m": 19.3,
+    "pass_difficulty": 0.491,
+    "ball_speed_ms": 25.0
+   }
+  },
+  {
+   "overlay_id": "o0_0027",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 1260000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 49.1,
+     "t_wil": 57.4
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0028",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 1304100,
+   "duration_ms": 3500,
+   "priority": 3,
+   "kind": "speed_badge",
+   "anchor": {
+    "type": "player",
+    "player_id": "p_bri_28"
+   },
+   "payload": {
+    "value": 33.0,
+    "unit": "km/h",
+    "player_id": "p_bri_28",
+    "team_id": "t_bri"
+   }
+  },
+  {
+   "overlay_id": "o0_0029",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 1320000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 62.3,
+     "t_wil": 59.1
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0030",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 1380000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 60.2,
+     "t_wil": 58.6
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0031",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 1440000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 60.2,
+     "t_wil": 52.1
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0032",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 1500000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 49.4,
+     "t_wil": 41.1
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0033",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 1560000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 44.6,
+     "t_wil": 43.7
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0034",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 1589300,
+   "duration_ms": 6000,
+   "priority": 3,
+   "kind": "pass_card",
+   "anchor": {
+    "type": "pitch",
+    "x": 99.32,
+    "y": 6.53
+   },
+   "payload": {
+    "player_id": "p_bri_18",
+    "recipient_id": "p_bri_14",
+    "team_id": "t_bri",
+    "x": 99.32,
+    "y": 6.53,
+    "end_x": 66.71,
+    "end_y": 31.54,
+    "pass_length_m": 41.1,
+    "pass_progression_m": -32.6,
+    "pass_difficulty": 0.664,
+    "ball_speed_ms": 23.84
+   }
+  },
+  {
+   "overlay_id": "o0_0035",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 1620000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 40.9,
+     "t_wil": 38.8
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0036",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 1680000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 36.1,
+     "t_wil": 31.9
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0037",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 1718900,
+   "duration_ms": 3500,
+   "priority": 3,
+   "kind": "speed_badge",
+   "anchor": {
+    "type": "player",
+    "player_id": "p_wil_25"
+   },
+   "payload": {
+    "value": 33.1,
+    "unit": "km/h",
+    "player_id": "p_wil_25",
+    "team_id": "t_wil"
+   }
+  },
+  {
+   "overlay_id": "o0_0038",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 1740000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 37.3,
+     "t_wil": 26.9
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0039",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 1800000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 38.5,
+     "t_wil": 31.1
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0040",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 1802000,
+   "duration_ms": 9000,
+   "priority": 3,
+   "kind": "stat_compare",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "window_minutes": 15,
+    "teams": {
+     "t_bri": {
+      "possession_time_based": 0.443,
+      "field_tilt": 0.616,
+      "ppda": 7.88
+     },
+     "t_wil": {
+      "possession_time_based": 0.557,
+      "field_tilt": 0.384,
+      "ppda": 7.83
+     }
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0041",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 1838100,
+   "duration_ms": 5000,
+   "priority": 2,
+   "kind": "shot_speed",
+   "anchor": {
+    "type": "player",
+    "player_id": "p_wil_24"
+   },
+   "payload": {
+    "value": 126.0,
+    "unit": "km/h",
+    "player_id": "p_wil_24",
+    "team_id": "t_wil",
+    "xg": 0.03,
+    "outcome": "off_target"
+   }
+  },
+  {
+   "overlay_id": "o0_0042",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 1860000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 44.0,
+     "t_wil": 34.5
+    }
+   }
+  },
+  {
+   "overlay_id": "mo_001_t",
+   "source_moment_id": "mo_001",
+   "tier": 1,
+   "show_at_ms": 1861476,
+   "duration_ms": 15000,
+   "priority": 2,
+   "kind": "moment_card",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "headline": "Brinhaven Wanderers: pressing harder?",
+    "text": "Last 15 minutes vs before: Ppda 27.0 → 5.3; Field tilt 34% → 62%.",
+    "team_id": "t_bri",
+    "player_id": null,
+    "state": "pending"
+   }
+  },
+  {
+   "overlay_id": "mo_001_v",
+   "source_moment_id": "mo_001",
+   "tier": 1,
+   "show_at_ms": 1874462,
+   "duration_ms": 10000,
+   "priority": 1,
+   "kind": "moment_card",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "state": "verified",
+    "replaces": "mo_001_t",
+    "claim": "Brinhaven Wanderers have stepped up their press from 16–31', with PPDA collapsing from 24.33 to 5.27: their time-based possession rose from 31.0% to 47.5% and field tilt from 36.2% to 61.6%. Wilgate’s pass completion edged down to 81.2%, so Brinhaven now control territory and are disrupting Wilgate’s passing.",
+    "mechanism_tag": "pressing_spell",
+    "team_id": "t_bri",
+    "player_ids": [
+     "p_bri_14",
+     "p_bri_10"
+    ],
+    "texts": {
+     "analyst_en": {
+      "headline": "Brinhaven seize control",
+      "text": "Brinhaven Wanderers have raised the press from 16–31', with PPDA falling from 24.33 to 5.27. Time-based possession, field tilt and territorial control all swing their way, while Wilgate’s pass completion slips to 81.2%."
+     },
+     "analyst_it": {
+      "headline": "Brinhaven cambiano l’inerzia",
+      "text": "Il Brinhaven Wanderers ha alzato il pressing tra 16–31', con il PPDA crollato da 24.33 a 5.27. La possesso (a tempo) sale dal 31.0% al 47.5% e il field tilt dal 36.2% al 61.6%."
+     },
+     "analyst_es": {
+      "headline": "Brinhaven toma el mando",
+      "text": "Brinhaven Wanderers sube la presión entre 16–31', con el PPDA cayendo de 24.33 a 5.27. La posesión (por tiempo) pasa de 31.0% a 47.5% y el field tilt de 36.2% a 61.6%."
+     },
+     "casual_en": {
+      "headline": "Brinhaven turn the screw",
+      "text": "Brinhaven Wanderers have really stepped up the press from 16–31'. That’s why they’re spending more time in Wilgate’s half and making Wilgate’s passing less clean."
+     },
+     "casual_it": {
+      "headline": "Brinhaven alzano il ritmo",
+      "text": "Il Brinhaven Wanderers ha alzato il pressing tra 16–31' e si vede subito. Ora passa più tempo nella metà campo di Wilgate e rende più difficile il loro giro palla."
+     },
+     "casual_es": {
+      "headline": "Brinhaven aprieta más",
+      "text": "Brinhaven Wanderers ha subido el nivel de presión entre 16–31'. Así pasa más tiempo en campo rival y le complica mucho los pases a Wilgate."
+     },
+     "player_focus_en": {
+      "headline": "Brinhaven press as one",
+      "text": "Brinhaven Wanderers have stepped up the press from 16–31', and the whole side is squeezing higher. That shift is lifting time-based possession and field tilt while Wilgate’s pass completion dips to 81.2%."
+     },
+     "player_focus_it": {
+      "headline": "Brinhaven stringe insieme",
+      "text": "Brinhaven Wanderers ha alzato il pressing tra 16–31', con la squadra più alta e più aggressiva. Crescono possesso (a tempo) e field tilt, mentre il pass completion di Wilgate scende all’81.2%."
+     },
+     "player_focus_es": {
+      "headline": "Brinhaven aprieta en bloque",
+      "text": "Brinhaven Wanderers ha subido el pressing entre 16–31', con todo el equipo empujando más arriba. Eso eleva la posesión (por tiempo) y el field tilt, y baja el pass completion de Wilgate a 81.2%."
+     }
+    },
+    "seal": {
+     "passed": 4,
+     "total": 4
+    },
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_bri",
+      "metric": "ppda",
+      "before_start_ms": 60000,
+      "before_end_ms": 960000,
+      "after_start_ms": 960000,
+      "after_end_ms": 1860000,
+      "before": 24.33,
+      "after": 5.27
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_bri",
+      "metric": "possession_time_based",
+      "before_start_ms": 60000,
+      "before_end_ms": 960000,
+      "after_start_ms": 960000,
+      "after_end_ms": 1860000,
+      "before": 0.31,
+      "after": 0.475
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_bri",
+      "metric": "field_tilt",
+      "before_start_ms": 60000,
+      "before_end_ms": 960000,
+      "after_start_ms": 960000,
+      "after_end_ms": 1860000,
+      "before": 0.362,
+      "after": 0.616
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_wil",
+      "metric": "pass_completion",
+      "before_start_ms": 60000,
+      "before_end_ms": 960000,
+      "after_start_ms": 960000,
+      "after_end_ms": 1860000,
+      "before": 0.841,
+      "after": 0.812
+     }
+    ],
+    "fallbacks": []
+   }
+  },
+  {
+   "overlay_id": "mo_001_c",
+   "source_moment_id": "mo_001",
+   "tier": 1,
+   "show_at_ms": 1874462,
+   "duration_ms": 8000,
+   "priority": 3,
+   "kind": "caption",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "text": "Brinhaven Wanderers have stepped up their press, gaining territory and disrupting Wilgate’s passing."
+   }
+  },
+  {
+   "overlay_id": "o0_0043",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 1882800,
+   "duration_ms": 6000,
+   "priority": 3,
+   "kind": "pass_card",
+   "anchor": {
+    "type": "pitch",
+    "x": 30.53,
+    "y": 8.8
+   },
+   "payload": {
+    "player_id": "p_wil_25",
+    "recipient_id": "p_wil_29",
+    "team_id": "t_wil",
+    "x": 30.53,
+    "y": 8.8,
+    "end_x": 66.75,
+    "end_y": 5.43,
+    "pass_length_m": 36.4,
+    "pass_progression_m": -36.2,
+    "pass_difficulty": 0.621,
+    "ball_speed_ms": 19.42
+   }
+  },
+  {
+   "overlay_id": "o0_0044",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 1920000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 43.9,
+     "t_wil": 41.3
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0045",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 1980000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 48.3,
+     "t_wil": 49.4
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0046",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 2010800,
+   "duration_ms": 3500,
+   "priority": 3,
+   "kind": "speed_badge",
+   "anchor": {
+    "type": "player",
+    "player_id": "p_wil_29"
+   },
+   "payload": {
+    "value": 33.2,
+    "unit": "km/h",
+    "player_id": "p_wil_29",
+    "team_id": "t_wil"
+   }
+  },
+  {
+   "overlay_id": "o0_0047",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 2040000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 42.9,
+     "t_wil": 45.2
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0048",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 2100000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 41.3,
+     "t_wil": 42.5
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0049",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 2160000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 45.2,
+     "t_wil": 41.4
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0050",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 2220000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 41.8,
+     "t_wil": 38.3
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0051",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 2280000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 32.2,
+     "t_wil": 35.2
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0052",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 2340000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 31.0,
+     "t_wil": 42.8
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0053",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 2400000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 32.7,
+     "t_wil": 49.5
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0054",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 2401600,
+   "duration_ms": 3500,
+   "priority": 3,
+   "kind": "speed_badge",
+   "anchor": {
+    "type": "player",
+    "player_id": "p_wil_16"
+   },
+   "payload": {
+    "value": 33.3,
+    "unit": "km/h",
+    "player_id": "p_wil_16",
+    "team_id": "t_wil"
+   }
+  },
+  {
+   "overlay_id": "o0_0055",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 2460000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 34.6,
+     "t_wil": 55.7
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0056",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 2520000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 36.5,
+     "t_wil": 63.9
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0057",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 2580000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 45.0,
+     "t_wil": 73.6
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0058",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 2640000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 59.9,
+     "t_wil": 82.8
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0059",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 2700000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": null,
+     "t_wil": 83.6
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0060",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 2702000,
+   "duration_ms": 9000,
+   "priority": 3,
+   "kind": "stat_compare",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "window_minutes": 15,
+    "teams": {
+     "t_bri": {
+      "possession_time_based": 0.317,
+      "field_tilt": 0.292,
+      "ppda": 5.92
+     },
+     "t_wil": {
+      "possession_time_based": 0.683,
+      "field_tilt": 0.708,
+      "ppda": 7.25
+     }
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0061",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 2707000,
+   "duration_ms": 3500,
+   "priority": 3,
+   "kind": "speed_badge",
+   "anchor": {
+    "type": "player",
+    "player_id": "p_wil_24"
+   },
+   "payload": {
+    "value": 33.0,
+    "unit": "km/h",
+    "player_id": "p_wil_24",
+    "team_id": "t_wil"
+   }
+  },
+  {
+   "overlay_id": "o0_0062",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 2760000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 43.8,
+     "t_wil": 76.2
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0063",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 2820000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 50.8,
+     "t_wil": 69.6
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0064",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 2880000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 49.7,
+     "t_wil": 68.5
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0065",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 2940000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 48.3,
+     "t_wil": 63.9
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0066",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 2983900,
+   "duration_ms": 3500,
+   "priority": 3,
+   "kind": "speed_badge",
+   "anchor": {
+    "type": "player",
+    "player_id": "p_wil_29"
+   },
+   "payload": {
+    "value": 33.4,
+    "unit": "km/h",
+    "player_id": "p_wil_29",
+    "team_id": "t_wil"
+   }
+  },
+  {
+   "overlay_id": "o0_0067",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 3000000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 45.1,
+     "t_wil": 66.2
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0068",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 3060000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 72.8,
+     "t_wil": 77.1
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0069",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 3120000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 70.9,
+     "t_wil": 78.1
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0070",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 3180000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 62.9,
+     "t_wil": 67.6
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0071",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 3240000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 62.2,
+     "t_wil": 63.7
+    }
+   }
+  },
+  {
+   "overlay_id": "mo_003_t",
+   "source_moment_id": "mo_003",
+   "tier": 1,
+   "show_at_ms": 3241006,
+   "duration_ms": 15000,
+   "priority": 2,
+   "kind": "moment_card",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "headline": "Brinhaven Wanderers: going direct?",
+    "text": "Last 16 minutes vs before: Pass completion 75% → 65%; Average pass length 26.6 → 29.5.",
+    "team_id": "t_bri",
+    "player_id": null,
+    "state": "pending"
+   }
+  },
+  {
+   "overlay_id": "mo_003_v",
+   "source_moment_id": "mo_003",
+   "tier": 1,
+   "show_at_ms": 3251792,
+   "duration_ms": 7017,
+   "priority": 2,
+   "kind": "moment_card",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "state": "verified",
+    "replaces": "mo_003_t",
+    "claim": "Brinhaven Wanderers shifted into more direct play around the 51st minute: their average pass length rose from 27.0m to 29.5m while pass completion fell from 70.4% to 65.3%. That change coincided with their time-based possession dropping from 48.1% to 23.2% and field tilt falling from 61.8% to 31.7%, so this is a tactical switch toward longer, riskier passes rather than taking control of the game.",
+    "mechanism_tag": "tactical_switch",
+    "team_id": "t_bri",
+    "player_ids": [
+     "p_bri_16"
+    ],
+    "texts": {
+     "analyst_en": {
+      "headline": "Brinhaven go more direct",
+      "text": "Around the 51st minute, Brinhaven Wanderers shifted to more direct play. Average pass length rose from 27.0m to 29.5m, while pass completion fell from 70.4% to 65.3%, and field tilt dropped from 61.8% to 31.7%."
+     },
+     "analyst_it": {
+      "headline": "Brinhaven più diretti",
+      "text": "Intorno al 51° minuto, il Brinhaven Wanderers è passato a un gioco più diretto. La lunghezza media dei passaggi è salita da 27.0m a 29.5m, mentre il completamento è sceso dal 70.4% al 65.3%."
+     },
+     "analyst_es": {
+      "headline": "Brinhaven cambia el plan",
+      "text": "Alrededor del minuto 51, Brinhaven Wanderers pasó a un juego más directo. La longitud media de pase subió de 27.0m a 29.5m, y la precisión cayó de 70.4% a 65.3%, con el field tilt bajando de 61.8% a 31.7%."
+     },
+     "casual_en": {
+      "headline": "Brinhaven turn more direct",
+      "text": "Around the 51st minute, Brinhaven Wanderers started playing more directly. Their passes got longer, but less of them came off, and that meant they were not keeping control of the game."
+     },
+     "casual_it": {
+      "headline": "Brinhaven va più lungo",
+      "text": "Intorno al 51° minuto, il Brinhaven Wanderers ha scelto un gioco più diretto. I passaggi sono diventati più lunghi e meno precisi, quindi la squadra ha preso meno controllo della partita."
+     },
+     "casual_es": {
+      "headline": "Brinhaven se va más directo",
+      "text": "Alrededor del minuto 51, Brinhaven Wanderers empezó a jugar más directo. Sus pases se hicieron más largos y menos precisos, así que dejó de llevar el control del partido."
+     },
+     "player_focus_en": {
+      "headline": "Tactical Switch",
+      "text": "Brinhaven Wanderers shifted into more direct play around the 51st minute: their average pass length rose from 27.0m to 29.5m while pass completion fell from 70.4% to 65.3%. That change coincided with their time-based possession dropping fro"
+     },
+     "player_focus_it": {
+      "headline": "Tactical Switch",
+      "text": "Brinhaven Wanderers shifted into more direct play around the 51st minute: their average pass length rose from 27.0m to 29.5m while pass completion fell from 70.4% to 65.3%. That change coincided with their time-based possession dropping fro"
+     },
+     "player_focus_es": {
+      "headline": "Tactical Switch",
+      "text": "Brinhaven Wanderers shifted into more direct play around the 51st minute: their average pass length rose from 27.0m to 29.5m while pass completion fell from 70.4% to 65.3%. That change coincided with their time-based possession dropping fro"
+     }
+    },
+    "seal": {
+     "passed": 4,
+     "total": 4
+    },
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_bri",
+      "metric": "avg_pass_length_m",
+      "before_start_ms": 1320000,
+      "before_end_ms": 2280000,
+      "after_start_ms": 2280000,
+      "after_end_ms": 3240000,
+      "before": 27.0,
+      "after": 29.5
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_bri",
+      "metric": "pass_completion",
+      "before_start_ms": 1320000,
+      "before_end_ms": 2280000,
+      "after_start_ms": 2280000,
+      "after_end_ms": 3240000,
+      "before": 0.704,
+      "after": 0.653
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_bri",
+      "metric": "possession_time_based",
+      "before_start_ms": 1320000,
+      "before_end_ms": 2280000,
+      "after_start_ms": 2280000,
+      "after_end_ms": 3240000,
+      "before": 0.481,
+      "after": 0.232
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_bri",
+      "metric": "field_tilt",
+      "before_start_ms": 1320000,
+      "before_end_ms": 2280000,
+      "after_start_ms": 2280000,
+      "after_end_ms": 3240000,
+      "before": 0.618,
+      "after": 0.317
+     }
+    ],
+    "fallbacks": [
+     "player_focus_en:text-check: names Kian Ralovic, who is not part of the verified claim",
+     "player_focus_it:text-check: names Kian Ralovic, who is not part of the verified claim",
+     "player_focus_es:text-check: names Kian Ralovic, who is not part of the verified claim"
+    ]
+   }
+  },
+  {
+   "overlay_id": "mo_003_c",
+   "source_moment_id": "mo_003",
+   "tier": 1,
+   "show_at_ms": 3251792,
+   "duration_ms": 8000,
+   "priority": 3,
+   "kind": "caption",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "text": "Brinhaven Wanderers have gone more direct since the 51st minute, with longer passes and less possession."
+   }
+  },
+  {
+   "overlay_id": "o0_0072",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 3300000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 60.0,
+     "t_wil": 65.2
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0073",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 3307800,
+   "duration_ms": 6000,
+   "priority": 3,
+   "kind": "pass_card",
+   "anchor": {
+    "type": "pitch",
+    "x": 60.83,
+    "y": 7.95
+   },
+   "payload": {
+    "player_id": "p_wil_14",
+    "recipient_id": "p_wil_25",
+    "team_id": "t_wil",
+    "x": 60.83,
+    "y": 7.95,
+    "end_x": 54.05,
+    "end_y": 57.09,
+    "pass_length_m": 49.6,
+    "pass_progression_m": -6.8,
+    "pass_difficulty": 0.546,
+    "ball_speed_ms": 25.0
+   }
+  },
+  {
+   "overlay_id": "o0_0074",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 3360000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 60.8,
+     "t_wil": 67.2
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0075",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 3366600,
+   "duration_ms": 3500,
+   "priority": 3,
+   "kind": "speed_badge",
+   "anchor": {
+    "type": "player",
+    "player_id": "p_bri_09"
+   },
+   "payload": {
+    "value": 33.1,
+    "unit": "km/h",
+    "player_id": "p_bri_09",
+    "team_id": "t_bri"
+   }
+  },
+  {
+   "overlay_id": "o0_0076",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 3420000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 49.2,
+     "t_wil": 58.9
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0077",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 3480000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 53.8,
+     "t_wil": 65.1
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0078",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 3540000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 54.0,
+     "t_wil": 73.9
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0079",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 3600000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 56.4,
+     "t_wil": 76.3
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0080",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 3602000,
+   "duration_ms": 9000,
+   "priority": 3,
+   "kind": "stat_compare",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "window_minutes": 15,
+    "teams": {
+     "t_bri": {
+      "possession_time_based": 0.244,
+      "field_tilt": 0.323,
+      "ppda": 12.57
+     },
+     "t_wil": {
+      "possession_time_based": 0.756,
+      "field_tilt": 0.677,
+      "ppda": 9.33
+     }
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0081",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 3660000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 56.6,
+     "t_wil": 76.5
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0082",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 3694800,
+   "duration_ms": 3500,
+   "priority": 3,
+   "kind": "speed_badge",
+   "anchor": {
+    "type": "player",
+    "player_id": "p_wil_16"
+   },
+   "payload": {
+    "value": 33.5,
+    "unit": "km/h",
+    "player_id": "p_wil_16",
+    "team_id": "t_wil"
+   }
+  },
+  {
+   "overlay_id": "o0_0083",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 3720000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 62.7,
+     "t_wil": 82.6
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0084",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 3763700,
+   "duration_ms": 6000,
+   "priority": 3,
+   "kind": "pass_card",
+   "anchor": {
+    "type": "pitch",
+    "x": 60.36,
+    "y": 60.55
+   },
+   "payload": {
+    "player_id": "p_wil_25",
+    "recipient_id": "p_wil_14",
+    "team_id": "t_wil",
+    "x": 60.36,
+    "y": 60.55,
+    "end_x": 53.54,
+    "end_y": 10.96,
+    "pass_length_m": 50.1,
+    "pass_progression_m": -6.8,
+    "pass_difficulty": 0.55,
+    "ball_speed_ms": 25.0
+   }
+  },
+  {
+   "overlay_id": "o0_0085",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 3780000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 64.1,
+     "t_wil": 83.8
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0086",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 3840000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 60.4,
+     "t_wil": 65.1
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0087",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 3900000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 58.3,
+     "t_wil": 57.5
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0088",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 3905000,
+   "duration_ms": 6000,
+   "priority": 3,
+   "kind": "pass_card",
+   "anchor": {
+    "type": "pitch",
+    "x": 28.55,
+    "y": 3.95
+   },
+   "payload": {
+    "player_id": "p_bri_10",
+    "recipient_id": "p_bri_08",
+    "team_id": "t_bri",
+    "x": 28.55,
+    "y": 3.95,
+    "end_x": 67.77,
+    "end_y": 58.68,
+    "pass_length_m": 67.3,
+    "pass_progression_m": -39.2,
+    "pass_difficulty": 0.708,
+    "ball_speed_ms": 25.0
+   }
+  },
+  {
+   "overlay_id": "o0_0089",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 3960000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 60.5,
+     "t_wil": 49.7
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0090",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 4009700,
+   "duration_ms": 6000,
+   "priority": 3,
+   "kind": "pass_card",
+   "anchor": {
+    "type": "pitch",
+    "x": 71.26,
+    "y": 19.21
+   },
+   "payload": {
+    "player_id": "p_bri_09",
+    "recipient_id": "p_bri_18",
+    "team_id": "t_bri",
+    "x": 71.26,
+    "y": 19.21,
+    "end_x": 41.57,
+    "end_y": 57.41,
+    "pass_length_m": 48.4,
+    "pass_progression_m": 29.7,
+    "pass_difficulty": 0.533,
+    "ball_speed_ms": 24.77
+   }
+  },
+  {
+   "overlay_id": "o0_0091",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 4020000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 62.6,
+     "t_wil": 53.7
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0092",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 4080000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 62.4,
+     "t_wil": 48.4
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0093",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 4140000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 59.7,
+     "t_wil": 64.1
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0094",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 4149000,
+   "duration_ms": 6000,
+   "priority": 3,
+   "kind": "pass_card",
+   "anchor": {
+    "type": "pitch",
+    "x": 74.2,
+    "y": 33.36
+   },
+   "payload": {
+    "player_id": "p_bri_14",
+    "recipient_id": "p_bri_18",
+    "team_id": "t_bri",
+    "x": 74.2,
+    "y": 33.36,
+    "end_x": 47.18,
+    "end_y": 60.31,
+    "pass_length_m": 38.2,
+    "pass_progression_m": 27.0,
+    "pass_difficulty": 0.637,
+    "ball_speed_ms": 20.28
+   }
+  },
+  {
+   "overlay_id": "o0_0095",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 4200000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 66.5,
+     "t_wil": 70.1
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0096",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 4260000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 53.2,
+     "t_wil": 59.4
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0097",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 4299400,
+   "duration_ms": 6000,
+   "priority": 3,
+   "kind": "pass_card",
+   "anchor": {
+    "type": "pitch",
+    "x": 28.71,
+    "y": 6.19
+   },
+   "payload": {
+    "player_id": "p_bri_05",
+    "recipient_id": "p_bri_27",
+    "team_id": "t_bri",
+    "x": 28.71,
+    "y": 6.19,
+    "end_x": 48.01,
+    "end_y": 45.17,
+    "pass_length_m": 43.5,
+    "pass_progression_m": -19.3,
+    "pass_difficulty": 0.5,
+    "ball_speed_ms": 22.47
+   }
+  },
+  {
+   "overlay_id": "o0_0098",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 4320000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 55.5,
+     "t_wil": 57.1
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0099",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 4380000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 51.1,
+     "t_wil": 48.2
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0100",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 4427400,
+   "duration_ms": 3500,
+   "priority": 3,
+   "kind": "speed_badge",
+   "anchor": {
+    "type": "player",
+    "player_id": "p_wil_16"
+   },
+   "payload": {
+    "value": 33.1,
+    "unit": "km/h",
+    "player_id": "p_wil_16",
+    "team_id": "t_wil"
+   }
+  },
+  {
+   "overlay_id": "o0_0101",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 4440000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 42.1,
+     "t_wil": 43.9
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0102",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 4477600,
+   "duration_ms": 6000,
+   "priority": 3,
+   "kind": "pass_card",
+   "anchor": {
+    "type": "pitch",
+    "x": 25.81,
+    "y": 6.08
+   },
+   "payload": {
+    "player_id": "p_bri_05",
+    "recipient_id": "p_bri_27",
+    "team_id": "t_bri",
+    "x": 25.81,
+    "y": 6.08,
+    "end_x": 46.57,
+    "end_y": 45.03,
+    "pass_length_m": 44.1,
+    "pass_progression_m": -20.8,
+    "pass_difficulty": 0.508,
+    "ball_speed_ms": 23.41
+   }
+  },
+  {
+   "overlay_id": "o0_0103",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 4500000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 42.1,
+     "t_wil": 43.8
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0104",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 4502000,
+   "duration_ms": 9000,
+   "priority": 3,
+   "kind": "stat_compare",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "window_minutes": 15,
+    "teams": {
+     "t_bri": {
+      "possession_time_based": 0.546,
+      "field_tilt": 0.613,
+      "ppda": 16.33
+     },
+     "t_wil": {
+      "possession_time_based": 0.454,
+      "field_tilt": 0.388,
+      "ppda": 9.33
+     }
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0105",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 4560000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 56.3,
+     "t_wil": 52.2
+    }
+   }
+  },
+  {
+   "overlay_id": "mo_004_t",
+   "source_moment_id": "mo_004",
+   "tier": 1,
+   "show_at_ms": 4561098,
+   "duration_ms": 15000,
+   "priority": 2,
+   "kind": "moment_card",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "headline": "Brinhaven Wanderers: taking control?",
+    "text": "Last 15 minutes vs before: Time-based possession 32% → 61%; Field tilt 39% → 72%.",
+    "team_id": "t_bri",
+    "player_id": null,
+    "state": "pending"
+   }
+  },
+  {
+   "overlay_id": "mo_004_v",
+   "source_moment_id": "mo_004",
+   "tier": 1,
+   "show_at_ms": 4571588,
+   "duration_ms": 6000,
+   "priority": 2,
+   "kind": "moment_card",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "state": "verified",
+    "replaces": "mo_004_t",
+    "claim": "Brinhaven Wanderers have taken over the game: time-based possession rose from 22.8% to 61.2% and their field tilt jumped from 30.4% to 71.8% across the window. Wilgate Harriers’ possession fell from 77.2% to 38.8%, so Brinhaven’s control of the final third now matters for the remainder of the match.",
+    "mechanism_tag": "momentum_shift",
+    "team_id": "t_bri",
+    "player_ids": [],
+    "texts": {
+     "analyst_en": {
+      "headline": "Brinhaven seize control",
+      "text": "Brinhaven Wanderers have taken over the game. Time-based possession rose from 22.8% to 61.2%, and field tilt jumped from 30.4% to 71.8%."
+     },
+     "analyst_it": {
+      "headline": "Brinhaven prendono il comando",
+      "text": "Il Brinhaven Wanderers ha preso in mano la partita. Il possesso (a tempo) è salito dal 22.8% al 61.2% e il field tilt dal 30.4% al 71.8%."
+     },
+     "analyst_es": {
+      "headline": "Brinhaven cambia el partido",
+      "text": "Brinhaven Wanderers se ha adueñado del juego. La posesión (por tiempo) subió de 22.8% a 61.2% y el field tilt saltó de 30.4% a 71.8%."
+     },
+     "casual_en": {
+      "headline": "Brinhaven now on top",
+      "text": "Brinhaven Wanderers have taken control of the match. Their time-based possession and field tilt have both surged, so they’re now dictating play."
+     },
+     "casual_it": {
+      "headline": "Brinhaven adesso comanda",
+      "text": "Il Brinhaven Wanderers ha preso il controllo della partita. Possesso (a tempo) e field tilt sono cresciuti tanto, e ora detta i ritmi."
+     },
+     "casual_es": {
+      "headline": "Brinhaven manda ahora",
+      "text": "Brinhaven Wanderers se ha hecho con el control del partido. La posesión (por tiempo) y el field tilt han subido mucho, así que ahora manda el juego."
+     },
+     "player_focus_en": {
+      "headline": "Brinhaven drive the final third",
+      "text": "Brinhaven Wanderers have taken over the game. Their control of the final third is the key change now, with time-based possession and field tilt both up."
+     },
+     "player_focus_it": {
+      "headline": "Brinhaven spingono avanti",
+      "text": "Il Brinhaven Wanderers ha preso il comando della gara. Il punto chiave ora è il controllo dell’ultimo terzo, con possesso (a tempo) e field tilt in forte աճo."
+     },
+     "player_focus_es": {
+      "headline": "Brinhaven domina arriba",
+      "text": "Brinhaven Wanderers se ha adueñado del partido. La clave ahora es el control del último tercio, con la posesión (por tiempo) y el field tilt al alza."
+     }
+    },
+    "seal": {
+     "passed": 4,
+     "total": 4
+    },
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_bri",
+      "metric": "possession_time_based",
+      "before_start_ms": 2760000,
+      "before_end_ms": 3660000,
+      "after_start_ms": 3660000,
+      "after_end_ms": 4560000,
+      "before": 0.228,
+      "after": 0.612
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_bri",
+      "metric": "field_tilt",
+      "before_start_ms": 2760000,
+      "before_end_ms": 3660000,
+      "after_start_ms": 3660000,
+      "after_end_ms": 4560000,
+      "before": 0.304,
+      "after": 0.718
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_wil",
+      "metric": "possession_time_based",
+      "before_start_ms": 2760000,
+      "before_end_ms": 3660000,
+      "after_start_ms": 3660000,
+      "after_end_ms": 4560000,
+      "before": 0.772,
+      "after": 0.388
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_wil",
+      "metric": "field_tilt",
+      "before_start_ms": 2760000,
+      "before_end_ms": 3660000,
+      "after_start_ms": 3660000,
+      "after_end_ms": 4560000,
+      "before": 0.696,
+      "after": 0.282
+     }
+    ],
+    "fallbacks": []
+   }
+  },
+  {
+   "overlay_id": "mo_004_c",
+   "source_moment_id": "mo_004",
+   "tier": 1,
+   "show_at_ms": 4571588,
+   "duration_ms": 8000,
+   "priority": 3,
+   "kind": "caption",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "text": "Brinhaven Wanderers have taken control, with possession and final-third pressure now firmly in their favour."
+   }
+  },
+  {
+   "overlay_id": "o0_0106",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 4620000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 55.1,
+     "t_wil": 54.4
+    }
+   }
+  },
+  {
+   "overlay_id": "mo_005_t",
+   "source_moment_id": "mo_005",
+   "tier": 1,
+   "show_at_ms": 4621203,
+   "duration_ms": 15000,
+   "priority": 2,
+   "kind": "moment_card",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "headline": "Emil Alak: driving the play?",
+    "text": "Last 18 minutes vs before: Progressive passes per minute 0.1 → 0.6; Touches per minute 0.4 → 1.0.",
+    "team_id": "t_bri",
+    "player_id": "p_bri_14",
+    "state": "pending"
+   }
+  },
+  {
+   "overlay_id": "mo_005_v",
+   "source_moment_id": "mo_005",
+   "tier": 1,
+   "show_at_ms": 4631833,
+   "duration_ms": 6000,
+   "priority": 2,
+   "kind": "moment_card",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "state": "verified",
+    "replaces": "mo_005_t",
+    "claim": "From 59'–77' Emil Alak drove Brinhaven’s takeover: his progressive passes rose from 0 to 10 and his touches from 4 to 18, while Brinhaven’s time-based possession climbed from 22.0% to 56.6% and field tilt from 29.6% to 64.4%. This surge moved play into Brinhaven’s final third and handed them sustained control and attacking momentum.",
+    "mechanism_tag": "player_arc",
+    "team_id": "t_bri",
+    "player_ids": [
+     "p_bri_14"
+    ],
+    "texts": {
+     "analyst_en": {
+      "headline": "Alak powers Brinhaven's swing",
+      "text": "From 59'–77', Emil Alak drove the change: progressive passes rose from 0 to 10 and touches from 4 to 18. Brinhaven’s time-based possession climbed from 22.0% to 56.6%, with field tilt up to 64.4%."
+     },
+     "analyst_it": {
+      "headline": "Alak trascina Brinhaven",
+      "text": "Tra il 59' e il 77', Emil Alak ha guidato la svolta: i passaggi progressivi sono saliti da 0 a 10 e i tocchi da 4 a 18. Il possesso (a tempo) di Brinhaven è salito dal 22.0% al 56.6%, con field tilt al 64.4%."
+     },
+     "analyst_es": {
+      "headline": "Alak impulsa a Brinhaven",
+      "text": "Del 59' al 77', Emil Alak marcó el giro: los pases progresivos subieron de 0 a 10 y los toques de 4 a 18. La posesión (por tiempo) de Brinhaven pasó del 22.0% al 56.6%, y el field tilt al 64.4%."
+     },
+     "casual_en": {
+      "headline": "Alak lifts Brinhaven",
+      "text": "From 59'–77', Emil Alak helped Brinhaven take over the game. Their time-based possession rose from 22.0% to 56.6%, and field tilt climbed to 64.4%."
+     },
+     "casual_it": {
+      "headline": "Alak alza Brinhaven",
+      "text": "Tra il 59' e il 77', Emil Alak ha aiutato Brinhaven a prendersi la partita. Il possesso (a tempo) è salito dal 22.0% al 56.6% e il field tilt al 64.4%."
+     },
+     "casual_es": {
+      "headline": "Alak cambia el ritmo",
+      "text": "Del 59' al 77', Emil Alak ayudó a Brinhaven a adueñarse del partido. La posesión (por tiempo) subió del 22.0% al 56.6% y el field tilt llegó al 64.4%."
+     },
+     "player_focus_en": {
+      "headline": "Alak sparks Brinhaven control",
+      "text": "Emil Alak was the driver from 59'–77', with progressive passes jumping from 0 to 10 and touches from 4 to 18. That helped Brinhaven push play into the final third and keep control."
+     },
+     "player_focus_it": {
+      "headline": "Alak accende Brinhaven",
+      "text": "Emil Alak è stato il motore tra il 59' e il 77', con i passaggi progressivi saliti da 0 a 10 e i tocchi da 4 a 18. Così Brinhaven ha spinto il gioco nell'ultimo terzo e tenuto il controllo."
+     },
+     "player_focus_es": {
+      "headline": "Alak marca el cambio",
+      "text": "Emil Alak fue el motor del tramo 59'–77', con los pases progresivos subiendo de 0 a 10 y los toques de 4 a 18. Así Brinhaven llevó el juego al último tercio y sostuvo el control."
+     }
+    },
+    "seal": {
+     "passed": 4,
+     "total": 4
+    },
+    "evidence": [
+     {
+      "tool": "get_player_physical",
+      "subject": "p_bri_14",
+      "metric": "progressive_passes",
+      "before_start_ms": 2460000,
+      "before_end_ms": 3540000,
+      "after_start_ms": 3540000,
+      "after_end_ms": 4620000,
+      "before": 0.0,
+      "after": 10.0
+     },
+     {
+      "tool": "get_player_physical",
+      "subject": "p_bri_14",
+      "metric": "touches",
+      "before_start_ms": 2460000,
+      "before_end_ms": 3540000,
+      "after_start_ms": 3540000,
+      "after_end_ms": 4620000,
+      "before": 4.0,
+      "after": 18.0
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_bri",
+      "metric": "possession_time_based",
+      "before_start_ms": 2460000,
+      "before_end_ms": 3540000,
+      "after_start_ms": 3540000,
+      "after_end_ms": 4620000,
+      "before": 0.22,
+      "after": 0.566
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_bri",
+      "metric": "field_tilt",
+      "before_start_ms": 2460000,
+      "before_end_ms": 3540000,
+      "after_start_ms": 3540000,
+      "after_end_ms": 4620000,
+      "before": 0.296,
+      "after": 0.644
+     }
+    ],
+    "fallbacks": []
+   }
+  },
+  {
+   "overlay_id": "mo_005_c",
+   "source_moment_id": "mo_005",
+   "tier": 1,
+   "show_at_ms": 4631833,
+   "duration_ms": 8000,
+   "priority": 3,
+   "kind": "caption",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "text": "Brinhaven have taken control, with Emil Alak driving their sustained pressure and possession higher."
+   }
+  },
+  {
+   "overlay_id": "o0_0107",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 4666800,
+   "duration_ms": 3500,
+   "priority": 3,
+   "kind": "speed_badge",
+   "anchor": {
+    "type": "player",
+    "player_id": "p_bri_21"
+   },
+   "payload": {
+    "value": 33.1,
+    "unit": "km/h",
+    "player_id": "p_bri_21",
+    "team_id": "t_bri"
+   }
+  },
+  {
+   "overlay_id": "o0_0108",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 4680000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 66.7,
+     "t_wil": 58.2
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0109",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 4740000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 82.8,
+     "t_wil": null
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0110",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 4800000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 63.5,
+     "t_wil": 65.1
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0111",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 4860000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 53.7,
+     "t_wil": 58.1
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0112",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 4920000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 46.1,
+     "t_wil": 60.0
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0113",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 4980000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 39.6,
+     "t_wil": 59.0
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0114",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 5040000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 36.8,
+     "t_wil": 51.1
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0115",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 5100000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 46.1,
+     "t_wil": 56.5
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0116",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 5160000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 40.9,
+     "t_wil": 62.5
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0117",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 5169100,
+   "duration_ms": 3500,
+   "priority": 3,
+   "kind": "speed_badge",
+   "anchor": {
+    "type": "player",
+    "player_id": "p_bri_08"
+   },
+   "payload": {
+    "value": 33.1,
+    "unit": "km/h",
+    "player_id": "p_bri_08",
+    "team_id": "t_bri"
+   }
+  },
+  {
+   "overlay_id": "o0_0118",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 5220000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 43.4,
+     "t_wil": 56.4
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0119",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 5231900,
+   "duration_ms": 6000,
+   "priority": 3,
+   "kind": "pass_card",
+   "anchor": {
+    "type": "pitch",
+    "x": 76.46,
+    "y": 43.59
+   },
+   "payload": {
+    "player_id": "p_wil_16",
+    "recipient_id": "p_wil_22",
+    "team_id": "t_wil",
+    "x": 76.46,
+    "y": 43.59,
+    "end_x": 31.83,
+    "end_y": 26.5,
+    "pass_length_m": 47.8,
+    "pass_progression_m": -44.6,
+    "pass_difficulty": 0.528,
+    "ball_speed_ms": 23.53
+   }
+  },
+  {
+   "overlay_id": "o0_0120",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 5280000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 41.8,
+     "t_wil": 58.5
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0121",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 5340000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 45.4,
+     "t_wil": 64.0
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0122",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 5400000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 47.2,
+     "t_wil": 60.8
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0123",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 5402000,
+   "duration_ms": 9000,
+   "priority": 3,
+   "kind": "stat_compare",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "window_minutes": 15,
+    "teams": {
+     "t_bri": {
+      "possession_time_based": 0.446,
+      "field_tilt": 0.469,
+      "ppda": 18.67
+     },
+     "t_wil": {
+      "possession_time_based": 0.554,
+      "field_tilt": 0.531,
+      "ppda": 24.0
+     }
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0124",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 5460000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 44.1,
+     "t_wil": 55.6
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0125",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 5469200,
+   "duration_ms": 6000,
+   "priority": 3,
+   "kind": "pass_card",
+   "anchor": {
+    "type": "pitch",
+    "x": 20.89,
+    "y": 30.32
+   },
+   "payload": {
+    "player_id": "p_bri_15",
+    "recipient_id": "p_bri_21",
+    "team_id": "t_bri",
+    "x": 20.89,
+    "y": 30.32,
+    "end_x": 43.8,
+    "end_y": 19.59,
+    "pass_length_m": 25.3,
+    "pass_progression_m": -22.9,
+    "pass_difficulty": 0.53,
+    "ball_speed_ms": 17.37
+   }
+  },
+  {
+   "overlay_id": "o0_0126",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 5520000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 50.7,
+     "t_wil": 50.4
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0127",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 5580000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 50.4,
+     "t_wil": 46.3
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0128",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 5608200,
+   "duration_ms": 6000,
+   "priority": 3,
+   "kind": "pass_card",
+   "anchor": {
+    "type": "pitch",
+    "x": 69.68,
+    "y": 58.94
+   },
+   "payload": {
+    "player_id": "p_wil_25",
+    "recipient_id": "p_wil_28",
+    "team_id": "t_wil",
+    "x": 69.68,
+    "y": 58.94,
+    "end_x": 58.56,
+    "end_y": 10.77,
+    "pass_length_m": 49.4,
+    "pass_progression_m": -11.1,
+    "pass_difficulty": 0.544,
+    "ball_speed_ms": 24.74
+   }
+  },
+  {
+   "overlay_id": "o0_0129",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 5640000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 44.9,
+     "t_wil": 49.9
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0130",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 5700000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 50.8,
+     "t_wil": 49.2
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0131",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 5760000,
+   "duration_ms": 60000,
+   "priority": 3,
+   "kind": "momentum_bar",
+   "anchor": {
+    "type": "screen"
+   },
+   "payload": {
+    "control_index": {
+     "t_bri": 59.6,
+     "t_wil": 55.2
+    }
+   }
+  },
+  {
+   "overlay_id": "o0_0132",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 5810700,
+   "duration_ms": 3500,
+   "priority": 3,
+   "kind": "speed_badge",
+   "anchor": {
+    "type": "player",
+    "player_id": "p_wil_10"
+   },
+   "payload": {
+    "value": 33.3,
+    "unit": "km/h",
+    "player_id": "p_wil_10",
+    "team_id": "t_wil"
+   }
+  },
+  {
+   "overlay_id": "o0_0133",
+   "source_moment_id": null,
+   "tier": 0,
+   "show_at_ms": 5816200,
+   "duration_ms": 6000,
+   "priority": 3,
+   "kind": "pass_card",
+   "anchor": {
+    "type": "pitch",
+    "x": 61.14,
+    "y": 12.12
+   },
+   "payload": {
+    "player_id": "p_wil_28",
+    "recipient_id": "p_wil_25",
+    "team_id": "t_wil",
+    "x": 61.14,
+    "y": 12.12,
+    "end_x": 54.15,
+    "end_y": 57.48,
+    "pass_length_m": 45.9,
+    "pass_progression_m": -7.0,
+    "pass_difficulty": 0.509,
+    "ball_speed_ms": 21.43
+   }
+  }
+ ]
+}

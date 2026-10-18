@@ -9,7 +9,7 @@ from fastapi.responses import JSONResponse
 from starlette.types import ASGIApp, Receive, Scope, Send
 
 from api import db
-from api.routes import replay
+from api.routes import replay, runs
 from metrics.mcp_server import StoreRegistry, build_server
 
 registry = StoreRegistry()
@@ -40,6 +40,7 @@ async def lifespan(app: FastAPI) -> AsyncIterator[None]:
 
 app = FastAPI(title="Ground Truth Football", version="0.1.0", lifespan=lifespan)
 app.include_router(replay.router)
+app.include_router(runs.router)
 # Metrics tools for agents over MCP (streamable HTTP) at /mcp/
 app.mount("/mcp", mcp_mount)
 

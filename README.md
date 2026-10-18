@@ -122,7 +122,7 @@ bins do not keep. They were still verified at approval time by the Verifier's re
 with the metrics tools; they are just not counted in the 100 %.
 
 How to read precision: every approved explanation that does not match a planted storyline still
-cites numbers that the independent recomputation confirms. They are **unplanted but
+cites numbers that the independent recomputation confirms (wherever it can check them; see above). They are **unplanted but
 evidence-backed** patterns (54 of 81): real swings in the simulated match, such as a spell of
 possession, that nobody scripted. They are not hallucinations; the metric counts them as misses
 only because the evaluation can score against planted storylines alone. The same holds for the
@@ -136,11 +136,23 @@ cannot separate them (checked on dev seeds).
 
 ## Front-end (web/)
 
-Broadcast graphics follow `DESIGN.md` ("Verified on air"). Routes:
+Broadcast graphics follow `DESIGN.md` ("Verified on air"). Every replay is a **Recorded agent
+run**: a real, saved output of the pipeline (`data/recorded/`), replayed with zero model calls;
+live sessions are labelled **Live**. Routes:
 
-- `/broadcast?sample=hero_m_1000` — 16:9 broadcast frame over a recorded clip (`&t=<ms>` freezes it);
-- `/graphics?sample=hero_m_1000` — the overlay layer alone, transparent, 1920×1080, for OBS or a vision mixer;
-- `/design` — design reference: tokens, type, team colours over clashing kits, components.
+- `/` — landing; `/broadcast?run=<id>&persona=analyst_en` — broadcast view with the full package
+  (scorebug, player tags, pass card, speed and shot badges, stat compare, momentum ribbon, AI
+  moment card: amber template first, then the verified text with its seal; caption);
+  `/broadcast?live=m_1000` — live session over the API WebSocket (agents run, daily cap);
+- `/split?run=<id>&left=analyst_en&right=casual_it` — same moment for two viewers;
+- `/control?run=<id>` — control room: the agent graph, verdicts, Verifier rejections with the
+  reason, latency per stage;
+- `/graphics?run=<id>` — overlay layer alone, transparent 1920×1080, for OBS or a vision mixer;
+- `/eval` — evaluation report; `/second` — second screen (390 px); `/recap` — full-time recap;
+- `/design` — design reference.
+
+Streams: `/ws/recorded/{run_id}` and `/ws/live/{match_id}` send the same messages (`frame`,
+`event`, `overlay`, `pipeline`), so every screen works on both.
 
 The pitch canvas and every DOM overlay go through one projection (`web/src/lib/projection.ts`),
 so tags and trails stay on the players with the pitch tilted. Fonts (Archivo, Inter) are

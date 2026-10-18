@@ -13,6 +13,7 @@ stops after the Verifier (only detection, explanation and verification are measu
 import asyncio
 import json
 import time
+from collections.abc import Callable
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Literal, cast
@@ -41,6 +42,9 @@ class Stage:
     detail: str = ""
 
 
+Listener = Callable[[dict[str, Any]], None]
+
+
 @dataclass
 class MomentWork:
     candidate: Candidate
@@ -54,10 +58,27 @@ class MomentWork:
     cue: S.DirectorCue | None = None
     fallbacks: list[str] = field(default_factory=list)
     stages: list[Stage] = field(default_factory=list)
+    listener: Listener | None = field(default=None, repr=False, compare=False)
+
+    @property
+    def moment_id(self) -> str:
+        return self.candidate.candidate_id.replace("c_", "mo_")
+
+    def emit(self, stage: str, phase: str, **kw: Any) -> None:
+        if self.listener is not None:
+            self.listener(
+                {
+                    "type": "pipeline",
+                    "moment_id": self.moment_id,
+                    "stage": stage,
+                    "phase": phase,
+                    **kw,
+                }
+            )
 
     def to_dict(self) -> dict[str, Any]:
         return {
-            "moment_id": self.candidate.candidate_id.replace("c_", "mo_"),
+            "moment_id": self.moment_id,
             "candidate": self.candidate.to_dict(),
             "status": self.status,
             "detector": self.verdict.model_dump() if self.verdict else None,
@@ -151,6 +172,7 @@ class Desk:
 
 
 async def _timed(work: MomentWork, stage: str, coro: Any) -> tuple[Any, str]:
+    work.emit(stage, "start")
     t0 = time.perf_counter()
     try:
         out = await coro
@@ -161,7 +183,9 @@ async def _timed(work: MomentWork, stage: str, coro: Any) -> tuple[Any, str]:
         out, outcome = None, "timeout"
     except Exception as e:  # model or tool failure: logged, never fatal for the run
         out, outcome = None, f"error: {type(e).__name__}: {e}"[:300]
-    work.stages.append(Stage(stage, int((time.perf_counter() - t0) * 1000), outcome))
+    ms = int((time.perf_counter() - t0) * 1000)
+    work.stages.append(Stage(stage, ms, outcome))
+    work.emit(stage, "end", outcome=outcome, ms=ms)
     return out, outcome
 
 
@@ -270,16 +294,17 @@ class Verify(Executor):
     @handler
     async def run(self, w: MomentWork, ctx: WorkflowContext[MomentWork, MomentWork]) -> None:
         assert w.explanation is not None
+        w.emit("verifier:code", "start")
         t0 = time.perf_counter()
         problems = [p for e in w.explanation.evidence if (p := E.recompute(self.desk.tools, e))]
-        w.stages.append(
-            Stage(
-                "verifier:code",
-                int((time.perf_counter() - t0) * 1000),
-                "ok" if not problems else "rejected",
-                "; ".join(problems)[:300],
-            )
+        code = Stage(
+            "verifier:code",
+            int((time.perf_counter() - t0) * 1000),
+            "ok" if not problems else "rejected",
+            "; ".join(problems)[:300],
         )
+        w.stages.append(code)
+        w.emit(code.stage, "end", outcome=code.outcome, ms=code.ms, detail=code.detail)
         if not problems:
             c = w.candidate
             data = {
@@ -296,6 +321,11 @@ class Verify(Executor):
                     "window_minutes": round((c.window_end_ms - c.window_start_ms) / 60_000),
                     **self.desk.context(c),
                 },
+                # Facts from the event feed the Analyst also saw (goals, cards, substitutions).
+                "key_events": [
+                    {**e, "player": self.desk.players_named(c).get(e["player_id"] or "")}
+                    for e in c.events
+                ],
             }
             prompt = "Check this claim against its recomputed evidence:\n" + payload_block(data)
             check, outcome = await _timed(
@@ -307,6 +337,7 @@ class Verify(Executor):
                 problems = check.problems or ["claim inconsistent with evidence"]
                 w.stages[-1].outcome = "rejected"
                 w.stages[-1].detail = "; ".join(problems)[:300]
+                w.emit("verifier:text", "verdict", outcome="rejected", detail=w.stages[-1].detail)
         if not problems:
             w.status = "approved"
             w.rejection = None
@@ -356,7 +387,7 @@ class Persona(Executor):
         prompt = "Verified insight:\n" + payload_block(
             {
                 "claim": w.explanation.claim,
-                "headline": w.explanation.mechanism_tag.replace("_", " "),
+                "mechanism": w.explanation.mechanism_tag.replace("_", " "),
                 "team": self.desk.team_name(w.explanation.team_id),
                 "players": [
                     p.name
@@ -435,9 +466,12 @@ class Publish(Executor):
         await ctx.yield_output(w)
 
 
-async def run_moment(desk: Desk, c: Candidate, mode: Literal["full", "eval"]) -> MomentWork:
-    """Build and run the workflow for one candidate."""
-    w = MomentWork(candidate=c)
+async def run_moment(
+    desk: Desk, c: Candidate, mode: Literal["full", "eval"], listener: Listener | None = None
+) -> MomentWork:
+    """Build and run the workflow for one candidate; `listener` receives stage events."""
+    w = MomentWork(candidate=c, listener=listener)
+    w.emit("candidate", "end", outcome="ok", ms=0, detail=c.kind)
     detect, analyse = Detect(desk), Analyse(desk)
     verify = Verify(desk, publish=mode == "full")
     b = (
@@ -454,4 +488,6 @@ async def run_moment(desk: Desk, c: Candidate, mode: Literal["full", "eval"]) ->
         b = b.add_fan_in_edges([narrate, persona, direct], publish)
     result = await b.build().run(w)
     outs = result.get_outputs()
-    return outs[-1] if outs else w
+    done: MomentWork = outs[-1] if outs else w
+    done.emit("result", "end", outcome=done.status, detail=done.rejection or "")
+    return done

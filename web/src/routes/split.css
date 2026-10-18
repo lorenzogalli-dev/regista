@@ -1,0 +1,46 @@
+.split {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 16px 16px 24px;
+  box-sizing: border-box;
+  background: #000;
+}
+.split-head {
+  display: flex;
+  align-items: baseline;
+  gap: 24px;
+  margin: 4px 8px 16px;
+}
+.split-brand {
+  font-family: var(--font-display);
+  font-stretch: var(--wdth-expanded);
+  font-size: 20px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+.split-note {
+  color: var(--text-2);
+  font-size: 15px;
+}
+.split-panes {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+.split-title {
+  margin: 0 0 8px;
+  font-family: var(--font-display);
+  font-stretch: var(--wdth-condensed);
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.split-pane:first-child .split-title {
+  color: var(--text);
+}
+.split-pane:last-child .split-title {
+  color: var(--ai);
+}

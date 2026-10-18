@@ -1,46 +1,29 @@
 import { useEffect, useState } from 'react'
 
-import { runAudit } from '../broadcast/audit.ts'
 import { BroadcastFrame } from '../broadcast/BroadcastFrame.tsx'
+import { ProgramFrame } from '../broadcast/ProgramFrame.tsx'
 import { loadSample, type Sample } from '../lib/sample.ts'
+import { useAudit, useGraphicsBody, useSource } from '../lib/hooks.ts'
+import { useMatchStream } from '../lib/stream.ts'
 
-// Broadcast view (DESIGN.md §5.1). D5a renders a recorded clip exported from a generated match:
-// /broadcast?sample=hero_m_1000           plays the clip in a loop
-// /broadcast?sample=hero_m_1000&t=4268900 freezes at match time t (ms)
-// &debug=anchors                          marks the penalty spots with DOM overlays
-// &audit=1                                writes a design audit into <pre id="audit"> after 3 s
-export function Broadcast({ graphicsOnly = false }: { graphicsOnly?: boolean }) {
+// Broadcast view (DESIGN.md §5.1).
+// /broadcast                               first recorded agent run (zero model calls)
+// /broadcast?run=<run_id>&persona=casual_it&speed=1&from=<ms>&fav=<player_id>
+// /broadcast?live=m_1000&speed=1           live session (agents run, daily cap)
+// /broadcast?sample=hero_m_1000&t=4268900  D5a design clip, frozen at t
+// &audit=1                                 writes a design audit into <pre id="audit"> after 4 s
+
+function SampleBroadcast({ name, graphicsOnly }: { name: string; graphicsOnly: boolean }) {
   const params = new URLSearchParams(window.location.search)
-  const name = (params.get('sample') ?? 'hero_m_1000').replace(/[^a-z0-9_]/gi, '')
   const t = params.get('t')
   const [sample, setSample] = useState<Sample | null>(null)
   const [error, setError] = useState<string | null>(null)
-
   useEffect(() => {
     loadSample(`/samples/${name}.json`)
       .then(setSample)
       .catch((e: Error) => setError(e.message))
   }, [name])
-
-  useEffect(() => {
-    if (!graphicsOnly) return
-    document.body.classList.add('graphics')
-    return () => document.body.classList.remove('graphics')
-  }, [graphicsOnly])
-
-  const audit = params.get('audit') === '1'
-  useEffect(() => {
-    if (!sample || !audit) return
-    const id = window.setTimeout(() => {
-      const pre = document.createElement('pre')
-      pre.id = 'audit'
-      pre.textContent = JSON.stringify(runAudit())
-      pre.style.display = 'none'
-      document.body.append(pre)
-    }, 3000)
-    return () => window.clearTimeout(id)
-  }, [sample, audit])
-
+  useAudit(!!sample, params.get('audit') === '1')
   if (error) return <p style={{ padding: 40 }}>Could not load sample: {error}</p>
   if (!sample) return null
   return (
@@ -51,4 +34,34 @@ export function Broadcast({ graphicsOnly = false }: { graphicsOnly?: boolean }) 
       debugAnchors={params.get('debug') === 'anchors'}
     />
   )
+}
+
+function ProgramBroadcast({ graphicsOnly }: { graphicsOnly: boolean }) {
+  const params = new URLSearchParams(window.location.search)
+  const source = useSource(params)
+  const speed = Number(params.get('speed') ?? 1)
+  const from = Number(params.get('from') ?? 0)
+  const { stream, clock } = useMatchStream(source, speed, from)
+  useAudit(!!stream?.meta, params.get('audit') === '1')
+  if (stream?.error) return <p style={{ padding: 40 }}>{stream.error}</p>
+  if (!stream || !clock) return null
+  return (
+    <ProgramFrame
+      stream={stream}
+      clock={clock}
+      opts={{
+        persona: params.get('persona') ?? 'analyst_en',
+        favoritePlayer: params.get('fav'),
+        graphicsOnly,
+      }}
+    />
+  )
+}
+
+export function Broadcast({ graphicsOnly = false }: { graphicsOnly?: boolean }) {
+  const params = new URLSearchParams(window.location.search)
+  useGraphicsBody(graphicsOnly)
+  const sample = params.get('sample')
+  if (sample) return <SampleBroadcast name={sample.replace(/[^a-z0-9_]/gi, '')} graphicsOnly={graphicsOnly} />
+  return <ProgramBroadcast graphicsOnly={graphicsOnly} />
 }

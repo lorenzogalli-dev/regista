@@ -69,7 +69,11 @@ async function launch(width, height) {
     const exited = new Promise((r) => proc.once('exit', r))
     proc.kill()
     await exited
-    rmSync(profile, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 })
+    try {
+      rmSync(profile, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 })
+    } catch {
+      // Chrome helpers may still be writing their profile; a stale temp dir is harmless.
+    }
   }
   return { send, on: (m, fn) => listeners.set(m, fn), close }
 }
