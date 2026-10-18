@@ -206,8 +206,11 @@ Runs the 20 eval seeds (5000–5019) and the 10 control seeds (9000–9009) offl
 - **Evidence validity** — share of approved evidence items that pass recomputation by a code path **independent of the Verifier's**.
 - **False alarms on control seeds** — approved storyline-type explanations per match on seeds with zero storylines.
 - **Hallucination rate** — share of Analyst outputs rejected by the Verifier, plus share of approved outputs failing the independent recomputation.
+- **Categories of approved explanations** — storyline hit; unplanted but evidence-backed (no storyline, every independently checkable evidence item confirmed: a real pattern in the data, not an error); unsupported (an evidence item fails, or none can be checked).
+- **Precision@3** — precision on the three highest-salience approved moments per match (what the Director airs).
+- **Recall by type**, with types rated "difficult" by the signal check flagged.
 - **Latency** — p50/p95 from event to overlay emission.
-- Output: `eval/report.json` and a small HTML report. These numbers go in the README and in the demo video.
+- Output: `docs/eval/report.json`, `docs/eval/report.html` and every run JSON (`eval/run_eval.py`; dev runs go to `eval/out/dev/`). These numbers go in the README and in the demo video.
 
 Report honest numbers. Do not tune on the evaluation seeds (keep separate dev and eval seed sets).
 

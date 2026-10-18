@@ -1,0 +1,281 @@
+{
+ "run_id": "r_m_9000_49f4677b",
+ "match_id": "m_9000",
+ "mode": "eval",
+ "kind": "recorded agent run",
+ "provider": "foundry",
+ "models": {
+  "fast": "gtf-fast",
+  "reasoning": "gtf-reasoning",
+  "reasoning_effort": "low"
+ },
+ "started_at": "2026-10-18T12:10:54.908099+00:00",
+ "wall_s": 11.9,
+ "candidates": 1,
+ "status_counts": {
+  "approved": 1
+ },
+ "budget_stopped": null,
+ "usage": {
+  "provider": "foundry",
+  "calls": 3,
+  "tokens_in": 5286,
+  "tokens_out": 810,
+  "cost_eur": 0.00377,
+  "estimated": false,
+  "by_agent": {
+   "detector": {
+    "calls": 1,
+    "tokens_in": 1136,
+    "tokens_out": 59,
+    "eur": 0.00108
+   },
+   "analyst": {
+    "calls": 1,
+    "tokens_in": 3333,
+    "tokens_out": 734,
+    "eur": 0.00203
+   },
+   "verifier": {
+    "calls": 1,
+    "tokens_in": 817,
+    "tokens_out": 17,
+    "eur": 0.00067
+   }
+  }
+ },
+ "calls": [
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1136,
+   "tokens_out": 59,
+   "reasoning_tokens": 0,
+   "latency_ms": 1870,
+   "cost_eur": 0.0010817341,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3333,
+   "tokens_out": 734,
+   "reasoning_tokens": 320,
+   "latency_ms": 5915,
+   "cost_eur": 0.0020250266,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 817,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1195,
+   "cost_eur": 0.0006671922999999999,
+   "estimated": false
+  }
+ ],
+ "moments": [
+  {
+   "moment_id": "mo_001",
+   "candidate": {
+    "candidate_id": "c_001",
+    "kind": "tactical_switch/wide",
+    "t_ms": 3240000,
+    "team_id": "t_tho",
+    "player_id": null,
+    "window_start_ms": 2280000,
+    "window_end_ms": 3240000,
+    "score": 2.79,
+    "signals": [
+     {
+      "metric": "width",
+      "subject": "t_tho",
+      "expected": "up",
+      "window": 19.229,
+      "before": 16.002,
+      "z": 2.79,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "tactical_switch/wide": 2.79
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_tho",
+      "expected": "down",
+      "window": 37.0,
+      "before": 16.75,
+      "z": -3.29,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_sel",
+      "expected": "down",
+      "window": 0.853,
+      "before": 0.853,
+      "z": -0.0,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_tho",
+      "expected": "up",
+      "window": 0.027,
+      "before": 0.207,
+      "z": -1.17,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "possession",
+      "subject": "t_tho",
+      "expected": "up",
+      "window": 0.278,
+      "before": 0.408,
+      "z": -1.11,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_tho",
+      "expected": "up",
+      "window": 23.279,
+      "before": 25.724,
+      "z": -1.55,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_tho",
+      "expected": "down",
+      "window": 0.776,
+      "before": 0.797,
+      "z": 0.42,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "width",
+      "subject": "t_tho",
+      "expected": "up",
+      "window": 19.229,
+      "before": 16.002,
+      "z": 2.79,
+      "above_noise_p95": true
+     }
+    ],
+    "key_events": [
+     {
+      "t_ms": 2035300,
+      "type": "card",
+      "team_id": "t_tho",
+      "player_id": "p_tho_07",
+      "detail": "yellow"
+     },
+     {
+      "t_ms": 2976300,
+      "type": "goal",
+      "team_id": "t_sel",
+      "player_id": null,
+      "detail": null
+     }
+    ]
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "tactical_switch",
+    "salience": 3,
+    "reason": "Thornhurst’s shape widened unusually, while other team controls did not move in the same direction, fitting a real tactical change rather than noise."
+   },
+   "explanation": {
+    "claim": "Thornhurst Town shifted to much wider play—width rose from 16.1m to 19.2m—while they lost control: time-based possession fell from 42.3% to 27.6% and their control index dropped. That tactical switch left them less settled and easier for Selstead to dominate after the 51st-minute goal.",
+    "mechanism_tag": "tactical_switch",
+    "team_id": "t_tho",
+    "player_ids": [],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_tho",
+      "metric": "width_m",
+      "before_start_ms": 1320000,
+      "before_end_ms": 2280000,
+      "after_start_ms": 2280000,
+      "after_end_ms": 3240000,
+      "before": 16.1,
+      "after": 19.2
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_tho",
+      "metric": "possession_time_based",
+      "before_start_ms": 1320000,
+      "before_end_ms": 2280000,
+      "after_start_ms": 2280000,
+      "after_end_ms": 3240000,
+      "before": 0.423,
+      "after": 0.276
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_tho",
+      "metric": "ppda",
+      "before_start_ms": 1320000,
+      "before_end_ms": 2280000,
+      "after_start_ms": 2280000,
+      "after_end_ms": 3240000,
+      "before": 11.5,
+      "after": 41.0
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_tho",
+      "metric": "control_index",
+      "before_start_ms": 1320000,
+      "before_end_ms": 2280000,
+      "after_start_ms": 2280000,
+      "after_end_ms": 3240000,
+      "before": 55.3,
+      "after": 30.1
+     }
+    ],
+    "confidence": 0.8
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1870,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 5916,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 4,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1195,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  }
+ ]
+}

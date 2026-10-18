@@ -1,0 +1,259 @@
+{
+ "run_id": "r_m_5001_e5a4de83",
+ "match_id": "m_5001",
+ "mode": "eval",
+ "kind": "recorded agent run",
+ "provider": "foundry",
+ "models": {
+  "fast": "gtf-fast",
+  "reasoning": "gtf-reasoning",
+  "reasoning_effort": "low"
+ },
+ "started_at": "2026-10-18T11:58:07.354505+00:00",
+ "wall_s": 12.0,
+ "candidates": 1,
+ "status_counts": {
+  "approved": 1
+ },
+ "budget_stopped": null,
+ "usage": {
+  "provider": "foundry",
+  "calls": 3,
+  "tokens_in": 5008,
+  "tokens_out": 882,
+  "cost_eur": 0.00378,
+  "estimated": false,
+  "by_agent": {
+   "detector": {
+    "calls": 1,
+    "tokens_in": 1028,
+    "tokens_out": 56,
+    "eur": 0.00099
+   },
+   "analyst": {
+    "calls": 1,
+    "tokens_in": 3153,
+    "tokens_out": 809,
+    "eur": 0.00212
+   },
+   "verifier": {
+    "calls": 1,
+    "tokens_in": 827,
+    "tokens_out": 17,
+    "eur": 0.00067
+   }
+  }
+ },
+ "calls": [
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1028,
+   "tokens_out": 56,
+   "reasoning_tokens": 0,
+   "latency_ms": 1485,
+   "cost_eur": 0.0009902583999999999,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3153,
+   "tokens_out": 809,
+   "reasoning_tokens": 256,
+   "latency_ms": 6905,
+   "cost_eur": 0.0021174191,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 827,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1144,
+   "cost_eur": 0.0006744523,
+   "estimated": false
+  }
+ ],
+ "moments": [
+  {
+   "moment_id": "mo_001",
+   "candidate": {
+    "candidate_id": "c_001",
+    "kind": "momentum_shift",
+    "t_ms": 1500000,
+    "team_id": "t_cor",
+    "player_id": null,
+    "window_start_ms": 600000,
+    "window_end_ms": 1500000,
+    "score": 2.04,
+    "signals": [
+     {
+      "metric": "possession",
+      "subject": "t_cor",
+      "expected": "up",
+      "window": 0.709,
+      "before": 0.486,
+      "z": 1.91,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_cor",
+      "expected": "up",
+      "window": 0.674,
+      "before": 0.34,
+      "z": 2.18,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "pressing_spell": 1.44,
+     "momentum_shift": 2.04
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_cor",
+      "expected": "down",
+      "window": 6.4,
+      "before": 5.8,
+      "z": -0.11,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_yar",
+      "expected": "down",
+      "window": 0.684,
+      "before": 0.8,
+      "z": 2.25,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_cor",
+      "expected": "up",
+      "window": 0.674,
+      "before": 0.34,
+      "z": 2.18,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "possession",
+      "subject": "t_cor",
+      "expected": "up",
+      "window": 0.709,
+      "before": 0.486,
+      "z": 1.91,
+      "above_noise_p95": true
+     }
+    ],
+    "key_events": [
+     {
+      "t_ms": 856400,
+      "type": "card",
+      "team_id": "t_yar",
+      "player_id": "p_yar_26",
+      "detail": "red"
+     }
+    ]
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "momentum_shift",
+    "salience": 4,
+    "reason": "Cordale’s possession and territory rose together after Yarbridge went down to ten men, with the opponent’s pass completion also dropping."
+   },
+   "explanation": {
+    "claim": "After Silas Pelberg’s red card, Cordale Rovers seized control: their time-based possession rose from 48.6% to 70.9% and field tilt from 34.0% to 67.4%. Yarbridge’s possession fell (51.4% → 29.1%) and pass completion dropped (80.0% → 68.4%), forcing Yarbridge onto the back foot.",
+    "mechanism_tag": "momentum_shift",
+    "team_id": "t_cor",
+    "player_ids": [
+     "p_yar_26"
+    ],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_cor",
+      "metric": "possession_time_based",
+      "before_start_ms": 0,
+      "before_end_ms": 600000,
+      "after_start_ms": 600000,
+      "after_end_ms": 1500000,
+      "before": 0.486,
+      "after": 0.709
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_cor",
+      "metric": "field_tilt",
+      "before_start_ms": 0,
+      "before_end_ms": 600000,
+      "after_start_ms": 600000,
+      "after_end_ms": 1500000,
+      "before": 0.34,
+      "after": 0.674
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_yar",
+      "metric": "possession_time_based",
+      "before_start_ms": 0,
+      "before_end_ms": 600000,
+      "after_start_ms": 600000,
+      "after_end_ms": 1500000,
+      "before": 0.514,
+      "after": 0.291
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_yar",
+      "metric": "pass_completion",
+      "before_start_ms": 0,
+      "before_end_ms": 600000,
+      "after_start_ms": 600000,
+      "after_end_ms": 1500000,
+      "before": 0.8,
+      "after": 0.684
+     }
+    ],
+    "confidence": 0.92
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1485,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 6905,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 2,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1144,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  }
+ ]
+}

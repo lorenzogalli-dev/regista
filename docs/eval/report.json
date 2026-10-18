@@ -1,0 +1,147 @@
+{
+ "set": "official",
+ "seeds": [
+  5000,
+  5001,
+  5002,
+  5003,
+  5004,
+  5005,
+  5006,
+  5007,
+  5008,
+  5009,
+  5010,
+  5011,
+  5012,
+  5013,
+  5014,
+  5015,
+  5016,
+  5017,
+  5018,
+  5019,
+  9000,
+  9001,
+  9002,
+  9003,
+  9004,
+  9005,
+  9006,
+  9007,
+  9008,
+  9009
+ ],
+ "provider": "foundry",
+ "models": {
+  "fast": "gtf-fast",
+  "reasoning": "gtf-reasoning",
+  "reasoning_effort": "low"
+ },
+ "matches": [
+  "m_5000",
+  "m_5001",
+  "m_5002",
+  "m_5003",
+  "m_5004",
+  "m_5005",
+  "m_5006",
+  "m_5007",
+  "m_5008",
+  "m_5009",
+  "m_5010",
+  "m_5011",
+  "m_5012",
+  "m_5013",
+  "m_5014",
+  "m_5015",
+  "m_5016",
+  "m_5017",
+  "m_5018",
+  "m_5019",
+  "m_9000",
+  "m_9001",
+  "m_9002",
+  "m_9003",
+  "m_9004",
+  "m_9005",
+  "m_9006",
+  "m_9007",
+  "m_9008",
+  "m_9009"
+ ],
+ "storyline_matches": 20,
+ "control_matches": 10,
+ "storylines": 44,
+ "recall": 0.523,
+ "recall_strict": 0.545,
+ "recall_by_type": {
+  "momentum_shift": {
+   "hit": 6,
+   "of": 12,
+   "difficult": false
+  },
+  "player_arc": {
+   "hit": 7,
+   "of": 9,
+   "difficult": true
+  },
+  "pressing_spell": {
+   "hit": 4,
+   "of": 15,
+   "difficult": false
+  },
+  "tactical_switch": {
+   "hit": 6,
+   "of": 8,
+   "difficult": false
+  }
+ },
+ "approved": 81,
+ "categories": {
+  "storyline_hit": 27,
+  "unplanted_evidence_backed": 54,
+  "unsupported": 0
+ },
+ "unsupported_not_checkable": 0,
+ "precision": 0.429,
+ "precision_at_3": 0.48,
+ "control_approved_per_match": 1.8,
+ "control_approved_by_tag": {
+  "momentum_shift": 4,
+  "player_arc": 3,
+  "pressing_spell": 6,
+  "tactical_switch": 5
+ },
+ "evidence": {
+  "ok": 267,
+  "bad": 0,
+  "unchecked": 45
+ },
+ "evidence_validity": 1.0,
+ "verifier_rejection_rate": 0.153,
+ "latency_ms": {
+  "detector": {
+   "p50": 1259,
+   "p95": 2006
+  },
+  "analyst": {
+   "p50": 6776,
+   "p95": 9144
+  },
+  "verifier:code": {
+   "p50": 9,
+   "p95": 13
+  },
+  "verifier:text": {
+   "p50": 1125,
+   "p95": 1529
+  },
+  "candidate_to_approval": {
+   "p50": 9507,
+   "p95": 17286
+  }
+ },
+ "cost_eur": 0.3851,
+ "calls": 282
+}

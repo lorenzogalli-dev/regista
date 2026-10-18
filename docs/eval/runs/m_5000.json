@@ -1,0 +1,1061 @@
+{
+ "run_id": "r_m_5000_88b5cd6c",
+ "match_id": "m_5000",
+ "mode": "eval",
+ "kind": "recorded agent run",
+ "provider": "foundry",
+ "models": {
+  "fast": "gtf-fast",
+  "reasoning": "gtf-reasoning",
+  "reasoning_effort": "low"
+ },
+ "started_at": "2026-10-18T11:57:29.866731+00:00",
+ "wall_s": 37.5,
+ "candidates": 4,
+ "status_counts": {
+  "approved": 4
+ },
+ "budget_stopped": null,
+ "usage": {
+  "provider": "foundry",
+  "calls": 12,
+  "tokens_in": 22219,
+  "tokens_out": 3458,
+  "cost_eur": 0.016,
+  "estimated": false,
+  "by_agent": {
+   "detector": {
+    "calls": 4,
+    "tokens_in": 5044,
+    "tokens_out": 238,
+    "eur": 0.0047
+   },
+   "analyst": {
+    "calls": 4,
+    "tokens_in": 13847,
+    "tokens_out": 3152,
+    "eur": 0.00859
+   },
+   "verifier": {
+    "calls": 4,
+    "tokens_in": 3328,
+    "tokens_out": 68,
+    "eur": 0.00271
+   }
+  }
+ },
+ "calls": [
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1191,
+   "tokens_out": 56,
+   "reasoning_tokens": 0,
+   "latency_ms": 2104,
+   "cost_eur": 0.0011085963999999998,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3375,
+   "tokens_out": 836,
+   "reasoning_tokens": 448,
+   "latency_ms": 6437,
+   "cost_eur": 0.0022137764,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 824,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1245,
+   "cost_eur": 0.0006722742999999999,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1085,
+   "tokens_out": 56,
+   "reasoning_tokens": 0,
+   "latency_ms": 1175,
+   "cost_eur": 0.0010316404,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3287,
+   "tokens_out": 847,
+   "reasoning_tokens": 320,
+   "latency_ms": 6762,
+   "cost_eur": 0.0022137753,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 829,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1042,
+   "cost_eur": 0.0006759043,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1413,
+   "tokens_out": 63,
+   "reasoning_tokens": 0,
+   "latency_ms": 1162,
+   "cost_eur": 0.0013002597,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3621,
+   "tokens_out": 708,
+   "reasoning_tokens": 320,
+   "latency_ms": 5301,
+   "cost_eur": 0.0020426292,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 837,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1026,
+   "cost_eur": 0.0006817123,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1355,
+   "tokens_out": 63,
+   "reasoning_tokens": 0,
+   "latency_ms": 1292,
+   "cost_eur": 0.0012581517,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3564,
+   "tokens_out": 761,
+   "reasoning_tokens": 384,
+   "latency_ms": 5802,
+   "cost_eur": 0.0021233639,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 838,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1063,
+   "cost_eur": 0.0006824383,
+   "estimated": false
+  }
+ ],
+ "moments": [
+  {
+   "moment_id": "mo_001",
+   "candidate": {
+    "candidate_id": "c_001",
+    "kind": "pressing_spell",
+    "t_ms": 2580000,
+    "team_id": "t_ald",
+    "player_id": null,
+    "window_start_ms": 1680000,
+    "window_end_ms": 2580000,
+    "score": 0.58,
+    "signals": [
+     {
+      "metric": "ppda",
+      "subject": "t_ald",
+      "expected": "down",
+      "window": 18.5,
+      "before": 5.467,
+      "z": -2.12,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_har",
+      "expected": "down",
+      "window": 0.676,
+      "before": 0.77,
+      "z": 1.81,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_ald",
+      "expected": "up",
+      "window": 0.557,
+      "before": 0.242,
+      "z": 2.05,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "pressing_spell": 0.58
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_ald",
+      "expected": "down",
+      "window": 18.5,
+      "before": 5.467,
+      "z": -2.12,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_har",
+      "expected": "down",
+      "window": 0.676,
+      "before": 0.77,
+      "z": 1.81,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_ald",
+      "expected": "up",
+      "window": 0.557,
+      "before": 0.242,
+      "z": 2.05,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "possession",
+      "subject": "t_ald",
+      "expected": "up",
+      "window": 0.563,
+      "before": 0.411,
+      "z": 1.3,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_ald",
+      "expected": "up",
+      "window": 25.18,
+      "before": 25.283,
+      "z": -0.02,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_ald",
+      "expected": "down",
+      "window": 0.837,
+      "before": 0.767,
+      "z": -1.38,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "width",
+      "subject": "t_ald",
+      "expected": "up",
+      "window": 12.878,
+      "before": 11.988,
+      "z": 0.81,
+      "above_noise_p95": false
+     }
+    ],
+    "key_events": [
+     {
+      "t_ms": 1392800,
+      "type": "card",
+      "team_id": "t_ald",
+      "player_id": "p_ald_14",
+      "detail": "red"
+     }
+    ]
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "momentum_shift",
+    "salience": 4,
+    "reason": "A red card earlier for Aldmore likely drove the later swing in field tilt and opponent pass completion rather than a pure pressing spell."
+   },
+   "explanation": {
+    "claim": "After Wim Peldor’s red card Aldmore Albion seized control: their time-based possession and field tilt jumped, allowing sustained pressure. Aldmore’s possession rose to 56.3% and field tilt to 55.7%, while Hartcombe’s possession fell to 43.7% and their pass completion to 67.6%.",
+    "mechanism_tag": "momentum_shift",
+    "team_id": "t_ald",
+    "player_ids": [
+     "p_ald_14"
+    ],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ald",
+      "metric": "possession_time_based",
+      "before_start_ms": 780000,
+      "before_end_ms": 1680000,
+      "after_start_ms": 1680000,
+      "after_end_ms": 2580000,
+      "before": 0.409,
+      "after": 0.563
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ald",
+      "metric": "field_tilt",
+      "before_start_ms": 780000,
+      "before_end_ms": 1680000,
+      "after_start_ms": 1680000,
+      "after_end_ms": 2580000,
+      "before": 0.084,
+      "after": 0.557
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_har",
+      "metric": "possession_time_based",
+      "before_start_ms": 780000,
+      "before_end_ms": 1680000,
+      "after_start_ms": 1680000,
+      "after_end_ms": 2580000,
+      "before": 0.591,
+      "after": 0.437
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_har",
+      "metric": "pass_completion",
+      "before_start_ms": 780000,
+      "before_end_ms": 1680000,
+      "after_start_ms": 1680000,
+      "after_end_ms": 2580000,
+      "before": 0.772,
+      "after": 0.676
+     }
+    ],
+    "confidence": 0.9
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 2104,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 6438,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 7,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1246,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_002",
+   "candidate": {
+    "candidate_id": "c_002",
+    "kind": "tactical_switch/wide",
+    "t_ms": 3600000,
+    "team_id": "t_ald",
+    "player_id": null,
+    "window_start_ms": 2640000,
+    "window_end_ms": 3600000,
+    "score": 3.17,
+    "signals": [
+     {
+      "metric": "width",
+      "subject": "t_ald",
+      "expected": "up",
+      "window": 15.766,
+      "before": 12.091,
+      "z": 3.17,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "tactical_switch/wide": 3.17
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_ald",
+      "expected": "down",
+      "window": 15.0,
+      "before": 7.176,
+      "z": -1.28,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_har",
+      "expected": "down",
+      "window": 0.707,
+      "before": 0.738,
+      "z": 0.62,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_ald",
+      "expected": "up",
+      "window": 0.414,
+      "before": 0.371,
+      "z": 0.28,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "possession",
+      "subject": "t_ald",
+      "expected": "up",
+      "window": 0.633,
+      "before": 0.482,
+      "z": 1.29,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_ald",
+      "expected": "up",
+      "window": 26.415,
+      "before": 24.905,
+      "z": 1.03,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_ald",
+      "expected": "down",
+      "window": 0.79,
+      "before": 0.801,
+      "z": 0.22,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "width",
+      "subject": "t_ald",
+      "expected": "up",
+      "window": 15.766,
+      "before": 12.091,
+      "z": 3.17,
+      "above_noise_p95": true
+     }
+    ],
+    "key_events": [
+     {
+      "t_ms": 3385700,
+      "type": "goal",
+      "team_id": "t_har",
+      "player_id": null,
+      "detail": null
+     }
+    ]
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "tactical_switch",
+    "salience": 3,
+    "reason": "Aldmore’s attacking shape widens clearly and coherently, with only mild supportive shifts elsewhere rather than a full momentum swing."
+   },
+   "explanation": {
+    "claim": "Aldmore Albion opened their shape and attacked much wider: pitch width rose from 12.4 m to 15.8 m while time-based possession increased from 57.7% to 65.2%. Their approach got more direct — average pass length rose to 26.4 m and pass completion fell from 85.3% to 79.0% — costing control but gaining territory.",
+    "mechanism_tag": "tactical_switch",
+    "team_id": "t_ald",
+    "player_ids": [],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ald",
+      "metric": "width_m",
+      "before_start_ms": 1680000,
+      "before_end_ms": 2640000,
+      "after_start_ms": 2640000,
+      "after_end_ms": 3600000,
+      "before": 12.4,
+      "after": 15.8
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ald",
+      "metric": "possession_time_based",
+      "before_start_ms": 1680000,
+      "before_end_ms": 2640000,
+      "after_start_ms": 2640000,
+      "after_end_ms": 3600000,
+      "before": 0.577,
+      "after": 0.652
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ald",
+      "metric": "avg_pass_length_m",
+      "before_start_ms": 1680000,
+      "before_end_ms": 2640000,
+      "after_start_ms": 2640000,
+      "after_end_ms": 3600000,
+      "before": 25.0,
+      "after": 26.4
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ald",
+      "metric": "pass_completion",
+      "before_start_ms": 1680000,
+      "before_end_ms": 2640000,
+      "after_start_ms": 2640000,
+      "after_end_ms": 3600000,
+      "before": 0.853,
+      "after": 0.79
+     }
+    ],
+    "confidence": 0.75
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1176,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 6763,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 13,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1043,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_003",
+   "candidate": {
+    "candidate_id": "c_003",
+    "kind": "tactical_switch/wide",
+    "t_ms": 4560000,
+    "team_id": "t_ald",
+    "player_id": null,
+    "window_start_ms": 3600000,
+    "window_end_ms": 4560000,
+    "score": 3.46,
+    "signals": [
+     {
+      "metric": "width",
+      "subject": "t_ald",
+      "expected": "up",
+      "window": 17.345,
+      "before": 13.326,
+      "z": 3.46,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "tactical_switch/wide": 3.46
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_ald",
+      "expected": "down",
+      "window": 9.8,
+      "before": 8.0,
+      "z": -0.3,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_har",
+      "expected": "down",
+      "window": 0.775,
+      "before": 0.732,
+      "z": -0.82,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_ald",
+      "expected": "up",
+      "window": 0.299,
+      "before": 0.384,
+      "z": -0.55,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "possession",
+      "subject": "t_ald",
+      "expected": "up",
+      "window": 0.48,
+      "before": 0.528,
+      "z": -0.41,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_ald",
+      "expected": "up",
+      "window": 24.37,
+      "before": 25.418,
+      "z": -0.64,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_ald",
+      "expected": "down",
+      "window": 0.752,
+      "before": 0.797,
+      "z": 0.89,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "width",
+      "subject": "t_ald",
+      "expected": "up",
+      "window": 17.345,
+      "before": 13.326,
+      "z": 3.46,
+      "above_noise_p95": true
+     }
+    ],
+    "key_events": [
+     {
+      "t_ms": 3385700,
+      "type": "goal",
+      "team_id": "t_har",
+      "player_id": null,
+      "detail": null
+     },
+     {
+      "t_ms": 3808200,
+      "type": "sub",
+      "team_id": "t_ald",
+      "player_id": "p_ald_07",
+      "detail": "p_ald_23"
+     },
+     {
+      "t_ms": 3842900,
+      "type": "sub",
+      "team_id": "t_har",
+      "player_id": "p_har_03",
+      "detail": "p_har_18"
+     },
+     {
+      "t_ms": 4077900,
+      "type": "sub",
+      "team_id": "t_ald",
+      "player_id": "p_ald_28",
+      "detail": "p_ald_18"
+     },
+     {
+      "t_ms": 4124600,
+      "type": "card",
+      "team_id": "t_ald",
+      "player_id": "p_ald_22",
+      "detail": "yellow"
+     },
+     {
+      "t_ms": 4314300,
+      "type": "sub",
+      "team_id": "t_har",
+      "player_id": "p_har_21",
+      "detail": "p_har_16"
+     },
+     {
+      "t_ms": 4317500,
+      "type": "card",
+      "team_id": "t_ald",
+      "player_id": "p_ald_11",
+      "detail": "yellow"
+     }
+    ]
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "tactical_switch",
+    "salience": 3,
+    "reason": "Aldmore’s width jumps clearly above its usual level after halftime substitutions and while chasing the game, pointing to a deliberate wide setup rather than a random fluctuation."
+   },
+   "explanation": {
+    "claim": "Aldmore Albion switched to a much wider attacking shape after the halftime period—width rose from 15.8 m to 17.3 m—suggesting a deliberate wide setup to chase the game. However this came with lower time-based possession (65.2% → 51.2%) and much less threat (xT added 0.144 → 0.032), so the switch widened play but didn’t increase their attacking output yet.",
+    "mechanism_tag": "tactical_switch",
+    "team_id": "t_ald",
+    "player_ids": [],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ald",
+      "metric": "width_m",
+      "before_start_ms": 2640000,
+      "before_end_ms": 3600000,
+      "after_start_ms": 3600000,
+      "after_end_ms": 4560000,
+      "before": 15.8,
+      "after": 17.3
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ald",
+      "metric": "possession_time_based",
+      "before_start_ms": 2640000,
+      "before_end_ms": 3600000,
+      "after_start_ms": 3600000,
+      "after_end_ms": 4560000,
+      "before": 0.652,
+      "after": 0.512
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ald",
+      "metric": "xt_added",
+      "before_start_ms": 2640000,
+      "before_end_ms": 3600000,
+      "after_start_ms": 3600000,
+      "after_end_ms": 4560000,
+      "before": 0.144,
+      "after": 0.032
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ald",
+      "metric": "control_index",
+      "before_start_ms": 2640000,
+      "before_end_ms": 3600000,
+      "after_start_ms": 3600000,
+      "after_end_ms": 4560000,
+      "before": 41.9,
+      "after": 46.9
+     }
+    ],
+    "confidence": 0.7
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1162,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 5302,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 9,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1026,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_004",
+   "candidate": {
+    "candidate_id": "c_004",
+    "kind": "pressing_spell",
+    "t_ms": 5520000,
+    "team_id": "t_ald",
+    "player_id": null,
+    "window_start_ms": 4620000,
+    "window_end_ms": 5520000,
+    "score": 2.59,
+    "signals": [
+     {
+      "metric": "ppda",
+      "subject": "t_ald",
+      "expected": "down",
+      "window": 6.625,
+      "before": 8.625,
+      "z": 0.31,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_har",
+      "expected": "down",
+      "window": 0.559,
+      "before": 0.737,
+      "z": 3.44,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_ald",
+      "expected": "up",
+      "window": 0.978,
+      "before": 0.363,
+      "z": 4.0,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "pressing_spell": 2.59
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_ald",
+      "expected": "down",
+      "window": 6.625,
+      "before": 8.625,
+      "z": 0.31,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_har",
+      "expected": "down",
+      "window": 0.559,
+      "before": 0.737,
+      "z": 3.44,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_ald",
+      "expected": "up",
+      "window": 0.978,
+      "before": 0.363,
+      "z": 4.0,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "possession",
+      "subject": "t_ald",
+      "expected": "up",
+      "window": 0.663,
+      "before": 0.514,
+      "z": 1.28,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_ald",
+      "expected": "up",
+      "window": 24.461,
+      "before": 25.184,
+      "z": -0.43,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_ald",
+      "expected": "down",
+      "window": 0.951,
+      "before": 0.787,
+      "z": -3.26,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "width",
+      "subject": "t_ald",
+      "expected": "up",
+      "window": 11.358,
+      "before": 14.217,
+      "z": -2.36,
+      "above_noise_p95": false
+     }
+    ],
+    "key_events": [
+     {
+      "t_ms": 4620900,
+      "type": "sub",
+      "team_id": "t_ald",
+      "player_id": "p_ald_19",
+      "detail": "p_ald_18"
+     },
+     {
+      "t_ms": 4659200,
+      "type": "goal",
+      "team_id": "t_ald",
+      "player_id": null,
+      "detail": null
+     },
+     {
+      "t_ms": 4923500,
+      "type": "goal",
+      "team_id": "t_ald",
+      "player_id": null,
+      "detail": null
+     },
+     {
+      "t_ms": 5153100,
+      "type": "sub",
+      "team_id": "t_har",
+      "player_id": "p_har_22",
+      "detail": "p_har_27"
+     },
+     {
+      "t_ms": 5171300,
+      "type": "goal",
+      "team_id": "t_ald",
+      "player_id": null,
+      "detail": null
+     },
+     {
+      "t_ms": 5332400,
+      "type": "goal",
+      "team_id": "t_ald",
+      "player_id": null,
+      "detail": null
+     }
+    ]
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "momentum_shift",
+    "salience": 4,
+    "reason": "Aldmore’s sustained territorial surge and Hartcombe’s sharp drop in passing came alongside a run of goals, fitting a clear late momentum swing rather than pure pressing."
+   },
+   "explanation": {
+    "claim": "After Caio Calani’s introduction Aldmore Albion seized control: time-based possession rose to 66.3% and their field tilt surged to 97.8%, driving a run of late goals. Hartcombe’s passing collapsed — their pass completion fell to 55.9% — as Aldmore pressed harder (PPDA 6.6).",
+    "mechanism_tag": "momentum_shift",
+    "team_id": "t_ald",
+    "player_ids": [
+     "p_ald_19",
+     "p_har_22"
+    ],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ald",
+      "metric": "possession_time_based",
+      "before_start_ms": 3720000,
+      "before_end_ms": 4620000,
+      "after_start_ms": 4620000,
+      "after_end_ms": 5520000,
+      "before": 0.452,
+      "after": 0.663
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ald",
+      "metric": "field_tilt",
+      "before_start_ms": 3720000,
+      "before_end_ms": 4620000,
+      "after_start_ms": 4620000,
+      "after_end_ms": 5520000,
+      "before": 0.293,
+      "after": 0.978
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_har",
+      "metric": "pass_completion",
+      "before_start_ms": 3720000,
+      "before_end_ms": 4620000,
+      "after_start_ms": 4620000,
+      "after_end_ms": 5520000,
+      "before": 0.766,
+      "after": 0.559
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ald",
+      "metric": "ppda",
+      "before_start_ms": 3720000,
+      "before_end_ms": 4620000,
+      "after_start_ms": 4620000,
+      "after_end_ms": 5520000,
+      "before": 10.4,
+      "after": 6.62
+     }
+    ],
+    "confidence": 0.9
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1292,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 5803,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 4,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1063,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  }
+ ]
+}

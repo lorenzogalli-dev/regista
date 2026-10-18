@@ -1,0 +1,281 @@
+{
+ "run_id": "r_m_9003_f6df4178",
+ "match_id": "m_9003",
+ "mode": "eval",
+ "kind": "recorded agent run",
+ "provider": "foundry",
+ "models": {
+  "fast": "gtf-fast",
+  "reasoning": "gtf-reasoning",
+  "reasoning_effort": "low"
+ },
+ "started_at": "2026-10-18T12:11:38.163877+00:00",
+ "wall_s": 22.9,
+ "candidates": 1,
+ "status_counts": {
+  "approved": 1
+ },
+ "budget_stopped": null,
+ "usage": {
+  "provider": "foundry",
+  "calls": 3,
+  "tokens_in": 5144,
+  "tokens_out": 860,
+  "cost_eur": 0.00381,
+  "estimated": false,
+  "by_agent": {
+   "detector": {
+    "calls": 1,
+    "tokens_in": 1118,
+    "tokens_out": 59,
+    "eur": 0.00107
+   },
+   "analyst": {
+    "calls": 1,
+    "tokens_in": 3238,
+    "tokens_out": 784,
+    "eur": 0.00209
+   },
+   "verifier": {
+    "calls": 1,
+    "tokens_in": 788,
+    "tokens_out": 17,
+    "eur": 0.00065
+   }
+  }
+ },
+ "calls": [
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1118,
+   "tokens_out": 59,
+   "reasoning_tokens": 0,
+   "latency_ms": 4939,
+   "cost_eur": 0.0010686660999999998,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3238,
+   "tokens_out": 784,
+   "reasoning_tokens": 256,
+   "latency_ms": 10208,
+   "cost_eur": 0.0020921216,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 788,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1192,
+   "cost_eur": 0.0006461383,
+   "estimated": false
+  }
+ ],
+ "moments": [
+  {
+   "moment_id": "mo_001",
+   "candidate": {
+    "candidate_id": "c_001",
+    "kind": "tactical_switch/wide",
+    "t_ms": 1560000,
+    "team_id": "t_ver",
+    "player_id": null,
+    "window_start_ms": 600000,
+    "window_end_ms": 1560000,
+    "score": 4.29,
+    "signals": [
+     {
+      "metric": "width",
+      "subject": "t_ver",
+      "expected": "up",
+      "window": 19.045,
+      "before": 14.04,
+      "z": 4.29,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "tactical_switch/wide": 4.29
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_ver",
+      "expected": "down",
+      "window": 8.0,
+      "before": 9.25,
+      "z": 0.19,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_cor",
+      "expected": "down",
+      "window": 0.796,
+      "before": 0.838,
+      "z": 0.82,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_ver",
+      "expected": "up",
+      "window": 0.403,
+      "before": 0.167,
+      "z": 1.54,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "possession",
+      "subject": "t_ver",
+      "expected": "up",
+      "window": 0.432,
+      "before": 0.317,
+      "z": 0.98,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_ver",
+      "expected": "up",
+      "window": 27.428,
+      "before": 24.723,
+      "z": 1.81,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_ver",
+      "expected": "down",
+      "window": 0.708,
+      "before": 0.8,
+      "z": 1.83,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "width",
+      "subject": "t_ver",
+      "expected": "up",
+      "window": 19.045,
+      "before": 14.04,
+      "z": 4.29,
+      "above_noise_p95": true
+     }
+    ],
+    "key_events": [
+     {
+      "t_ms": 501300,
+      "type": "goal",
+      "team_id": "t_cor",
+      "player_id": null,
+      "detail": null
+     },
+     {
+      "t_ms": 1200300,
+      "type": "card",
+      "team_id": "t_cor",
+      "player_id": "p_cor_03",
+      "detail": "yellow"
+     }
+    ]
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "tactical_switch",
+    "salience": 3,
+    "reason": "Vercombe’s shape gets much wider with a matching rise in longer passing and only modest possession changes, which fits a real switch rather than noise."
+   },
+   "explanation": {
+    "claim": "Vercombe Harriers have switched to much wider, longer passing: their width rose to 19.0 m and average pass length to 27.4 m. Their pass completion fell to 70.8% even as time-based possession climbed to 43.7%, so they’re probing wider and more direct.",
+    "mechanism_tag": "tactical_switch",
+    "team_id": "t_ver",
+    "player_ids": [],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ver",
+      "metric": "width_m",
+      "before_start_ms": 0,
+      "before_end_ms": 600000,
+      "after_start_ms": 600000,
+      "after_end_ms": 1560000,
+      "before": 14.0,
+      "after": 19.0
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ver",
+      "metric": "avg_pass_length_m",
+      "before_start_ms": 0,
+      "before_end_ms": 600000,
+      "after_start_ms": 600000,
+      "after_end_ms": 1560000,
+      "before": 24.7,
+      "after": 27.4
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ver",
+      "metric": "pass_completion",
+      "before_start_ms": 0,
+      "before_end_ms": 600000,
+      "after_start_ms": 600000,
+      "after_end_ms": 1560000,
+      "before": 0.8,
+      "after": 0.708
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ver",
+      "metric": "possession_time_based",
+      "before_start_ms": 0,
+      "before_end_ms": 600000,
+      "after_start_ms": 600000,
+      "after_end_ms": 1560000,
+      "before": 0.297,
+      "after": 0.437
+     }
+    ],
+    "confidence": 0.9
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 4942,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 10210,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 10,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1193,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  }
+ ]
+}

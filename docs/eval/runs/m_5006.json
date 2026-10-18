@@ -1,0 +1,1271 @@
+{
+ "run_id": "r_m_5006_15047016",
+ "match_id": "m_5006",
+ "mode": "eval",
+ "kind": "recorded agent run",
+ "provider": "foundry",
+ "models": {
+  "fast": "gtf-fast",
+  "reasoning": "gtf-reasoning",
+  "reasoning_effort": "low"
+ },
+ "started_at": "2026-10-18T12:01:49.411667+00:00",
+ "wall_s": 65.3,
+ "candidates": 6,
+ "status_counts": {
+  "approved": 4,
+  "dropped": 2
+ },
+ "budget_stopped": null,
+ "usage": {
+  "provider": "foundry",
+  "calls": 18,
+  "tokens_in": 31988,
+  "tokens_out": 6518,
+  "cost_eur": 0.02586,
+  "estimated": false,
+  "by_agent": {
+   "detector": {
+    "calls": 6,
+    "tokens_in": 6560,
+    "tokens_out": 350,
+    "eur": 0.00629
+   },
+   "analyst": {
+    "calls": 6,
+    "tokens_in": 20493,
+    "tokens_out": 5925,
+    "eur": 0.01494
+   },
+   "verifier": {
+    "calls": 6,
+    "tokens_in": 4935,
+    "tokens_out": 243,
+    "eur": 0.00464
+   }
+  }
+ },
+ "calls": [
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1133,
+   "tokens_out": 61,
+   "reasoning_tokens": 0,
+   "latency_ms": 1451,
+   "cost_eur": 0.0010882679,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3271,
+   "tokens_out": 1344,
+   "reasoning_tokens": 768,
+   "latency_ms": 10749,
+   "cost_eur": 0.0030849256,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 833,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1200,
+   "cost_eur": 0.0006788083,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1213,
+   "tokens_out": 55,
+   "reasoning_tokens": 0,
+   "latency_ms": 1295,
+   "cost_eur": 0.0011202125,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3398,
+   "tokens_out": 976,
+   "reasoning_tokens": 576,
+   "latency_ms": 8872,
+   "cost_eur": 0.0024652224,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 855,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1075,
+   "cost_eur": 0.0006947803,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1131,
+   "tokens_out": 65,
+   "reasoning_tokens": 0,
+   "latency_ms": 1126,
+   "cost_eur": 0.0011042395,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3342,
+   "tokens_out": 774,
+   "reasoning_tokens": 448,
+   "latency_ms": 6534,
+   "cost_eur": 0.0020974026,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 776,
+   "tokens_out": 103,
+   "reasoning_tokens": 0,
+   "latency_ms": 1520,
+   "cost_eur": 0.0010120336999999999,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3435,
+   "tokens_out": 1132,
+   "reasoning_tokens": 576,
+   "latency_ms": 8354,
+   "cost_eur": 0.0027479068,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 849,
+   "tokens_out": 72,
+   "reasoning_tokens": 0,
+   "latency_ms": 1254,
+   "cost_eur": 0.0009299988000000001,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 946,
+   "tokens_out": 53,
+   "reasoning_tokens": 0,
+   "latency_ms": 1103,
+   "cost_eur": 0.0009176586999999999,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3510,
+   "tokens_out": 966,
+   "reasoning_tokens": 384,
+   "latency_ms": 8549,
+   "cost_eur": 0.0024722634,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 847,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1005,
+   "cost_eur": 0.0006889723,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1192,
+   "tokens_out": 58,
+   "reasoning_tokens": 0,
+   "latency_ms": 1128,
+   "cost_eur": 0.0011180342,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 945,
+   "tokens_out": 58,
+   "reasoning_tokens": 0,
+   "latency_ms": 1114,
+   "cost_eur": 0.0009387121999999999,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3537,
+   "tokens_out": 733,
+   "reasoning_tokens": 384,
+   "latency_ms": 5414,
+   "cost_eur": 0.0020681466999999997,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 775,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1009,
+   "cost_eur": 0.0006367003,
+   "estimated": false
+  }
+ ],
+ "moments": [
+  {
+   "moment_id": "mo_001",
+   "candidate": {
+    "candidate_id": "c_001",
+    "kind": "pressing_spell",
+    "t_ms": 1500000,
+    "team_id": "t_qua",
+    "player_id": null,
+    "window_start_ms": 600000,
+    "window_end_ms": 1500000,
+    "score": 2.44,
+    "signals": [
+     {
+      "metric": "ppda",
+      "subject": "t_qua",
+      "expected": "down",
+      "window": 7.8,
+      "before": 7.0,
+      "z": -0.14,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_mor",
+      "expected": "down",
+      "window": 0.542,
+      "before": 0.786,
+      "z": 4.73,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_qua",
+      "expected": "up",
+      "window": 0.903,
+      "before": 0.482,
+      "z": 2.74,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "pressing_spell": 2.44,
+     "momentum_shift": 2.19
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_qua",
+      "expected": "down",
+      "window": 7.8,
+      "before": 7.0,
+      "z": -0.14,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_mor",
+      "expected": "down",
+      "window": 0.542,
+      "before": 0.786,
+      "z": 4.73,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_qua",
+      "expected": "up",
+      "window": 0.903,
+      "before": 0.482,
+      "z": 2.74,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "possession",
+      "subject": "t_qua",
+      "expected": "up",
+      "window": 0.715,
+      "before": 0.524,
+      "z": 1.63,
+      "above_noise_p95": true
+     }
+    ],
+    "key_events": [
+     {
+      "t_ms": 468400,
+      "type": "card",
+      "team_id": "t_mor",
+      "player_id": "p_mor_09",
+      "detail": "yellow"
+     },
+     {
+      "t_ms": 780100,
+      "type": "card",
+      "team_id": "t_mor",
+      "player_id": "p_mor_12",
+      "detail": "red"
+     }
+    ]
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "pressing_spell",
+    "salience": 4,
+    "reason": "Quardale’s territorial control rises while Mormouth’s pass completion collapses, and the earlier red card gives a clear reason for the sustained shift."
+   },
+   "explanation": {
+    "claim": "Quardale Rangers have pushed Mormouth back: time-based possession rose from 52.4% to 71.5% and field tilt from 48.2% to 90.3%, shifting almost all play into Mormouth's third. Mormouth's pass completion collapsed from 78.6% to 54.2% and their PPDA jumped from 4.7 to 29.0, showing Quardale's pressure is disrupting their build-up.",
+    "mechanism_tag": "pressing_spell",
+    "team_id": "t_qua",
+    "player_ids": [],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_qua",
+      "metric": "possession_time_based",
+      "before_start_ms": 0,
+      "before_end_ms": 600000,
+      "after_start_ms": 600000,
+      "after_end_ms": 1500000,
+      "before": 0.524,
+      "after": 0.715
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_qua",
+      "metric": "field_tilt",
+      "before_start_ms": 0,
+      "before_end_ms": 600000,
+      "after_start_ms": 600000,
+      "after_end_ms": 1500000,
+      "before": 0.482,
+      "after": 0.903
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_mor",
+      "metric": "pass_completion",
+      "before_start_ms": 0,
+      "before_end_ms": 600000,
+      "after_start_ms": 600000,
+      "after_end_ms": 1500000,
+      "before": 0.786,
+      "after": 0.542
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_mor",
+      "metric": "ppda",
+      "before_start_ms": 0,
+      "before_end_ms": 600000,
+      "after_start_ms": 600000,
+      "after_end_ms": 1500000,
+      "before": 4.71,
+      "after": 29.0
+     }
+    ],
+    "confidence": 0.85
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1452,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 10750,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 5,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1201,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_002",
+   "candidate": {
+    "candidate_id": "c_002",
+    "kind": "tactical_switch/long_ball",
+    "t_ms": 1980000,
+    "team_id": "t_mor",
+    "player_id": null,
+    "window_start_ms": 1020000,
+    "window_end_ms": 1980000,
+    "score": 3.02,
+    "signals": [
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_mor",
+      "expected": "up",
+      "window": 27.954,
+      "before": 24.26,
+      "z": 2.46,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_mor",
+      "expected": "down",
+      "window": 0.594,
+      "before": 0.773,
+      "z": 3.58,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "tactical_switch/long_ball": 3.02
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_mor",
+      "expected": "down",
+      "window": 5.2,
+      "before": 7.286,
+      "z": 0.33,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_qua",
+      "expected": "down",
+      "window": 0.948,
+      "before": 0.843,
+      "z": -2.02,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_mor",
+      "expected": "up",
+      "window": 0.049,
+      "before": 0.355,
+      "z": -1.99,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "possession",
+      "subject": "t_mor",
+      "expected": "up",
+      "window": 0.341,
+      "before": 0.392,
+      "z": -0.44,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_mor",
+      "expected": "up",
+      "window": 27.954,
+      "before": 24.26,
+      "z": 2.46,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_mor",
+      "expected": "down",
+      "window": 0.594,
+      "before": 0.773,
+      "z": 3.58,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "width",
+      "subject": "t_mor",
+      "expected": "up",
+      "window": 13.943,
+      "before": 14.435,
+      "z": -0.36,
+      "above_noise_p95": false
+     }
+    ],
+    "key_events": [
+     {
+      "t_ms": 780100,
+      "type": "card",
+      "team_id": "t_mor",
+      "player_id": "p_mor_12",
+      "detail": "red"
+     },
+     {
+      "t_ms": 1638300,
+      "type": "card",
+      "team_id": "t_mor",
+      "player_id": "p_mor_20",
+      "detail": "yellow"
+     }
+    ]
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "tactical_switch",
+    "salience": 4,
+    "reason": "Mormouth’s passing becomes much longer and less accurate, with a red card earlier that plausibly forced a direct approach."
+   },
+   "explanation": {
+    "claim": "Mormouth Harriers have switched to a direct long-ball approach: average pass length rose from 23.0 m to 28.0 m while pass completion dropped from 79% to 59.4%. That change has cut their final‑third activity (field tilt 30.7% → 4.4%) and reduced xT added (0.054 → 0.02), lowering chance creation despite longer passes.",
+    "mechanism_tag": "tactical_switch",
+    "team_id": "t_mor",
+    "player_ids": [
+     "p_mor_12",
+     "p_mor_20"
+    ],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_mor",
+      "metric": "avg_pass_length_m",
+      "before_start_ms": 60000,
+      "before_end_ms": 1020000,
+      "after_start_ms": 1020000,
+      "after_end_ms": 1980000,
+      "before": 23.0,
+      "after": 28.0
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_mor",
+      "metric": "pass_completion",
+      "before_start_ms": 60000,
+      "before_end_ms": 1020000,
+      "after_start_ms": 1020000,
+      "after_end_ms": 1980000,
+      "before": 0.79,
+      "after": 0.594
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_mor",
+      "metric": "field_tilt",
+      "before_start_ms": 60000,
+      "before_end_ms": 1020000,
+      "after_start_ms": 1020000,
+      "after_end_ms": 1980000,
+      "before": 0.307,
+      "after": 0.044
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_mor",
+      "metric": "xt_added",
+      "before_start_ms": 60000,
+      "before_end_ms": 1020000,
+      "after_start_ms": 1020000,
+      "after_end_ms": 1980000,
+      "before": 0.054,
+      "after": 0.02
+     }
+    ],
+    "confidence": 0.85
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1296,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 8873,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 7,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1076,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_003",
+   "candidate": {
+    "candidate_id": "c_003",
+    "kind": "tactical_switch/wide",
+    "t_ms": 2940000,
+    "team_id": "t_mor",
+    "player_id": null,
+    "window_start_ms": 1980000,
+    "window_end_ms": 2940000,
+    "score": 3.07,
+    "signals": [
+     {
+      "metric": "width",
+      "subject": "t_mor",
+      "expected": "up",
+      "window": 17.783,
+      "before": 14.218,
+      "z": 3.07,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "pressing_spell": 1.76,
+     "momentum_shift": 2.43,
+     "tactical_switch/wide": 3.07
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_mor",
+      "expected": "down",
+      "window": 16.0,
+      "before": 6.5,
+      "z": -1.55,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_qua",
+      "expected": "down",
+      "window": 0.691,
+      "before": 0.89,
+      "z": 3.85,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_mor",
+      "expected": "up",
+      "window": 0.703,
+      "before": 0.246,
+      "z": 2.97,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "possession",
+      "subject": "t_mor",
+      "expected": "up",
+      "window": 0.603,
+      "before": 0.383,
+      "z": 1.89,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_mor",
+      "expected": "up",
+      "window": 27.162,
+      "before": 25.961,
+      "z": 0.83,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_mor",
+      "expected": "down",
+      "window": 0.845,
+      "before": 0.691,
+      "z": -3.07,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "width",
+      "subject": "t_mor",
+      "expected": "up",
+      "window": 17.783,
+      "before": 14.218,
+      "z": 3.07,
+      "above_noise_p95": true
+     }
+    ],
+    "key_events": [
+     {
+      "t_ms": 2788400,
+      "type": "card",
+      "team_id": "t_qua",
+      "player_id": "p_qua_19",
+      "detail": "yellow"
+     }
+    ]
+   },
+   "status": "dropped",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "tactical_switch",
+    "salience": 4,
+    "reason": "Mormouth’s shape clearly widens and their field tilt jumps with possession improving, consistent with a deliberate halftime switch, with a yellow card on Quardale adding context."
+   },
+   "explanation": {
+    "claim": "Mormouth Harriers widened their shape after halftime — width rose from 13.9 m to 17.8 m and their field tilt jumped from 4.4% to 72.9%, giving them 62% time-based possession (up from 34%). That switch has forced Quardale’s pass completion down (95.1% → 69.6%) and knocked Quardale’s control off the ball.",
+    "mechanism_tag": "tactical_switch",
+    "team_id": "t_mor",
+    "player_ids": [
+     "p_qua_19"
+    ],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_mor",
+      "metric": "width_m",
+      "before_start_ms": 1020000,
+      "before_end_ms": 1980000,
+      "after_start_ms": 1980000,
+      "after_end_ms": 2940000,
+      "before": 13.9,
+      "after": 17.8
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_mor",
+      "metric": "field_tilt",
+      "before_start_ms": 1020000,
+      "before_end_ms": 1980000,
+      "after_start_ms": 1980000,
+      "after_end_ms": 2940000,
+      "before": 0.044,
+      "after": 0.729
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_mor",
+      "metric": "possession_time_based",
+      "before_start_ms": 1020000,
+      "before_end_ms": 1980000,
+      "after_start_ms": 1980000,
+      "after_end_ms": 2940000,
+      "before": 0.342,
+      "after": 0.619
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_qua",
+      "metric": "pass_completion",
+      "before_start_ms": 1020000,
+      "before_end_ms": 1980000,
+      "after_start_ms": 1980000,
+      "after_end_ms": 2940000,
+      "before": 0.951,
+      "after": 0.696
+     }
+    ],
+    "confidence": 0.8
+   },
+   "attempts": 2,
+   "rejection": "The claim says Quardale’s control was knocked off the ball, but no control-index evidence is provided for Quardale.; The claim mentions 'control' as a measured fact, but the evidence only includes width, field tilt, possession time, and pass completion.",
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1127,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 6535,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 10,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1520,
+     "outcome": "rejected",
+     "detail": "The claim mentions \"a Quardale yellow,\" but no yellow card or disciplinary event appears in the evidence or context.; The field tilt description is slightly imprecise: the evidence shows 72.9% after halftime, which is fine to round to 73%, but it did not \"jump to 73%\" from an already unspecified lev"
+    },
+    {
+     "stage": "analyst#2",
+     "ms": 8354,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 9,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1255,
+     "outcome": "rejected",
+     "detail": "The claim says Quardale’s control was knocked off the ball, but no control-index evidence is provided for Quardale.; The claim mentions 'control' as a measured fact, but the evidence only includes width, field tilt, possession time, and pass completion."
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_004",
+   "candidate": {
+    "candidate_id": "c_004",
+    "kind": "player_arc",
+    "t_ms": 3000000,
+    "team_id": "t_mor",
+    "player_id": "p_mor_09",
+    "window_start_ms": 1920000,
+    "window_end_ms": 3000000,
+    "score": 3.91,
+    "signals": [
+     {
+      "metric": "progressive_passes",
+      "subject": "p_mor_09",
+      "expected": "up",
+      "window": 0.389,
+      "before": 0.031,
+      "z": 4.34,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "touches",
+      "subject": "p_mor_09",
+      "expected": "up",
+      "window": 1.611,
+      "before": 0.594,
+      "z": 3.47,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {},
+    "team_profile": [],
+    "key_events": [
+     {
+      "t_ms": 1638300,
+      "type": "card",
+      "team_id": "t_mor",
+      "player_id": "p_mor_20",
+      "detail": "yellow"
+     },
+     {
+      "t_ms": 2788400,
+      "type": "card",
+      "team_id": "t_qua",
+      "player_id": "p_qua_19",
+      "detail": "yellow"
+     }
+    ]
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "player_arc",
+    "salience": 4,
+    "reason": "Zeke Quindell’s involvement spikes sharply with many more touches and progressive passes, fitting a clear individual progression story."
+   },
+   "explanation": {
+    "claim": "Zeke Quindell sharply took over Mormouth’s build-up: he had 29 touches (was 5) and played 7 progressive passes (was 0) in the moment window, driving attacks directly. That surge coincides with Mormouth’s time-based possession rising to 62.9% and field tilt to 74.4%, so his involvement flipped control of the game.",
+    "mechanism_tag": "player_arc",
+    "team_id": "t_mor",
+    "player_ids": [
+     "p_mor_09"
+    ],
+    "evidence": [
+     {
+      "tool": "get_player_physical",
+      "subject": "p_mor_09",
+      "metric": "touches",
+      "before_start_ms": 840000,
+      "before_end_ms": 1920000,
+      "after_start_ms": 1920000,
+      "after_end_ms": 3000000,
+      "before": 5.0,
+      "after": 29.0
+     },
+     {
+      "tool": "get_player_physical",
+      "subject": "p_mor_09",
+      "metric": "progressive_passes",
+      "before_start_ms": 840000,
+      "before_end_ms": 1920000,
+      "after_start_ms": 1920000,
+      "after_end_ms": 3000000,
+      "before": 0.0,
+      "after": 7.0
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_mor",
+      "metric": "possession_time_based",
+      "before_start_ms": 840000,
+      "before_end_ms": 1920000,
+      "after_start_ms": 1920000,
+      "after_end_ms": 3000000,
+      "before": 0.278,
+      "after": 0.629
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_mor",
+      "metric": "field_tilt",
+      "before_start_ms": 840000,
+      "before_end_ms": 1920000,
+      "after_start_ms": 1920000,
+      "after_end_ms": 3000000,
+      "before": 0.019,
+      "after": 0.744
+     }
+    ],
+    "confidence": 0.9
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1103,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 8550,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 9,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1006,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_005",
+   "candidate": {
+    "candidate_id": "c_005",
+    "kind": "pressing_spell",
+    "t_ms": 4140000,
+    "team_id": "t_mor",
+    "player_id": null,
+    "window_start_ms": 3240000,
+    "window_end_ms": 4140000,
+    "score": 1.38,
+    "signals": [
+     {
+      "metric": "ppda",
+      "subject": "t_mor",
+      "expected": "down",
+      "window": 4.333,
+      "before": 7.889,
+      "z": 0.56,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_qua",
+      "expected": "down",
+      "window": 0.746,
+      "before": 0.837,
+      "z": 1.76,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_mor",
+      "expected": "up",
+      "window": 0.656,
+      "before": 0.38,
+      "z": 1.8,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "pressing_spell": 1.38
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_mor",
+      "expected": "down",
+      "window": 4.333,
+      "before": 7.889,
+      "z": 0.56,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_qua",
+      "expected": "down",
+      "window": 0.746,
+      "before": 0.837,
+      "z": 1.76,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_mor",
+      "expected": "up",
+      "window": 0.656,
+      "before": 0.38,
+      "z": 1.8,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "possession",
+      "subject": "t_mor",
+      "expected": "up",
+      "window": 0.565,
+      "before": 0.456,
+      "z": 0.93,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_mor",
+      "expected": "up",
+      "window": 27.836,
+      "before": 26.931,
+      "z": 0.64,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_mor",
+      "expected": "down",
+      "window": 0.804,
+      "before": 0.749,
+      "z": -1.09,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "width",
+      "subject": "t_mor",
+      "expected": "up",
+      "window": 16.608,
+      "before": 16.119,
+      "z": 0.47,
+      "above_noise_p95": false
+     }
+    ],
+    "key_events": [
+     {
+      "t_ms": 3184300,
+      "type": "card",
+      "team_id": "t_qua",
+      "player_id": "p_qua_12",
+      "detail": "yellow"
+     }
+    ]
+   },
+   "status": "dropped",
+   "detector": {
+    "keep": false,
+    "mechanism_hint": "none",
+    "salience": 1,
+    "reason": "Only field tilt and opponent pass completion move modestly, while pressing itself is not unusual enough and the yellow card alone does not explain a sustained spell."
+   },
+   "explanation": null,
+   "attempts": 0,
+   "rejection": "detector: Only field tilt and opponent pass completion move modestly, while pressing itself is not unusual enough and the yellow card alone does not explain a sustained spell.",
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1128,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_006",
+   "candidate": {
+    "candidate_id": "c_006",
+    "kind": "player_arc",
+    "t_ms": 4140000,
+    "team_id": "t_mor",
+    "player_id": "p_mor_21",
+    "window_start_ms": 3060000,
+    "window_end_ms": 4140000,
+    "score": 3.82,
+    "signals": [
+     {
+      "metric": "progressive_passes",
+      "subject": "p_mor_21",
+      "expected": "up",
+      "window": 0.611,
+      "before": 0.137,
+      "z": 5.75,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "touches",
+      "subject": "p_mor_21",
+      "expected": "up",
+      "window": 1.333,
+      "before": 0.784,
+      "z": 1.88,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {},
+    "team_profile": [],
+    "key_events": [
+     {
+      "t_ms": 2788400,
+      "type": "card",
+      "team_id": "t_qua",
+      "player_id": "p_qua_19",
+      "detail": "yellow"
+     },
+     {
+      "t_ms": 3184300,
+      "type": "card",
+      "team_id": "t_qua",
+      "player_id": "p_qua_12",
+      "detail": "yellow"
+     }
+    ]
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "player_arc",
+    "salience": 4,
+    "reason": "Kofi Talens shows a sustained surge in progressive passing with a modest rise in involvement, consistent with a real player-level change rather than noise."
+   },
+   "explanation": {
+    "claim": "Kofi Talens has started driving Mormouth Harriers' forward play: his progressive passes rose from 3 to 11 and his touches from 19 to 24 in the 18.0-minute window. That surge lines up with Mormouth's xT added rising 0.035 → 0.079, creating clearer chances.",
+    "mechanism_tag": "player_arc",
+    "team_id": "t_mor",
+    "player_ids": [
+     "p_mor_21"
+    ],
+    "evidence": [
+     {
+      "tool": "get_player_physical",
+      "subject": "p_mor_21",
+      "metric": "progressive_passes",
+      "before_start_ms": 1980000,
+      "before_end_ms": 3060000,
+      "after_start_ms": 3060000,
+      "after_end_ms": 4140000,
+      "before": 3.0,
+      "after": 11.0
+     },
+     {
+      "tool": "get_player_physical",
+      "subject": "p_mor_21",
+      "metric": "touches",
+      "before_start_ms": 1980000,
+      "before_end_ms": 3060000,
+      "after_start_ms": 3060000,
+      "after_end_ms": 4140000,
+      "before": 19.0,
+      "after": 24.0
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_mor",
+      "metric": "xt_added",
+      "before_start_ms": 1980000,
+      "before_end_ms": 3060000,
+      "after_start_ms": 3060000,
+      "after_end_ms": 4140000,
+      "before": 0.035,
+      "after": 0.079
+     }
+    ],
+    "confidence": 0.8
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1115,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 5415,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 8,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1010,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  }
+ ]
+}

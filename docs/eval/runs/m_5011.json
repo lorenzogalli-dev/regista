@@ -1,0 +1,756 @@
+{
+ "run_id": "r_m_5011_f04d292c",
+ "match_id": "m_5011",
+ "mode": "eval",
+ "kind": "recorded agent run",
+ "provider": "foundry",
+ "models": {
+  "fast": "gtf-fast",
+  "reasoning": "gtf-reasoning",
+  "reasoning_effort": "low"
+ },
+ "started_at": "2026-10-18T12:05:50.421712+00:00",
+ "wall_s": 31.8,
+ "candidates": 3,
+ "status_counts": {
+  "approved": 3
+ },
+ "budget_stopped": null,
+ "usage": {
+  "provider": "foundry",
+  "calls": 9,
+  "tokens_in": 16700,
+  "tokens_out": 3086,
+  "cost_eur": 0.01282,
+  "estimated": false,
+  "by_agent": {
+   "detector": {
+    "calls": 3,
+    "tokens_in": 3638,
+    "tokens_out": 182,
+    "eur": 0.00343
+   },
+   "analyst": {
+    "calls": 3,
+    "tokens_in": 10553,
+    "tokens_out": 2853,
+    "eur": 0.00734
+   },
+   "verifier": {
+    "calls": 3,
+    "tokens_in": 2509,
+    "tokens_out": 51,
+    "eur": 0.00204
+   }
+  }
+ },
+ "calls": [
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 836,
+   "tokens_out": 53,
+   "reasoning_tokens": 0,
+   "latency_ms": 1551,
+   "cost_eur": 0.0008377987000000001,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3331,
+   "tokens_out": 925,
+   "reasoning_tokens": 512,
+   "latency_ms": 7000,
+   "cost_eur": 0.0023607275,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 851,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1158,
+   "cost_eur": 0.0006918763,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1409,
+   "tokens_out": 66,
+   "reasoning_tokens": 0,
+   "latency_ms": 2080,
+   "cost_eur": 0.0013104234,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3621,
+   "tokens_out": 1011,
+   "reasoning_tokens": 448,
+   "latency_ms": 7161,
+   "cost_eur": 0.0025758789,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 819,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1005,
+   "cost_eur": 0.0006686442999999999,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1393,
+   "tokens_out": 63,
+   "reasoning_tokens": 0,
+   "latency_ms": 1251,
+   "cost_eur": 0.0012857397000000002,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3601,
+   "tokens_out": 917,
+   "reasoning_tokens": 384,
+   "latency_ms": 6739,
+   "cost_eur": 0.0024060483000000006,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 839,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1042,
+   "cost_eur": 0.0006831643,
+   "estimated": false
+  }
+ ],
+ "moments": [
+  {
+   "moment_id": "mo_001",
+   "candidate": {
+    "candidate_id": "c_001",
+    "kind": "player_arc",
+    "t_ms": 1680000,
+    "team_id": "t_har",
+    "player_id": "p_har_04",
+    "window_start_ms": 600000,
+    "window_end_ms": 1680000,
+    "score": 4.35,
+    "signals": [
+     {
+      "metric": "progressive_passes",
+      "subject": "p_har_04",
+      "expected": "up",
+      "window": 0.389,
+      "before": 0.0,
+      "z": 4.72,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "touches",
+      "subject": "p_har_04",
+      "expected": "up",
+      "window": 1.667,
+      "before": 0.5,
+      "z": 3.98,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {},
+    "team_profile": [],
+    "key_events": []
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "player_arc",
+    "salience": 4,
+    "reason": "Zeke Quindor has a clear, sustained jump in progressive passes and touches, matching a strong individual involvement shift."
+   },
+   "explanation": {
+    "claim": "Harthaven’s deep midfielder Zeke Quindor hugely increased his involvement: his touches rose from 5.0 (over 10.0 minutes) to 30.0 (over 18.0 minutes) and his progressive passes went from 0.0 to 7.0. That individual surge coincides with Harthaven’s time-based possession rising to 56.3% and field tilt to 65.4%, so Quindor is driving their control and progression.",
+    "mechanism_tag": "player_arc",
+    "team_id": "t_har",
+    "player_ids": [
+     "p_har_04"
+    ],
+    "evidence": [
+     {
+      "tool": "get_player_physical",
+      "subject": "p_har_04",
+      "metric": "touches",
+      "before_start_ms": 0,
+      "before_end_ms": 600000,
+      "after_start_ms": 600000,
+      "after_end_ms": 1680000,
+      "before": 5.0,
+      "after": 30.0
+     },
+     {
+      "tool": "get_player_physical",
+      "subject": "p_har_04",
+      "metric": "progressive_passes",
+      "before_start_ms": 0,
+      "before_end_ms": 600000,
+      "after_start_ms": 600000,
+      "after_end_ms": 1680000,
+      "before": 0.0,
+      "after": 7.0
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_har",
+      "metric": "possession_time_based",
+      "before_start_ms": 0,
+      "before_end_ms": 600000,
+      "after_start_ms": 600000,
+      "after_end_ms": 1680000,
+      "before": 0.417,
+      "after": 0.563
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_har",
+      "metric": "field_tilt",
+      "before_start_ms": 0,
+      "before_end_ms": 600000,
+      "after_start_ms": 600000,
+      "after_end_ms": 1680000,
+      "before": 0.474,
+      "after": 0.654
+     }
+    ],
+    "confidence": 0.85
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1551,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 7001,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 10,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1159,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_002",
+   "candidate": {
+    "candidate_id": "c_002",
+    "kind": "pressing_spell",
+    "t_ms": 4080000,
+    "team_id": "t_har",
+    "player_id": null,
+    "window_start_ms": 3180000,
+    "window_end_ms": 4080000,
+    "score": 1.48,
+    "signals": [
+     {
+      "metric": "ppda",
+      "subject": "t_har",
+      "expected": "down",
+      "window": 6.0,
+      "before": 8.571,
+      "z": 0.41,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_bel",
+      "expected": "down",
+      "window": 0.675,
+      "before": 0.782,
+      "z": 2.07,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_har",
+      "expected": "up",
+      "window": 0.842,
+      "before": 0.542,
+      "z": 1.95,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "pressing_spell": 1.48
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_har",
+      "expected": "down",
+      "window": 6.0,
+      "before": 8.571,
+      "z": 0.41,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_bel",
+      "expected": "down",
+      "window": 0.675,
+      "before": 0.782,
+      "z": 2.07,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_har",
+      "expected": "up",
+      "window": 0.842,
+      "before": 0.542,
+      "z": 1.95,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "possession",
+      "subject": "t_har",
+      "expected": "up",
+      "window": 0.457,
+      "before": 0.47,
+      "z": -0.11,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_har",
+      "expected": "up",
+      "window": 23.76,
+      "before": 24.352,
+      "z": -0.34,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_har",
+      "expected": "down",
+      "window": 0.912,
+      "before": 0.787,
+      "z": -2.49,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "width",
+      "subject": "t_har",
+      "expected": "up",
+      "window": 12.932,
+      "before": 12.979,
+      "z": 0.02,
+      "above_noise_p95": false
+     }
+    ],
+    "key_events": [
+     {
+      "t_ms": 3194800,
+      "type": "card",
+      "team_id": "t_har",
+      "player_id": "p_har_05",
+      "detail": "yellow"
+     },
+     {
+      "t_ms": 3540000,
+      "type": "card",
+      "team_id": "t_bel",
+      "player_id": "p_bel_18",
+      "detail": "red"
+     },
+     {
+      "t_ms": 3835600,
+      "type": "goal",
+      "team_id": "t_har",
+      "player_id": null,
+      "detail": null
+     },
+     {
+      "t_ms": 3949800,
+      "type": "sub",
+      "team_id": "t_bel",
+      "player_id": "p_bel_14",
+      "detail": "p_bel_24"
+     },
+     {
+      "t_ms": 4025500,
+      "type": "sub",
+      "team_id": "t_bel",
+      "player_id": "p_bel_15",
+      "detail": "p_bel_02"
+     },
+     {
+      "t_ms": 4030900,
+      "type": "goal",
+      "team_id": "t_har",
+      "player_id": null,
+      "detail": null
+     }
+    ]
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "momentum_shift",
+    "salience": 4,
+    "reason": "Belgate’s red card is followed by Harthaven territory and a drop in away passing, then two goals make this a clear game-state swing rather than a pure pressing spell."
+   },
+   "explanation": {
+    "claim": "Harthaven Borough seized control after Belgate’s red card: their time-based possession rose to 45.7% and field tilt jumped to 84.2%, while Belgate’s pass completion dropped to 67.5%. Harthaven’s xT added also climbed to 0.31, explaining the two quick goals and the game swing.",
+    "mechanism_tag": "momentum_shift",
+    "team_id": "t_har",
+    "player_ids": [],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_har",
+      "metric": "field_tilt",
+      "before_start_ms": 2280000,
+      "before_end_ms": 3180000,
+      "after_start_ms": 3180000,
+      "after_end_ms": 4080000,
+      "before": 0.622,
+      "after": 0.842
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_har",
+      "metric": "possession_time_based",
+      "before_start_ms": 2280000,
+      "before_end_ms": 3180000,
+      "after_start_ms": 3180000,
+      "after_end_ms": 4080000,
+      "before": 0.412,
+      "after": 0.457
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_bel",
+      "metric": "pass_completion",
+      "before_start_ms": 2280000,
+      "before_end_ms": 3180000,
+      "after_start_ms": 3180000,
+      "after_end_ms": 4080000,
+      "before": 0.793,
+      "after": 0.675
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_har",
+      "metric": "xt_added",
+      "before_start_ms": 2280000,
+      "before_end_ms": 3180000,
+      "after_start_ms": 3180000,
+      "after_end_ms": 4080000,
+      "before": 0.029,
+      "after": 0.31
+     }
+    ],
+    "confidence": 0.88
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 2080,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 7162,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 7,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1005,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_003",
+   "candidate": {
+    "candidate_id": "c_003",
+    "kind": "pressing_spell",
+    "t_ms": 5400000,
+    "team_id": "t_bel",
+    "player_id": null,
+    "window_start_ms": 4500000,
+    "window_end_ms": 5400000,
+    "score": 1.24,
+    "signals": [
+     {
+      "metric": "ppda",
+      "subject": "t_bel",
+      "expected": "down",
+      "window": 9.667,
+      "before": 9.042,
+      "z": -0.11,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_har",
+      "expected": "down",
+      "window": 0.714,
+      "before": 0.818,
+      "z": 2.02,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_bel",
+      "expected": "up",
+      "window": 0.566,
+      "before": 0.29,
+      "z": 1.79,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "pressing_spell": 1.24
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_bel",
+      "expected": "down",
+      "window": 9.667,
+      "before": 9.042,
+      "z": -0.11,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_har",
+      "expected": "down",
+      "window": 0.714,
+      "before": 0.818,
+      "z": 2.02,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_bel",
+      "expected": "up",
+      "window": 0.566,
+      "before": 0.29,
+      "z": 1.79,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "possession",
+      "subject": "t_bel",
+      "expected": "up",
+      "window": 0.572,
+      "before": 0.512,
+      "z": 0.51,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_bel",
+      "expected": "up",
+      "window": 25.332,
+      "before": 27.293,
+      "z": -1.23,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_bel",
+      "expected": "down",
+      "window": 0.828,
+      "before": 0.748,
+      "z": -1.6,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "width",
+      "subject": "t_bel",
+      "expected": "up",
+      "window": 14.55,
+      "before": 16.465,
+      "z": -1.56,
+      "above_noise_p95": false
+     }
+    ],
+    "key_events": [
+     {
+      "t_ms": 4284400,
+      "type": "sub",
+      "team_id": "t_har",
+      "player_id": "p_har_14",
+      "detail": "p_har_06"
+     },
+     {
+      "t_ms": 4294500,
+      "type": "goal",
+      "team_id": "t_har",
+      "player_id": null,
+      "detail": null
+     },
+     {
+      "t_ms": 4483500,
+      "type": "sub",
+      "team_id": "t_har",
+      "player_id": "p_har_22",
+      "detail": "p_har_26"
+     },
+     {
+      "t_ms": 4555500,
+      "type": "sub",
+      "team_id": "t_har",
+      "player_id": "p_har_29",
+      "detail": "p_har_18"
+     },
+     {
+      "t_ms": 5034300,
+      "type": "sub",
+      "team_id": "t_bel",
+      "player_id": "p_bel_19",
+      "detail": "p_bel_21"
+     }
+    ]
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "momentum_shift",
+    "salience": 2,
+    "reason": "Belgate show more territory while Harthaven’s pass completion drops after the game is already decided, which fits a late momentum swing more than a true pressing spell."
+   },
+   "explanation": {
+    "claim": "Belgate Harriers took over territory late: their time-based possession rose to 57.2% (from 45.4%) and their field tilt jumped to 56.6% (from 0.0%). This matters because Harthaven’s pass completion fell from 95.1% to 71.4% while Belgate’s control index rose from 26.1 to 47.0, giving Belgate sustained attacking platform.",
+    "mechanism_tag": "momentum_shift",
+    "team_id": "t_bel",
+    "player_ids": [],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_bel",
+      "metric": "possession_time_based",
+      "before_start_ms": 3600000,
+      "before_end_ms": 4500000,
+      "after_start_ms": 4500000,
+      "after_end_ms": 5400000,
+      "before": 0.454,
+      "after": 0.572
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_bel",
+      "metric": "field_tilt",
+      "before_start_ms": 3600000,
+      "before_end_ms": 4500000,
+      "after_start_ms": 4500000,
+      "after_end_ms": 5400000,
+      "before": 0.0,
+      "after": 0.566
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_har",
+      "metric": "pass_completion",
+      "before_start_ms": 3600000,
+      "before_end_ms": 4500000,
+      "after_start_ms": 4500000,
+      "after_end_ms": 5400000,
+      "before": 0.951,
+      "after": 0.714
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_bel",
+      "metric": "control_index",
+      "before_start_ms": 3600000,
+      "before_end_ms": 4500000,
+      "after_start_ms": 4500000,
+      "after_end_ms": 5400000,
+      "before": 26.1,
+      "after": 47.0
+     }
+    ],
+    "confidence": 0.8
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1252,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 6740,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 13,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1043,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  }
+ ]
+}

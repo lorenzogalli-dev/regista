@@ -1,0 +1,324 @@
+{
+ "run_id": "r_m_5013_b26465dc",
+ "match_id": "m_5013",
+ "mode": "eval",
+ "kind": "recorded agent run",
+ "provider": "foundry",
+ "models": {
+  "fast": "gtf-fast",
+  "reasoning": "gtf-reasoning",
+  "reasoning_effort": "low"
+ },
+ "started_at": "2026-10-18T12:06:43.591277+00:00",
+ "wall_s": 22.8,
+ "candidates": 1,
+ "status_counts": {
+  "approved": 1
+ },
+ "budget_stopped": null,
+ "usage": {
+  "provider": "foundry",
+  "calls": 5,
+  "tokens_in": 9624,
+  "tokens_out": 2282,
+  "cost_eur": 0.00791,
+  "estimated": false,
+  "by_agent": {
+   "detector": {
+    "calls": 1,
+    "tokens_in": 1226,
+    "tokens_out": 57,
+    "eur": 0.00114
+   },
+   "analyst": {
+    "calls": 2,
+    "tokens_in": 6889,
+    "tokens_out": 2131,
+    "eur": 0.00527
+   },
+   "verifier": {
+    "calls": 2,
+    "tokens_in": 1509,
+    "tokens_out": 94,
+    "eur": 0.0015
+   }
+  }
+ },
+ "calls": [
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1226,
+   "tokens_out": 57,
+   "reasoning_tokens": 0,
+   "latency_ms": 1460,
+   "cost_eur": 0.0011383623,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3411,
+   "tokens_out": 1185,
+   "reasoning_tokens": 768,
+   "latency_ms": 9720,
+   "cost_eur": 0.0028359015,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 754,
+   "tokens_out": 77,
+   "reasoning_tokens": 0,
+   "latency_ms": 1377,
+   "cost_eur": 0.0008828083,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3478,
+   "tokens_out": 946,
+   "reasoning_tokens": 512,
+   "latency_ms": 6570,
+   "cost_eur": 0.0024300254,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 755,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1060,
+   "cost_eur": 0.0006221803,
+   "estimated": false
+  }
+ ],
+ "moments": [
+  {
+   "moment_id": "mo_001",
+   "candidate": {
+    "candidate_id": "c_001",
+    "kind": "momentum_shift",
+    "t_ms": 2100000,
+    "team_id": "t_dun",
+    "player_id": null,
+    "window_start_ms": 1200000,
+    "window_end_ms": 2100000,
+    "score": 2.48,
+    "signals": [
+     {
+      "metric": "possession",
+      "subject": "t_dun",
+      "expected": "up",
+      "window": 0.578,
+      "before": 0.386,
+      "z": 1.65,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_dun",
+      "expected": "up",
+      "window": 0.967,
+      "before": 0.457,
+      "z": 3.32,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "momentum_shift": 2.48
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_dun",
+      "expected": "down",
+      "window": 5.25,
+      "before": 8.417,
+      "z": 0.5,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_bel",
+      "expected": "down",
+      "window": 0.71,
+      "before": 0.736,
+      "z": 0.51,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_dun",
+      "expected": "up",
+      "window": 0.967,
+      "before": 0.457,
+      "z": 3.32,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "possession",
+      "subject": "t_dun",
+      "expected": "up",
+      "window": 0.578,
+      "before": 0.386,
+      "z": 1.65,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_dun",
+      "expected": "up",
+      "window": 28.419,
+      "before": 28.171,
+      "z": 0.21,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_dun",
+      "expected": "down",
+      "window": 0.797,
+      "before": 0.741,
+      "z": -1.12,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "width",
+      "subject": "t_dun",
+      "expected": "up",
+      "window": 17.901,
+      "before": 16.523,
+      "z": 1.22,
+      "above_noise_p95": false
+     }
+    ],
+    "key_events": [
+     {
+      "t_ms": 1560000,
+      "type": "card",
+      "team_id": "t_bel",
+      "player_id": "p_bel_07",
+      "detail": "red"
+     },
+     {
+      "t_ms": 1663800,
+      "type": "goal",
+      "team_id": "t_dun",
+      "player_id": null,
+      "detail": null
+     },
+     {
+      "t_ms": 2018400,
+      "type": "card",
+      "team_id": "t_bel",
+      "player_id": "p_bel_05",
+      "detail": "yellow"
+     }
+    ]
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "momentum_shift",
+    "salience": 5,
+    "reason": "Belhaven’s red card is followed by a strong Dunstead swing in field tilt and a goal, which fits a clear momentum change."
+   },
+   "explanation": {
+    "claim": "After Belhaven’s red card, Dunstead Rangers took over the game: time-based possession rose from 36.5% to 57.8% and field tilt jumped from 42.2% to 96.7%. That swing also raised their attacking threat (xT added 0.034 → 0.47), explaining the goal that followed.",
+    "mechanism_tag": "momentum_shift",
+    "team_id": "t_dun",
+    "player_ids": [],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_dun",
+      "metric": "possession_time_based",
+      "before_start_ms": 300000,
+      "before_end_ms": 1200000,
+      "after_start_ms": 1200000,
+      "after_end_ms": 2100000,
+      "before": 0.365,
+      "after": 0.578
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_dun",
+      "metric": "field_tilt",
+      "before_start_ms": 300000,
+      "before_end_ms": 1200000,
+      "after_start_ms": 1200000,
+      "after_end_ms": 2100000,
+      "before": 0.422,
+      "after": 0.967
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_dun",
+      "metric": "xt_added",
+      "before_start_ms": 300000,
+      "before_end_ms": 1200000,
+      "after_start_ms": 1200000,
+      "after_end_ms": 2100000,
+      "before": 0.034,
+      "after": 0.47
+     }
+    ],
+    "confidence": 0.9
+   },
+   "attempts": 2,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1461,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 9721,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 5,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1378,
+     "outcome": "rejected",
+     "detail": "The claim says the goal completed the momentum shift, but the evidence only provides possession, field tilt, and xT stats; it does not contain a goal event.; The claim implies the changes happened after a Belhaven red card, but no red card is present in the provided evidence or context."
+    },
+    {
+     "stage": "analyst#2",
+     "ms": 6571,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 5,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1061,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  }
+ ]
+}

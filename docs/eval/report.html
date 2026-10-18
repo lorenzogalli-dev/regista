@@ -1,0 +1,16 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evaluation report</title>
+<style>body{font-family:Inter,system-ui,sans-serif;background:#06110c;color:#f2f5f3;max-width:860px;margin:40px auto;padding:0 16px}h1{font-size:28px}h2{font-size:18px;margin-top:32px;color:#9fb0a7;text-transform:uppercase;letter-spacing:.08em}table{border-collapse:collapse;width:100%}td,th{padding:6px 10px;border-bottom:1px solid rgba(242,245,243,.14);text-align:left;font-variant-numeric:tabular-nums}p{color:#9fb0a7;line-height:1.5}</style></head><body>
+<h1>Evaluation report</h1>
+<p>20 storyline matches (44 hidden storylines),
+10 control matches. Provider foundry,
+models {&quot;fast&quot;: &quot;gtf-fast&quot;, &quot;reasoning&quot;: &quot;gtf-reasoning&quot;, &quot;reasoning_effort&quot;: &quot;low&quot;}. 282 model calls,
+0.39 EUR.
+All data is synthetic.</p>
+<h2>Summary</h2><table><tr><td>Storyline recall (window midpoint ± 3 min)</td><td>52%</td></tr><tr><td>Storyline recall (emission time ± 3 min)</td><td>55%</td></tr><tr><td>Precision (classic)</td><td>43%</td></tr><tr><td>Precision@3 (moments the Director airs)</td><td>48%</td></tr><tr><td>Evidence validity (independent recomputation)</td><td>100%</td></tr><tr><td>Verifier rejection rate</td><td>15%</td></tr><tr><td>Approved explanations</td><td>81</td></tr><tr><td>… storyline hits</td><td>27</td></tr><tr><td>… unplanted, evidence-backed (real patterns, not errors)</td><td>54</td></tr><tr><td>… unsupported</td><td>0</td></tr><tr><td>Approved per control match (no storylines)</td><td>1.8</td></tr></table>
+<h2>Recall by storyline type</h2><table><tr><td>momentum_shift</td><td>6/12</td></tr><tr><td>player_arc (difficult)</td><td>7/9</td></tr><tr><td>pressing_spell</td><td>4/15</td></tr><tr><td>tactical_switch</td><td>6/8</td></tr></table>
+<h2>Control matches: approved explanations by tag</h2>
+<table><tr><td>momentum_shift</td><td>4</td></tr><tr><td>player_arc</td><td>3</td></tr><tr><td>pressing_spell</td><td>6</td></tr><tr><td>tactical_switch</td><td>5</td></tr></table>
+<h2>Latency (ms)</h2><table><tr><th>stage</th><th>p50</th><th>p95</th></tr><tr><td>detector</td><td>1259</td><td>2006</td></tr><tr><td>analyst</td><td>6776</td><td>9144</td></tr><tr><td>verifier:code</td><td>9</td><td>13</td></tr><tr><td>verifier:text</td><td>1125</td><td>1529</td></tr><tr><td>candidate_to_approval</td><td>9507</td><td>17286</td></tr></table>
+</body></html>

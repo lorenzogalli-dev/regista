@@ -1,0 +1,868 @@
+{
+ "run_id": "r_m_9005_9212f807",
+ "match_id": "m_9005",
+ "mode": "eval",
+ "kind": "recorded agent run",
+ "provider": "foundry",
+ "models": {
+  "fast": "gtf-fast",
+  "reasoning": "gtf-reasoning",
+  "reasoning_effort": "low"
+ },
+ "started_at": "2026-10-18T12:12:13.414085+00:00",
+ "wall_s": 42.9,
+ "candidates": 3,
+ "status_counts": {
+  "approved": 3
+ },
+ "budget_stopped": null,
+ "usage": {
+  "provider": "foundry",
+  "calls": 11,
+  "tokens_in": 21203,
+  "tokens_out": 4183,
+  "cost_eur": 0.01643,
+  "estimated": false,
+  "by_agent": {
+   "detector": {
+    "calls": 3,
+    "tokens_in": 3913,
+    "tokens_out": 176,
+    "eur": 0.00361
+   },
+   "analyst": {
+    "calls": 4,
+    "tokens_in": 14007,
+    "tokens_out": 3890,
+    "eur": 0.00993
+   },
+   "verifier": {
+    "calls": 4,
+    "tokens_in": 3283,
+    "tokens_out": 117,
+    "eur": 0.00289
+   }
+  }
+ },
+ "calls": [
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1132,
+   "tokens_out": 56,
+   "reasoning_tokens": 0,
+   "latency_ms": 1298,
+   "cost_eur": 0.0010657624,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3302,
+   "tokens_out": 711,
+   "reasoning_tokens": 320,
+   "latency_ms": 6285,
+   "cost_eur": 0.0019777289,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 811,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1197,
+   "cost_eur": 0.0006628363,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1301,
+   "tokens_out": 60,
+   "reasoning_tokens": 0,
+   "latency_ms": 1117,
+   "cost_eur": 0.0012058799999999999,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3490,
+   "tokens_out": 974,
+   "reasoning_tokens": 576,
+   "latency_ms": 8335,
+   "cost_eur": 0.0024819426,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 835,
+   "tokens_out": 66,
+   "reasoning_tokens": 0,
+   "latency_ms": 2097,
+   "cost_eur": 0.0008936994,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3546,
+   "tokens_out": 800,
+   "reasoning_tokens": 384,
+   "latency_ms": 7154,
+   "cost_eur": 0.00218804,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 822,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1003,
+   "cost_eur": 0.0006708223,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1480,
+   "tokens_out": 60,
+   "reasoning_tokens": 0,
+   "latency_ms": 1055,
+   "cost_eur": 0.0013358340000000002,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3669,
+   "tokens_out": 1405,
+   "reasoning_tokens": 1024,
+   "latency_ms": 9828,
+   "cost_eur": 0.0032798395,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 815,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1016,
+   "cost_eur": 0.0006657402999999999,
+   "estimated": false
+  }
+ ],
+ "moments": [
+  {
+   "moment_id": "mo_001",
+   "candidate": {
+    "candidate_id": "c_001",
+    "kind": "pressing_spell",
+    "t_ms": 2100000,
+    "team_id": "t_lin",
+    "player_id": null,
+    "window_start_ms": 1200000,
+    "window_end_ms": 2100000,
+    "score": 2.85,
+    "signals": [
+     {
+      "metric": "ppda",
+      "subject": "t_lin",
+      "expected": "down",
+      "window": 25.0,
+      "before": 61.0,
+      "z": 5.81,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_ros",
+      "expected": "down",
+      "window": 0.836,
+      "before": 0.858,
+      "z": 0.44,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_lin",
+      "expected": "up",
+      "window": 0.515,
+      "before": 0.161,
+      "z": 2.3,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "pressing_spell": 2.85,
+     "momentum_shift": 2.79
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_lin",
+      "expected": "down",
+      "window": 25.0,
+      "before": 61.0,
+      "z": 5.81,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_ros",
+      "expected": "down",
+      "window": 0.836,
+      "before": 0.858,
+      "z": 0.44,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_lin",
+      "expected": "up",
+      "window": 0.515,
+      "before": 0.161,
+      "z": 2.3,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "possession",
+      "subject": "t_lin",
+      "expected": "up",
+      "window": 0.628,
+      "before": 0.246,
+      "z": 3.28,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_lin",
+      "expected": "up",
+      "window": 26.368,
+      "before": 26.44,
+      "z": -0.0,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_lin",
+      "expected": "down",
+      "window": 0.822,
+      "before": 0.795,
+      "z": -0.53,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "width",
+      "subject": "t_lin",
+      "expected": "up",
+      "window": 17.687,
+      "before": 17.801,
+      "z": -0.04,
+      "above_noise_p95": false
+     }
+    ],
+    "key_events": []
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "pressing_spell",
+    "salience": 4,
+    "reason": "Linhurst’s PPDA drops sharply while possession and field tilt rise together, which is a coherent pressing surge rather than noise."
+   },
+   "explanation": {
+    "claim": "Linhurst Rangers suddenly press much higher: their PPDA falls from 49.0 to 25.0 and time-based possession jumps from 20% to 63%, shifting most play into Rosgate’s half. Rosgate’s pass completion drops (87% → 84%) and their control index falls, so Linhurst’s press is forcing disruption and territorial advantage.",
+    "mechanism_tag": "pressing_spell",
+    "team_id": "t_lin",
+    "player_ids": [],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_lin",
+      "metric": "ppda",
+      "before_start_ms": 300000,
+      "before_end_ms": 1200000,
+      "after_start_ms": 1200000,
+      "after_end_ms": 2100000,
+      "before": 49.0,
+      "after": 25.0
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_lin",
+      "metric": "possession_time_based",
+      "before_start_ms": 300000,
+      "before_end_ms": 1200000,
+      "after_start_ms": 1200000,
+      "after_end_ms": 2100000,
+      "before": 0.201,
+      "after": 0.628
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_lin",
+      "metric": "field_tilt",
+      "before_start_ms": 300000,
+      "before_end_ms": 1200000,
+      "after_start_ms": 1200000,
+      "after_end_ms": 2100000,
+      "before": 0.046,
+      "after": 0.515
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ros",
+      "metric": "pass_completion",
+      "before_start_ms": 300000,
+      "before_end_ms": 1200000,
+      "after_start_ms": 1200000,
+      "after_end_ms": 2100000,
+      "before": 0.868,
+      "after": 0.836
+     }
+    ],
+    "confidence": 0.9
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1299,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 6287,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 10,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1198,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_002",
+   "candidate": {
+    "candidate_id": "c_002",
+    "kind": "pressing_spell",
+    "t_ms": 4080000,
+    "team_id": "t_lin",
+    "player_id": null,
+    "window_start_ms": 3180000,
+    "window_end_ms": 4080000,
+    "score": 3.28,
+    "signals": [
+     {
+      "metric": "ppda",
+      "subject": "t_lin",
+      "expected": "down",
+      "window": 14.667,
+      "before": 71.0,
+      "z": 9.1,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_ros",
+      "expected": "down",
+      "window": 0.919,
+      "before": 0.859,
+      "z": -1.15,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_lin",
+      "expected": "up",
+      "window": 0.607,
+      "before": 0.315,
+      "z": 1.9,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "pressing_spell": 3.28
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_lin",
+      "expected": "down",
+      "window": 14.667,
+      "before": 71.0,
+      "z": 9.1,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_ros",
+      "expected": "down",
+      "window": 0.919,
+      "before": 0.859,
+      "z": -1.15,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_lin",
+      "expected": "up",
+      "window": 0.607,
+      "before": 0.315,
+      "z": 1.9,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "possession",
+      "subject": "t_lin",
+      "expected": "up",
+      "window": 0.525,
+      "before": 0.377,
+      "z": 1.27,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_lin",
+      "expected": "up",
+      "window": 26.901,
+      "before": 25.896,
+      "z": 0.7,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_lin",
+      "expected": "down",
+      "window": 0.863,
+      "before": 0.825,
+      "z": -0.76,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "width",
+      "subject": "t_lin",
+      "expected": "up",
+      "window": 16.913,
+      "before": 17.556,
+      "z": -0.49,
+      "above_noise_p95": false
+     }
+    ],
+    "key_events": [
+     {
+      "t_ms": 3400100,
+      "type": "card",
+      "team_id": "t_ros",
+      "player_id": "p_ros_27",
+      "detail": "yellow"
+     },
+     {
+      "t_ms": 3438700,
+      "type": "card",
+      "team_id": "t_ros",
+      "player_id": "p_ros_27",
+      "detail": "red"
+     },
+     {
+      "t_ms": 3649000,
+      "type": "card",
+      "team_id": "t_ros",
+      "player_id": "p_ros_14",
+      "detail": "red"
+     },
+     {
+      "t_ms": 3815800,
+      "type": "card",
+      "team_id": "t_ros",
+      "player_id": "p_ros_06",
+      "detail": "red"
+     }
+    ]
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "pressing_spell",
+    "salience": 5,
+    "reason": "Linhurst’s pressing jumps sharply with a major PPDA collapse and stronger field tilt, and the red cards to Rosgate explain the sustained swing."
+   },
+   "explanation": {
+    "claim": "Linhurst Rangers dramatically stepped up their press: their PPDA fell from 49.0 to 14.67 and time-based possession flipped from 28.6% to 52.5%. That press drove far more play into Rosgate’s final third (field tilt 32.9% → 60.7%) and Rosgate’s control index fell, creating a dangerous spell for Rosgate.",
+    "mechanism_tag": "pressing_spell",
+    "team_id": "t_lin",
+    "player_ids": [],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_lin",
+      "metric": "ppda",
+      "before_start_ms": 2280000,
+      "before_end_ms": 3180000,
+      "after_start_ms": 3180000,
+      "after_end_ms": 4080000,
+      "before": 49.0,
+      "after": 14.67
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_lin",
+      "metric": "possession_time_based",
+      "before_start_ms": 2280000,
+      "before_end_ms": 3180000,
+      "after_start_ms": 3180000,
+      "after_end_ms": 4080000,
+      "before": 0.286,
+      "after": 0.525
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_lin",
+      "metric": "field_tilt",
+      "before_start_ms": 2280000,
+      "before_end_ms": 3180000,
+      "after_start_ms": 3180000,
+      "after_end_ms": 4080000,
+      "before": 0.329,
+      "after": 0.607
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ros",
+      "metric": "control_index",
+      "before_start_ms": 2280000,
+      "before_end_ms": 3180000,
+      "after_start_ms": 3180000,
+      "after_end_ms": 4080000,
+      "before": 75.2,
+      "after": 51.1
+     }
+    ],
+    "confidence": 0.9
+   },
+   "attempts": 2,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1117,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 8335,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 11,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 2097,
+     "outcome": "rejected",
+     "detail": "The claim says Rosgate Athletic had three red cards, but no red cards or card events are present in the evidence or context.; “around 66'” is acceptable given the clock context, and the metric values otherwise match the evidence."
+    },
+    {
+     "stage": "analyst#2",
+     "ms": 7155,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 12,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1004,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_003",
+   "candidate": {
+    "candidate_id": "c_003",
+    "kind": "pressing_spell",
+    "t_ms": 4980000,
+    "team_id": "t_lin",
+    "player_id": null,
+    "window_start_ms": 4080000,
+    "window_end_ms": 4980000,
+    "score": 1.53,
+    "signals": [
+     {
+      "metric": "ppda",
+      "subject": "t_lin",
+      "expected": "down",
+      "window": 21.6,
+      "before": 37.2,
+      "z": 2.51,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_ros",
+      "expected": "down",
+      "window": 0.9,
+      "before": 0.868,
+      "z": -0.6,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_lin",
+      "expected": "up",
+      "window": 0.78,
+      "before": 0.371,
+      "z": 2.66,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "pressing_spell": 1.53
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_lin",
+      "expected": "down",
+      "window": 21.6,
+      "before": 37.2,
+      "z": 2.51,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_ros",
+      "expected": "down",
+      "window": 0.9,
+      "before": 0.868,
+      "z": -0.6,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_lin",
+      "expected": "up",
+      "window": 0.78,
+      "before": 0.371,
+      "z": 2.66,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "possession",
+      "subject": "t_lin",
+      "expected": "up",
+      "window": 0.304,
+      "before": 0.41,
+      "z": -0.91,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_lin",
+      "expected": "up",
+      "window": 27.954,
+      "before": 26.171,
+      "z": 1.21,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_lin",
+      "expected": "down",
+      "window": 0.825,
+      "before": 0.835,
+      "z": 0.21,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "width",
+      "subject": "t_lin",
+      "expected": "up",
+      "window": 18.084,
+      "before": 17.383,
+      "z": 0.65,
+      "above_noise_p95": false
+     }
+    ],
+    "key_events": [
+     {
+      "t_ms": 3815800,
+      "type": "card",
+      "team_id": "t_ros",
+      "player_id": "p_ros_06",
+      "detail": "red"
+     },
+     {
+      "t_ms": 4094300,
+      "type": "sub",
+      "team_id": "t_ros",
+      "player_id": "p_ros_21",
+      "detail": "p_ros_17"
+     },
+     {
+      "t_ms": 4153000,
+      "type": "sub",
+      "team_id": "t_lin",
+      "player_id": "p_lin_17",
+      "detail": "p_lin_20"
+     },
+     {
+      "t_ms": 4365600,
+      "type": "sub",
+      "team_id": "t_ros",
+      "player_id": "p_ros_09",
+      "detail": "p_ros_05"
+     },
+     {
+      "t_ms": 4416600,
+      "type": "sub",
+      "team_id": "t_lin",
+      "player_id": "p_lin_11",
+      "detail": "p_lin_14"
+     },
+     {
+      "t_ms": 4482400,
+      "type": "sub",
+      "team_id": "t_lin",
+      "player_id": "p_lin_15",
+      "detail": "p_lin_02"
+     },
+     {
+      "t_ms": 4925100,
+      "type": "sub",
+      "team_id": "t_ros",
+      "player_id": "p_ros_29",
+      "detail": "p_ros_02"
+     }
+    ]
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "pressing_spell",
+    "salience": 4,
+    "reason": "Linhurst’s pressing and territorial dominance both jump unusually after Rosgate’s red card, fitting a sustained pressure phase rather than a lone fluctuation."
+   },
+   "explanation": {
+    "claim": "After Rosgate’s red card, Linhurst seized territorial control — their share of final‑third actions rose to 78% while their control index climbed to 61.1, showing sustained pressure in Rosgate’s half. Rosgate ended up with 69.6% time‑based possession but were pinned deeper (Linhurst possession 30.4%).",
+    "mechanism_tag": "pressing_spell",
+    "team_id": "t_lin",
+    "player_ids": [],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_lin",
+      "metric": "field_tilt",
+      "before_start_ms": 3180000,
+      "before_end_ms": 4080000,
+      "after_start_ms": 4080000,
+      "after_end_ms": 4980000,
+      "before": 0.607,
+      "after": 0.78
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_lin",
+      "metric": "control_index",
+      "before_start_ms": 3180000,
+      "before_end_ms": 4080000,
+      "after_start_ms": 4080000,
+      "after_end_ms": 4980000,
+      "before": 55.5,
+      "after": 61.1
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_lin",
+      "metric": "possession_time_based",
+      "before_start_ms": 3180000,
+      "before_end_ms": 4080000,
+      "after_start_ms": 4080000,
+      "after_end_ms": 4980000,
+      "before": 0.525,
+      "after": 0.304
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ros",
+      "metric": "possession_time_based",
+      "before_start_ms": 3180000,
+      "before_end_ms": 4080000,
+      "after_start_ms": 4080000,
+      "after_end_ms": 4980000,
+      "before": 0.475,
+      "after": 0.696
+     }
+    ],
+    "confidence": 0.6
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1056,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 9829,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 11,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1017,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  }
+ ]
+}

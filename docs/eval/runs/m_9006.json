@@ -1,0 +1,546 @@
+{
+ "run_id": "r_m_9006_8c7b3679",
+ "match_id": "m_9006",
+ "mode": "eval",
+ "kind": "recorded agent run",
+ "provider": "foundry",
+ "models": {
+  "fast": "gtf-fast",
+  "reasoning": "gtf-reasoning",
+  "reasoning_effort": "low"
+ },
+ "started_at": "2026-10-18T12:12:56.325915+00:00",
+ "wall_s": 20.7,
+ "candidates": 2,
+ "status_counts": {
+  "approved": 2
+ },
+ "budget_stopped": null,
+ "usage": {
+  "provider": "foundry",
+  "calls": 6,
+  "tokens_in": 11124,
+  "tokens_out": 1785,
+  "cost_eur": 0.00809,
+  "estimated": false,
+  "by_agent": {
+   "detector": {
+    "calls": 2,
+    "tokens_in": 2539,
+    "tokens_out": 112,
+    "eur": 0.00233
+   },
+   "analyst": {
+    "calls": 2,
+    "tokens_in": 6924,
+    "tokens_out": 1639,
+    "eur": 0.00441
+   },
+   "verifier": {
+    "calls": 2,
+    "tokens_in": 1661,
+    "tokens_out": 34,
+    "eur": 0.00135
+   }
+  }
+ },
+ "calls": [
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1262,
+   "tokens_out": 57,
+   "reasoning_tokens": 0,
+   "latency_ms": 1352,
+   "cost_eur": 0.0011644983,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3447,
+   "tokens_out": 830,
+   "reasoning_tokens": 448,
+   "latency_ms": 7489,
+   "cost_eur": 0.0022190570000000004,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 814,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1222,
+   "cost_eur": 0.0006650142999999999,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1277,
+   "tokens_out": 55,
+   "reasoning_tokens": 0,
+   "latency_ms": 1171,
+   "cost_eur": 0.0011666765000000001,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3477,
+   "tokens_out": 809,
+   "reasoning_tokens": 384,
+   "latency_ms": 5887,
+   "cost_eur": 0.0021886990999999997,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 847,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1043,
+   "cost_eur": 0.0006889723,
+   "estimated": false
+  }
+ ],
+ "moments": [
+  {
+   "moment_id": "mo_001",
+   "candidate": {
+    "candidate_id": "c_001",
+    "kind": "tactical_switch/long_ball",
+    "t_ms": 2400000,
+    "team_id": "t_ivy",
+    "player_id": null,
+    "window_start_ms": 1440000,
+    "window_end_ms": 2400000,
+    "score": 1.99,
+    "signals": [
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_ivy",
+      "expected": "up",
+      "window": 28.732,
+      "before": 25.806,
+      "z": 1.96,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_ivy",
+      "expected": "down",
+      "window": 0.728,
+      "before": 0.83,
+      "z": 2.02,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "tactical_switch/long_ball": 1.99
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_ivy",
+      "expected": "down",
+      "window": 6.333,
+      "before": 4.778,
+      "z": -0.26,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_bri",
+      "expected": "down",
+      "window": 0.679,
+      "before": 0.728,
+      "z": 0.97,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_ivy",
+      "expected": "up",
+      "window": 0.747,
+      "before": 0.682,
+      "z": 0.42,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "possession",
+      "subject": "t_ivy",
+      "expected": "up",
+      "window": 0.503,
+      "before": 0.506,
+      "z": -0.03,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_ivy",
+      "expected": "up",
+      "window": 28.732,
+      "before": 25.806,
+      "z": 1.96,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_ivy",
+      "expected": "down",
+      "window": 0.728,
+      "before": 0.83,
+      "z": 2.02,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "width",
+      "subject": "t_ivy",
+      "expected": "up",
+      "window": 16.67,
+      "before": 17.704,
+      "z": -0.82,
+      "above_noise_p95": false
+     }
+    ],
+    "key_events": [
+     {
+      "t_ms": 1240600,
+      "type": "card",
+      "team_id": "t_ivy",
+      "player_id": "p_ivy_10",
+      "detail": "yellow"
+     },
+     {
+      "t_ms": 1650300,
+      "type": "card",
+      "team_id": "t_bri",
+      "player_id": "p_bri_26",
+      "detail": "yellow"
+     },
+     {
+      "t_ms": 2043200,
+      "type": "card",
+      "team_id": "t_bri",
+      "player_id": "p_bri_29",
+      "detail": "yellow"
+     }
+    ]
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "tactical_switch",
+    "salience": 2,
+    "reason": "Ivystead’s passing became a bit longer and less accurate, which fits a modest long-ball shift rather than a pure fluctuation."
+   },
+   "explanation": {
+    "claim": "Ivystead switched to more direct play: their average pass length rose to 28.7 m while pass completion fell to 73%, producing more final-third activity. That change increased their expected threat (xT added up to 0.214) and pushed Ivystead’s field tilt to 76.2%, making them more dangerous now.",
+    "mechanism_tag": "tactical_switch",
+    "team_id": "t_ivy",
+    "player_ids": [],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ivy",
+      "metric": "avg_pass_length_m",
+      "before_start_ms": 480000,
+      "before_end_ms": 1440000,
+      "after_start_ms": 1440000,
+      "after_end_ms": 2400000,
+      "before": 26.5,
+      "after": 28.7
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ivy",
+      "metric": "pass_completion",
+      "before_start_ms": 480000,
+      "before_end_ms": 1440000,
+      "after_start_ms": 1440000,
+      "after_end_ms": 2400000,
+      "before": 0.802,
+      "after": 0.728
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ivy",
+      "metric": "field_tilt",
+      "before_start_ms": 480000,
+      "before_end_ms": 1440000,
+      "after_start_ms": 1440000,
+      "after_end_ms": 2400000,
+      "before": 0.643,
+      "after": 0.762
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ivy",
+      "metric": "xt_added",
+      "before_start_ms": 480000,
+      "before_end_ms": 1440000,
+      "after_start_ms": 1440000,
+      "after_end_ms": 2400000,
+      "before": 0.076,
+      "after": 0.214
+     }
+    ],
+    "confidence": 0.78
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1353,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 7490,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 12,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1223,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_002",
+   "candidate": {
+    "candidate_id": "c_002",
+    "kind": "tactical_switch/long_ball",
+    "t_ms": 5460000,
+    "team_id": "t_ivy",
+    "player_id": null,
+    "window_start_ms": 4500000,
+    "window_end_ms": 5460000,
+    "score": 1.99,
+    "signals": [
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_ivy",
+      "expected": "up",
+      "window": 29.093,
+      "before": 26.202,
+      "z": 1.93,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_ivy",
+      "expected": "down",
+      "window": 0.71,
+      "before": 0.812,
+      "z": 2.04,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "tactical_switch/long_ball": 1.99
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_ivy",
+      "expected": "down",
+      "window": 15.75,
+      "before": 6.175,
+      "z": -1.56,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_bri",
+      "expected": "down",
+      "window": 0.798,
+      "before": 0.766,
+      "z": -0.6,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_ivy",
+      "expected": "up",
+      "window": 0.564,
+      "before": 0.706,
+      "z": -0.92,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "possession",
+      "subject": "t_ivy",
+      "expected": "up",
+      "window": 0.444,
+      "before": 0.519,
+      "z": -0.65,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_ivy",
+      "expected": "up",
+      "window": 29.093,
+      "before": 26.202,
+      "z": 1.93,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_ivy",
+      "expected": "down",
+      "window": 0.71,
+      "before": 0.812,
+      "z": 2.04,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "width",
+      "subject": "t_ivy",
+      "expected": "up",
+      "window": 19.497,
+      "before": 16.77,
+      "z": 2.36,
+      "above_noise_p95": true
+     }
+    ],
+    "key_events": [
+     {
+      "t_ms": 4469600,
+      "type": "sub",
+      "team_id": "t_bri",
+      "player_id": "p_bri_10",
+      "detail": "p_bri_20"
+     },
+     {
+      "t_ms": 4627500,
+      "type": "sub",
+      "team_id": "t_ivy",
+      "player_id": "p_ivy_25",
+      "detail": "p_ivy_06"
+     },
+     {
+      "t_ms": 4946300,
+      "type": "sub",
+      "team_id": "t_ivy",
+      "player_id": "p_ivy_27",
+      "detail": "p_ivy_16"
+     }
+    ]
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "tactical_switch",
+    "salience": 3,
+    "reason": "Ivystead’s passing got noticeably longer and wider while completion fell, and the double substitution suggests a deliberate late tactical change."
+   },
+   "explanation": {
+    "claim": "Ivystead Athletic switched to a much more direct profile after bringing on Dmitri Zansen and Jarek Dalmore: average pass length rose to 29.1 m and width to 19.5 m while completion dropped to 71%. That tactical shift cut Ivystead’s time-based possession to 41.9%, handing Brinbridge more of the ball late on.",
+    "mechanism_tag": "tactical_switch",
+    "team_id": "t_ivy",
+    "player_ids": [
+     "p_ivy_25",
+     "p_ivy_27"
+    ],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ivy",
+      "metric": "avg_pass_length_m",
+      "before_start_ms": 3540000,
+      "before_end_ms": 4500000,
+      "after_start_ms": 4500000,
+      "after_end_ms": 5460000,
+      "before": 26.4,
+      "after": 29.1
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ivy",
+      "metric": "pass_completion",
+      "before_start_ms": 3540000,
+      "before_end_ms": 4500000,
+      "after_start_ms": 4500000,
+      "after_end_ms": 5460000,
+      "before": 0.8,
+      "after": 0.71
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ivy",
+      "metric": "width_m",
+      "before_start_ms": 3540000,
+      "before_end_ms": 4500000,
+      "after_start_ms": 4500000,
+      "after_end_ms": 5460000,
+      "before": 15.5,
+      "after": 19.5
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ivy",
+      "metric": "possession_time_based",
+      "before_start_ms": 3540000,
+      "before_end_ms": 4500000,
+      "after_start_ms": 4500000,
+      "after_end_ms": 5460000,
+      "before": 0.568,
+      "after": 0.419
+     }
+    ],
+    "confidence": 0.8
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1172,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 5887,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 7,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1044,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  }
+ ]
+}

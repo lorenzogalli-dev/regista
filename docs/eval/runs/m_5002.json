@@ -1,0 +1,1902 @@
+{
+ "run_id": "r_m_5002_253ee778",
+ "match_id": "m_5002",
+ "mode": "eval",
+ "kind": "recorded agent run",
+ "provider": "foundry",
+ "models": {
+  "fast": "gtf-fast",
+  "reasoning": "gtf-reasoning",
+  "reasoning_effort": "low"
+ },
+ "started_at": "2026-10-18T11:58:19.407366+00:00",
+ "wall_s": 87.3,
+ "candidates": 7,
+ "status_counts": {
+  "approved": 6,
+  "dropped": 1
+ },
+ "budget_stopped": null,
+ "usage": {
+  "provider": "foundry",
+  "calls": 27,
+  "tokens_in": 51672,
+  "tokens_out": 9220,
+  "cost_eur": 0.03844,
+  "estimated": false,
+  "by_agent": {
+   "detector": {
+    "calls": 7,
+    "tokens_in": 8763,
+    "tokens_out": 419,
+    "eur": 0.00819
+   },
+   "analyst": {
+    "calls": 10,
+    "tokens_in": 34696,
+    "tokens_out": 8351,
+    "eur": 0.02233
+   },
+   "verifier": {
+    "calls": 10,
+    "tokens_in": 8213,
+    "tokens_out": 450,
+    "eur": 0.00792
+   }
+  }
+ },
+ "calls": [
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1159,
+   "tokens_out": 60,
+   "reasoning_tokens": 0,
+   "latency_ms": 1331,
+   "cost_eur": 0.001102788,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3289,
+   "tokens_out": 850,
+   "reasoning_tokens": 448,
+   "latency_ms": 6716,
+   "cost_eur": 0.0022194949999999997,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 816,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1251,
+   "cost_eur": 0.0006664662999999999,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1237,
+   "tokens_out": 61,
+   "reasoning_tokens": 0,
+   "latency_ms": 1232,
+   "cost_eur": 0.0011637719,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3417,
+   "tokens_out": 537,
+   "reasoning_tokens": 128,
+   "latency_ms": 4522,
+   "cost_eur": 0.0016968063,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 804,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 965,
+   "cost_eur": 0.0006577543,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1200,
+   "tokens_out": 57,
+   "reasoning_tokens": 0,
+   "latency_ms": 1107,
+   "cost_eur": 0.0011194863,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3377,
+   "tokens_out": 811,
+   "reasoning_tokens": 256,
+   "latency_ms": 5998,
+   "cost_eur": 0.0021702188999999997,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 826,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 835,
+   "cost_eur": 0.0006737262999999999,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1130,
+   "tokens_out": 61,
+   "reasoning_tokens": 0,
+   "latency_ms": 1210,
+   "cost_eur": 0.0010860899,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3328,
+   "tokens_out": 939,
+   "reasoning_tokens": 512,
+   "latency_ms": 7341,
+   "cost_eur": 0.0023847061,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 833,
+   "tokens_out": 58,
+   "reasoning_tokens": 0,
+   "latency_ms": 1125,
+   "cost_eur": 0.0008574002000000001,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3376,
+   "tokens_out": 1114,
+   "reasoning_tokens": 640,
+   "latency_ms": 7932,
+   "cost_eur": 0.0027032486,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 761,
+   "tokens_out": 79,
+   "reasoning_tokens": 0,
+   "latency_ms": 1390,
+   "cost_eur": 0.0008966021000000001,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1308,
+   "tokens_out": 63,
+   "reasoning_tokens": 0,
+   "latency_ms": 1267,
+   "cost_eur": 0.0012240297,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3508,
+   "tokens_out": 1041,
+   "reasoning_tokens": 576,
+   "latency_ms": 7552,
+   "cost_eur": 0.0026038159,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 879,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 985,
+   "cost_eur": 0.0007122043,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1374,
+   "tokens_out": 60,
+   "reasoning_tokens": 0,
+   "latency_ms": 1276,
+   "cost_eur": 0.001258878,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3570,
+   "tokens_out": 915,
+   "reasoning_tokens": 512,
+   "latency_ms": 7444,
+   "cost_eur": 0.0023957085,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 843,
+   "tokens_out": 86,
+   "reasoning_tokens": 0,
+   "latency_ms": 1498,
+   "cost_eur": 0.0009866254,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3646,
+   "tokens_out": 851,
+   "reasoning_tokens": 448,
+   "latency_ms": 5831,
+   "cost_eur": 0.0022997949,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 842,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1138,
+   "cost_eur": 0.0006853423,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1355,
+   "tokens_out": 57,
+   "reasoning_tokens": 0,
+   "latency_ms": 1061,
+   "cost_eur": 0.0012320163,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3549,
+   "tokens_out": 690,
+   "reasoning_tokens": 256,
+   "latency_ms": 5093,
+   "cost_eur": 0.001995111,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 845,
+   "tokens_out": 125,
+   "reasoning_tokens": 0,
+   "latency_ms": 1412,
+   "cost_eur": 0.0011579575,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3636,
+   "tokens_out": 603,
+   "reasoning_tokens": 256,
+   "latency_ms": 5931,
+   "cost_eur": 0.0018611397000000002,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 764,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1177,
+   "cost_eur": 0.0006287142999999999,
+   "estimated": false
+  }
+ ],
+ "moments": [
+  {
+   "moment_id": "mo_001",
+   "candidate": {
+    "candidate_id": "c_001",
+    "kind": "pressing_spell",
+    "t_ms": 1800000,
+    "team_id": "t_elm",
+    "player_id": null,
+    "window_start_ms": 900000,
+    "window_end_ms": 1800000,
+    "score": 2.77,
+    "signals": [
+     {
+      "metric": "ppda",
+      "subject": "t_elm",
+      "expected": "down",
+      "window": 3.143,
+      "before": 21.667,
+      "z": 2.99,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_cal",
+      "expected": "down",
+      "window": 0.71,
+      "before": 0.851,
+      "z": 2.75,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_elm",
+      "expected": "up",
+      "window": 0.627,
+      "before": 0.229,
+      "z": 2.59,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "pressing_spell": 2.77
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_elm",
+      "expected": "down",
+      "window": 3.143,
+      "before": 21.667,
+      "z": 2.99,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_cal",
+      "expected": "down",
+      "window": 0.71,
+      "before": 0.851,
+      "z": 2.75,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_elm",
+      "expected": "up",
+      "window": 0.627,
+      "before": 0.229,
+      "z": 2.59,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "possession",
+      "subject": "t_elm",
+      "expected": "up",
+      "window": 0.55,
+      "before": 0.428,
+      "z": 1.04,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_elm",
+      "expected": "up",
+      "window": 23.418,
+      "before": 24.97,
+      "z": -0.97,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_elm",
+      "expected": "down",
+      "window": 0.852,
+      "before": 0.932,
+      "z": 1.58,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "width",
+      "subject": "t_elm",
+      "expected": "up",
+      "window": 11.841,
+      "before": 11.239,
+      "z": 0.57,
+      "above_noise_p95": false
+     }
+    ],
+    "key_events": [
+     {
+      "t_ms": 1519700,
+      "type": "goal",
+      "team_id": "t_elm",
+      "player_id": null,
+      "detail": null
+     }
+    ]
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "pressing_spell",
+    "salience": 4,
+    "reason": "Elmdale’s press tightened sharply, forcing poorer Calstead passing and much more field tilt, with the goal in the same window reinforcing the spell."
+   },
+   "explanation": {
+    "claim": "Elmdale Rangers ramped up their press: PPDA dropped from 21.7 to 3.1 and Calstead’s pass completion fell from 85.1% to 71.0%. That surge in pressing flipped field tilt from 22.9% to 62.7% and raised Elmdale’s time-based possession from 42.8% to 55.0%, shifting control to Elmdale.",
+    "mechanism_tag": "pressing_spell",
+    "team_id": "t_elm",
+    "player_ids": [],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_elm",
+      "metric": "ppda",
+      "before_start_ms": 0,
+      "before_end_ms": 900000,
+      "after_start_ms": 900000,
+      "after_end_ms": 1800000,
+      "before": 21.67,
+      "after": 3.14
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_cal",
+      "metric": "pass_completion",
+      "before_start_ms": 0,
+      "before_end_ms": 900000,
+      "after_start_ms": 900000,
+      "after_end_ms": 1800000,
+      "before": 0.851,
+      "after": 0.71
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_elm",
+      "metric": "field_tilt",
+      "before_start_ms": 0,
+      "before_end_ms": 900000,
+      "after_start_ms": 900000,
+      "after_end_ms": 1800000,
+      "before": 0.229,
+      "after": 0.627
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_elm",
+      "metric": "possession_time_based",
+      "before_start_ms": 0,
+      "before_end_ms": 900000,
+      "after_start_ms": 900000,
+      "after_end_ms": 1800000,
+      "before": 0.428,
+      "after": 0.55
+     }
+    ],
+    "confidence": 0.9
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1331,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 6717,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 12,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1252,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_002",
+   "candidate": {
+    "candidate_id": "c_002",
+    "kind": "pressing_spell",
+    "t_ms": 2340000,
+    "team_id": "t_cal",
+    "player_id": null,
+    "window_start_ms": 1440000,
+    "window_end_ms": 2340000,
+    "score": 0.59,
+    "signals": [
+     {
+      "metric": "ppda",
+      "subject": "t_cal",
+      "expected": "down",
+      "window": 7.4,
+      "before": 23.0,
+      "z": 2.51,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_elm",
+      "expected": "down",
+      "window": 0.824,
+      "before": 0.932,
+      "z": 2.11,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_cal",
+      "expected": "up",
+      "window": 0.245,
+      "before": 0.686,
+      "z": -2.87,
+      "above_noise_p95": false
+     }
+    ],
+    "fired_kinds": {
+     "pressing_spell": 0.59
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_cal",
+      "expected": "down",
+      "window": 7.4,
+      "before": 23.0,
+      "z": 2.51,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_elm",
+      "expected": "down",
+      "window": 0.824,
+      "before": 0.932,
+      "z": 2.11,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_cal",
+      "expected": "up",
+      "window": 0.245,
+      "before": 0.686,
+      "z": -2.87,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "possession",
+      "subject": "t_cal",
+      "expected": "up",
+      "window": 0.417,
+      "before": 0.515,
+      "z": -0.84,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_cal",
+      "expected": "up",
+      "window": 22.293,
+      "before": 26.497,
+      "z": -2.7,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_cal",
+      "expected": "down",
+      "window": 0.667,
+      "before": 0.845,
+      "z": 3.55,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "width",
+      "subject": "t_cal",
+      "expected": "up",
+      "window": 13.262,
+      "before": 13.639,
+      "z": -0.26,
+      "above_noise_p95": false
+     }
+    ],
+    "key_events": [
+     {
+      "t_ms": 1519700,
+      "type": "goal",
+      "team_id": "t_elm",
+      "player_id": null,
+      "detail": null
+     },
+     {
+      "t_ms": 1829100,
+      "type": "goal",
+      "team_id": "t_elm",
+      "player_id": null,
+      "detail": null
+     },
+     {
+      "t_ms": 2029600,
+      "type": "card",
+      "team_id": "t_elm",
+      "player_id": "p_elm_12",
+      "detail": "yellow"
+     }
+    ]
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "momentum_shift",
+    "salience": 4,
+    "reason": "Calstead’s press intensified while Elmdale’s passing worsened, and the spell sits amid two conceded goals and a booking that can explain the swing."
+   },
+   "explanation": {
+    "claim": "Calstead Albion suddenly pressed much harder, forcing Elmdale Rangers into poorer passing and giving Calstead more chances higher up the pitch. The PPDA fell to 7.4 and Elmdale’s pass completion dropped to 82.4%, a shift that explains the scramble around Elmdale’s two conceded goals and the booking.",
+    "mechanism_tag": "pressing_spell",
+    "team_id": "t_cal",
+    "player_ids": [],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_cal",
+      "metric": "ppda",
+      "before_start_ms": 540000,
+      "before_end_ms": 1440000,
+      "after_start_ms": 1440000,
+      "after_end_ms": 2340000,
+      "before": 56.0,
+      "after": 7.4
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_elm",
+      "metric": "pass_completion",
+      "before_start_ms": 540000,
+      "before_end_ms": 1440000,
+      "after_start_ms": 1440000,
+      "after_end_ms": 2340000,
+      "before": 0.931,
+      "after": 0.824
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_cal",
+      "metric": "field_tilt",
+      "before_start_ms": 540000,
+      "before_end_ms": 1440000,
+      "after_start_ms": 1440000,
+      "after_end_ms": 2340000,
+      "before": 0.75,
+      "after": 0.245
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_cal",
+      "metric": "possession_time_based",
+      "before_start_ms": 540000,
+      "before_end_ms": 1440000,
+      "after_start_ms": 1440000,
+      "after_end_ms": 2340000,
+      "before": 0.585,
+      "after": 0.417
+     }
+    ],
+    "confidence": 0.86
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1232,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 4523,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 3,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 965,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_003",
+   "candidate": {
+    "candidate_id": "c_003",
+    "kind": "momentum_shift",
+    "t_ms": 2700000,
+    "team_id": "t_elm",
+    "player_id": null,
+    "window_start_ms": 1800000,
+    "window_end_ms": 2700000,
+    "score": 2.42,
+    "signals": [
+     {
+      "metric": "possession",
+      "subject": "t_elm",
+      "expected": "up",
+      "window": 0.739,
+      "before": 0.489,
+      "z": 2.14,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_elm",
+      "expected": "up",
+      "window": 0.849,
+      "before": 0.434,
+      "z": 2.7,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "momentum_shift": 2.42
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_elm",
+      "expected": "down",
+      "window": 3.3,
+      "before": 6.412,
+      "z": 0.49,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_cal",
+      "expected": "down",
+      "window": 0.738,
+      "before": 0.795,
+      "z": 1.11,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_elm",
+      "expected": "up",
+      "window": 0.849,
+      "before": 0.434,
+      "z": 2.7,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "possession",
+      "subject": "t_elm",
+      "expected": "up",
+      "window": 0.739,
+      "before": 0.489,
+      "z": 2.14,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_elm",
+      "expected": "up",
+      "window": 24.636,
+      "before": 24.23,
+      "z": 0.31,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_elm",
+      "expected": "down",
+      "window": 0.853,
+      "before": 0.908,
+      "z": 1.1,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "width",
+      "subject": "t_elm",
+      "expected": "up",
+      "window": 12.041,
+      "before": 11.502,
+      "z": 0.51,
+      "above_noise_p95": false
+     }
+    ],
+    "key_events": [
+     {
+      "t_ms": 1519700,
+      "type": "goal",
+      "team_id": "t_elm",
+      "player_id": null,
+      "detail": null
+     },
+     {
+      "t_ms": 1829100,
+      "type": "goal",
+      "team_id": "t_elm",
+      "player_id": null,
+      "detail": null
+     },
+     {
+      "t_ms": 2029600,
+      "type": "card",
+      "team_id": "t_elm",
+      "player_id": "p_elm_12",
+      "detail": "yellow"
+     }
+    ]
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "momentum_shift",
+    "salience": 4,
+    "reason": "Elmdale’s possession and field tilt both rose clearly after the interval, with two goals in the window supporting a real territorial swing."
+   },
+   "explanation": {
+    "claim": "Elmdale Rangers seized control after the interval: their time-based possession rose from 55.0% to 73.9% and their field tilt climbed from 62.7% to 84.9%, coinciding with two goals. That territorial takeover shows in the opponents too — Calstead’s possession fell to 26.1% while Elmdale’s control index rose, making the game one-sided.",
+    "mechanism_tag": "momentum_shift",
+    "team_id": "t_elm",
+    "player_ids": [],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_elm",
+      "metric": "possession_time_based",
+      "before_start_ms": 900000,
+      "before_end_ms": 1800000,
+      "after_start_ms": 1800000,
+      "after_end_ms": 2700000,
+      "before": 0.55,
+      "after": 0.739
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_elm",
+      "metric": "field_tilt",
+      "before_start_ms": 900000,
+      "before_end_ms": 1800000,
+      "after_start_ms": 1800000,
+      "after_end_ms": 2700000,
+      "before": 0.627,
+      "after": 0.849
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_cal",
+      "metric": "possession_time_based",
+      "before_start_ms": 900000,
+      "before_end_ms": 1800000,
+      "after_start_ms": 1800000,
+      "after_end_ms": 2700000,
+      "before": 0.45,
+      "after": 0.261
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_elm",
+      "metric": "control_index",
+      "before_start_ms": 900000,
+      "before_end_ms": 1800000,
+      "after_start_ms": 1800000,
+      "after_end_ms": 2700000,
+      "before": 46.4,
+      "after": 54.0
+     }
+    ],
+    "confidence": 0.8
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1108,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 5998,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 3,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 835,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_004",
+   "candidate": {
+    "candidate_id": "c_004",
+    "kind": "tactical_switch/wide",
+    "t_ms": 3240000,
+    "team_id": "t_cal",
+    "player_id": null,
+    "window_start_ms": 2280000,
+    "window_end_ms": 3240000,
+    "score": 2.65,
+    "signals": [
+     {
+      "metric": "width",
+      "subject": "t_cal",
+      "expected": "up",
+      "window": 16.58,
+      "before": 13.519,
+      "z": 2.65,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "tactical_switch/wide": 2.65
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_cal",
+      "expected": "down",
+      "window": 14.0,
+      "before": 14.333,
+      "z": 0.04,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_elm",
+      "expected": "down",
+      "window": 0.877,
+      "before": 0.89,
+      "z": 0.26,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_cal",
+      "expected": "up",
+      "window": 0.138,
+      "before": 0.433,
+      "z": -1.92,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "possession",
+      "subject": "t_cal",
+      "expected": "up",
+      "window": 0.283,
+      "before": 0.477,
+      "z": -1.67,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_cal",
+      "expected": "up",
+      "window": 24.547,
+      "before": 25.162,
+      "z": -0.36,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_cal",
+      "expected": "down",
+      "window": 0.86,
+      "before": 0.788,
+      "z": -1.43,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "width",
+      "subject": "t_cal",
+      "expected": "up",
+      "window": 16.58,
+      "before": 13.519,
+      "z": 2.65,
+      "above_noise_p95": true
+     }
+    ],
+    "key_events": [
+     {
+      "t_ms": 2029600,
+      "type": "card",
+      "team_id": "t_elm",
+      "player_id": "p_elm_12",
+      "detail": "yellow"
+     },
+     {
+      "t_ms": 3136100,
+      "type": "goal",
+      "team_id": "t_cal",
+      "player_id": null,
+      "detail": null
+     }
+    ]
+   },
+   "status": "dropped",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "tactical_switch",
+    "salience": 3,
+    "reason": "Calstead’s shape widened clearly and the later goal suggests a coherent shift to using the flanks, even though other team metrics did not move with it."
+   },
+   "explanation": {
+    "claim": "Calstead Albion clearly widened their shape: width rose from 13.3 m to 16.6 m, a tactical switch to the flanks that raised their control index from 31.2 to 52.8. That switch produced Calstead’s goal later in the same 16‑minute window, despite their time‑based possession falling from 39.1% to 26.5%.",
+    "mechanism_tag": "tactical_switch",
+    "team_id": "t_cal",
+    "player_ids": [],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_cal",
+      "metric": "width_m",
+      "before_start_ms": 1320000,
+      "before_end_ms": 2280000,
+      "after_start_ms": 2280000,
+      "after_end_ms": 3240000,
+      "before": 13.3,
+      "after": 16.6
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_cal",
+      "metric": "control_index",
+      "before_start_ms": 1320000,
+      "before_end_ms": 2280000,
+      "after_start_ms": 2280000,
+      "after_end_ms": 3240000,
+      "before": 31.2,
+      "after": 52.8
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_cal",
+      "metric": "possession_time_based",
+      "before_start_ms": 1320000,
+      "before_end_ms": 2280000,
+      "after_start_ms": 2280000,
+      "after_end_ms": 3240000,
+      "before": 0.391,
+      "after": 0.265
+     }
+    ],
+    "confidence": 0.6
+   },
+   "attempts": 2,
+   "rejection": "The claim says Calstead’s goal happened later in the same 16-minute window, but the evidence only provides width, control index, and possession; it does not contain any goal event or timing.; The phrasing implies a tactical switch to the flanks, which is not directly contained in the evidence.",
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1211,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 7341,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 11,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1125,
+     "outcome": "rejected",
+     "detail": "The claim says the wide shift produced the phase that led to their goal late in the window, but the evidence provided does not contain any goal, phase, or event data to support that factual assertion."
+    },
+    {
+     "stage": "analyst#2",
+     "ms": 7932,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 10,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1391,
+     "outcome": "rejected",
+     "detail": "The claim says Calstead’s goal happened later in the same 16-minute window, but the evidence only provides width, control index, and possession; it does not contain any goal event or timing.; The phrasing implies a tactical switch to the flanks, which is not directly contained in the evidence."
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_005",
+   "candidate": {
+    "candidate_id": "c_005",
+    "kind": "tactical_switch/wide",
+    "t_ms": 4260000,
+    "team_id": "t_elm",
+    "player_id": null,
+    "window_start_ms": 3300000,
+    "window_end_ms": 4260000,
+    "score": 2.71,
+    "signals": [
+     {
+      "metric": "width",
+      "subject": "t_elm",
+      "expected": "up",
+      "window": 15.248,
+      "before": 12.119,
+      "z": 2.71,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "tactical_switch/long_ball": 2.08,
+     "tactical_switch/wide": 2.71
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_elm",
+      "expected": "down",
+      "window": 5.125,
+      "before": 6.0,
+      "z": 0.13,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_cal",
+      "expected": "down",
+      "window": 0.909,
+      "before": 0.799,
+      "z": -2.11,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_elm",
+      "expected": "up",
+      "window": 0.371,
+      "before": 0.644,
+      "z": -1.77,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "possession",
+      "subject": "t_elm",
+      "expected": "up",
+      "window": 0.484,
+      "before": 0.589,
+      "z": -0.89,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_elm",
+      "expected": "up",
+      "window": 27.705,
+      "before": 24.442,
+      "z": 2.18,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_elm",
+      "expected": "down",
+      "window": 0.787,
+      "before": 0.886,
+      "z": 1.99,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "width",
+      "subject": "t_elm",
+      "expected": "up",
+      "window": 15.248,
+      "before": 12.119,
+      "z": 2.71,
+      "above_noise_p95": true
+     }
+    ],
+    "key_events": [
+     {
+      "t_ms": 3136100,
+      "type": "goal",
+      "team_id": "t_cal",
+      "player_id": null,
+      "detail": null
+     },
+     {
+      "t_ms": 3760600,
+      "type": "sub",
+      "team_id": "t_cal",
+      "player_id": "p_cal_16",
+      "detail": "p_cal_09"
+     },
+     {
+      "t_ms": 3823900,
+      "type": "sub",
+      "team_id": "t_elm",
+      "player_id": "p_elm_02",
+      "detail": "p_elm_22"
+     },
+     {
+      "t_ms": 4103700,
+      "type": "sub",
+      "team_id": "t_elm",
+      "player_id": "p_elm_16",
+      "detail": "p_elm_04"
+     },
+     {
+      "t_ms": 4249600,
+      "type": "card",
+      "team_id": "t_elm",
+      "player_id": "p_elm_04",
+      "detail": "yellow"
+     }
+    ]
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "tactical_switch",
+    "salience": 3,
+    "reason": "Elmdale’s shape clearly widens with longer passing, while other control metrics are mixed, pointing to a genuine wide tactical adjustment rather than a pure possession swing."
+   },
+   "explanation": {
+    "claim": "After the substitutions, Elmdale Rangers stretched the game wide and played longer passes: team width rose from 13.6 m to 15.2 m and average pass length from 24.8 m to 27.7 m. That change made their possession less settled (control index 72.3 → 57.5) and reduced pass completion (88.1% → 78.7%), so the wide approach opens flanks but increases turnover risk.",
+    "mechanism_tag": "tactical_switch",
+    "team_id": "t_elm",
+    "player_ids": [
+     "p_elm_02",
+     "p_elm_16",
+     "p_elm_04",
+     "p_cal_16"
+    ],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_elm",
+      "metric": "width_m",
+      "before_start_ms": 2340000,
+      "before_end_ms": 3300000,
+      "after_start_ms": 3300000,
+      "after_end_ms": 4260000,
+      "before": 13.6,
+      "after": 15.2
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_elm",
+      "metric": "avg_pass_length_m",
+      "before_start_ms": 2340000,
+      "before_end_ms": 3300000,
+      "after_start_ms": 3300000,
+      "after_end_ms": 4260000,
+      "before": 24.8,
+      "after": 27.7
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_elm",
+      "metric": "control_index",
+      "before_start_ms": 2340000,
+      "before_end_ms": 3300000,
+      "after_start_ms": 3300000,
+      "after_end_ms": 4260000,
+      "before": 72.3,
+      "after": 57.5
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_elm",
+      "metric": "pass_completion",
+      "before_start_ms": 2340000,
+      "before_end_ms": 3300000,
+      "after_start_ms": 3300000,
+      "after_end_ms": 4260000,
+      "before": 0.881,
+      "after": 0.787
+     }
+    ],
+    "confidence": 0.8
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1268,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 7553,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 13,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 986,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_006",
+   "candidate": {
+    "candidate_id": "c_006",
+    "kind": "pressing_spell",
+    "t_ms": 4440000,
+    "team_id": "t_cal",
+    "player_id": null,
+    "window_start_ms": 3540000,
+    "window_end_ms": 4440000,
+    "score": -0.27,
+    "signals": [
+     {
+      "metric": "ppda",
+      "subject": "t_cal",
+      "expected": "down",
+      "window": 45.0,
+      "before": 15.2,
+      "z": -4.83,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_elm",
+      "expected": "down",
+      "window": 0.767,
+      "before": 0.879,
+      "z": 2.18,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_cal",
+      "expected": "up",
+      "window": 0.65,
+      "before": 0.369,
+      "z": 1.83,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "pressing_spell": -0.27
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_cal",
+      "expected": "down",
+      "window": 45.0,
+      "before": 15.2,
+      "z": -4.83,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_elm",
+      "expected": "down",
+      "window": 0.767,
+      "before": 0.879,
+      "z": 2.18,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_cal",
+      "expected": "up",
+      "window": 0.65,
+      "before": 0.369,
+      "z": 1.83,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "possession",
+      "subject": "t_cal",
+      "expected": "up",
+      "window": 0.542,
+      "before": 0.414,
+      "z": 1.1,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_cal",
+      "expected": "up",
+      "window": 27.204,
+      "before": 25.101,
+      "z": 1.42,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_cal",
+      "expected": "down",
+      "window": 0.916,
+      "before": 0.803,
+      "z": -2.23,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "width",
+      "subject": "t_cal",
+      "expected": "up",
+      "window": 17.119,
+      "before": 14.126,
+      "z": 2.59,
+      "above_noise_p95": true
+     }
+    ],
+    "key_events": [
+     {
+      "t_ms": 3760600,
+      "type": "sub",
+      "team_id": "t_cal",
+      "player_id": "p_cal_16",
+      "detail": "p_cal_09"
+     },
+     {
+      "t_ms": 3823900,
+      "type": "sub",
+      "team_id": "t_elm",
+      "player_id": "p_elm_02",
+      "detail": "p_elm_22"
+     },
+     {
+      "t_ms": 4103700,
+      "type": "sub",
+      "team_id": "t_elm",
+      "player_id": "p_elm_16",
+      "detail": "p_elm_04"
+     },
+     {
+      "t_ms": 4249600,
+      "type": "card",
+      "team_id": "t_elm",
+      "player_id": "p_elm_04",
+      "detail": "yellow"
+     },
+     {
+      "t_ms": 4373400,
+      "type": "card",
+      "team_id": "t_elm",
+      "player_id": "p_elm_04",
+      "detail": "red"
+     }
+    ]
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "tactical_switch",
+    "salience": 4,
+    "reason": "Calstead’s wide shape and field tilt rose together after a substitution, and Elmdale’s passing and eventual red card fit a sustained territorial swing."
+   },
+   "explanation": {
+    "claim": "Calstead Albion shifted into a wider, longer passing shape and took territorial control: time-based possession rose from 34.6% to 54.2% and field tilt (final-third share) rose from 46.9% to 65.0%. Their average pass length increased from 24.6 m to 27.3 m and control index from 52.6 to 65.9, giving Calstead sustained control of the game.",
+    "mechanism_tag": "tactical_switch",
+    "team_id": "t_cal",
+    "player_ids": [
+     "p_cal_16"
+    ],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_cal",
+      "metric": "possession_time_based",
+      "before_start_ms": 2640000,
+      "before_end_ms": 3540000,
+      "after_start_ms": 3540000,
+      "after_end_ms": 4440000,
+      "before": 0.346,
+      "after": 0.542
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_cal",
+      "metric": "field_tilt",
+      "before_start_ms": 2640000,
+      "before_end_ms": 3540000,
+      "after_start_ms": 3540000,
+      "after_end_ms": 4440000,
+      "before": 0.469,
+      "after": 0.65
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_cal",
+      "metric": "avg_pass_length_m",
+      "before_start_ms": 2640000,
+      "before_end_ms": 3540000,
+      "after_start_ms": 3540000,
+      "after_end_ms": 4440000,
+      "before": 24.6,
+      "after": 27.3
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_cal",
+      "metric": "control_index",
+      "before_start_ms": 2640000,
+      "before_end_ms": 3540000,
+      "after_start_ms": 3540000,
+      "after_end_ms": 4440000,
+      "before": 52.6,
+      "after": 65.9
+     }
+    ],
+    "confidence": 0.8
+   },
+   "attempts": 2,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1277,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 7444,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 3,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1498,
+     "outcome": "rejected",
+     "detail": "The claim says Elmdale’s possession dropped to 45.8%, but the evidence only gives Calstead Albion’s possession rising to 54.2%; Elmdale’s possession is not directly provided.; The claim says Dario Ulmore received a red card, but no card or injury/event data appears in the evidence or context."
+    },
+    {
+     "stage": "analyst#2",
+     "ms": 5831,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 11,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1138,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_007",
+   "candidate": {
+    "candidate_id": "c_007",
+    "kind": "tactical_switch/wide",
+    "t_ms": 5220000,
+    "team_id": "t_elm",
+    "player_id": null,
+    "window_start_ms": 4260000,
+    "window_end_ms": 5220000,
+    "score": 3.53,
+    "signals": [
+     {
+      "metric": "width",
+      "subject": "t_elm",
+      "expected": "up",
+      "window": 16.836,
+      "before": 12.731,
+      "z": 3.53,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "tactical_switch/wide": 3.53
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_elm",
+      "expected": "down",
+      "window": 10.8,
+      "before": 5.861,
+      "z": -0.81,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_cal",
+      "expected": "down",
+      "window": 0.908,
+      "before": 0.825,
+      "z": -1.59,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_elm",
+      "expected": "up",
+      "window": 0.226,
+      "before": 0.576,
+      "z": -2.28,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "possession",
+      "subject": "t_elm",
+      "expected": "up",
+      "window": 0.465,
+      "before": 0.568,
+      "z": -0.88,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_elm",
+      "expected": "up",
+      "window": 29.076,
+      "before": 25.087,
+      "z": 2.65,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_elm",
+      "expected": "down",
+      "window": 0.809,
+      "before": 0.867,
+      "z": 1.15,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "width",
+      "subject": "t_elm",
+      "expected": "up",
+      "window": 16.836,
+      "before": 12.731,
+      "z": 3.53,
+      "above_noise_p95": true
+     }
+    ],
+    "key_events": [
+     {
+      "t_ms": 4103700,
+      "type": "sub",
+      "team_id": "t_elm",
+      "player_id": "p_elm_16",
+      "detail": "p_elm_04"
+     },
+     {
+      "t_ms": 4249600,
+      "type": "card",
+      "team_id": "t_elm",
+      "player_id": "p_elm_04",
+      "detail": "yellow"
+     },
+     {
+      "t_ms": 4373400,
+      "type": "card",
+      "team_id": "t_elm",
+      "player_id": "p_elm_04",
+      "detail": "red"
+     },
+     {
+      "t_ms": 4593100,
+      "type": "sub",
+      "team_id": "t_elm",
+      "player_id": "p_elm_11",
+      "detail": "p_elm_27"
+     },
+     {
+      "t_ms": 4872500,
+      "type": "sub",
+      "team_id": "t_cal",
+      "player_id": "p_cal_07",
+      "detail": "p_cal_23"
+     },
+     {
+      "t_ms": 4892300,
+      "type": "sub",
+      "team_id": "t_cal",
+      "player_id": "p_cal_20",
+      "detail": "p_cal_27"
+     }
+    ]
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "tactical_switch",
+    "salience": 4,
+    "reason": "Elmdale’s attack became much wider and longer after the red card, with a clear tactical response rather than a random fluctuation."
+   },
+   "explanation": {
+    "claim": "Elmdale Rangers stretched their attack: average pass length rose from 27.7 m to 29.1 m and width increased from 15.2 m to 16.8 m, showing a clear shift to wider, longer passing. That change bought them more settled possession—control index rose from 57.5 to 65.9—helping protect their 2–1 lead.",
+    "mechanism_tag": "tactical_switch",
+    "team_id": "t_elm",
+    "player_ids": [],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_elm",
+      "metric": "width_m",
+      "before_start_ms": 3300000,
+      "before_end_ms": 4260000,
+      "after_start_ms": 4260000,
+      "after_end_ms": 5220000,
+      "before": 15.2,
+      "after": 16.8
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_elm",
+      "metric": "avg_pass_length_m",
+      "before_start_ms": 3300000,
+      "before_end_ms": 4260000,
+      "after_start_ms": 4260000,
+      "after_end_ms": 5220000,
+      "before": 27.7,
+      "after": 29.1
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_elm",
+      "metric": "control_index",
+      "before_start_ms": 3300000,
+      "before_end_ms": 4260000,
+      "after_start_ms": 4260000,
+      "after_end_ms": 5220000,
+      "before": 57.5,
+      "after": 65.9
+     }
+    ],
+    "confidence": 0.8
+   },
+   "attempts": 2,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1061,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 5093,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 10,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1413,
+     "outcome": "rejected",
+     "detail": "The claim says Elmdale’s width increased, average pass length rose, and their control index improved; these are supported by the evidence.; The claim adds that this was 'following Elmdale’s red card and substitution sequence late in the period,' but the provided evidence and context do not contain a"
+    },
+    {
+     "stage": "analyst#2",
+     "ms": 5932,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 5,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1178,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  }
+ ]
+}

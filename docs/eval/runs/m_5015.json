@@ -1,0 +1,886 @@
+{
+ "run_id": "r_m_5015_2a1e5571",
+ "match_id": "m_5015",
+ "mode": "eval",
+ "kind": "recorded agent run",
+ "provider": "foundry",
+ "models": {
+  "fast": "gtf-fast",
+  "reasoning": "gtf-reasoning",
+  "reasoning_effort": "low"
+ },
+ "started_at": "2026-10-18T12:07:28.138827+00:00",
+ "wall_s": 37.4,
+ "candidates": 4,
+ "status_counts": {
+  "approved": 4
+ },
+ "budget_stopped": null,
+ "usage": {
+  "provider": "foundry",
+  "calls": 12,
+  "tokens_in": 21564,
+  "tokens_out": 3364,
+  "cost_eur": 0.01535,
+  "estimated": false,
+  "by_agent": {
+   "detector": {
+    "calls": 4,
+    "tokens_in": 4434,
+    "tokens_out": 242,
+    "eur": 0.00427
+   },
+   "analyst": {
+    "calls": 4,
+    "tokens_in": 13901,
+    "tokens_out": 3054,
+    "eur": 0.00843
+   },
+   "verifier": {
+    "calls": 4,
+    "tokens_in": 3229,
+    "tokens_out": 68,
+    "eur": 0.00264
+   }
+  }
+ },
+ "calls": [
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 972,
+   "tokens_out": 56,
+   "reasoning_tokens": 0,
+   "latency_ms": 1459,
+   "cost_eur": 0.0009496023999999999,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3469,
+   "tokens_out": 835,
+   "reasoning_tokens": 512,
+   "latency_ms": 7622,
+   "cost_eur": 0.0022326965,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 781,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1099,
+   "cost_eur": 0.0006410563,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1160,
+   "tokens_out": 59,
+   "reasoning_tokens": 0,
+   "latency_ms": 1445,
+   "cost_eur": 0.0010991581,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3347,
+   "tokens_out": 700,
+   "reasoning_tokens": 320,
+   "latency_ms": 5226,
+   "cost_eur": 0.00196827,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 823,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1118,
+   "cost_eur": 0.0006715482999999999,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 837,
+   "tokens_out": 60,
+   "reasoning_tokens": 0,
+   "latency_ms": 1727,
+   "cost_eur": 0.0008690160000000001,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3408,
+   "tokens_out": 696,
+   "reasoning_tokens": 256,
+   "latency_ms": 5244,
+   "cost_eur": 0.0019746504,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 857,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1124,
+   "cost_eur": 0.0006962323,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1465,
+   "tokens_out": 67,
+   "reasoning_tokens": 0,
+   "latency_ms": 1392,
+   "cost_eur": 0.0013554352999999998,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3677,
+   "tokens_out": 823,
+   "reasoning_tokens": 512,
+   "latency_ms": 6100,
+   "cost_eur": 0.0022573377,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 768,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1039,
+   "cost_eur": 0.0006316183,
+   "estimated": false
+  }
+ ],
+ "moments": [
+  {
+   "moment_id": "mo_001",
+   "candidate": {
+    "candidate_id": "c_001",
+    "kind": "player_arc",
+    "t_ms": 1800000,
+    "team_id": "t_oak",
+    "player_id": "p_oak_16",
+    "window_start_ms": 720000,
+    "window_end_ms": 1800000,
+    "score": 3.19,
+    "signals": [
+     {
+      "metric": "progressive_passes",
+      "subject": "p_oak_16",
+      "expected": "up",
+      "window": 0.444,
+      "before": 0.083,
+      "z": 4.38,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "touches",
+      "subject": "p_oak_16",
+      "expected": "up",
+      "window": 1.167,
+      "before": 0.583,
+      "z": 2.0,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {},
+    "team_profile": [],
+    "key_events": [
+     {
+      "t_ms": 856200,
+      "type": "card",
+      "team_id": "t_oak",
+      "player_id": "p_oak_21",
+      "detail": "yellow"
+     },
+     {
+      "t_ms": 1272900,
+      "type": "card",
+      "team_id": "t_ivy",
+      "player_id": "p_ivy_18",
+      "detail": "yellow"
+     },
+     {
+      "t_ms": 1454600,
+      "type": "card",
+      "team_id": "t_oak",
+      "player_id": "p_oak_16",
+      "detail": "yellow"
+     }
+    ]
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "player_arc",
+    "salience": 3,
+    "reason": "Sami Fendell’s progressive passing rises sharply with more involvement, fitting a sustained individual uptick rather than a team-wide swing."
+   },
+   "explanation": {
+    "claim": "Sami Fendell stepped up: his progressive passes rose from 1 in the first 12 minutes to 8 in the next 18 minutes (0.083 → 0.444 per minute), and his touches went 7 → 21. That individual uptick coincides with Oakhaven Vale’s chance creation rising (xT added 0.023 → 0.386), so Fendell is driving their attacking threat.",
+    "mechanism_tag": "player_arc",
+    "team_id": "t_oak",
+    "player_ids": [
+     "p_oak_16"
+    ],
+    "evidence": [
+     {
+      "tool": "get_player_physical",
+      "subject": "p_oak_16",
+      "metric": "progressive_passes",
+      "before_start_ms": 0,
+      "before_end_ms": 720000,
+      "after_start_ms": 720000,
+      "after_end_ms": 1800000,
+      "before": 1.0,
+      "after": 8.0
+     },
+     {
+      "tool": "get_player_physical",
+      "subject": "p_oak_16",
+      "metric": "touches",
+      "before_start_ms": 0,
+      "before_end_ms": 720000,
+      "after_start_ms": 720000,
+      "after_end_ms": 1800000,
+      "before": 7.0,
+      "after": 21.0
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_oak",
+      "metric": "xt_added",
+      "before_start_ms": 0,
+      "before_end_ms": 720000,
+      "after_start_ms": 720000,
+      "after_end_ms": 1800000,
+      "before": 0.023,
+      "after": 0.386
+     }
+    ],
+    "confidence": 0.85
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1459,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 7623,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 7,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1100,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_002",
+   "candidate": {
+    "candidate_id": "c_002",
+    "kind": "tactical_switch/long_ball",
+    "t_ms": 2640000,
+    "team_id": "t_ivy",
+    "player_id": null,
+    "window_start_ms": 1680000,
+    "window_end_ms": 2640000,
+    "score": 2.09,
+    "signals": [
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_ivy",
+      "expected": "up",
+      "window": 28.952,
+      "before": 25.408,
+      "z": 2.36,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_ivy",
+      "expected": "down",
+      "window": 0.697,
+      "before": 0.788,
+      "z": 1.81,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "tactical_switch/long_ball": 2.09
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_ivy",
+      "expected": "down",
+      "window": 10.0,
+      "before": 5.471,
+      "z": -0.74,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_oak",
+      "expected": "down",
+      "window": 0.772,
+      "before": 0.734,
+      "z": -0.71,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_ivy",
+      "expected": "up",
+      "window": 0.631,
+      "before": 0.559,
+      "z": 0.47,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "possession",
+      "subject": "t_ivy",
+      "expected": "up",
+      "window": 0.467,
+      "before": 0.49,
+      "z": -0.2,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_ivy",
+      "expected": "up",
+      "window": 28.952,
+      "before": 25.408,
+      "z": 2.36,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_ivy",
+      "expected": "down",
+      "window": 0.697,
+      "before": 0.788,
+      "z": 1.81,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "width",
+      "subject": "t_ivy",
+      "expected": "up",
+      "window": 16.557,
+      "before": 17.392,
+      "z": -0.65,
+      "above_noise_p95": false
+     }
+    ],
+    "key_events": [
+     {
+      "t_ms": 1454600,
+      "type": "card",
+      "team_id": "t_oak",
+      "player_id": "p_oak_16",
+      "detail": "yellow"
+     }
+    ]
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "tactical_switch",
+    "salience": 3,
+    "reason": "Ivyhaven’s passing became noticeably longer and less clean, which fits a coherent shift toward more direct play, with no strong contradictory team signals."
+   },
+   "explanation": {
+    "claim": "Ivyhaven Rangers switched toward more direct, long-ball play: their average pass length rose to 29.0 m while pass completion dropped to 69.7%, and their share of final-third actions rose to 64.0%. That came with slightly less time-based possession (48.7% vs 52.1%), so they traded cleaner control for more direct attacking penetration.",
+    "mechanism_tag": "tactical_switch",
+    "team_id": "t_ivy",
+    "player_ids": [],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ivy",
+      "metric": "avg_pass_length_m",
+      "before_start_ms": 720000,
+      "before_end_ms": 1680000,
+      "after_start_ms": 1680000,
+      "after_end_ms": 2640000,
+      "before": 25.6,
+      "after": 29.0
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ivy",
+      "metric": "pass_completion",
+      "before_start_ms": 720000,
+      "before_end_ms": 1680000,
+      "after_start_ms": 1680000,
+      "after_end_ms": 2640000,
+      "before": 0.802,
+      "after": 0.697
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ivy",
+      "metric": "field_tilt",
+      "before_start_ms": 720000,
+      "before_end_ms": 1680000,
+      "after_start_ms": 1680000,
+      "after_end_ms": 2640000,
+      "before": 0.537,
+      "after": 0.64
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ivy",
+      "metric": "possession_time_based",
+      "before_start_ms": 720000,
+      "before_end_ms": 1680000,
+      "after_start_ms": 1680000,
+      "after_end_ms": 2640000,
+      "before": 0.521,
+      "after": 0.487
+     }
+    ],
+    "confidence": 0.8
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1445,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 5226,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 9,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1119,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_003",
+   "candidate": {
+    "candidate_id": "c_003",
+    "kind": "player_arc",
+    "t_ms": 2880000,
+    "team_id": "t_oak",
+    "player_id": "p_oak_16",
+    "window_start_ms": 1800000,
+    "window_end_ms": 2880000,
+    "score": 3.2,
+    "signals": [
+     {
+      "metric": "progressive_passes",
+      "subject": "p_oak_16",
+      "expected": "up",
+      "window": 0.667,
+      "before": 0.3,
+      "z": 4.45,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "touches",
+      "subject": "p_oak_16",
+      "expected": "up",
+      "window": 1.5,
+      "before": 0.933,
+      "z": 1.94,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {},
+    "team_profile": [],
+    "key_events": []
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "player_arc",
+    "salience": 4,
+    "reason": "Sami Fendell’s progressive passing jumps sharply and is backed by a modest rise in touches, pointing to a real individual involvement spike rather than noise."
+   },
+   "explanation": {
+    "claim": "Sami Fendell started to drive Oakhaven Vale’s attacking play: his progressive passes rose from 8 to 12 and his touches from 21 to 27 (both measured over the 18 minutes), giving him a much bigger involvement. That individual spike coincides with Oakhaven pushing up — time-based possession rose to 61.0% and PPDA fell to 7.5 — so his influence comes as the team dominates higher up the pitch.",
+    "mechanism_tag": "player_arc",
+    "team_id": "t_oak",
+    "player_ids": [
+     "p_oak_16"
+    ],
+    "evidence": [
+     {
+      "tool": "get_player_physical",
+      "subject": "p_oak_16",
+      "metric": "progressive_passes",
+      "before_start_ms": 720000,
+      "before_end_ms": 1800000,
+      "after_start_ms": 1800000,
+      "after_end_ms": 2880000,
+      "before": 8.0,
+      "after": 12.0
+     },
+     {
+      "tool": "get_player_physical",
+      "subject": "p_oak_16",
+      "metric": "touches",
+      "before_start_ms": 720000,
+      "before_end_ms": 1800000,
+      "after_start_ms": 1800000,
+      "after_end_ms": 2880000,
+      "before": 21.0,
+      "after": 27.0
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_oak",
+      "metric": "possession_time_based",
+      "before_start_ms": 720000,
+      "before_end_ms": 1800000,
+      "after_start_ms": 1800000,
+      "after_end_ms": 2880000,
+      "before": 0.447,
+      "after": 0.61
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_oak",
+      "metric": "ppda",
+      "before_start_ms": 720000,
+      "before_end_ms": 1800000,
+      "after_start_ms": 1800000,
+      "after_end_ms": 2880000,
+      "before": 45.0,
+      "after": 7.5
+     }
+    ],
+    "confidence": 0.8
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1727,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 5244,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 12,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1124,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_004",
+   "candidate": {
+    "candidate_id": "c_004",
+    "kind": "pressing_spell",
+    "t_ms": 5100000,
+    "team_id": "t_ivy",
+    "player_id": null,
+    "window_start_ms": 4200000,
+    "window_end_ms": 5100000,
+    "score": 1.46,
+    "signals": [
+     {
+      "metric": "ppda",
+      "subject": "t_ivy",
+      "expected": "down",
+      "window": 4.154,
+      "before": 6.537,
+      "z": 0.37,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_oak",
+      "expected": "down",
+      "window": 0.671,
+      "before": 0.768,
+      "z": 1.88,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_ivy",
+      "expected": "up",
+      "window": 0.851,
+      "before": 0.524,
+      "z": 2.12,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "pressing_spell": 1.46
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_ivy",
+      "expected": "down",
+      "window": 4.154,
+      "before": 6.537,
+      "z": 0.37,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_oak",
+      "expected": "down",
+      "window": 0.671,
+      "before": 0.768,
+      "z": 1.88,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_ivy",
+      "expected": "up",
+      "window": 0.851,
+      "before": 0.524,
+      "z": 2.12,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "possession",
+      "subject": "t_ivy",
+      "expected": "up",
+      "window": 0.518,
+      "before": 0.421,
+      "z": 0.83,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_ivy",
+      "expected": "up",
+      "window": 29.506,
+      "before": 26.588,
+      "z": 1.95,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_ivy",
+      "expected": "down",
+      "window": 0.75,
+      "before": 0.767,
+      "z": 0.35,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "width",
+      "subject": "t_ivy",
+      "expected": "up",
+      "window": 18.007,
+      "before": 16.738,
+      "z": 1.13,
+      "above_noise_p95": false
+     }
+    ],
+    "key_events": [
+     {
+      "t_ms": 4072300,
+      "type": "sub",
+      "team_id": "t_ivy",
+      "player_id": "p_ivy_28",
+      "detail": "p_ivy_05"
+     },
+     {
+      "t_ms": 4097900,
+      "type": "sub",
+      "team_id": "t_oak",
+      "player_id": "p_oak_08",
+      "detail": "p_oak_18"
+     },
+     {
+      "t_ms": 4221200,
+      "type": "sub",
+      "team_id": "t_oak",
+      "player_id": "p_oak_04",
+      "detail": "p_oak_09"
+     },
+     {
+      "t_ms": 4291200,
+      "type": "goal",
+      "team_id": "t_ivy",
+      "player_id": null,
+      "detail": null
+     },
+     {
+      "t_ms": 4370500,
+      "type": "goal",
+      "team_id": "t_ivy",
+      "player_id": null,
+      "detail": null
+     },
+     {
+      "t_ms": 4792100,
+      "type": "sub",
+      "team_id": "t_ivy",
+      "player_id": "p_ivy_14",
+      "detail": "p_ivy_04"
+     },
+     {
+      "t_ms": 4939100,
+      "type": "card",
+      "team_id": "t_ivy",
+      "player_id": "p_ivy_09",
+      "detail": "yellow"
+     }
+    ]
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "momentum_shift",
+    "salience": 4,
+    "reason": "Ivyhaven’s field tilt rises sharply after two goals, with Oakhaven’s pass completion also dropping, which fits a sustained post-goal control spell more than a pure press."
+   },
+   "explanation": {
+    "claim": "Ivyhaven Rangers took clear control after their goals: time-based possession rose from 34.3% to 51.8% and their field tilt jumped from 49.1% to 85.1%. That surge left Oakhaven struggling to build out — their pass completion fell from 74.2% to 67.1% — effectively shutting down Oakhaven’s chance creation.",
+    "mechanism_tag": "momentum_shift",
+    "team_id": "t_ivy",
+    "player_ids": [],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ivy",
+      "metric": "possession_time_based",
+      "before_start_ms": 3300000,
+      "before_end_ms": 4200000,
+      "after_start_ms": 4200000,
+      "after_end_ms": 5100000,
+      "before": 0.343,
+      "after": 0.518
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ivy",
+      "metric": "field_tilt",
+      "before_start_ms": 3300000,
+      "before_end_ms": 4200000,
+      "after_start_ms": 4200000,
+      "after_end_ms": 5100000,
+      "before": 0.491,
+      "after": 0.851
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_oak",
+      "metric": "pass_completion",
+      "before_start_ms": 3300000,
+      "before_end_ms": 4200000,
+      "after_start_ms": 4200000,
+      "after_end_ms": 5100000,
+      "before": 0.742,
+      "after": 0.671
+     }
+    ],
+    "confidence": 0.85
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1393,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 6101,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 10,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1040,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  }
+ ]
+}

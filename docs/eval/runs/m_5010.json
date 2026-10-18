@@ -1,0 +1,504 @@
+{
+ "run_id": "r_m_5010_602e726e",
+ "match_id": "m_5010",
+ "mode": "eval",
+ "kind": "recorded agent run",
+ "provider": "foundry",
+ "models": {
+  "fast": "gtf-fast",
+  "reasoning": "gtf-reasoning",
+  "reasoning_effort": "low"
+ },
+ "started_at": "2026-10-18T12:05:30.068835+00:00",
+ "wall_s": 20.3,
+ "candidates": 2,
+ "status_counts": {
+  "approved": 2
+ },
+ "budget_stopped": null,
+ "usage": {
+  "provider": "foundry",
+  "calls": 6,
+  "tokens_in": 10477,
+  "tokens_out": 1738,
+  "cost_eur": 0.00774,
+  "estimated": false,
+  "by_agent": {
+   "detector": {
+    "calls": 2,
+    "tokens_in": 2236,
+    "tokens_out": 116,
+    "eur": 0.00213
+   },
+   "analyst": {
+    "calls": 2,
+    "tokens_in": 6558,
+    "tokens_out": 1588,
+    "eur": 0.00424
+   },
+   "verifier": {
+    "calls": 2,
+    "tokens_in": 1683,
+    "tokens_out": 34,
+    "eur": 0.00137
+   }
+  }
+ },
+ "calls": [
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1096,
+   "tokens_out": 57,
+   "reasoning_tokens": 0,
+   "latency_ms": 1396,
+   "cost_eur": 0.0010439823,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3231,
+   "tokens_out": 782,
+   "reasoning_tokens": 384,
+   "latency_ms": 7118,
+   "cost_eur": 0.0020870618,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 831,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1231,
+   "cost_eur": 0.0006773562999999999,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1140,
+   "tokens_out": 59,
+   "reasoning_tokens": 0,
+   "latency_ms": 1105,
+   "cost_eur": 0.0010846381000000002,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3327,
+   "tokens_out": 806,
+   "reasoning_tokens": 384,
+   "latency_ms": 5910,
+   "cost_eur": 0.0021504194,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 852,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 928,
+   "cost_eur": 0.0006926023000000001,
+   "estimated": false
+  }
+ ],
+ "moments": [
+  {
+   "moment_id": "mo_001",
+   "candidate": {
+    "candidate_id": "c_001",
+    "kind": "pressing_spell",
+    "t_ms": 1500000,
+    "team_id": "t_qua",
+    "player_id": null,
+    "window_start_ms": 600000,
+    "window_end_ms": 1500000,
+    "score": 1.79,
+    "signals": [
+     {
+      "metric": "ppda",
+      "subject": "t_qua",
+      "expected": "down",
+      "window": 18.0,
+      "before": 45.0,
+      "z": 4.36,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_har",
+      "expected": "down",
+      "window": 0.875,
+      "before": 0.822,
+      "z": -1.02,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_qua",
+      "expected": "up",
+      "window": 0.414,
+      "before": 0.1,
+      "z": 2.04,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "pressing_spell": 1.79
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_qua",
+      "expected": "down",
+      "window": 18.0,
+      "before": 45.0,
+      "z": 4.36,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_har",
+      "expected": "down",
+      "window": 0.875,
+      "before": 0.822,
+      "z": -1.02,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_qua",
+      "expected": "up",
+      "window": 0.414,
+      "before": 0.1,
+      "z": 2.04,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "possession",
+      "subject": "t_qua",
+      "expected": "up",
+      "window": 0.482,
+      "before": 0.392,
+      "z": 0.77,
+      "above_noise_p95": false
+     }
+    ],
+    "key_events": [
+     {
+      "t_ms": 1048900,
+      "type": "card",
+      "team_id": "t_har",
+      "player_id": "p_har_03",
+      "detail": "yellow"
+     },
+     {
+      "t_ms": 1308800,
+      "type": "goal",
+      "team_id": "t_har",
+      "player_id": null,
+      "detail": null
+     }
+    ]
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "pressing_spell",
+    "salience": 4,
+    "reason": "Quargate’s pressing spikes hard and they also win much more territory, consistent with a sustained press after Hartmore’s yellow card."
+   },
+   "explanation": {
+    "claim": "Quargate’s press pushes Hartmore back: Quargate’s PPDA drops from 45.0 to 18.0 while their field tilt jumps to 41.4% (from 10.0%), and their time-based possession rises to 48.2% (from 39.2%). Hartmore’s field tilt falls from 90.0% to 58.6%, so Quargate are winning territory and forcing Hartmore out of the final third.",
+    "mechanism_tag": "pressing_spell",
+    "team_id": "t_qua",
+    "player_ids": [],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_qua",
+      "metric": "ppda",
+      "before_start_ms": 0,
+      "before_end_ms": 600000,
+      "after_start_ms": 600000,
+      "after_end_ms": 1500000,
+      "before": 45.0,
+      "after": 18.0
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_qua",
+      "metric": "field_tilt",
+      "before_start_ms": 0,
+      "before_end_ms": 600000,
+      "after_start_ms": 600000,
+      "after_end_ms": 1500000,
+      "before": 0.1,
+      "after": 0.414
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_qua",
+      "metric": "possession_time_based",
+      "before_start_ms": 0,
+      "before_end_ms": 600000,
+      "after_start_ms": 600000,
+      "after_end_ms": 1500000,
+      "before": 0.392,
+      "after": 0.482
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_har",
+      "metric": "field_tilt",
+      "before_start_ms": 0,
+      "before_end_ms": 600000,
+      "after_start_ms": 600000,
+      "after_end_ms": 1500000,
+      "before": 0.9,
+      "after": 0.586
+     }
+    ],
+    "confidence": 0.9
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1397,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 7119,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 7,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1233,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_002",
+   "candidate": {
+    "candidate_id": "c_002",
+    "kind": "tactical_switch/wide",
+    "t_ms": 2400000,
+    "team_id": "t_qua",
+    "player_id": null,
+    "window_start_ms": 1440000,
+    "window_end_ms": 2400000,
+    "score": 2.93,
+    "signals": [
+     {
+      "metric": "width",
+      "subject": "t_qua",
+      "expected": "up",
+      "window": 20.006,
+      "before": 16.615,
+      "z": 2.93,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "tactical_switch/wide": 2.93
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_qua",
+      "expected": "down",
+      "window": 18.75,
+      "before": 40.5,
+      "z": 3.51,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_har",
+      "expected": "down",
+      "window": 0.828,
+      "before": 0.85,
+      "z": 0.42,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_qua",
+      "expected": "up",
+      "window": 0.172,
+      "before": 0.333,
+      "z": -1.05,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "possession",
+      "subject": "t_qua",
+      "expected": "up",
+      "window": 0.252,
+      "before": 0.446,
+      "z": -1.66,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_qua",
+      "expected": "up",
+      "window": 29.681,
+      "before": 24.876,
+      "z": 3.18,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_qua",
+      "expected": "down",
+      "window": 0.745,
+      "before": 0.774,
+      "z": 0.57,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "width",
+      "subject": "t_qua",
+      "expected": "up",
+      "window": 20.006,
+      "before": 16.615,
+      "z": 2.93,
+      "above_noise_p95": true
+     }
+    ],
+    "key_events": [
+     {
+      "t_ms": 1308800,
+      "type": "goal",
+      "team_id": "t_har",
+      "player_id": null,
+      "detail": null
+     },
+     {
+      "t_ms": 1611100,
+      "type": "card",
+      "team_id": "t_qua",
+      "player_id": "p_qua_18",
+      "detail": "yellow"
+     }
+    ]
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "tactical_switch",
+    "salience": 3,
+    "reason": "Quargate show a clear width-and-pass-length shift after conceding and around the yellow card, which fits a genuine change in attacking shape."
+   },
+   "explanation": {
+    "claim": "Quargate Mariners switched to a much wider, more direct attack after Hartmore’s goal and Ugo Evberg’s booking: average pass length rose from 25.6m to 29.7m and width from 16.5m to 20.0m. That came with falling time-based possession (40.4% → 29.1%) and PPDA easing (24.0 → 19.0), so they trade control for louder wide chances.",
+    "mechanism_tag": "tactical_switch",
+    "team_id": "t_qua",
+    "player_ids": [
+     "p_qua_18"
+    ],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_qua",
+      "metric": "width_m",
+      "before_start_ms": 480000,
+      "before_end_ms": 1440000,
+      "after_start_ms": 1440000,
+      "after_end_ms": 2400000,
+      "before": 16.5,
+      "after": 20.0
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_qua",
+      "metric": "avg_pass_length_m",
+      "before_start_ms": 480000,
+      "before_end_ms": 1440000,
+      "after_start_ms": 1440000,
+      "after_end_ms": 2400000,
+      "before": 25.6,
+      "after": 29.7
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_qua",
+      "metric": "possession_time_based",
+      "before_start_ms": 480000,
+      "before_end_ms": 1440000,
+      "after_start_ms": 1440000,
+      "after_end_ms": 2400000,
+      "before": 0.404,
+      "after": 0.291
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_qua",
+      "metric": "ppda",
+      "before_start_ms": 480000,
+      "before_end_ms": 1440000,
+      "after_start_ms": 1440000,
+      "after_end_ms": 2400000,
+      "before": 24.0,
+      "after": 19.0
+     }
+    ],
+    "confidence": 0.8
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1105,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 5910,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 12,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 928,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  }
+ ]
+}

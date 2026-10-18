@@ -1,0 +1,28 @@
+{
+ "run_id": "r_m_9001_745c9912",
+ "match_id": "m_9001",
+ "mode": "eval",
+ "kind": "recorded agent run",
+ "provider": "foundry",
+ "models": {
+  "fast": "gtf-fast",
+  "reasoning": "gtf-reasoning",
+  "reasoning_effort": "low"
+ },
+ "started_at": "2026-10-18T12:11:06.785239+00:00",
+ "wall_s": 2.7,
+ "candidates": 0,
+ "status_counts": {},
+ "budget_stopped": null,
+ "usage": {
+  "provider": "foundry",
+  "calls": 0,
+  "tokens_in": 0,
+  "tokens_out": 0,
+  "cost_eur": 0,
+  "estimated": false,
+  "by_agent": {}
+ },
+ "calls": [],
+ "moments": []
+}

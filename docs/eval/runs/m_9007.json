@@ -1,0 +1,1081 @@
+{
+ "run_id": "r_m_9007_0d5063f2",
+ "match_id": "m_9007",
+ "mode": "eval",
+ "kind": "recorded agent run",
+ "provider": "foundry",
+ "models": {
+  "fast": "gtf-fast",
+  "reasoning": "gtf-reasoning",
+  "reasoning_effort": "low"
+ },
+ "started_at": "2026-10-18T12:13:16.990520+00:00",
+ "wall_s": 48.3,
+ "candidates": 4,
+ "status_counts": {
+  "approved": 4
+ },
+ "budget_stopped": null,
+ "usage": {
+  "provider": "foundry",
+  "calls": 14,
+  "tokens_in": 26720,
+  "tokens_out": 4993,
+  "cost_eur": 0.02039,
+  "estimated": false,
+  "by_agent": {
+   "detector": {
+    "calls": 4,
+    "tokens_in": 5078,
+    "tokens_out": 229,
+    "eur": 0.00468
+   },
+   "analyst": {
+    "calls": 5,
+    "tokens_in": 17484,
+    "tokens_out": 4590,
+    "eur": 0.01192
+   },
+   "verifier": {
+    "calls": 5,
+    "tokens_in": 4158,
+    "tokens_out": 174,
+    "eur": 0.00378
+   }
+  }
+ },
+ "calls": [
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1065,
+   "tokens_out": 61,
+   "reasoning_tokens": 0,
+   "latency_ms": 1402,
+   "cost_eur": 0.0010388999,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3203,
+   "tokens_out": 1044,
+   "reasoning_tokens": 512,
+   "latency_ms": 7747,
+   "cost_eur": 0.0025419956000000002,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 800,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1358,
+   "cost_eur": 0.0006548503,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1360,
+   "tokens_out": 64,
+   "reasoning_tokens": 0,
+   "latency_ms": 1106,
+   "cost_eur": 0.0012661376,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3569,
+   "tokens_out": 1165,
+   "reasoning_tokens": 768,
+   "latency_ms": 8839,
+   "cost_eur": 0.0028354635,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 814,
+   "tokens_out": 106,
+   "reasoning_tokens": 0,
+   "latency_ms": 1454,
+   "cost_eur": 0.0010526894,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3665,
+   "tokens_out": 880,
+   "reasoning_tokens": 448,
+   "latency_ms": 6070,
+   "cost_eur": 0.0023550119999999996,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 851,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 956,
+   "cost_eur": 0.0006918763,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1326,
+   "tokens_out": 49,
+   "reasoning_tokens": 0,
+   "latency_ms": 1187,
+   "cost_eur": 0.0011761151,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3520,
+   "tokens_out": 755,
+   "reasoning_tokens": 320,
+   "latency_ms": 6500,
+   "cost_eur": 0.0021031245,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 865,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1475,
+   "cost_eur": 0.0007020403,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1327,
+   "tokens_out": 55,
+   "reasoning_tokens": 0,
+   "latency_ms": 1099,
+   "cost_eur": 0.0012029765,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3527,
+   "tokens_out": 746,
+   "reasoning_tokens": 320,
+   "latency_ms": 5335,
+   "cost_eur": 0.0020888254,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 828,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1101,
+   "cost_eur": 0.0006751782999999999,
+   "estimated": false
+  }
+ ],
+ "moments": [
+  {
+   "moment_id": "mo_001",
+   "candidate": {
+    "candidate_id": "c_001",
+    "kind": "pressing_spell",
+    "t_ms": 1500000,
+    "team_id": "t_elm",
+    "player_id": null,
+    "window_start_ms": 600000,
+    "window_end_ms": 1500000,
+    "score": 1.61,
+    "signals": [
+     {
+      "metric": "ppda",
+      "subject": "t_elm",
+      "expected": "down",
+      "window": 10.0,
+      "before": 11.5,
+      "z": 0.23,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_oak",
+      "expected": "down",
+      "window": 0.694,
+      "before": 0.837,
+      "z": 2.76,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_elm",
+      "expected": "up",
+      "window": 0.571,
+      "before": 0.289,
+      "z": 1.83,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "pressing_spell": 1.61
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_elm",
+      "expected": "down",
+      "window": 10.0,
+      "before": 11.5,
+      "z": 0.23,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_oak",
+      "expected": "down",
+      "window": 0.694,
+      "before": 0.837,
+      "z": 2.76,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_elm",
+      "expected": "up",
+      "window": 0.571,
+      "before": 0.289,
+      "z": 1.83,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "possession",
+      "subject": "t_elm",
+      "expected": "up",
+      "window": 0.734,
+      "before": 0.606,
+      "z": 1.1,
+      "above_noise_p95": false
+     }
+    ],
+    "key_events": [
+     {
+      "t_ms": 473700,
+      "type": "card",
+      "team_id": "t_elm",
+      "player_id": "p_elm_09",
+      "detail": "yellow"
+     }
+    ]
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "pressing_spell",
+    "salience": 3,
+    "reason": "Elmport’s territory and Oakbridge’s pass completion both move in the pressing direction, which is enough to suggest a coherent squeeze despite modest PPDA change."
+   },
+   "explanation": {
+    "claim": "Elmport Harriers have pushed up and taken territory: their time-based possession rose to 73% and their field tilt to 57% in the moment window. Oakbridge’s pass completion dropped to 69% while Elmport’s xT added jumped, so Elmport are creating more dangerous possession.",
+    "mechanism_tag": "pressing_spell",
+    "team_id": "t_elm",
+    "player_ids": [
+     "p_elm_09"
+    ],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_elm",
+      "metric": "possession_time_based",
+      "before_start_ms": 0,
+      "before_end_ms": 600000,
+      "after_start_ms": 600000,
+      "after_end_ms": 1500000,
+      "before": 0.606,
+      "after": 0.734
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_elm",
+      "metric": "field_tilt",
+      "before_start_ms": 0,
+      "before_end_ms": 600000,
+      "after_start_ms": 600000,
+      "after_end_ms": 1500000,
+      "before": 0.289,
+      "after": 0.571
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_oak",
+      "metric": "pass_completion",
+      "before_start_ms": 0,
+      "before_end_ms": 600000,
+      "after_start_ms": 600000,
+      "after_end_ms": 1500000,
+      "before": 0.837,
+      "after": 0.694
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_elm",
+      "metric": "xt_added",
+      "before_start_ms": 0,
+      "before_end_ms": 600000,
+      "after_start_ms": 600000,
+      "after_end_ms": 1500000,
+      "before": 0.006,
+      "after": 0.072
+     }
+    ],
+    "confidence": 0.8
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1403,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 7749,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 5,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1359,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_002",
+   "candidate": {
+    "candidate_id": "c_002",
+    "kind": "pressing_spell",
+    "t_ms": 4440000,
+    "team_id": "t_elm",
+    "player_id": null,
+    "window_start_ms": 3540000,
+    "window_end_ms": 4440000,
+    "score": 1.15,
+    "signals": [
+     {
+      "metric": "ppda",
+      "subject": "t_elm",
+      "expected": "down",
+      "window": 10.0,
+      "before": 6.4,
+      "z": -0.59,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_oak",
+      "expected": "down",
+      "window": 0.684,
+      "before": 0.793,
+      "z": 2.11,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_elm",
+      "expected": "up",
+      "window": 0.735,
+      "before": 0.437,
+      "z": 1.94,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "pressing_spell": 1.15
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_elm",
+      "expected": "down",
+      "window": 10.0,
+      "before": 6.4,
+      "z": -0.59,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_oak",
+      "expected": "down",
+      "window": 0.684,
+      "before": 0.793,
+      "z": 2.11,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_elm",
+      "expected": "up",
+      "window": 0.735,
+      "before": 0.437,
+      "z": 1.94,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "possession",
+      "subject": "t_elm",
+      "expected": "up",
+      "window": 0.854,
+      "before": 0.691,
+      "z": 1.4,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_elm",
+      "expected": "up",
+      "window": 27.999,
+      "before": 26.062,
+      "z": 1.31,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_elm",
+      "expected": "down",
+      "window": 0.889,
+      "before": 0.87,
+      "z": -0.37,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "width",
+      "subject": "t_elm",
+      "expected": "up",
+      "window": 17.723,
+      "before": 16.734,
+      "z": 0.89,
+      "above_noise_p95": false
+     }
+    ],
+    "key_events": [
+     {
+      "t_ms": 3718400,
+      "type": "sub",
+      "team_id": "t_elm",
+      "player_id": "p_elm_25",
+      "detail": "p_elm_18"
+     },
+     {
+      "t_ms": 3848000,
+      "type": "sub",
+      "team_id": "t_elm",
+      "player_id": "p_elm_16",
+      "detail": "p_elm_12"
+     },
+     {
+      "t_ms": 4376500,
+      "type": "sub",
+      "team_id": "t_oak",
+      "player_id": "p_oak_22",
+      "detail": "p_oak_08"
+     },
+     {
+      "t_ms": 4398700,
+      "type": "sub",
+      "team_id": "t_oak",
+      "player_id": "p_oak_26",
+      "detail": "p_oak_25"
+     }
+    ]
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "tactical_switch",
+    "salience": 3,
+    "reason": "Elmport’s field tilt and possession rose after two attacking substitutions, with Oakbridge’s pass completion also dropping, suggesting a modest territory shift rather than a true press spike."
+   },
+   "explanation": {
+    "claim": "After Elmport’s attacking subs (Sami Garwin, Tomas Alley) Elmport Harriers took over: time-based possession rose from 61.4% to 85.4% and field tilt from 40% to 73.5%, giving them far more final-third control. Oakbridge’s pass completion dropped from 83.3% to 68.4%, showing Oakbridge lost control under the pressure.",
+    "mechanism_tag": "momentum_shift",
+    "team_id": "t_elm",
+    "player_ids": [
+     "p_elm_25",
+     "p_elm_16"
+    ],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_elm",
+      "metric": "possession_time_based",
+      "before_start_ms": 2640000,
+      "before_end_ms": 3540000,
+      "after_start_ms": 3540000,
+      "after_end_ms": 4440000,
+      "before": 0.614,
+      "after": 0.854
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_elm",
+      "metric": "field_tilt",
+      "before_start_ms": 2640000,
+      "before_end_ms": 3540000,
+      "after_start_ms": 3540000,
+      "after_end_ms": 4440000,
+      "before": 0.4,
+      "after": 0.735
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_elm",
+      "metric": "control_index",
+      "before_start_ms": 2640000,
+      "before_end_ms": 3540000,
+      "after_start_ms": 3540000,
+      "after_end_ms": 4440000,
+      "before": 60.6,
+      "after": 74.9
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_oak",
+      "metric": "pass_completion",
+      "before_start_ms": 2640000,
+      "before_end_ms": 3540000,
+      "after_start_ms": 3540000,
+      "after_end_ms": 4440000,
+      "before": 0.833,
+      "after": 0.684
+     }
+    ],
+    "confidence": 0.8
+   },
+   "attempts": 2,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1106,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 8840,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 10,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1455,
+     "outcome": "rejected",
+     "detail": "The claim says \"From 59'\" but the evidence window starts at 59:00 only if interpreted from 3540000 ms; however the provided match clock is 71:00, so the start-time framing is not supported by the context.; \"take over the game\" / \"can press for a decisive chance\" are interpretive and not directly sup"
+    },
+    {
+     "stage": "analyst#2",
+     "ms": 6071,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 12,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 957,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_003",
+   "candidate": {
+    "candidate_id": "c_003",
+    "kind": "tactical_switch/long_ball",
+    "t_ms": 5100000,
+    "team_id": "t_oak",
+    "player_id": null,
+    "window_start_ms": 4140000,
+    "window_end_ms": 5100000,
+    "score": 2.16,
+    "signals": [
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_oak",
+      "expected": "up",
+      "window": 26.965,
+      "before": 24.062,
+      "z": 1.94,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_oak",
+      "expected": "down",
+      "window": 0.673,
+      "before": 0.792,
+      "z": 2.38,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "tactical_switch/long_ball": 2.16
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_oak",
+      "expected": "down",
+      "window": 23.0,
+      "before": 16.75,
+      "z": -1.02,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_elm",
+      "expected": "down",
+      "window": 0.908,
+      "before": 0.874,
+      "z": -0.65,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_oak",
+      "expected": "up",
+      "window": 0.357,
+      "before": 0.518,
+      "z": -1.05,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "possession",
+      "subject": "t_oak",
+      "expected": "up",
+      "window": 0.345,
+      "before": 0.271,
+      "z": 0.63,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_oak",
+      "expected": "up",
+      "window": 26.965,
+      "before": 24.062,
+      "z": 1.94,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_oak",
+      "expected": "down",
+      "window": 0.673,
+      "before": 0.792,
+      "z": 2.38,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "width",
+      "subject": "t_oak",
+      "expected": "up",
+      "window": 17.006,
+      "before": 18.091,
+      "z": -0.86,
+      "above_noise_p95": false
+     }
+    ],
+    "key_events": [
+     {
+      "t_ms": 3848000,
+      "type": "sub",
+      "team_id": "t_elm",
+      "player_id": "p_elm_16",
+      "detail": "p_elm_12"
+     },
+     {
+      "t_ms": 4376500,
+      "type": "sub",
+      "team_id": "t_oak",
+      "player_id": "p_oak_22",
+      "detail": "p_oak_08"
+     },
+     {
+      "t_ms": 4398700,
+      "type": "sub",
+      "team_id": "t_oak",
+      "player_id": "p_oak_26",
+      "detail": "p_oak_25"
+     },
+     {
+      "t_ms": 4614600,
+      "type": "sub",
+      "team_id": "t_oak",
+      "player_id": "p_oak_17",
+      "detail": "p_oak_20"
+     }
+    ]
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "tactical_switch",
+    "salience": 3,
+    "reason": "Oakbridge made multiple late substitutions and then shifted to a more direct, less secure passing pattern."
+   },
+   "explanation": {
+    "claim": "Oakbridge replaced three players and switched to more direct play: average pass length rose to 27.0 m from 22.1 m while pass completion fell to 67.3% from 83.3%, so they played riskier long passes. Their control index dropped (59.6 from 68.4) and PPDA rose to 26.3 from 18.5, so pressing eased and possession became less controlled.",
+    "mechanism_tag": "tactical_switch",
+    "team_id": "t_oak",
+    "player_ids": [
+     "p_oak_26",
+     "p_oak_17",
+     "p_oak_22"
+    ],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_oak",
+      "metric": "avg_pass_length_m",
+      "before_start_ms": 3180000,
+      "before_end_ms": 4140000,
+      "after_start_ms": 4140000,
+      "after_end_ms": 5100000,
+      "before": 22.1,
+      "after": 27.0
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_oak",
+      "metric": "pass_completion",
+      "before_start_ms": 3180000,
+      "before_end_ms": 4140000,
+      "after_start_ms": 4140000,
+      "after_end_ms": 5100000,
+      "before": 0.833,
+      "after": 0.673
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_oak",
+      "metric": "control_index",
+      "before_start_ms": 3180000,
+      "before_end_ms": 4140000,
+      "after_start_ms": 4140000,
+      "after_end_ms": 5100000,
+      "before": 68.4,
+      "after": 59.6
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_oak",
+      "metric": "ppda",
+      "before_start_ms": 3180000,
+      "before_end_ms": 4140000,
+      "after_start_ms": 4140000,
+      "after_end_ms": 5100000,
+      "before": 18.5,
+      "after": 26.33
+     }
+    ],
+    "confidence": 0.8
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1187,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 6501,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 3,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1475,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_004",
+   "candidate": {
+    "candidate_id": "c_004",
+    "kind": "momentum_shift",
+    "t_ms": 5520000,
+    "team_id": "t_elm",
+    "player_id": null,
+    "window_start_ms": 4620000,
+    "window_end_ms": 5520000,
+    "score": 2.07,
+    "signals": [
+     {
+      "metric": "possession",
+      "subject": "t_elm",
+      "expected": "up",
+      "window": 0.896,
+      "before": 0.704,
+      "z": 1.65,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_elm",
+      "expected": "up",
+      "window": 0.857,
+      "before": 0.473,
+      "z": 2.5,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "pressing_spell": 1.82,
+     "momentum_shift": 2.07
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_elm",
+      "expected": "down",
+      "window": 4.333,
+      "before": 7.176,
+      "z": 0.45,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_oak",
+      "expected": "down",
+      "window": 0.65,
+      "before": 0.779,
+      "z": 2.51,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_elm",
+      "expected": "up",
+      "window": 0.857,
+      "before": 0.473,
+      "z": 2.5,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "possession",
+      "subject": "t_elm",
+      "expected": "up",
+      "window": 0.896,
+      "before": 0.704,
+      "z": 1.65,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_elm",
+      "expected": "up",
+      "window": 26.885,
+      "before": 26.554,
+      "z": 0.26,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_elm",
+      "expected": "down",
+      "window": 0.891,
+      "before": 0.875,
+      "z": -0.32,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "width",
+      "subject": "t_elm",
+      "expected": "up",
+      "window": 16.248,
+      "before": 16.986,
+      "z": -0.57,
+      "above_noise_p95": false
+     }
+    ],
+    "key_events": [
+     {
+      "t_ms": 4376500,
+      "type": "sub",
+      "team_id": "t_oak",
+      "player_id": "p_oak_22",
+      "detail": "p_oak_08"
+     },
+     {
+      "t_ms": 4398700,
+      "type": "sub",
+      "team_id": "t_oak",
+      "player_id": "p_oak_26",
+      "detail": "p_oak_25"
+     },
+     {
+      "t_ms": 4614600,
+      "type": "sub",
+      "team_id": "t_oak",
+      "player_id": "p_oak_17",
+      "detail": "p_oak_20"
+     },
+     {
+      "t_ms": 5227000,
+      "type": "sub",
+      "team_id": "t_elm",
+      "player_id": "p_elm_05",
+      "detail": "p_elm_04"
+     }
+    ]
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "momentum_shift",
+    "salience": 3,
+    "reason": "Elmport have a clear late swing in possession and field tilt, with Oakbridge’s pass completion dropping at the same time."
+   },
+   "explanation": {
+    "claim": "Elmport Harriers seized the game late — their time-based possession rose from 73% to 90% and their field tilt from 68% to 86%, flipping most play into Oakbridge’s final third. Their PPDA fell from 13.0 to 4.3, while Oakbridge’s pass completion dropped from 72.1% to 65.0%, a decisive momentum swing.",
+    "mechanism_tag": "momentum_shift",
+    "team_id": "t_elm",
+    "player_ids": [],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_elm",
+      "metric": "possession_time_based",
+      "before_start_ms": 3720000,
+      "before_end_ms": 4620000,
+      "after_start_ms": 4620000,
+      "after_end_ms": 5520000,
+      "before": 0.726,
+      "after": 0.896
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_elm",
+      "metric": "field_tilt",
+      "before_start_ms": 3720000,
+      "before_end_ms": 4620000,
+      "after_start_ms": 4620000,
+      "after_end_ms": 5520000,
+      "before": 0.679,
+      "after": 0.857
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_elm",
+      "metric": "ppda",
+      "before_start_ms": 3720000,
+      "before_end_ms": 4620000,
+      "after_start_ms": 4620000,
+      "after_end_ms": 5520000,
+      "before": 13.0,
+      "after": 4.33
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_oak",
+      "metric": "pass_completion",
+      "before_start_ms": 3720000,
+      "before_end_ms": 4620000,
+      "after_start_ms": 4620000,
+      "after_end_ms": 5520000,
+      "before": 0.721,
+      "after": 0.65
+     }
+    ],
+    "confidence": 0.9
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1100,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 5335,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 9,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1101,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  }
+ ]
+}

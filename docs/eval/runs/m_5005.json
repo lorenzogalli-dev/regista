@@ -1,0 +1,512 @@
+{
+ "run_id": "r_m_5005_7621f236",
+ "match_id": "m_5005",
+ "mode": "eval",
+ "kind": "recorded agent run",
+ "provider": "foundry",
+ "models": {
+  "fast": "gtf-fast",
+  "reasoning": "gtf-reasoning",
+  "reasoning_effort": "low"
+ },
+ "started_at": "2026-10-18T12:01:28.256435+00:00",
+ "wall_s": 21.1,
+ "candidates": 2,
+ "status_counts": {
+  "approved": 2
+ },
+ "budget_stopped": null,
+ "usage": {
+  "provider": "foundry",
+  "calls": 6,
+  "tokens_in": 11282,
+  "tokens_out": 1663,
+  "cost_eur": 0.00788,
+  "estimated": false,
+  "by_agent": {
+   "detector": {
+    "calls": 2,
+    "tokens_in": 2449,
+    "tokens_out": 120,
+    "eur": 0.0023
+   },
+   "analyst": {
+    "calls": 2,
+    "tokens_in": 7180,
+    "tokens_out": 1509,
+    "eur": 0.00424
+   },
+   "verifier": {
+    "calls": 2,
+    "tokens_in": 1653,
+    "tokens_out": 34,
+    "eur": 0.00135
+   }
+  }
+ },
+ "calls": [
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1244,
+   "tokens_out": 64,
+   "reasoning_tokens": 0,
+   "latency_ms": 1344,
+   "cost_eur": 0.0011819216,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3394,
+   "tokens_out": 788,
+   "reasoning_tokens": 256,
+   "latency_ms": 6789,
+   "cost_eur": 0.0021334812,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 816,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1232,
+   "cost_eur": 0.0006664662999999999,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1205,
+   "tokens_out": 56,
+   "reasoning_tokens": 0,
+   "latency_ms": 1762,
+   "cost_eur": 0.0011187603999999998,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3786,
+   "tokens_out": 721,
+   "reasoning_tokens": 320,
+   "latency_ms": 6424,
+   "cost_eur": 0.0021018078999999997,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 837,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 990,
+   "cost_eur": 0.0006817123,
+   "estimated": false
+  }
+ ],
+ "moments": [
+  {
+   "moment_id": "mo_001",
+   "candidate": {
+    "candidate_id": "c_001",
+    "kind": "pressing_spell",
+    "t_ms": 1860000,
+    "team_id": "t_ald",
+    "player_id": null,
+    "window_start_ms": 960000,
+    "window_end_ms": 1860000,
+    "score": 1.53,
+    "signals": [
+     {
+      "metric": "ppda",
+      "subject": "t_ald",
+      "expected": "down",
+      "window": 10.6,
+      "before": 10.5,
+      "z": -0.03,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_kel",
+      "expected": "down",
+      "window": 0.718,
+      "before": 0.811,
+      "z": 1.79,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_ald",
+      "expected": "up",
+      "window": 0.833,
+      "before": 0.4,
+      "z": 2.82,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "pressing_spell": 1.53
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_ald",
+      "expected": "down",
+      "window": 10.6,
+      "before": 10.5,
+      "z": -0.03,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_kel",
+      "expected": "down",
+      "window": 0.718,
+      "before": 0.811,
+      "z": 1.79,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_ald",
+      "expected": "up",
+      "window": 0.833,
+      "before": 0.4,
+      "z": 2.82,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "possession",
+      "subject": "t_ald",
+      "expected": "up",
+      "window": 0.507,
+      "before": 0.413,
+      "z": 0.81,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_ald",
+      "expected": "up",
+      "window": 24.533,
+      "before": 26.881,
+      "z": -1.49,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_ald",
+      "expected": "down",
+      "window": 0.761,
+      "before": 0.707,
+      "z": -1.08,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "width",
+      "subject": "t_ald",
+      "expected": "up",
+      "window": 14.601,
+      "before": 15.234,
+      "z": -0.48,
+      "above_noise_p95": false
+     }
+    ],
+    "key_events": [
+     {
+      "t_ms": 1331000,
+      "type": "card",
+      "team_id": "t_ald",
+      "player_id": "p_ald_29",
+      "detail": "yellow"
+     },
+     {
+      "t_ms": 1500000,
+      "type": "sub",
+      "team_id": "t_ald",
+      "player_id": "p_ald_17",
+      "detail": "p_ald_16"
+     }
+    ]
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "momentum_shift",
+    "salience": 2,
+    "reason": "Aldport’s territorial pressure rose sharply, but the pressing signal itself is not confirmed and the change is better explained as a general swing after the yellow card and substitution."
+   },
+   "explanation": {
+    "claim": "After Aldport’s yellow card and a substitution, Aldport Rangers took over territory: their field tilt rose to 83% and time-based possession to 50.7%, producing more threatening chances (xT added up). That territorial swing matters because Kelgate were pushed back and lost control of the game.",
+    "mechanism_tag": "momentum_shift",
+    "team_id": "t_ald",
+    "player_ids": [
+     "p_ald_17",
+     "p_ald_29"
+    ],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ald",
+      "metric": "field_tilt",
+      "before_start_ms": 60000,
+      "before_end_ms": 960000,
+      "after_start_ms": 960000,
+      "after_end_ms": 1860000,
+      "before": 0.414,
+      "after": 0.833
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ald",
+      "metric": "possession_time_based",
+      "before_start_ms": 60000,
+      "before_end_ms": 960000,
+      "after_start_ms": 960000,
+      "after_end_ms": 1860000,
+      "before": 0.427,
+      "after": 0.507
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ald",
+      "metric": "xt_added",
+      "before_start_ms": 60000,
+      "before_end_ms": 960000,
+      "after_start_ms": 960000,
+      "after_end_ms": 1860000,
+      "before": 0.02,
+      "after": 0.196
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_kel",
+      "metric": "pass_completion",
+      "before_start_ms": 60000,
+      "before_end_ms": 960000,
+      "after_start_ms": 960000,
+      "after_end_ms": 1860000,
+      "before": 0.82,
+      "after": 0.718
+     }
+    ],
+    "confidence": 0.85
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1345,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 6790,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 11,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1233,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_002",
+   "candidate": {
+    "candidate_id": "c_002",
+    "kind": "player_arc",
+    "t_ms": 5160000,
+    "team_id": "t_ald",
+    "player_id": "p_ald_29",
+    "window_start_ms": 4080000,
+    "window_end_ms": 5160000,
+    "score": 3.22,
+    "signals": [
+     {
+      "metric": "progressive_passes",
+      "subject": "p_ald_29",
+      "expected": "up",
+      "window": 0.556,
+      "before": 0.191,
+      "z": 4.42,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "touches",
+      "subject": "p_ald_29",
+      "expected": "up",
+      "window": 1.5,
+      "before": 0.912,
+      "z": 2.02,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {},
+    "team_profile": [],
+    "key_events": [
+     {
+      "t_ms": 3988700,
+      "type": "card",
+      "team_id": "t_ald",
+      "player_id": "p_ald_16",
+      "detail": "yellow"
+     },
+     {
+      "t_ms": 4013200,
+      "type": "sub",
+      "team_id": "t_kel",
+      "player_id": "p_kel_17",
+      "detail": "p_kel_06"
+     },
+     {
+      "t_ms": 4303600,
+      "type": "sub",
+      "team_id": "t_ald",
+      "player_id": "p_ald_15",
+      "detail": "p_ald_10"
+     },
+     {
+      "t_ms": 4542700,
+      "type": "card",
+      "team_id": "t_kel",
+      "player_id": "p_kel_03",
+      "detail": "yellow"
+     },
+     {
+      "t_ms": 4742100,
+      "type": "sub",
+      "team_id": "t_kel",
+      "player_id": "p_kel_19",
+      "detail": "p_kel_23"
+     },
+     {
+      "t_ms": 4769400,
+      "type": "sub",
+      "team_id": "t_ald",
+      "player_id": "p_ald_07",
+      "detail": "p_ald_12"
+     },
+     {
+      "t_ms": 4856400,
+      "type": "sub",
+      "team_id": "t_kel",
+      "player_id": "p_kel_10",
+      "detail": "p_kel_15"
+     }
+    ]
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "player_arc",
+    "salience": 3,
+    "reason": "Garham’s progressive passing and involvement rose clearly over the window, fitting a genuine player-level uptick rather than a team-wide swing."
+   },
+   "explanation": {
+    "claim": "Aldport’s right midfielder Ugo Garham stepped up: his progressive passes rose from 4 to 10 and his touches from 14 to 27, driving more attacking involvement. That coincided with Aldport’s field-tilt rising to 53.9% and xT added rising 0.032→0.083, increasing chance-creation.",
+    "mechanism_tag": "player_arc",
+    "team_id": "t_ald",
+    "player_ids": [
+     "p_ald_29"
+    ],
+    "evidence": [
+     {
+      "tool": "get_player_physical",
+      "subject": "p_ald_29",
+      "metric": "progressive_passes",
+      "before_start_ms": 3000000,
+      "before_end_ms": 4080000,
+      "after_start_ms": 4080000,
+      "after_end_ms": 5160000,
+      "before": 4.0,
+      "after": 10.0
+     },
+     {
+      "tool": "get_player_physical",
+      "subject": "p_ald_29",
+      "metric": "touches",
+      "before_start_ms": 3000000,
+      "before_end_ms": 4080000,
+      "after_start_ms": 4080000,
+      "after_end_ms": 5160000,
+      "before": 14.0,
+      "after": 27.0
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ald",
+      "metric": "field_tilt",
+      "before_start_ms": 3000000,
+      "before_end_ms": 4080000,
+      "after_start_ms": 4080000,
+      "after_end_ms": 5160000,
+      "before": 0.44,
+      "after": 0.539
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ald",
+      "metric": "xt_added",
+      "before_start_ms": 3000000,
+      "before_end_ms": 4080000,
+      "after_start_ms": 4080000,
+      "after_end_ms": 5160000,
+      "before": 0.032,
+      "after": 0.083
+     }
+    ],
+    "confidence": 0.8
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1762,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 6425,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 10,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 990,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  }
+ ]
+}

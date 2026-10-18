@@ -1,0 +1,666 @@
+{
+ "run_id": "r_m_5018_bf002210",
+ "match_id": "m_5018",
+ "mode": "eval",
+ "kind": "recorded agent run",
+ "provider": "foundry",
+ "models": {
+  "fast": "gtf-fast",
+  "reasoning": "gtf-reasoning",
+  "reasoning_effort": "low"
+ },
+ "started_at": "2026-10-18T12:09:39.426996+00:00",
+ "wall_s": 29.6,
+ "candidates": 3,
+ "status_counts": {
+  "approved": 3
+ },
+ "budget_stopped": null,
+ "usage": {
+  "provider": "foundry",
+  "calls": 9,
+  "tokens_in": 15660,
+  "tokens_out": 2499,
+  "cost_eur": 0.01124,
+  "estimated": false,
+  "by_agent": {
+   "detector": {
+    "calls": 3,
+    "tokens_in": 3187,
+    "tokens_out": 166,
+    "eur": 0.00304
+   },
+   "analyst": {
+    "calls": 3,
+    "tokens_in": 10059,
+    "tokens_out": 2282,
+    "eur": 0.00623
+   },
+   "verifier": {
+    "calls": 3,
+    "tokens_in": 2414,
+    "tokens_out": 51,
+    "eur": 0.00197
+   }
+  }
+ },
+ "calls": [
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1015,
+   "tokens_out": 54,
+   "reasoning_tokens": 0,
+   "latency_ms": 1344,
+   "cost_eur": 0.0009721086,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3137,
+   "tokens_out": 778,
+   "reasoning_tokens": 384,
+   "latency_ms": 7364,
+   "cost_eur": 0.0020593422,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 806,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1154,
+   "cost_eur": 0.0006592063,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1156,
+   "tokens_out": 54,
+   "reasoning_tokens": 0,
+   "latency_ms": 1396,
+   "cost_eur": 0.0010744746,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3330,
+   "tokens_out": 798,
+   "reasoning_tokens": 384,
+   "latency_ms": 6131,
+   "cost_eur": 0.0021370002,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 838,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 928,
+   "cost_eur": 0.0006824383,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1016,
+   "tokens_out": 58,
+   "reasoning_tokens": 0,
+   "latency_ms": 1346,
+   "cost_eur": 0.0009902582,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3592,
+   "tokens_out": 706,
+   "reasoning_tokens": 384,
+   "latency_ms": 6278,
+   "cost_eur": 0.0020327293999999997,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 770,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1025,
+   "cost_eur": 0.0006330703,
+   "estimated": false
+  }
+ ],
+ "moments": [
+  {
+   "moment_id": "mo_001",
+   "candidate": {
+    "candidate_id": "c_001",
+    "kind": "momentum_shift",
+    "t_ms": 1500000,
+    "team_id": "t_cor",
+    "player_id": null,
+    "window_start_ms": 600000,
+    "window_end_ms": 1500000,
+    "score": 2.09,
+    "signals": [
+     {
+      "metric": "possession",
+      "subject": "t_cor",
+      "expected": "up",
+      "window": 0.661,
+      "before": 0.395,
+      "z": 2.28,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_cor",
+      "expected": "up",
+      "window": 0.705,
+      "before": 0.413,
+      "z": 1.9,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "momentum_shift": 2.09
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_cor",
+      "expected": "down",
+      "window": 5.286,
+      "before": 7.167,
+      "z": 0.29,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_bri",
+      "expected": "down",
+      "window": 0.833,
+      "before": 0.778,
+      "z": -1.06,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_cor",
+      "expected": "up",
+      "window": 0.705,
+      "before": 0.413,
+      "z": 1.9,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "possession",
+      "subject": "t_cor",
+      "expected": "up",
+      "window": 0.661,
+      "before": 0.395,
+      "z": 2.28,
+      "above_noise_p95": true
+     }
+    ],
+    "key_events": [
+     {
+      "t_ms": 333300,
+      "type": "card",
+      "team_id": "t_cor",
+      "player_id": "p_cor_16",
+      "detail": "yellow"
+     }
+    ]
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "momentum_shift",
+    "salience": 3,
+    "reason": "Corhaven’s possession and field tilt both rise clearly together, suggesting a sustained swing rather than a one-off fluctuation."
+   },
+   "explanation": {
+    "claim": "Corhaven Mariners have taken control between 10' and 25', rising to 66.1% time-based possession and 70.5% field tilt while their control index jumped to 58.7. That swing cut Brinwick Albion’s possession to 33.9%, a clear momentum shift that hands Corhaven more sustained attacking opportunity.",
+    "mechanism_tag": "momentum_shift",
+    "team_id": "t_cor",
+    "player_ids": [
+     "p_cor_16"
+    ],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_cor",
+      "metric": "possession_time_based",
+      "before_start_ms": 0,
+      "before_end_ms": 600000,
+      "after_start_ms": 600000,
+      "after_end_ms": 1500000,
+      "before": 0.395,
+      "after": 0.661
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_cor",
+      "metric": "field_tilt",
+      "before_start_ms": 0,
+      "before_end_ms": 600000,
+      "after_start_ms": 600000,
+      "after_end_ms": 1500000,
+      "before": 0.413,
+      "after": 0.705
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_cor",
+      "metric": "control_index",
+      "before_start_ms": 0,
+      "before_end_ms": 600000,
+      "after_start_ms": 600000,
+      "after_end_ms": 1500000,
+      "before": 40.5,
+      "after": 58.7
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_bri",
+      "metric": "possession_time_based",
+      "before_start_ms": 0,
+      "before_end_ms": 600000,
+      "after_start_ms": 600000,
+      "after_end_ms": 1500000,
+      "before": 0.605,
+      "after": 0.339
+     }
+    ],
+    "confidence": 0.8
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1344,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 7366,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 5,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1155,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_002",
+   "candidate": {
+    "candidate_id": "c_002",
+    "kind": "tactical_switch/wide",
+    "t_ms": 2640000,
+    "team_id": "t_bri",
+    "player_id": null,
+    "window_start_ms": 1680000,
+    "window_end_ms": 2640000,
+    "score": 2.75,
+    "signals": [
+     {
+      "metric": "width",
+      "subject": "t_bri",
+      "expected": "up",
+      "window": 20.268,
+      "before": 17.087,
+      "z": 2.75,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "tactical_switch/wide": 2.75
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_bri",
+      "expected": "down",
+      "window": 8.0,
+      "before": 13.5,
+      "z": 0.88,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_cor",
+      "expected": "down",
+      "window": 0.722,
+      "before": 0.814,
+      "z": 1.8,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_bri",
+      "expected": "up",
+      "window": 0.145,
+      "before": 0.36,
+      "z": -1.4,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "possession",
+      "subject": "t_bri",
+      "expected": "up",
+      "window": 0.423,
+      "before": 0.431,
+      "z": -0.07,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_bri",
+      "expected": "up",
+      "window": 29.24,
+      "before": 27.439,
+      "z": 1.22,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_bri",
+      "expected": "down",
+      "window": 0.828,
+      "before": 0.811,
+      "z": -0.34,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "width",
+      "subject": "t_bri",
+      "expected": "up",
+      "window": 20.268,
+      "before": 17.087,
+      "z": 2.75,
+      "above_noise_p95": true
+     }
+    ],
+    "key_events": [
+     {
+      "t_ms": 1979800,
+      "type": "card",
+      "team_id": "t_cor",
+      "player_id": "p_cor_12",
+      "detail": "yellow"
+     },
+     {
+      "t_ms": 2198600,
+      "type": "card",
+      "team_id": "t_cor",
+      "player_id": "p_cor_20",
+      "detail": "yellow"
+     }
+    ]
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "tactical_switch",
+    "salience": 3,
+    "reason": "Brinwick’s shape clearly widened, and the change is coherent with a likely adjustment after Corhaven’s yellow cards."
+   },
+   "explanation": {
+    "claim": "Brinwick Albion shifted to much wider, slightly more direct build: their average width rose from 17.2 m to 20.3 m and mean pass length from 26.0 m to 29.2 m. That change coincides with Corhaven’s pass completion dropping (82.5% → 73.9%) while Brinwick’s PPDA fell (23.5 → 8.8), so Brinwick are wider and more aggressive in attacking phases.",
+    "mechanism_tag": "tactical_switch",
+    "team_id": "t_bri",
+    "player_ids": [],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_bri",
+      "metric": "width_m",
+      "before_start_ms": 720000,
+      "before_end_ms": 1680000,
+      "after_start_ms": 1680000,
+      "after_end_ms": 2640000,
+      "before": 17.2,
+      "after": 20.3
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_bri",
+      "metric": "avg_pass_length_m",
+      "before_start_ms": 720000,
+      "before_end_ms": 1680000,
+      "after_start_ms": 1680000,
+      "after_end_ms": 2640000,
+      "before": 26.0,
+      "after": 29.2
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_cor",
+      "metric": "pass_completion",
+      "before_start_ms": 720000,
+      "before_end_ms": 1680000,
+      "after_start_ms": 1680000,
+      "after_end_ms": 2640000,
+      "before": 0.825,
+      "after": 0.739
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_bri",
+      "metric": "ppda",
+      "before_start_ms": 720000,
+      "before_end_ms": 1680000,
+      "after_start_ms": 1680000,
+      "after_end_ms": 2640000,
+      "before": 23.5,
+      "after": 8.75
+     }
+    ],
+    "confidence": 0.8
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1397,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 6132,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 11,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 929,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_003",
+   "candidate": {
+    "candidate_id": "c_003",
+    "kind": "player_arc",
+    "t_ms": 4200000,
+    "team_id": "t_cor",
+    "player_id": "p_cor_16",
+    "window_start_ms": 3120000,
+    "window_end_ms": 4200000,
+    "score": 3.7,
+    "signals": [
+     {
+      "metric": "progressive_passes",
+      "subject": "p_cor_16",
+      "expected": "up",
+      "window": 0.444,
+      "before": 0.019,
+      "z": 5.16,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "touches",
+      "subject": "p_cor_16",
+      "expected": "up",
+      "window": 1.556,
+      "before": 0.904,
+      "z": 2.23,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {},
+    "team_profile": [],
+    "key_events": [
+     {
+      "t_ms": 3284300,
+      "type": "card",
+      "team_id": "t_bri",
+      "player_id": "p_bri_11",
+      "detail": "yellow"
+     },
+     {
+      "t_ms": 3372200,
+      "type": "card",
+      "team_id": "t_cor",
+      "player_id": "p_cor_05",
+      "detail": "yellow"
+     },
+     {
+      "t_ms": 3814200,
+      "type": "sub",
+      "team_id": "t_bri",
+      "player_id": "p_bri_10",
+      "detail": "p_bri_19"
+     },
+     {
+      "t_ms": 4196300,
+      "type": "card",
+      "team_id": "t_bri",
+      "player_id": "p_bri_11",
+      "detail": "red"
+     }
+    ]
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "player_arc",
+    "salience": 3,
+    "reason": "Otto Sevley’s progressive passing and involvement jump sharply over the window, consistent with a genuine individual upturn rather than a team-wide swing."
+   },
+   "explanation": {
+    "claim": "Otto Sevley sharply stepped up his involvement over the 18-minute window: his progressive passes rose from 0 to 8 and his touches from 21 to 28 (over 18.0 minutes). That individual burst matters because he is creating direct forward play while Corhaven’s time-based possession falls from 53.7% to 41.7%.",
+    "mechanism_tag": "player_arc",
+    "team_id": "t_cor",
+    "player_ids": [
+     "p_cor_16"
+    ],
+    "evidence": [
+     {
+      "tool": "get_player_physical",
+      "subject": "p_cor_16",
+      "metric": "progressive_passes",
+      "before_start_ms": 2040000,
+      "before_end_ms": 3120000,
+      "after_start_ms": 3120000,
+      "after_end_ms": 4200000,
+      "before": 0.0,
+      "after": 8.0
+     },
+     {
+      "tool": "get_player_physical",
+      "subject": "p_cor_16",
+      "metric": "touches",
+      "before_start_ms": 2040000,
+      "before_end_ms": 3120000,
+      "after_start_ms": 3120000,
+      "after_end_ms": 4200000,
+      "before": 21.0,
+      "after": 28.0
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_cor",
+      "metric": "possession_time_based",
+      "before_start_ms": 2040000,
+      "before_end_ms": 3120000,
+      "after_start_ms": 3120000,
+      "after_end_ms": 4200000,
+      "before": 0.537,
+      "after": 0.417
+     }
+    ],
+    "confidence": 0.8
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1347,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 6279,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 11,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1025,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1233 @@
+{
+ "run_id": "r_m_5007_9a77e76b",
+ "match_id": "m_5007",
+ "mode": "eval",
+ "kind": "recorded agent run",
+ "provider": "foundry",
+ "models": {
+  "fast": "gtf-fast",
+  "reasoning": "gtf-reasoning",
+  "reasoning_effort": "low"
+ },
+ "started_at": "2026-10-18T12:02:54.714376+00:00",
+ "wall_s": 94.4,
+ "candidates": 5,
+ "status_counts": {
+  "dropped": 1,
+  "approved": 4
+ },
+ "budget_stopped": null,
+ "usage": {
+  "provider": "foundry",
+  "calls": 15,
+  "tokens_in": 27706,
+  "tokens_out": 4699,
+  "cost_eur": 0.02085,
+  "estimated": false,
+  "by_agent": {
+   "detector": {
+    "calls": 5,
+    "tokens_in": 6163,
+    "tokens_out": 293,
+    "eur": 0.00575
+   },
+   "analyst": {
+    "calls": 5,
+    "tokens_in": 17407,
+    "tokens_out": 4209,
+    "eur": 0.01124
+   },
+   "verifier": {
+    "calls": 5,
+    "tokens_in": 4136,
+    "tokens_out": 197,
+    "eur": 0.00386
+   }
+  }
+ },
+ "calls": [
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1124,
+   "tokens_out": 55,
+   "reasoning_tokens": 0,
+   "latency_ms": 1455,
+   "cost_eur": 0.0010555985,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1099,
+   "tokens_out": 61,
+   "reasoning_tokens": 0,
+   "latency_ms": 1159,
+   "cost_eur": 0.0010635839,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3229,
+   "tokens_out": 589,
+   "reasoning_tokens": 192,
+   "latency_ms": 4904,
+   "cost_eur": 0.0017469611,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 803,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1249,
+   "cost_eur": 0.0006570282999999999,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1131,
+   "tokens_out": 61,
+   "reasoning_tokens": 0,
+   "latency_ms": 1176,
+   "cost_eur": 0.0010868159,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3329,
+   "tokens_out": 988,
+   "reasoning_tokens": 448,
+   "latency_ms": 8901,
+   "cost_eur": 0.0024711612,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 813,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1008,
+   "cost_eur": 0.0006642883,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1451,
+   "tokens_out": 61,
+   "reasoning_tokens": 0,
+   "latency_ms": 1174,
+   "cost_eur": 0.0013191359,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3648,
+   "tokens_out": 924,
+   "reasoning_tokens": 512,
+   "latency_ms": 7274,
+   "cost_eur": 0.0024287076,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 822,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1187,
+   "cost_eur": 0.0006708223,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1358,
+   "tokens_out": 55,
+   "reasoning_tokens": 0,
+   "latency_ms": 1208,
+   "cost_eur": 0.0012254825000000001,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3550,
+   "tokens_out": 979,
+   "reasoning_tokens": 384,
+   "latency_ms": 6847,
+   "cost_eur": 0.0025039421000000004,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 868,
+   "tokens_out": 129,
+   "reasoning_tokens": 0,
+   "latency_ms": 1625,
+   "cost_eur": 0.0011920791,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3651,
+   "tokens_out": 729,
+   "reasoning_tokens": 320,
+   "latency_ms": 5511,
+   "cost_eur": 0.0020861871000000002,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 830,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 2073,
+   "cost_eur": 0.0006766302999999999,
+   "estimated": false
+  }
+ ],
+ "moments": [
+  {
+   "moment_id": "mo_001",
+   "candidate": {
+    "candidate_id": "c_001",
+    "kind": "pressing_spell",
+    "t_ms": 1560000,
+    "team_id": "t_ros",
+    "player_id": null,
+    "window_start_ms": 660000,
+    "window_end_ms": 1560000,
+    "score": 3.49,
+    "signals": [
+     {
+      "metric": "ppda",
+      "subject": "t_ros",
+      "expected": "down",
+      "window": 11.6,
+      "before": 57.0,
+      "z": 7.33,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_hol",
+      "expected": "down",
+      "window": 0.842,
+      "before": 0.955,
+      "z": 2.2,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_ros",
+      "expected": "up",
+      "window": 0.742,
+      "before": 0.596,
+      "z": 0.95,
+      "above_noise_p95": false
+     }
+    ],
+    "fired_kinds": {
+     "pressing_spell": 3.49
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_ros",
+      "expected": "down",
+      "window": 11.6,
+      "before": 57.0,
+      "z": 7.33,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_hol",
+      "expected": "down",
+      "window": 0.842,
+      "before": 0.955,
+      "z": 2.2,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_ros",
+      "expected": "up",
+      "window": 0.742,
+      "before": 0.596,
+      "z": 0.95,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "possession",
+      "subject": "t_ros",
+      "expected": "up",
+      "window": 0.414,
+      "before": 0.324,
+      "z": 0.77,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_ros",
+      "expected": "up",
+      "window": 28.716,
+      "before": 27.114,
+      "z": 1.09,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_ros",
+      "expected": "down",
+      "window": 0.778,
+      "before": 0.864,
+      "z": 1.71,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "width",
+      "subject": "t_ros",
+      "expected": "up",
+      "window": 16.828,
+      "before": 18.472,
+      "z": -1.33,
+      "above_noise_p95": false
+     }
+    ],
+    "key_events": []
+   },
+   "status": "dropped",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "pressing_spell",
+    "salience": 4,
+    "reason": "Rosford’s press becomes much more intense and Holport’s pass completion drops, which together point to a sustained pressing spell."
+   },
+   "explanation": null,
+   "attempts": 1,
+   "rejection": "analyst: timeout",
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1455,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 45004,
+     "outcome": "timeout",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_002",
+   "candidate": {
+    "candidate_id": "c_002",
+    "kind": "tactical_switch/long_ball",
+    "t_ms": 1560000,
+    "team_id": "t_hol",
+    "player_id": null,
+    "window_start_ms": 600000,
+    "window_end_ms": 1560000,
+    "score": 2.12,
+    "signals": [
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_hol",
+      "expected": "up",
+      "window": 27.089,
+      "before": 24.096,
+      "z": 2.0,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_hol",
+      "expected": "down",
+      "window": 0.849,
+      "before": 0.962,
+      "z": 2.24,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "tactical_switch/long_ball": 2.12
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_hol",
+      "expected": "down",
+      "window": 6.2,
+      "before": 12.0,
+      "z": 0.93,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_ros",
+      "expected": "down",
+      "window": 0.789,
+      "before": 0.844,
+      "z": 1.09,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_hol",
+      "expected": "up",
+      "window": 0.258,
+      "before": 0.404,
+      "z": -0.95,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "possession",
+      "subject": "t_hol",
+      "expected": "up",
+      "window": 0.586,
+      "before": 0.676,
+      "z": -0.77,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_hol",
+      "expected": "up",
+      "window": 27.089,
+      "before": 24.096,
+      "z": 2.0,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_hol",
+      "expected": "down",
+      "window": 0.849,
+      "before": 0.962,
+      "z": 2.24,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "width",
+      "subject": "t_hol",
+      "expected": "up",
+      "window": 15.348,
+      "before": 14.209,
+      "z": 1.02,
+      "above_noise_p95": false
+     }
+    ],
+    "key_events": []
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "tactical_switch",
+    "salience": 2,
+    "reason": "Holport Vale’s passing becomes notably longer and less accurate at the same time, which fits a modest long-ball switch despite limited support from other team metrics."
+   },
+   "explanation": {
+    "claim": "Holport Vale shifted to longer, less-controlled passing after 10′–26′: their average pass length rose from 24.1m to 27.1m while pass completion fell from 96.2% to 84.9%. That tactical long-ball change also reduced their control index from 75.6 to 56.5, making possession less settled.",
+    "mechanism_tag": "tactical_switch",
+    "team_id": "t_hol",
+    "player_ids": [],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_hol",
+      "metric": "avg_pass_length_m",
+      "before_start_ms": 0,
+      "before_end_ms": 600000,
+      "after_start_ms": 600000,
+      "after_end_ms": 1560000,
+      "before": 24.1,
+      "after": 27.1
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_hol",
+      "metric": "pass_completion",
+      "before_start_ms": 0,
+      "before_end_ms": 600000,
+      "after_start_ms": 600000,
+      "after_end_ms": 1560000,
+      "before": 0.962,
+      "after": 0.849
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_hol",
+      "metric": "control_index",
+      "before_start_ms": 0,
+      "before_end_ms": 600000,
+      "after_start_ms": 600000,
+      "after_end_ms": 1560000,
+      "before": 75.6,
+      "after": 56.5
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_hol",
+      "metric": "ppda",
+      "before_start_ms": 0,
+      "before_end_ms": 600000,
+      "after_start_ms": 600000,
+      "after_end_ms": 1560000,
+      "before": 11.0,
+      "after": 6.4
+     }
+    ],
+    "confidence": 0.8
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1160,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 4905,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 8,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1250,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_003",
+   "candidate": {
+    "candidate_id": "c_003",
+    "kind": "pressing_spell",
+    "t_ms": 2820000,
+    "team_id": "t_hol",
+    "player_id": null,
+    "window_start_ms": 1920000,
+    "window_end_ms": 2820000,
+    "score": 1.85,
+    "signals": [
+     {
+      "metric": "ppda",
+      "subject": "t_hol",
+      "expected": "down",
+      "window": 3.6,
+      "before": 7.714,
+      "z": 0.65,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_ros",
+      "expected": "down",
+      "window": 0.628,
+      "before": 0.787,
+      "z": 3.09,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_hol",
+      "expected": "up",
+      "window": 0.621,
+      "before": 0.345,
+      "z": 1.8,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "pressing_spell": 1.85
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_hol",
+      "expected": "down",
+      "window": 3.6,
+      "before": 7.714,
+      "z": 0.65,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_ros",
+      "expected": "down",
+      "window": 0.628,
+      "before": 0.787,
+      "z": 3.09,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_hol",
+      "expected": "up",
+      "window": 0.621,
+      "before": 0.345,
+      "z": 1.8,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "possession",
+      "subject": "t_hol",
+      "expected": "up",
+      "window": 0.729,
+      "before": 0.606,
+      "z": 1.05,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_hol",
+      "expected": "up",
+      "window": 26.555,
+      "before": 25.935,
+      "z": 0.45,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_hol",
+      "expected": "down",
+      "window": 0.885,
+      "before": 0.899,
+      "z": 0.28,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "width",
+      "subject": "t_hol",
+      "expected": "up",
+      "window": 16.363,
+      "before": 15.239,
+      "z": 1.01,
+      "above_noise_p95": false
+     }
+    ],
+    "key_events": []
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "pressing_spell",
+    "salience": 3,
+    "reason": "Holport’s field tilt rose while Rosford’s pass completion dropped sharply, suggesting a brief spell of pressure even if the ppda change itself is modest."
+   },
+   "explanation": {
+    "claim": "Holport Vale suddenly pressed: their time-based possession rose from 60% to 73% and their PPDA fell from 5.6 to 3.6, bringing play into Holport’s favour. Rosford’s pass completion dropped from 72% to 63%, so Holport’s pressure meaningfully disrupted Rosford and created control.",
+    "mechanism_tag": "pressing_spell",
+    "team_id": "t_hol",
+    "player_ids": [],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_hol",
+      "metric": "possession_time_based",
+      "before_start_ms": 1020000,
+      "before_end_ms": 1920000,
+      "after_start_ms": 1920000,
+      "after_end_ms": 2820000,
+      "before": 0.598,
+      "after": 0.729
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_hol",
+      "metric": "ppda",
+      "before_start_ms": 1020000,
+      "before_end_ms": 1920000,
+      "after_start_ms": 1920000,
+      "after_end_ms": 2820000,
+      "before": 5.6,
+      "after": 3.6
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_hol",
+      "metric": "field_tilt",
+      "before_start_ms": 1020000,
+      "before_end_ms": 1920000,
+      "after_start_ms": 1920000,
+      "after_end_ms": 2820000,
+      "before": 0.382,
+      "after": 0.621
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ros",
+      "metric": "pass_completion",
+      "before_start_ms": 1020000,
+      "before_end_ms": 1920000,
+      "after_start_ms": 1920000,
+      "after_end_ms": 2820000,
+      "before": 0.721,
+      "after": 0.628
+     }
+    ],
+    "confidence": 0.8
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1176,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 8901,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 9,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1009,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_004",
+   "candidate": {
+    "candidate_id": "c_004",
+    "kind": "pressing_spell",
+    "t_ms": 4380000,
+    "team_id": "t_hol",
+    "player_id": null,
+    "window_start_ms": 3480000,
+    "window_end_ms": 4380000,
+    "score": 1.58,
+    "signals": [
+     {
+      "metric": "ppda",
+      "subject": "t_hol",
+      "expected": "down",
+      "window": 5.857,
+      "before": 6.267,
+      "z": 0.06,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_ros",
+      "expected": "down",
+      "window": 0.641,
+      "before": 0.753,
+      "z": 2.19,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_hol",
+      "expected": "up",
+      "window": 0.836,
+      "before": 0.453,
+      "z": 2.49,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "pressing_spell": 1.58
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_hol",
+      "expected": "down",
+      "window": 5.857,
+      "before": 6.267,
+      "z": 0.06,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_ros",
+      "expected": "down",
+      "window": 0.641,
+      "before": 0.753,
+      "z": 2.19,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_hol",
+      "expected": "up",
+      "window": 0.836,
+      "before": 0.453,
+      "z": 2.49,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "possession",
+      "subject": "t_hol",
+      "expected": "up",
+      "window": 0.547,
+      "before": 0.647,
+      "z": -0.86,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_hol",
+      "expected": "up",
+      "window": 27.132,
+      "before": 26.005,
+      "z": 0.78,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_hol",
+      "expected": "down",
+      "window": 0.961,
+      "before": 0.886,
+      "z": -1.48,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "width",
+      "subject": "t_hol",
+      "expected": "up",
+      "window": 15.465,
+      "before": 15.341,
+      "z": 0.16,
+      "above_noise_p95": false
+     }
+    ],
+    "key_events": [
+     {
+      "t_ms": 3780900,
+      "type": "card",
+      "team_id": "t_ros",
+      "player_id": "p_ros_11",
+      "detail": "red"
+     },
+     {
+      "t_ms": 3818400,
+      "type": "sub",
+      "team_id": "t_hol",
+      "player_id": "p_hol_09",
+      "detail": "p_hol_04"
+     },
+     {
+      "t_ms": 4166200,
+      "type": "sub",
+      "team_id": "t_hol",
+      "player_id": "p_hol_27",
+      "detail": "p_hol_29"
+     },
+     {
+      "t_ms": 4166900,
+      "type": "card",
+      "team_id": "t_hol",
+      "player_id": "p_hol_14",
+      "detail": "yellow"
+     },
+     {
+      "t_ms": 4290000,
+      "type": "sub",
+      "team_id": "t_ros",
+      "player_id": "p_ros_27",
+      "detail": "p_ros_22"
+     },
+     {
+      "t_ms": 4366900,
+      "type": "sub",
+      "team_id": "t_hol",
+      "player_id": "p_hol_26",
+      "detail": "p_hol_20"
+     }
+    ]
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "momentum_shift",
+    "salience": 3,
+    "reason": "Rosford’s red card is followed by Holport spending more time in the attacking half, which fits a sustained territorial swing better than a pure pressing change."
+   },
+   "explanation": {
+    "claim": "After Rosford’s red card Holport ramped up the pressure: their field tilt rose from 64.1% to 83.6% and their PPDA fell from 8.0 to 5.9, showing harder defending higher up the pitch. Rosford’s pass completion dropped from 77.5% to 64.1%, which reduced their ability to relieve pressure.",
+    "mechanism_tag": "pressing_spell",
+    "team_id": "t_hol",
+    "player_ids": [],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_hol",
+      "metric": "field_tilt",
+      "before_start_ms": 2580000,
+      "before_end_ms": 3480000,
+      "after_start_ms": 3480000,
+      "after_end_ms": 4380000,
+      "before": 0.641,
+      "after": 0.836
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_hol",
+      "metric": "ppda",
+      "before_start_ms": 2580000,
+      "before_end_ms": 3480000,
+      "after_start_ms": 3480000,
+      "after_end_ms": 4380000,
+      "before": 8.0,
+      "after": 5.86
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ros",
+      "metric": "pass_completion",
+      "before_start_ms": 2580000,
+      "before_end_ms": 3480000,
+      "after_start_ms": 3480000,
+      "after_end_ms": 4380000,
+      "before": 0.775,
+      "after": 0.641
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_hol",
+      "metric": "possession_time_based",
+      "before_start_ms": 2580000,
+      "before_end_ms": 3480000,
+      "after_start_ms": 3480000,
+      "after_end_ms": 4380000,
+      "before": 0.713,
+      "after": 0.547
+     }
+    ],
+    "confidence": 0.8
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1174,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 7275,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 12,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1188,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_005",
+   "candidate": {
+    "candidate_id": "c_005",
+    "kind": "momentum_shift",
+    "t_ms": 5400000,
+    "team_id": "t_ros",
+    "player_id": null,
+    "window_start_ms": 4500000,
+    "window_end_ms": 5400000,
+    "score": 2.45,
+    "signals": [
+     {
+      "metric": "possession",
+      "subject": "t_ros",
+      "expected": "up",
+      "window": 0.715,
+      "before": 0.378,
+      "z": 2.89,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_ros",
+      "expected": "up",
+      "window": 0.711,
+      "before": 0.403,
+      "z": 2.01,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "pressing_spell": 1.2,
+     "momentum_shift": 2.45
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_ros",
+      "expected": "down",
+      "window": 20.0,
+      "before": 16.4,
+      "z": -0.59,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_hol",
+      "expected": "down",
+      "window": 0.786,
+      "before": 0.898,
+      "z": 2.18,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_ros",
+      "expected": "up",
+      "window": 0.711,
+      "before": 0.403,
+      "z": 2.01,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "possession",
+      "subject": "t_ros",
+      "expected": "up",
+      "window": 0.715,
+      "before": 0.378,
+      "z": 2.89,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_ros",
+      "expected": "up",
+      "window": 27.371,
+      "before": 27.088,
+      "z": 0.23,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_ros",
+      "expected": "down",
+      "window": 0.788,
+      "before": 0.724,
+      "z": -1.28,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "width",
+      "subject": "t_ros",
+      "expected": "up",
+      "window": 17.198,
+      "before": 15.479,
+      "z": 1.51,
+      "above_noise_p95": false
+     }
+    ],
+    "key_events": [
+     {
+      "t_ms": 4290000,
+      "type": "sub",
+      "team_id": "t_ros",
+      "player_id": "p_ros_27",
+      "detail": "p_ros_22"
+     },
+     {
+      "t_ms": 4366900,
+      "type": "sub",
+      "team_id": "t_hol",
+      "player_id": "p_hol_26",
+      "detail": "p_hol_20"
+     },
+     {
+      "t_ms": 4398900,
+      "type": "sub",
+      "team_id": "t_ros",
+      "player_id": "p_ros_15",
+      "detail": "p_ros_16"
+     },
+     {
+      "t_ms": 4668800,
+      "type": "card",
+      "team_id": "t_hol",
+      "player_id": "p_hol_11",
+      "detail": "yellow"
+     },
+     {
+      "t_ms": 5175400,
+      "type": "sub",
+      "team_id": "t_ros",
+      "player_id": "p_ros_24",
+      "detail": "p_ros_14"
+     }
+    ]
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "momentum_shift",
+    "salience": 3,
+    "reason": "Rosford have a sustained late surge in possession and field tilt, with Holport’s passing dropping after a yellow and substitutions."
+   },
+   "explanation": {
+    "claim": "Rosford Wanderers seize clear control late: their time-based possession jumps to 71.5% (from 47.6%) and final-third share to 71.1% (from 11.9%) in the 75–90' window. That surge matters because Holport Vale’s pass completion falls from 95.7% to 78.6%, leaving Rosford sustained pressure and more chances to win the game.",
+    "mechanism_tag": "momentum_shift",
+    "team_id": "t_ros",
+    "player_ids": [],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ros",
+      "metric": "possession_time_based",
+      "before_start_ms": 3600000,
+      "before_end_ms": 4500000,
+      "after_start_ms": 4500000,
+      "after_end_ms": 5400000,
+      "before": 0.476,
+      "after": 0.715
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ros",
+      "metric": "field_tilt",
+      "before_start_ms": 3600000,
+      "before_end_ms": 4500000,
+      "after_start_ms": 4500000,
+      "after_end_ms": 5400000,
+      "before": 0.119,
+      "after": 0.711
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_hol",
+      "metric": "pass_completion",
+      "before_start_ms": 3600000,
+      "before_end_ms": 4500000,
+      "after_start_ms": 4500000,
+      "after_end_ms": 5400000,
+      "before": 0.957,
+      "after": 0.786
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ros",
+      "metric": "control_index",
+      "before_start_ms": 3600000,
+      "before_end_ms": 4500000,
+      "after_start_ms": 4500000,
+      "after_end_ms": 5400000,
+      "before": 32.3,
+      "after": 65.4
+     }
+    ],
+    "confidence": 0.9
+   },
+   "attempts": 2,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1208,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 6849,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 7,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1625,
+     "outcome": "rejected",
+     "detail": "The claim says Holport’s possession falls to 28.5%, but the evidence only gives Rosford Wanderers’ possession rising to 71.5%; Holport’s possession is not directly provided (though it would imply 28.5% as the complement).; The claim says Holport’s pass completion drops, which is supported, but the w"
+    },
+    {
+     "stage": "analyst#2",
+     "ms": 5511,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 12,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 2074,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  }
+ ]
+}

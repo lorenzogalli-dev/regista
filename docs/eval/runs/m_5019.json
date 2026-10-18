@@ -1,0 +1,923 @@
+{
+ "run_id": "r_m_5019_b03bbf3a",
+ "match_id": "m_5019",
+ "mode": "eval",
+ "kind": "recorded agent run",
+ "provider": "foundry",
+ "models": {
+  "fast": "gtf-fast",
+  "reasoning": "gtf-reasoning",
+  "reasoning_effort": "low"
+ },
+ "started_at": "2026-10-18T12:10:09.046722+00:00",
+ "wall_s": 45.9,
+ "candidates": 4,
+ "status_counts": {
+  "dropped": 1,
+  "approved": 3
+ },
+ "budget_stopped": null,
+ "usage": {
+  "provider": "foundry",
+  "calls": 14,
+  "tokens_in": 25445,
+  "tokens_out": 4413,
+  "cost_eur": 0.01871,
+  "estimated": false,
+  "by_agent": {
+   "detector": {
+    "calls": 4,
+    "tokens_in": 4343,
+    "tokens_out": 219,
+    "eur": 0.00411
+   },
+   "analyst": {
+    "calls": 5,
+    "tokens_in": 17065,
+    "tokens_out": 3989,
+    "eur": 0.01077
+   },
+   "verifier": {
+    "calls": 5,
+    "tokens_in": 4037,
+    "tokens_out": 205,
+    "eur": 0.00382
+   }
+  }
+ },
+ "calls": [
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1145,
+   "tokens_out": 57,
+   "reasoning_tokens": 0,
+   "latency_ms": 1320,
+   "cost_eur": 0.0010795563,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3271,
+   "tokens_out": 877,
+   "reasoning_tokens": 448,
+   "latency_ms": 7511,
+   "cost_eur": 0.0022630523,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 771,
+   "tokens_out": 100,
+   "reasoning_tokens": 0,
+   "latency_ms": 1566,
+   "cost_eur": 0.000995336,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3361,
+   "tokens_out": 548,
+   "reasoning_tokens": 192,
+   "latency_ms": 4391,
+   "cost_eur": 0.0017038452,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 767,
+   "tokens_out": 54,
+   "reasoning_tokens": 0,
+   "latency_ms": 967,
+   "cost_eur": 0.0007920606,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 936,
+   "tokens_out": 52,
+   "reasoning_tokens": 0,
+   "latency_ms": 1202,
+   "cost_eur": 0.0009060428,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3421,
+   "tokens_out": 913,
+   "reasoning_tokens": 384,
+   "latency_ms": 6167,
+   "cost_eur": 0.0023594087,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 827,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1007,
+   "cost_eur": 0.0006744523,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1249,
+   "tokens_out": 58,
+   "reasoning_tokens": 0,
+   "latency_ms": 1236,
+   "cost_eur": 0.0011594162000000002,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3444,
+   "tokens_out": 873,
+   "reasoning_tokens": 320,
+   "latency_ms": 6221,
+   "cost_eur": 0.0022940727,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 833,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1044,
+   "cost_eur": 0.0006788083,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1013,
+   "tokens_out": 52,
+   "reasoning_tokens": 0,
+   "latency_ms": 2469,
+   "cost_eur": 0.0009619448,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3568,
+   "tokens_out": 778,
+   "reasoning_tokens": 384,
+   "latency_ms": 6990,
+   "cost_eur": 0.0021541622,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 839,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1009,
+   "cost_eur": 0.0006831643,
+   "estimated": false
+  }
+ ],
+ "moments": [
+  {
+   "moment_id": "mo_001",
+   "candidate": {
+    "candidate_id": "c_001",
+    "kind": "momentum_shift",
+    "t_ms": 1800000,
+    "team_id": "t_oak",
+    "player_id": null,
+    "window_start_ms": 900000,
+    "window_end_ms": 1800000,
+    "score": 2.17,
+    "signals": [
+     {
+      "metric": "possession",
+      "subject": "t_oak",
+      "expected": "up",
+      "window": 0.583,
+      "before": 0.305,
+      "z": 2.39,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_oak",
+      "expected": "up",
+      "window": 0.726,
+      "before": 0.426,
+      "z": 1.95,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "momentum_shift": 2.17
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_oak",
+      "expected": "down",
+      "window": 4.429,
+      "before": 7.667,
+      "z": 0.51,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_cal",
+      "expected": "down",
+      "window": 0.733,
+      "before": 0.759,
+      "z": 0.51,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_oak",
+      "expected": "up",
+      "window": 0.726,
+      "before": 0.426,
+      "z": 1.95,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "possession",
+      "subject": "t_oak",
+      "expected": "up",
+      "window": 0.583,
+      "before": 0.305,
+      "z": 2.39,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_oak",
+      "expected": "up",
+      "window": 26.124,
+      "before": 25.191,
+      "z": 0.66,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_oak",
+      "expected": "down",
+      "window": 0.82,
+      "before": 0.712,
+      "z": -2.15,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "width",
+      "subject": "t_oak",
+      "expected": "up",
+      "window": 14.036,
+      "before": 16.214,
+      "z": -1.79,
+      "above_noise_p95": false
+     }
+    ],
+    "key_events": [
+     {
+      "t_ms": 1001500,
+      "type": "card",
+      "team_id": "t_cal",
+      "player_id": "p_cal_09",
+      "detail": "yellow"
+     }
+    ]
+   },
+   "status": "dropped",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "momentum_shift",
+    "salience": 3,
+    "reason": "Oakhurst’s possession and field tilt both rose meaningfully, and the yellow card for Caldale’s striker helps explain the swing."
+   },
+   "explanation": {
+    "claim": "Oakhurst Mariners seized control from 15–30 minutes: their time-based possession rose from 30.5% to 58.3%, and their field tilt increased from 42.6% to 72.6%. The swing follows Dmitri Zanani’s yellow for Caldale and left Caldale with just 41.7% possession in the same period, shifting momentum to Oakhurst.",
+    "mechanism_tag": "momentum_shift",
+    "team_id": "t_oak",
+    "player_ids": [
+     "p_cal_09"
+    ],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_oak",
+      "metric": "possession_time_based",
+      "before_start_ms": 0,
+      "before_end_ms": 900000,
+      "after_start_ms": 900000,
+      "after_end_ms": 1800000,
+      "before": 0.305,
+      "after": 0.583
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_oak",
+      "metric": "field_tilt",
+      "before_start_ms": 0,
+      "before_end_ms": 900000,
+      "after_start_ms": 900000,
+      "after_end_ms": 1800000,
+      "before": 0.426,
+      "after": 0.726
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_cal",
+      "metric": "possession_time_based",
+      "before_start_ms": 0,
+      "before_end_ms": 900000,
+      "after_start_ms": 900000,
+      "after_end_ms": 1800000,
+      "before": 0.695,
+      "after": 0.417
+     }
+    ],
+    "confidence": 0.85
+   },
+   "attempts": 2,
+   "rejection": "The claim says Caldale's yellow for Dmitri Zanani caused the swing, but the provided evidence/context contains no card or event data, so that causal event cannot be verified.",
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1320,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 7512,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 10,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1567,
+     "outcome": "rejected",
+     "detail": "The claim says Caldale striker Dmitri Zanani’s yellow, but no yellow card or any event involving Dmitri Zanani is present in the provided evidence or context.; The claim states that Caldale’s possession fell to 41.7% and implies Oakhurst’s rose correspondingly; the evidence does show Caldale at 41.7"
+    },
+    {
+     "stage": "analyst#2",
+     "ms": 4392,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 6,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 968,
+     "outcome": "rejected",
+     "detail": "The claim says Caldale's yellow for Dmitri Zanani caused the swing, but the provided evidence/context contains no card or event data, so that causal event cannot be verified."
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_002",
+   "candidate": {
+    "candidate_id": "c_002",
+    "kind": "player_arc",
+    "t_ms": 1860000,
+    "team_id": "t_oak",
+    "player_id": "p_oak_11",
+    "window_start_ms": 780000,
+    "window_end_ms": 1860000,
+    "score": 4.14,
+    "signals": [
+     {
+      "metric": "progressive_passes",
+      "subject": "p_oak_11",
+      "expected": "up",
+      "window": 0.667,
+      "before": 0.154,
+      "z": 6.23,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "touches",
+      "subject": "p_oak_11",
+      "expected": "up",
+      "window": 1.444,
+      "before": 0.846,
+      "z": 2.05,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {},
+    "team_profile": [],
+    "key_events": [
+     {
+      "t_ms": 496600,
+      "type": "card",
+      "team_id": "t_oak",
+      "player_id": "p_oak_18",
+      "detail": "yellow"
+     },
+     {
+      "t_ms": 1001500,
+      "type": "card",
+      "team_id": "t_cal",
+      "player_id": "p_cal_09",
+      "detail": "yellow"
+     }
+    ]
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "player_arc",
+    "salience": 4,
+    "reason": "Kofi Lorston’s progressive passing and involvement rose well above his usual level, fitting a clear individual impact story."
+   },
+   "explanation": {
+    "claim": "Kofi Lorston has driven Oakhurst’s play: his progressive passes jumped from 2 to 12 and his touches rose from 11 to 26 in the 18-minute after-window, showing a clear individual surge. That coincided with Oakhurst’s time-based possession rising to 50% and field tilt to 64%, moving the game into Caldale’s final third.",
+    "mechanism_tag": "player_arc",
+    "team_id": "t_oak",
+    "player_ids": [
+     "p_oak_11"
+    ],
+    "evidence": [
+     {
+      "tool": "get_player_physical",
+      "subject": "p_oak_11",
+      "metric": "progressive_passes",
+      "before_start_ms": 0,
+      "before_end_ms": 780000,
+      "after_start_ms": 780000,
+      "after_end_ms": 1860000,
+      "before": 2.0,
+      "after": 12.0
+     },
+     {
+      "tool": "get_player_physical",
+      "subject": "p_oak_11",
+      "metric": "touches",
+      "before_start_ms": 0,
+      "before_end_ms": 780000,
+      "after_start_ms": 780000,
+      "after_end_ms": 1860000,
+      "before": 11.0,
+      "after": 26.0
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_oak",
+      "metric": "possession_time_based",
+      "before_start_ms": 0,
+      "before_end_ms": 780000,
+      "after_start_ms": 780000,
+      "after_end_ms": 1860000,
+      "before": 0.351,
+      "after": 0.497
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_oak",
+      "metric": "field_tilt",
+      "before_start_ms": 0,
+      "before_end_ms": 780000,
+      "after_start_ms": 780000,
+      "after_end_ms": 1860000,
+      "before": 0.51,
+      "after": 0.639
+     }
+    ],
+    "confidence": 0.8
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1203,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 6167,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 14,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1007,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_003",
+   "candidate": {
+    "candidate_id": "c_003",
+    "kind": "momentum_shift",
+    "t_ms": 2880000,
+    "team_id": "t_oak",
+    "player_id": null,
+    "window_start_ms": 1980000,
+    "window_end_ms": 2880000,
+    "score": 1.82,
+    "signals": [
+     {
+      "metric": "possession",
+      "subject": "t_oak",
+      "expected": "up",
+      "window": 0.639,
+      "before": 0.437,
+      "z": 1.73,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_oak",
+      "expected": "up",
+      "window": 0.883,
+      "before": 0.591,
+      "z": 1.9,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "momentum_shift": 1.82
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_oak",
+      "expected": "down",
+      "window": 8.8,
+      "before": 5.895,
+      "z": -0.48,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_cal",
+      "expected": "down",
+      "window": 0.774,
+      "before": 0.761,
+      "z": -0.24,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_oak",
+      "expected": "up",
+      "window": 0.883,
+      "before": 0.591,
+      "z": 1.9,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "possession",
+      "subject": "t_oak",
+      "expected": "up",
+      "window": 0.639,
+      "before": 0.437,
+      "z": 1.73,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_oak",
+      "expected": "up",
+      "window": 25.842,
+      "before": 25.557,
+      "z": 0.23,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_oak",
+      "expected": "down",
+      "window": 0.8,
+      "before": 0.786,
+      "z": -0.27,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "width",
+      "subject": "t_oak",
+      "expected": "up",
+      "window": 13.992,
+      "before": 14.713,
+      "z": -0.55,
+      "above_noise_p95": false
+     }
+    ],
+    "key_events": [
+     {
+      "t_ms": 1952200,
+      "type": "card",
+      "team_id": "t_cal",
+      "player_id": "p_cal_09",
+      "detail": "red"
+     },
+     {
+      "t_ms": 2299100,
+      "type": "card",
+      "team_id": "t_oak",
+      "player_id": "p_oak_20",
+      "detail": "yellow"
+     },
+     {
+      "t_ms": 2539800,
+      "type": "card",
+      "team_id": "t_cal",
+      "player_id": "p_cal_03",
+      "detail": "yellow"
+     }
+    ]
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "momentum_shift",
+    "salience": 3,
+    "reason": "Oakhurst’s possession and field tilt rise together after Caldale’s red card, matching a sustained swing rather than a lone fluctuation."
+   },
+   "explanation": {
+    "claim": "Oakhurst Mariners took clear control after Caldale’s red card: their time-based possession rose from 49.4% to 63.9% and their share of final-third actions climbed from 66.7% to 88.3%, giving them sustained territorial control and more attacking opportunities. Caldale’s possession fell from 50.6% to 36.1%, amplifying Oakhurst’s takeover.",
+    "mechanism_tag": "momentum_shift",
+    "team_id": "t_oak",
+    "player_ids": [],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_oak",
+      "metric": "possession_time_based",
+      "before_start_ms": 1080000,
+      "before_end_ms": 1980000,
+      "after_start_ms": 1980000,
+      "after_end_ms": 2880000,
+      "before": 0.494,
+      "after": 0.639
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_oak",
+      "metric": "field_tilt",
+      "before_start_ms": 1080000,
+      "before_end_ms": 1980000,
+      "after_start_ms": 1980000,
+      "after_end_ms": 2880000,
+      "before": 0.667,
+      "after": 0.883
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_oak",
+      "metric": "control_index",
+      "before_start_ms": 1080000,
+      "before_end_ms": 1980000,
+      "after_start_ms": 1980000,
+      "after_end_ms": 2880000,
+      "before": 42.2,
+      "after": 50.5
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_cal",
+      "metric": "possession_time_based",
+      "before_start_ms": 1080000,
+      "before_end_ms": 1980000,
+      "after_start_ms": 1980000,
+      "after_end_ms": 2880000,
+      "before": 0.506,
+      "after": 0.361
+     }
+    ],
+    "confidence": 0.9
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1237,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 6222,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 14,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1045,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_004",
+   "candidate": {
+    "candidate_id": "c_004",
+    "kind": "player_arc",
+    "t_ms": 3000000,
+    "team_id": "t_oak",
+    "player_id": "p_oak_11",
+    "window_start_ms": 1920000,
+    "window_end_ms": 3000000,
+    "score": 6.5,
+    "signals": [
+     {
+      "metric": "progressive_passes",
+      "subject": "p_oak_11",
+      "expected": "up",
+      "window": 1.333,
+      "before": 0.438,
+      "z": 10.88,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "touches",
+      "subject": "p_oak_11",
+      "expected": "up",
+      "window": 1.778,
+      "before": 1.156,
+      "z": 2.13,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {},
+    "team_profile": [],
+    "key_events": [
+     {
+      "t_ms": 1952200,
+      "type": "card",
+      "team_id": "t_cal",
+      "player_id": "p_cal_09",
+      "detail": "red"
+     },
+     {
+      "t_ms": 2299100,
+      "type": "card",
+      "team_id": "t_oak",
+      "player_id": "p_oak_20",
+      "detail": "yellow"
+     },
+     {
+      "t_ms": 2539800,
+      "type": "card",
+      "team_id": "t_cal",
+      "player_id": "p_cal_03",
+      "detail": "yellow"
+     },
+     {
+      "t_ms": 2969500,
+      "type": "goal",
+      "team_id": "t_oak",
+      "player_id": null,
+      "detail": null
+     }
+    ]
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "player_arc",
+    "salience": 4,
+    "reason": "Pelani’s passing and involvement jump sharply for an extended spell, and the later home goal fits the growing influence."
+   },
+   "explanation": {
+    "claim": "Kofi Lorston drove Oakhurst’s attack: his progressive passes doubled from 12 to 24 and his touches rose from 26 to 32 across the 18-minute moment, raising his influence on the game. Oakhurst’s time-based possession climbed to 66.9% and field tilt to 88.7%, sustaining the pressure that produced the 47′ goal.",
+    "mechanism_tag": "player_arc",
+    "team_id": "t_oak",
+    "player_ids": [
+     "p_oak_11"
+    ],
+    "evidence": [
+     {
+      "tool": "get_player_physical",
+      "subject": "p_oak_11",
+      "metric": "progressive_passes",
+      "before_start_ms": 840000,
+      "before_end_ms": 1920000,
+      "after_start_ms": 1920000,
+      "after_end_ms": 3000000,
+      "before": 12.0,
+      "after": 24.0
+     },
+     {
+      "tool": "get_player_physical",
+      "subject": "p_oak_11",
+      "metric": "touches",
+      "before_start_ms": 840000,
+      "before_end_ms": 1920000,
+      "after_start_ms": 1920000,
+      "after_end_ms": 3000000,
+      "before": 26.0,
+      "after": 32.0
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_oak",
+      "metric": "possession_time_based",
+      "before_start_ms": 840000,
+      "before_end_ms": 1920000,
+      "after_start_ms": 1920000,
+      "after_end_ms": 3000000,
+      "before": 0.516,
+      "after": 0.669
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_oak",
+      "metric": "field_tilt",
+      "before_start_ms": 840000,
+      "before_end_ms": 1920000,
+      "after_start_ms": 1920000,
+      "after_end_ms": 3000000,
+      "before": 0.66,
+      "after": 0.887
+     }
+    ],
+    "confidence": 0.9
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 2469,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 6990,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 15,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1009,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  }
+ ]
+}

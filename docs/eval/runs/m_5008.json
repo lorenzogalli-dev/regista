@@ -1,0 +1,248 @@
+{
+ "run_id": "r_m_5008_161e89a8",
+ "match_id": "m_5008",
+ "mode": "eval",
+ "kind": "recorded agent run",
+ "provider": "foundry",
+ "models": {
+  "fast": "gtf-fast",
+  "reasoning": "gtf-reasoning",
+  "reasoning_effort": "low"
+ },
+ "started_at": "2026-10-18T12:04:29.073670+00:00",
+ "wall_s": 11.8,
+ "candidates": 1,
+ "status_counts": {
+  "approved": 1
+ },
+ "budget_stopped": null,
+ "usage": {
+  "provider": "foundry",
+  "calls": 3,
+  "tokens_in": 4918,
+  "tokens_out": 828,
+  "cost_eur": 0.00364,
+  "estimated": false,
+  "by_agent": {
+   "detector": {
+    "calls": 1,
+    "tokens_in": 978,
+    "tokens_out": 57,
+    "eur": 0.00096
+   },
+   "analyst": {
+    "calls": 1,
+    "tokens_in": 3114,
+    "tokens_out": 754,
+    "eur": 0.00201
+   },
+   "verifier": {
+    "calls": 1,
+    "tokens_in": 826,
+    "tokens_out": 17,
+    "eur": 0.00067
+   }
+  }
+ },
+ "calls": [
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 978,
+   "tokens_out": 57,
+   "reasoning_tokens": 0,
+   "latency_ms": 1331,
+   "cost_eur": 0.0009583143,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3114,
+   "tokens_out": 754,
+   "reasoning_tokens": 384,
+   "latency_ms": 6620,
+   "cost_eur": 0.0020120446000000004,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 826,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1183,
+   "cost_eur": 0.0006737262999999999,
+   "estimated": false
+  }
+ ],
+ "moments": [
+  {
+   "moment_id": "mo_001",
+   "candidate": {
+    "candidate_id": "c_001",
+    "kind": "momentum_shift",
+    "t_ms": 1500000,
+    "team_id": "t_bel",
+    "player_id": null,
+    "window_start_ms": 600000,
+    "window_end_ms": 1500000,
+    "score": 2.5,
+    "signals": [
+     {
+      "metric": "possession",
+      "subject": "t_bel",
+      "expected": "up",
+      "window": 0.684,
+      "before": 0.356,
+      "z": 2.81,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_bel",
+      "expected": "up",
+      "window": 0.671,
+      "before": 0.333,
+      "z": 2.2,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "momentum_shift": 2.5
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_bel",
+      "expected": "down",
+      "window": 9.0,
+      "before": 10.5,
+      "z": 0.23,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_ivy",
+      "expected": "down",
+      "window": 0.729,
+      "before": 0.644,
+      "z": -1.64,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_bel",
+      "expected": "up",
+      "window": 0.671,
+      "before": 0.333,
+      "z": 2.2,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "possession",
+      "subject": "t_bel",
+      "expected": "up",
+      "window": 0.684,
+      "before": 0.356,
+      "z": 2.81,
+      "above_noise_p95": true
+     }
+    ],
+    "key_events": []
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "momentum_shift",
+    "salience": 3,
+    "reason": "Beldale Vale’s possession and field tilt both rose clearly above their earlier level, pointing to a sustained territorial swing rather than noise."
+   },
+   "explanation": {
+    "claim": "Beldale Vale seized control: their time-based possession jumped from 35.6% to 68.4% and their field tilt from 33.3% to 67.1%, creating a sustained territorial swing. Ivygate’s possession fell from 64.3% to 31.6% and Beldale’s control index rose 37.1→48.1, so Beldale are dominating possession and territory.",
+    "mechanism_tag": "momentum_shift",
+    "team_id": "t_bel",
+    "player_ids": [],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_bel",
+      "metric": "possession_time_based",
+      "before_start_ms": 0,
+      "before_end_ms": 600000,
+      "after_start_ms": 600000,
+      "after_end_ms": 1500000,
+      "before": 0.356,
+      "after": 0.684
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_bel",
+      "metric": "field_tilt",
+      "before_start_ms": 0,
+      "before_end_ms": 600000,
+      "after_start_ms": 600000,
+      "after_end_ms": 1500000,
+      "before": 0.333,
+      "after": 0.671
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_bel",
+      "metric": "control_index",
+      "before_start_ms": 0,
+      "before_end_ms": 600000,
+      "after_start_ms": 600000,
+      "after_end_ms": 1500000,
+      "before": 37.1,
+      "after": 48.1
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ivy",
+      "metric": "possession_time_based",
+      "before_start_ms": 0,
+      "before_end_ms": 600000,
+      "after_start_ms": 600000,
+      "after_end_ms": 1500000,
+      "before": 0.643,
+      "after": 0.316
+     }
+    ],
+    "confidence": 0.9
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1332,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 6622,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 6,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1183,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  }
+ ]
+}

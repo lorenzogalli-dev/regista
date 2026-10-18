@@ -1,0 +1,709 @@
+{
+ "run_id": "r_m_9008_8ab5762d",
+ "match_id": "m_9008",
+ "mode": "eval",
+ "kind": "recorded agent run",
+ "provider": "foundry",
+ "models": {
+  "fast": "gtf-fast",
+  "reasoning": "gtf-reasoning",
+  "reasoning_effort": "low"
+ },
+ "started_at": "2026-10-18T12:14:05.255600+00:00",
+ "wall_s": 30.9,
+ "candidates": 3,
+ "status_counts": {
+  "approved": 3
+ },
+ "budget_stopped": null,
+ "usage": {
+  "provider": "foundry",
+  "calls": 9,
+  "tokens_in": 15976,
+  "tokens_out": 2799,
+  "cost_eur": 0.01193,
+  "estimated": false,
+  "by_agent": {
+   "detector": {
+    "calls": 3,
+    "tokens_in": 3356,
+    "tokens_out": 173,
+    "eur": 0.00319
+   },
+   "analyst": {
+    "calls": 3,
+    "tokens_in": 10232,
+    "tokens_out": 2575,
+    "eur": 0.00678
+   },
+   "verifier": {
+    "calls": 3,
+    "tokens_in": 2388,
+    "tokens_out": 51,
+    "eur": 0.00196
+   }
+  }
+ },
+ "calls": [
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1121,
+   "tokens_out": 58,
+   "reasoning_tokens": 0,
+   "latency_ms": 1250,
+   "cost_eur": 0.0010664882,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3241,
+   "tokens_out": 911,
+   "reasoning_tokens": 384,
+   "latency_ms": 8064,
+   "cost_eur": 0.0023162889,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 812,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1239,
+   "cost_eur": 0.0006635622999999999,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1124,
+   "tokens_out": 61,
+   "reasoning_tokens": 0,
+   "latency_ms": 1279,
+   "cost_eur": 0.0010817339,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3315,
+   "tokens_out": 980,
+   "reasoning_tokens": 576,
+   "latency_ms": 7754,
+   "cost_eur": 0.002454002,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 814,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1078,
+   "cost_eur": 0.0006650142999999999,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1111,
+   "tokens_out": 54,
+   "reasoning_tokens": 0,
+   "latency_ms": 1393,
+   "cost_eur": 0.0010418046,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3676,
+   "tokens_out": 684,
+   "reasoning_tokens": 256,
+   "latency_ms": 5219,
+   "cost_eur": 0.0020124916,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 762,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 867,
+   "cost_eur": 0.0006272623,
+   "estimated": false
+  }
+ ],
+ "moments": [
+  {
+   "moment_id": "mo_001",
+   "candidate": {
+    "candidate_id": "c_001",
+    "kind": "pressing_spell",
+    "t_ms": 1740000,
+    "team_id": "t_lin",
+    "player_id": null,
+    "window_start_ms": 840000,
+    "window_end_ms": 1740000,
+    "score": 3.54,
+    "signals": [
+     {
+      "metric": "ppda",
+      "subject": "t_lin",
+      "expected": "down",
+      "window": 24.667,
+      "before": 73.0,
+      "z": 7.81,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_ros",
+      "expected": "down",
+      "window": 0.858,
+      "before": 0.908,
+      "z": 0.96,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_lin",
+      "expected": "up",
+      "window": 0.514,
+      "before": 0.229,
+      "z": 1.86,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "pressing_spell": 3.54
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_lin",
+      "expected": "down",
+      "window": 24.667,
+      "before": 73.0,
+      "z": 7.81,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_ros",
+      "expected": "down",
+      "window": 0.858,
+      "before": 0.908,
+      "z": 0.96,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_lin",
+      "expected": "up",
+      "window": 0.514,
+      "before": 0.229,
+      "z": 1.86,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "possession",
+      "subject": "t_lin",
+      "expected": "up",
+      "window": 0.37,
+      "before": 0.294,
+      "z": 0.65,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_lin",
+      "expected": "up",
+      "window": 26.286,
+      "before": 23.314,
+      "z": 1.99,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_lin",
+      "expected": "down",
+      "window": 0.882,
+      "before": 0.761,
+      "z": -2.42,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "width",
+      "subject": "t_lin",
+      "expected": "up",
+      "window": 10.962,
+      "before": 10.706,
+      "z": 0.27,
+      "above_noise_p95": false
+     }
+    ],
+    "key_events": []
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "pressing_spell",
+    "salience": 4,
+    "reason": "Linhaven Vale’s PPDA drops sharply with a clear rise in field tilt and slightly longer passing, pointing to a sustained pressing phase."
+   },
+   "explanation": {
+    "claim": "Linhaven Vale started pressing much harder: their PPDA fell from 73.0 to 24.7 and their field tilt rose from 22.9% to 51.4%, putting more play into Rosmore’s final third. That pressure reduced Rosmore’s pass completion (90.8% → 85.8%) while Linhaven’s time-based possession rose (29.4% → 37.0%).",
+    "mechanism_tag": "pressing_spell",
+    "team_id": "t_lin",
+    "player_ids": [],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_lin",
+      "metric": "ppda",
+      "before_start_ms": 0,
+      "before_end_ms": 840000,
+      "after_start_ms": 840000,
+      "after_end_ms": 1740000,
+      "before": 73.0,
+      "after": 24.67
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_lin",
+      "metric": "field_tilt",
+      "before_start_ms": 0,
+      "before_end_ms": 840000,
+      "after_start_ms": 840000,
+      "after_end_ms": 1740000,
+      "before": 0.229,
+      "after": 0.514
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_lin",
+      "metric": "possession_time_based",
+      "before_start_ms": 0,
+      "before_end_ms": 840000,
+      "after_start_ms": 840000,
+      "after_end_ms": 1740000,
+      "before": 0.294,
+      "after": 0.37
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ros",
+      "metric": "pass_completion",
+      "before_start_ms": 0,
+      "before_end_ms": 840000,
+      "after_start_ms": 840000,
+      "after_end_ms": 1740000,
+      "before": 0.908,
+      "after": 0.858
+     }
+    ],
+    "confidence": 0.82
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1250,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 8065,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 6,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1240,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_002",
+   "candidate": {
+    "candidate_id": "c_002",
+    "kind": "pressing_spell",
+    "t_ms": 3120000,
+    "team_id": "t_lin",
+    "player_id": null,
+    "window_start_ms": 2220000,
+    "window_end_ms": 3120000,
+    "score": 1.99,
+    "signals": [
+     {
+      "metric": "ppda",
+      "subject": "t_lin",
+      "expected": "down",
+      "window": 29.0,
+      "before": 46.5,
+      "z": 2.82,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_ros",
+      "expected": "down",
+      "window": 0.812,
+      "before": 0.877,
+      "z": 1.27,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_lin",
+      "expected": "up",
+      "window": 0.673,
+      "before": 0.383,
+      "z": 1.89,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "pressing_spell": 1.99
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_lin",
+      "expected": "down",
+      "window": 29.0,
+      "before": 46.5,
+      "z": 2.82,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_ros",
+      "expected": "down",
+      "window": 0.812,
+      "before": 0.877,
+      "z": 1.27,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_lin",
+      "expected": "up",
+      "window": 0.673,
+      "before": 0.383,
+      "z": 1.89,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "possession",
+      "subject": "t_lin",
+      "expected": "up",
+      "window": 0.517,
+      "before": 0.335,
+      "z": 1.56,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_lin",
+      "expected": "up",
+      "window": 24.941,
+      "before": 25.184,
+      "z": -0.11,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_lin",
+      "expected": "down",
+      "window": 0.889,
+      "before": 0.848,
+      "z": -0.81,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "width",
+      "subject": "t_lin",
+      "expected": "up",
+      "window": 9.888,
+      "before": 11.314,
+      "z": -1.15,
+      "above_noise_p95": false
+     }
+    ],
+    "key_events": []
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "pressing_spell",
+    "salience": 3,
+    "reason": "Linhaven Vale show a clear pressing spike with stronger field tilt and a rising share of possession, which fits a sustained press rather than a random swing."
+   },
+   "explanation": {
+    "claim": "Linhaven Vale have pushed forward and controlled the game: their time-based possession rose to 51.7% while their field tilt climbed to 67.3%, pinning Rosmore Town deeper. As a result Rosmore’s pass completion dropped to 81.2% and their possession fell to 48.3%, increasing Linhaven’s attacking prospects.",
+    "mechanism_tag": "pressing_spell",
+    "team_id": "t_lin",
+    "player_ids": [],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_lin",
+      "metric": "possession_time_based",
+      "before_start_ms": 1320000,
+      "before_end_ms": 2220000,
+      "after_start_ms": 2220000,
+      "after_end_ms": 3120000,
+      "before": 0.335,
+      "after": 0.517
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_lin",
+      "metric": "field_tilt",
+      "before_start_ms": 1320000,
+      "before_end_ms": 2220000,
+      "after_start_ms": 2220000,
+      "after_end_ms": 3120000,
+      "before": 0.521,
+      "after": 0.673
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ros",
+      "metric": "pass_completion",
+      "before_start_ms": 1320000,
+      "before_end_ms": 2220000,
+      "after_start_ms": 2220000,
+      "after_end_ms": 3120000,
+      "before": 0.87,
+      "after": 0.812
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ros",
+      "metric": "possession_time_based",
+      "before_start_ms": 1320000,
+      "before_end_ms": 2220000,
+      "after_start_ms": 2220000,
+      "after_end_ms": 3120000,
+      "before": 0.665,
+      "after": 0.483
+     }
+    ],
+    "confidence": 0.7
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1279,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 7754,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 6,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1079,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_003",
+   "candidate": {
+    "candidate_id": "c_003",
+    "kind": "player_arc",
+    "t_ms": 5280000,
+    "team_id": "t_lin",
+    "player_id": "p_lin_12",
+    "window_start_ms": 4200000,
+    "window_end_ms": 5280000,
+    "score": 3.75,
+    "signals": [
+     {
+      "metric": "progressive_passes",
+      "subject": "p_lin_12",
+      "expected": "up",
+      "window": 0.444,
+      "before": 0.071,
+      "z": 4.53,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "touches",
+      "subject": "p_lin_12",
+      "expected": "up",
+      "window": 2.056,
+      "before": 1.186,
+      "z": 2.97,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {},
+    "team_profile": [],
+    "key_events": [
+     {
+      "t_ms": 3996000,
+      "type": "goal",
+      "team_id": "t_lin",
+      "player_id": null,
+      "detail": null
+     },
+     {
+      "t_ms": 4334300,
+      "type": "sub",
+      "team_id": "t_ros",
+      "player_id": "p_ros_29",
+      "detail": "p_ros_10"
+     },
+     {
+      "t_ms": 4477700,
+      "type": "sub",
+      "team_id": "t_lin",
+      "player_id": "p_lin_28",
+      "detail": "p_lin_26"
+     },
+     {
+      "t_ms": 4752700,
+      "type": "sub",
+      "team_id": "t_lin",
+      "player_id": "p_lin_10",
+      "detail": "p_lin_05"
+     },
+     {
+      "t_ms": 4842000,
+      "type": "sub",
+      "team_id": "t_ros",
+      "player_id": "p_ros_11",
+      "detail": "p_ros_08"
+     },
+     {
+      "t_ms": 5277400,
+      "type": "sub",
+      "team_id": "t_lin",
+      "player_id": "p_lin_24",
+      "detail": "p_lin_15"
+     }
+    ]
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "player_arc",
+    "salience": 3,
+    "reason": "Quinham’s involvement rose sharply in progressive passing and touches over the window, fitting a clear individual on-ball uptick."
+   },
+   "explanation": {
+    "claim": "Tobi Quinham (Linhaven Vale) became the on-ball driver late: his progressive passes jumped from 1 to 8 and his touches rose from 27 to 37 across the 18-minute window, increasing Linhaven’s attacking presence and helping them manage the 1-0 lead. This individual spike sustained their control.",
+    "mechanism_tag": "player_arc",
+    "team_id": "t_lin",
+    "player_ids": [
+     "p_lin_12"
+    ],
+    "evidence": [
+     {
+      "tool": "get_player_physical",
+      "subject": "p_lin_12",
+      "metric": "progressive_passes",
+      "before_start_ms": 3120000,
+      "before_end_ms": 4200000,
+      "after_start_ms": 4200000,
+      "after_end_ms": 5280000,
+      "before": 1.0,
+      "after": 8.0
+     },
+     {
+      "tool": "get_player_physical",
+      "subject": "p_lin_12",
+      "metric": "touches",
+      "before_start_ms": 3120000,
+      "before_end_ms": 4200000,
+      "after_start_ms": 4200000,
+      "after_end_ms": 5280000,
+      "before": 27.0,
+      "after": 37.0
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_lin",
+      "metric": "field_tilt",
+      "before_start_ms": 3120000,
+      "before_end_ms": 4200000,
+      "after_start_ms": 4200000,
+      "after_end_ms": 5280000,
+      "before": 0.641,
+      "after": 0.713
+     }
+    ],
+    "confidence": 0.9
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1393,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 5219,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 4,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 868,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  }
+ ]
+}

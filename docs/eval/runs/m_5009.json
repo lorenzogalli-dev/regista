@@ -1,0 +1,1166 @@
+{
+ "run_id": "r_m_5009_ef2b2b2a",
+ "match_id": "m_5009",
+ "mode": "eval",
+ "kind": "recorded agent run",
+ "provider": "foundry",
+ "models": {
+  "fast": "gtf-fast",
+  "reasoning": "gtf-reasoning",
+  "reasoning_effort": "low"
+ },
+ "started_at": "2026-10-18T12:04:40.873308+00:00",
+ "wall_s": 49.2,
+ "candidates": 5,
+ "status_counts": {
+  "approved": 5
+ },
+ "budget_stopped": null,
+ "usage": {
+  "provider": "foundry",
+  "calls": 15,
+  "tokens_in": 26654,
+  "tokens_out": 4914,
+  "cost_eur": 0.02041,
+  "estimated": false,
+  "by_agent": {
+   "detector": {
+    "calls": 5,
+    "tokens_in": 5684,
+    "tokens_out": 295,
+    "eur": 0.00541
+   },
+   "analyst": {
+    "calls": 5,
+    "tokens_in": 16942,
+    "tokens_out": 4534,
+    "eur": 0.01171
+   },
+   "verifier": {
+    "calls": 5,
+    "tokens_in": 4028,
+    "tokens_out": 85,
+    "eur": 0.00329
+   }
+  }
+ },
+ "calls": [
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1104,
+   "tokens_out": 60,
+   "reasoning_tokens": 0,
+   "latency_ms": 1426,
+   "cost_eur": 0.0010628579999999999,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3235,
+   "tokens_out": 841,
+   "reasoning_tokens": 384,
+   "latency_ms": 6275,
+   "cost_eur": 0.0021917759000000003,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 745,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1257,
+   "cost_eur": 0.0006149203,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1129,
+   "tokens_out": 62,
+   "reasoning_tokens": 0,
+   "latency_ms": 1092,
+   "cost_eur": 0.0010897198000000001,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3311,
+   "tokens_out": 1093,
+   "reasoning_tokens": 704,
+   "latency_ms": 9042,
+   "cost_eur": 0.0026519906999999997,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 801,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1122,
+   "cost_eur": 0.0006555762999999999,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 829,
+   "tokens_out": 53,
+   "reasoning_tokens": 0,
+   "latency_ms": 1128,
+   "cost_eur": 0.0008327167,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3378,
+   "tokens_out": 556,
+   "reasoning_tokens": 128,
+   "latency_ms": 5049,
+   "cost_eur": 0.0017216644,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 829,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 947,
+   "cost_eur": 0.0006759043,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1209,
+   "tokens_out": 58,
+   "reasoning_tokens": 0,
+   "latency_ms": 1177,
+   "cost_eur": 0.0011303761999999998,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3405,
+   "tokens_out": 1162,
+   "reasoning_tokens": 640,
+   "latency_ms": 8228,
+   "cost_eur": 0.0027941038,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 826,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 918,
+   "cost_eur": 0.0006737262999999999,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1413,
+   "tokens_out": 62,
+   "reasoning_tokens": 0,
+   "latency_ms": 1234,
+   "cost_eur": 0.0012959038,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3613,
+   "tokens_out": 882,
+   "reasoning_tokens": 512,
+   "latency_ms": 6552,
+   "cost_eur": 0.0023470918,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 827,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1146,
+   "cost_eur": 0.0006744523,
+   "estimated": false
+  }
+ ],
+ "moments": [
+  {
+   "moment_id": "mo_001",
+   "candidate": {
+    "candidate_id": "c_001",
+    "kind": "tactical_switch/long_ball",
+    "t_ms": 1920000,
+    "team_id": "t_bel",
+    "player_id": null,
+    "window_start_ms": 960000,
+    "window_end_ms": 1920000,
+    "score": 2.24,
+    "signals": [
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_bel",
+      "expected": "up",
+      "window": 27.737,
+      "before": 24.881,
+      "z": 1.91,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_bel",
+      "expected": "down",
+      "window": 0.684,
+      "before": 0.814,
+      "z": 2.58,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "tactical_switch/long_ball": 2.24
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_bel",
+      "expected": "down",
+      "window": 13.2,
+      "before": 12.167,
+      "z": -0.18,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_ver",
+      "expected": "down",
+      "window": 0.805,
+      "before": 0.776,
+      "z": -0.55,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_bel",
+      "expected": "up",
+      "window": 0.165,
+      "before": 0.312,
+      "z": -0.96,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "possession",
+      "subject": "t_bel",
+      "expected": "up",
+      "window": 0.302,
+      "before": 0.307,
+      "z": -0.04,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_bel",
+      "expected": "up",
+      "window": 27.737,
+      "before": 24.881,
+      "z": 1.91,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_bel",
+      "expected": "down",
+      "window": 0.684,
+      "before": 0.814,
+      "z": 2.58,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "width",
+      "subject": "t_bel",
+      "expected": "up",
+      "window": 15.416,
+      "before": 15.745,
+      "z": -0.22,
+      "above_noise_p95": false
+     }
+    ],
+    "key_events": []
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "tactical_switch",
+    "salience": 3,
+    "reason": "Beldale’s passing became notably longer and less accurate, which fits a coherent long-ball switch even though other team-level control metrics stayed near normal."
+   },
+   "explanation": {
+    "claim": "Beldale Harriers switched to a long-ball approach: their average pass length increased from 24.9m to 27.7m while pass completion dropped from 81% to 68%. That change also cut their threat: xT added fell from 0.111 to 0.036, so chances became rarer and less controlled.",
+    "mechanism_tag": "tactical_switch",
+    "team_id": "t_bel",
+    "player_ids": [],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_bel",
+      "metric": "avg_pass_length_m",
+      "before_start_ms": 0,
+      "before_end_ms": 960000,
+      "after_start_ms": 960000,
+      "after_end_ms": 1920000,
+      "before": 24.9,
+      "after": 27.7
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_bel",
+      "metric": "pass_completion",
+      "before_start_ms": 0,
+      "before_end_ms": 960000,
+      "after_start_ms": 960000,
+      "after_end_ms": 1920000,
+      "before": 0.814,
+      "after": 0.684
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_bel",
+      "metric": "xt_added",
+      "before_start_ms": 0,
+      "before_end_ms": 960000,
+      "after_start_ms": 960000,
+      "after_end_ms": 1920000,
+      "before": 0.111,
+      "after": 0.036
+     }
+    ],
+    "confidence": 0.8
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1426,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 6276,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 10,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1258,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_002",
+   "candidate": {
+    "candidate_id": "c_002",
+    "kind": "pressing_spell",
+    "t_ms": 2280000,
+    "team_id": "t_ver",
+    "player_id": null,
+    "window_start_ms": 1380000,
+    "window_end_ms": 2280000,
+    "score": 1.4,
+    "signals": [
+     {
+      "metric": "ppda",
+      "subject": "t_ver",
+      "expected": "down",
+      "window": 6.5,
+      "before": 8.667,
+      "z": 0.34,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_bel",
+      "expected": "down",
+      "window": 0.698,
+      "before": 0.789,
+      "z": 1.79,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_ver",
+      "expected": "up",
+      "window": 0.965,
+      "before": 0.647,
+      "z": 2.07,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "pressing_spell": 1.4
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_ver",
+      "expected": "down",
+      "window": 6.5,
+      "before": 8.667,
+      "z": 0.34,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_bel",
+      "expected": "down",
+      "window": 0.698,
+      "before": 0.789,
+      "z": 1.79,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_ver",
+      "expected": "up",
+      "window": 0.965,
+      "before": 0.647,
+      "z": 2.07,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "possession",
+      "subject": "t_ver",
+      "expected": "up",
+      "window": 0.71,
+      "before": 0.672,
+      "z": 0.32,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_ver",
+      "expected": "up",
+      "window": 27.717,
+      "before": 28.613,
+      "z": -0.54,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_ver",
+      "expected": "down",
+      "window": 0.818,
+      "before": 0.783,
+      "z": -0.7,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "width",
+      "subject": "t_ver",
+      "expected": "up",
+      "window": 16.831,
+      "before": 18.016,
+      "z": -0.94,
+      "above_noise_p95": false
+     }
+    ],
+    "key_events": []
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "pressing_spell",
+    "salience": 3,
+    "reason": "Verstead’s field tilt rose sharply and Beldale’s pass completion dipped, which fits a real sustained press even though the ppda change itself is modest."
+   },
+   "explanation": {
+    "claim": "Verstead Rangers pushed deep into Beldale Harriers’ final third: time-based possession rose to 71% and field tilt jumped to 97%. Beldale’s pass completion fell to 70% while Verstead’s xT added rose to 0.114, showing sustained pressure creating better chances.",
+    "mechanism_tag": "pressing_spell",
+    "team_id": "t_ver",
+    "player_ids": [],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ver",
+      "metric": "possession_time_based",
+      "before_start_ms": 480000,
+      "before_end_ms": 1380000,
+      "after_start_ms": 1380000,
+      "after_end_ms": 2280000,
+      "before": 0.664,
+      "after": 0.71
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ver",
+      "metric": "field_tilt",
+      "before_start_ms": 480000,
+      "before_end_ms": 1380000,
+      "after_start_ms": 1380000,
+      "after_end_ms": 2280000,
+      "before": 0.681,
+      "after": 0.965
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_bel",
+      "metric": "pass_completion",
+      "before_start_ms": 480000,
+      "before_end_ms": 1380000,
+      "after_start_ms": 1380000,
+      "after_end_ms": 2280000,
+      "before": 0.804,
+      "after": 0.698
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ver",
+      "metric": "xt_added",
+      "before_start_ms": 480000,
+      "before_end_ms": 1380000,
+      "after_start_ms": 1380000,
+      "after_end_ms": 2280000,
+      "before": 0.042,
+      "after": 0.114
+     }
+    ],
+    "confidence": 0.7
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1092,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 9043,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 12,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1123,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_003",
+   "candidate": {
+    "candidate_id": "c_003",
+    "kind": "player_arc",
+    "t_ms": 2340000,
+    "team_id": "t_ver",
+    "player_id": "p_ver_19",
+    "window_start_ms": 1260000,
+    "window_end_ms": 2340000,
+    "score": 4.98,
+    "signals": [
+     {
+      "metric": "progressive_passes",
+      "subject": "p_ver_19",
+      "expected": "up",
+      "window": 0.833,
+      "before": 0.19,
+      "z": 7.8,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "touches",
+      "subject": "p_ver_19",
+      "expected": "up",
+      "window": 2.056,
+      "before": 1.429,
+      "z": 2.15,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {},
+    "team_profile": [],
+    "key_events": []
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "player_arc",
+    "salience": 4,
+    "reason": "Yorner’s progressive passing jumped sharply with a rise in involvement, which fits a genuine player-level change rather than noise."
+   },
+   "explanation": {
+    "claim": "Vito Yorner sharply ramped up his involvement: his progressive passes rose from 4 to 15 and touches from 27 to 37 across the 18-minute windows, driving Verstead’s attacks. That pushed Verstead’s field tilt from 79% to 89% and xT added from 0.052 to 0.123, creating more chance value.",
+    "mechanism_tag": "player_arc",
+    "team_id": "t_ver",
+    "player_ids": [
+     "p_ver_19"
+    ],
+    "evidence": [
+     {
+      "tool": "get_player_physical",
+      "subject": "p_ver_19",
+      "metric": "progressive_passes",
+      "before_start_ms": 180000,
+      "before_end_ms": 1260000,
+      "after_start_ms": 1260000,
+      "after_end_ms": 2340000,
+      "before": 4.0,
+      "after": 15.0
+     },
+     {
+      "tool": "get_player_physical",
+      "subject": "p_ver_19",
+      "metric": "touches",
+      "before_start_ms": 180000,
+      "before_end_ms": 1260000,
+      "after_start_ms": 1260000,
+      "after_end_ms": 2340000,
+      "before": 27.0,
+      "after": 37.0
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ver",
+      "metric": "field_tilt",
+      "before_start_ms": 180000,
+      "before_end_ms": 1260000,
+      "after_start_ms": 1260000,
+      "after_end_ms": 2340000,
+      "before": 0.789,
+      "after": 0.888
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ver",
+      "metric": "xt_added",
+      "before_start_ms": 180000,
+      "before_end_ms": 1260000,
+      "after_start_ms": 1260000,
+      "after_end_ms": 2340000,
+      "before": 0.052,
+      "after": 0.123
+     }
+    ],
+    "confidence": 0.9
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1128,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 5049,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 15,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 948,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_004",
+   "candidate": {
+    "candidate_id": "c_004",
+    "kind": "tactical_switch/long_ball",
+    "t_ms": 4020000,
+    "team_id": "t_bel",
+    "player_id": null,
+    "window_start_ms": 3060000,
+    "window_end_ms": 4020000,
+    "score": 3.85,
+    "signals": [
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_bel",
+      "expected": "up",
+      "window": 28.311,
+      "before": 25.146,
+      "z": 2.11,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_bel",
+      "expected": "down",
+      "window": 0.5,
+      "before": 0.781,
+      "z": 5.59,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "tactical_switch/long_ball": 3.85
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_bel",
+      "expected": "down",
+      "window": 19.0,
+      "before": 11.211,
+      "z": -1.27,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_ver",
+      "expected": "down",
+      "window": 0.955,
+      "before": 0.802,
+      "z": -2.95,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_bel",
+      "expected": "up",
+      "window": 0.0,
+      "before": 0.24,
+      "z": -1.56,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "possession",
+      "subject": "t_bel",
+      "expected": "up",
+      "window": 0.208,
+      "before": 0.35,
+      "z": -1.22,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_bel",
+      "expected": "up",
+      "window": 28.311,
+      "before": 25.146,
+      "z": 2.11,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_bel",
+      "expected": "down",
+      "window": 0.5,
+      "before": 0.781,
+      "z": 5.59,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "width",
+      "subject": "t_bel",
+      "expected": "up",
+      "window": 16.224,
+      "before": 15.586,
+      "z": 0.6,
+      "above_noise_p95": false
+     }
+    ],
+    "key_events": [
+     {
+      "t_ms": 3240300,
+      "type": "card",
+      "team_id": "t_bel",
+      "player_id": "p_bel_14",
+      "detail": "red"
+     },
+     {
+      "t_ms": 3686400,
+      "type": "sub",
+      "team_id": "t_ver",
+      "player_id": "p_ver_09",
+      "detail": "p_ver_07"
+     }
+    ]
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "tactical_switch",
+    "salience": 4,
+    "reason": "A red card for Beldale is followed by a clear shift to longer, far less accurate passing, which fits a sustained tactical change."
+   },
+   "explanation": {
+    "claim": "After Yusuf Pelvik’s red card Beldale Harriers switched to much longer, riskier passing: their average pass length rose to 28.3 m and pass completion fell to 50%, cutting their chance creation. Their PPDA also rose from 7.8 to 21.0, showing they stopped pressing and ceded territory.",
+    "mechanism_tag": "tactical_switch",
+    "team_id": "t_bel",
+    "player_ids": [
+     "p_bel_14"
+    ],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_bel",
+      "metric": "avg_pass_length_m",
+      "before_start_ms": 2100000,
+      "before_end_ms": 3060000,
+      "after_start_ms": 3060000,
+      "after_end_ms": 4020000,
+      "before": 24.6,
+      "after": 28.3
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_bel",
+      "metric": "pass_completion",
+      "before_start_ms": 2100000,
+      "before_end_ms": 3060000,
+      "after_start_ms": 3060000,
+      "after_end_ms": 4020000,
+      "before": 0.81,
+      "after": 0.5
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_bel",
+      "metric": "ppda",
+      "before_start_ms": 2100000,
+      "before_end_ms": 3060000,
+      "after_start_ms": 3060000,
+      "after_end_ms": 4020000,
+      "before": 7.75,
+      "after": 21.0
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_bel",
+      "metric": "xt_added",
+      "before_start_ms": 2100000,
+      "before_end_ms": 3060000,
+      "after_start_ms": 3060000,
+      "after_end_ms": 4020000,
+      "before": 0.047,
+      "after": 0.025
+     }
+    ],
+    "confidence": 0.85
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1177,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 8229,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 7,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 919,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_005",
+   "candidate": {
+    "candidate_id": "c_005",
+    "kind": "tactical_switch/long_ball",
+    "t_ms": 4980000,
+    "team_id": "t_bel",
+    "player_id": null,
+    "window_start_ms": 4020000,
+    "window_end_ms": 4980000,
+    "score": 2.25,
+    "signals": [
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_bel",
+      "expected": "up",
+      "window": 28.764,
+      "before": 25.633,
+      "z": 2.09,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_bel",
+      "expected": "down",
+      "window": 0.616,
+      "before": 0.738,
+      "z": 2.42,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "momentum_shift": 1.92,
+     "tactical_switch/long_ball": 2.25
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_bel",
+      "expected": "down",
+      "window": 3.375,
+      "before": 11.6,
+      "z": 1.32,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_ver",
+      "expected": "down",
+      "window": 0.773,
+      "before": 0.833,
+      "z": 1.18,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_bel",
+      "expected": "up",
+      "window": 0.482,
+      "before": 0.158,
+      "z": 2.1,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "possession",
+      "subject": "t_bel",
+      "expected": "up",
+      "window": 0.519,
+      "before": 0.317,
+      "z": 1.74,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_bel",
+      "expected": "up",
+      "window": 28.764,
+      "before": 25.633,
+      "z": 2.09,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_bel",
+      "expected": "down",
+      "window": 0.616,
+      "before": 0.738,
+      "z": 2.42,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "width",
+      "subject": "t_bel",
+      "expected": "up",
+      "window": 16.554,
+      "before": 15.674,
+      "z": 0.8,
+      "above_noise_p95": false
+     }
+    ],
+    "key_events": [
+     {
+      "t_ms": 4027300,
+      "type": "goal",
+      "team_id": "t_ver",
+      "player_id": null,
+      "detail": null
+     },
+     {
+      "t_ms": 4157300,
+      "type": "sub",
+      "team_id": "t_ver",
+      "player_id": "p_ver_27",
+      "detail": "p_ver_22"
+     },
+     {
+      "t_ms": 4377100,
+      "type": "card",
+      "team_id": "t_bel",
+      "player_id": "p_bel_07",
+      "detail": "yellow"
+     },
+     {
+      "t_ms": 4535000,
+      "type": "sub",
+      "team_id": "t_bel",
+      "player_id": "p_bel_19",
+      "detail": "p_bel_25"
+     },
+     {
+      "t_ms": 4846700,
+      "type": "sub",
+      "team_id": "t_bel",
+      "player_id": "p_bel_08",
+      "detail": "p_bel_03"
+     },
+     {
+      "t_ms": 4977600,
+      "type": "sub",
+      "team_id": "t_bel",
+      "player_id": "p_bel_10",
+      "detail": "p_bel_18"
+     }
+    ]
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "tactical_switch",
+    "salience": 4,
+    "reason": "Beldale’s passing became longer and less accurate while they won more territory after a late goal and several attacking substitutions, pointing to a clear switch in approach."
+   },
+   "explanation": {
+    "claim": "Beldale Harriers switched to a more direct attack and seized territory: their time-based possession rose from 24.7% to 50.0% and their field tilt jumped from 2.3% to 46.9%. Their average pass length nudged up to 28.8 m and xT added rose to 0.213, forcing Verstead deeper.",
+    "mechanism_tag": "tactical_switch",
+    "team_id": "t_bel",
+    "player_ids": [],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_bel",
+      "metric": "possession_time_based",
+      "before_start_ms": 3060000,
+      "before_end_ms": 4020000,
+      "after_start_ms": 4020000,
+      "after_end_ms": 4980000,
+      "before": 0.247,
+      "after": 0.5
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_bel",
+      "metric": "field_tilt",
+      "before_start_ms": 3060000,
+      "before_end_ms": 4020000,
+      "after_start_ms": 4020000,
+      "after_end_ms": 4980000,
+      "before": 0.023,
+      "after": 0.469
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_bel",
+      "metric": "avg_pass_length_m",
+      "before_start_ms": 3060000,
+      "before_end_ms": 4020000,
+      "after_start_ms": 4020000,
+      "after_end_ms": 4980000,
+      "before": 28.3,
+      "after": 28.8
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_bel",
+      "metric": "xt_added",
+      "before_start_ms": 3060000,
+      "before_end_ms": 4020000,
+      "after_start_ms": 4020000,
+      "after_end_ms": 4980000,
+      "before": 0.025,
+      "after": 0.213
+     }
+    ],
+    "confidence": 0.7
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1234,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 6553,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 7,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1146,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  }
+ ]
+}

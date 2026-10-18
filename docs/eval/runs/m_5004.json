@@ -1,0 +1,1237 @@
+{
+ "run_id": "r_m_5004_f47496af",
+ "match_id": "m_5004",
+ "mode": "eval",
+ "kind": "recorded agent run",
+ "provider": "foundry",
+ "models": {
+  "fast": "gtf-fast",
+  "reasoning": "gtf-reasoning",
+  "reasoning_effort": "low"
+ },
+ "started_at": "2026-10-18T12:00:19.901735+00:00",
+ "wall_s": 68.3,
+ "candidates": 5,
+ "status_counts": {
+  "approved": 5
+ },
+ "budget_stopped": null,
+ "usage": {
+  "provider": "foundry",
+  "calls": 19,
+  "tokens_in": 36067,
+  "tokens_out": 6549,
+  "cost_eur": 0.02662,
+  "estimated": false,
+  "by_agent": {
+   "detector": {
+    "calls": 5,
+    "tokens_in": 5690,
+    "tokens_out": 290,
+    "eur": 0.00539
+   },
+   "analyst": {
+    "calls": 7,
+    "tokens_in": 24590,
+    "tokens_out": 6028,
+    "eur": 0.01602
+   },
+   "verifier": {
+    "calls": 7,
+    "tokens_in": 5787,
+    "tokens_out": 231,
+    "eur": 0.00521
+   }
+  }
+ },
+ "calls": [
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 973,
+   "tokens_out": 53,
+   "reasoning_tokens": 0,
+   "latency_ms": 1437,
+   "cost_eur": 0.0009372607,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3097,
+   "tokens_out": 616,
+   "reasoning_tokens": 192,
+   "latency_ms": 6698,
+   "cost_eur": 0.0017654384,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 823,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1157,
+   "cost_eur": 0.0006715482999999999,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1227,
+   "tokens_out": 58,
+   "reasoning_tokens": 0,
+   "latency_ms": 1241,
+   "cost_eur": 0.0011434441999999998,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3407,
+   "tokens_out": 1042,
+   "reasoning_tokens": 512,
+   "latency_ms": 8044,
+   "cost_eur": 0.0025833558,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 827,
+   "tokens_out": 96,
+   "reasoning_tokens": 0,
+   "latency_ms": 1449,
+   "cost_eur": 0.0010185683999999998,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3493,
+   "tokens_out": 977,
+   "reasoning_tokens": 576,
+   "latency_ms": 8695,
+   "cost_eur": 0.0024878823000000004,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 846,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 994,
+   "cost_eur": 0.0006882463,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 948,
+   "tokens_out": 57,
+   "reasoning_tokens": 0,
+   "latency_ms": 1181,
+   "cost_eur": 0.0009365342999999999,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3531,
+   "tokens_out": 876,
+   "reasoning_tokens": 320,
+   "latency_ms": 8388,
+   "cost_eur": 0.0023184924000000003,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 842,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1002,
+   "cost_eur": 0.0006853423,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1420,
+   "tokens_out": 58,
+   "reasoning_tokens": 0,
+   "latency_ms": 1252,
+   "cost_eur": 0.0012835622,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3614,
+   "tokens_out": 935,
+   "reasoning_tokens": 384,
+   "latency_ms": 7258,
+   "cost_eur": 0.0024405865,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 833,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 910,
+   "cost_eur": 0.0006788083,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1122,
+   "tokens_out": 64,
+   "reasoning_tokens": 0,
+   "latency_ms": 1074,
+   "cost_eur": 0.0010933496,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3704,
+   "tokens_out": 618,
+   "reasoning_tokens": 256,
+   "latency_ms": 5492,
+   "cost_eur": 0.0019024982,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 769,
+   "tokens_out": 50,
+   "reasoning_tokens": 0,
+   "latency_ms": 1128,
+   "cost_eur": 0.000776089,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3744,
+   "tokens_out": 964,
+   "reasoning_tokens": 576,
+   "latency_ms": 7466,
+   "cost_eur": 0.0025202235999999996,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 847,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 845,
+   "cost_eur": 0.0006889723,
+   "estimated": false
+  }
+ ],
+ "moments": [
+  {
+   "moment_id": "mo_001",
+   "candidate": {
+    "candidate_id": "c_001",
+    "kind": "momentum_shift",
+    "t_ms": 1500000,
+    "team_id": "t_tam",
+    "player_id": null,
+    "window_start_ms": 600000,
+    "window_end_ms": 1500000,
+    "score": 2.39,
+    "signals": [
+     {
+      "metric": "possession",
+      "subject": "t_tam",
+      "expected": "up",
+      "window": 0.639,
+      "before": 0.32,
+      "z": 2.74,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_tam",
+      "expected": "up",
+      "window": 0.688,
+      "before": 0.372,
+      "z": 2.05,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "momentum_shift": 2.39
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_tam",
+      "expected": "down",
+      "window": 40.0,
+      "before": 52.0,
+      "z": 1.93,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_cal",
+      "expected": "down",
+      "window": 0.738,
+      "before": 0.802,
+      "z": 1.26,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_tam",
+      "expected": "up",
+      "window": 0.688,
+      "before": 0.372,
+      "z": 2.05,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "possession",
+      "subject": "t_tam",
+      "expected": "up",
+      "window": 0.639,
+      "before": 0.32,
+      "z": 2.74,
+      "above_noise_p95": true
+     }
+    ],
+    "key_events": []
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "momentum_shift",
+    "salience": 3,
+    "reason": "Tamhaven’s possession and field tilt both rise clearly together, which is enough to mark a sustained territorial swing."
+   },
+   "explanation": {
+    "claim": "Tamhaven Harriers seized control from 10–25′: time-based possession rose from 32.0% to 63.9% and their field tilt climbed from 37.2% to 68.8%, giving them sustained territorial advantage. Their PPDA fell (52.0 → 40.0) and control index rose (58.4 → 68.4), so possession became harder for Calmore to win back.",
+    "mechanism_tag": "momentum_shift",
+    "team_id": "t_tam",
+    "player_ids": [],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_tam",
+      "metric": "possession_time_based",
+      "before_start_ms": 0,
+      "before_end_ms": 600000,
+      "after_start_ms": 600000,
+      "after_end_ms": 1500000,
+      "before": 0.32,
+      "after": 0.639
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_tam",
+      "metric": "field_tilt",
+      "before_start_ms": 0,
+      "before_end_ms": 600000,
+      "after_start_ms": 600000,
+      "after_end_ms": 1500000,
+      "before": 0.372,
+      "after": 0.688
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_tam",
+      "metric": "ppda",
+      "before_start_ms": 0,
+      "before_end_ms": 600000,
+      "after_start_ms": 600000,
+      "after_end_ms": 1500000,
+      "before": 52.0,
+      "after": 40.0
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_tam",
+      "metric": "control_index",
+      "before_start_ms": 0,
+      "before_end_ms": 600000,
+      "after_start_ms": 600000,
+      "after_end_ms": 1500000,
+      "before": 58.4,
+      "after": 68.4
+     }
+    ],
+    "confidence": 0.9
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1438,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 6699,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 5,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1158,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_002",
+   "candidate": {
+    "candidate_id": "c_002",
+    "kind": "pressing_spell",
+    "t_ms": 2400000,
+    "team_id": "t_tam",
+    "player_id": null,
+    "window_start_ms": 1500000,
+    "window_end_ms": 2400000,
+    "score": 4.7,
+    "signals": [
+     {
+      "metric": "ppda",
+      "subject": "t_tam",
+      "expected": "down",
+      "window": 3.857,
+      "before": 46.0,
+      "z": 6.81,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_cal",
+      "expected": "down",
+      "window": 0.552,
+      "before": 0.775,
+      "z": 4.32,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_tam",
+      "expected": "up",
+      "window": 0.994,
+      "before": 0.538,
+      "z": 2.96,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "pressing_spell": 4.7,
+     "momentum_shift": 2.73
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_tam",
+      "expected": "down",
+      "window": 3.857,
+      "before": 46.0,
+      "z": 6.81,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_cal",
+      "expected": "down",
+      "window": 0.552,
+      "before": 0.775,
+      "z": 4.32,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_tam",
+      "expected": "up",
+      "window": 0.994,
+      "before": 0.538,
+      "z": 2.96,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "possession",
+      "subject": "t_tam",
+      "expected": "up",
+      "window": 0.802,
+      "before": 0.511,
+      "z": 2.5,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_tam",
+      "expected": "up",
+      "window": 27.313,
+      "before": 26.479,
+      "z": 0.59,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_tam",
+      "expected": "down",
+      "window": 0.929,
+      "before": 0.849,
+      "z": -1.59,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "width",
+      "subject": "t_tam",
+      "expected": "up",
+      "window": 16.334,
+      "before": 17.096,
+      "z": -0.59,
+      "above_noise_p95": false
+     }
+    ],
+    "key_events": [
+     {
+      "t_ms": 1680000,
+      "type": "sub",
+      "team_id": "t_tam",
+      "player_id": "p_tam_12",
+      "detail": "p_tam_23"
+     },
+     {
+      "t_ms": 1983700,
+      "type": "goal",
+      "team_id": "t_tam",
+      "player_id": null,
+      "detail": null
+     }
+    ]
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "pressing_spell",
+    "salience": 5,
+    "reason": "Tamhaven’s press surged hard, Calmore’s passing was disrupted, and the spell also lifted field tilt and possession before the goal."
+   },
+   "explanation": {
+    "claim": "Tamhaven Harriers cranked up a heavy press: their PPDA plunged from 40.0 to 3.9 and time-based possession rose from 63.9% to 80.2%, putting them in control. Calmore’s passing was disrupted — their pass completion fell from 73.8% to 55.2% — while Tamhaven owned final-third actions (field tilt 68.8%→99.4%).",
+    "mechanism_tag": "pressing_spell",
+    "team_id": "t_tam",
+    "player_ids": [
+     "p_tam_12"
+    ],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_tam",
+      "metric": "ppda",
+      "before_start_ms": 600000,
+      "before_end_ms": 1500000,
+      "after_start_ms": 1500000,
+      "after_end_ms": 2400000,
+      "before": 40.0,
+      "after": 3.86
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_cal",
+      "metric": "pass_completion",
+      "before_start_ms": 600000,
+      "before_end_ms": 1500000,
+      "after_start_ms": 1500000,
+      "after_end_ms": 2400000,
+      "before": 0.738,
+      "after": 0.552
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_tam",
+      "metric": "field_tilt",
+      "before_start_ms": 600000,
+      "before_end_ms": 1500000,
+      "after_start_ms": 1500000,
+      "after_end_ms": 2400000,
+      "before": 0.688,
+      "after": 0.994
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_tam",
+      "metric": "possession_time_based",
+      "before_start_ms": 600000,
+      "before_end_ms": 1500000,
+      "after_start_ms": 1500000,
+      "after_end_ms": 2400000,
+      "before": 0.639,
+      "after": 0.802
+     }
+    ],
+    "confidence": 0.9
+   },
+   "attempts": 2,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1241,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 8045,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 7,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1450,
+     "outcome": "rejected",
+     "detail": "The claim adds that Calmore’s passing decline was 'clearing the way for Tamhaven’s goal'; the evidence only shows metric changes and cannot contain a causal or event claim like that.; The claim says 'Tamhaven turned the screw' and refers to 'their PPDA' and 'their time-based possession' correctly fo"
+    },
+    {
+     "stage": "analyst#2",
+     "ms": 8696,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 11,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 995,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_003",
+   "candidate": {
+    "candidate_id": "c_003",
+    "kind": "player_arc",
+    "t_ms": 3960000,
+    "team_id": "t_tam",
+    "player_id": "p_tam_24",
+    "window_start_ms": 2880000,
+    "window_end_ms": 3960000,
+    "score": 3.23,
+    "signals": [
+     {
+      "metric": "progressive_passes",
+      "subject": "p_tam_24",
+      "expected": "up",
+      "window": 0.444,
+      "before": 0.083,
+      "z": 4.38,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "touches",
+      "subject": "p_tam_24",
+      "expected": "up",
+      "window": 1.667,
+      "before": 1.062,
+      "z": 2.07,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {},
+    "team_profile": [],
+    "key_events": [
+     {
+      "t_ms": 3668400,
+      "type": "sub",
+      "team_id": "t_tam",
+      "player_id": "p_tam_06",
+      "detail": "p_tam_17"
+     },
+     {
+      "t_ms": 3670200,
+      "type": "sub",
+      "team_id": "t_cal",
+      "player_id": "p_cal_11",
+      "detail": "p_cal_08"
+     }
+    ]
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "player_arc",
+    "salience": 3,
+    "reason": "Norham’s progressive passing and involvement rose sharply over the window, consistent with a meaningful individual midfield uptick rather than a team-wide swing."
+   },
+   "explanation": {
+    "claim": "Tamhaven’s Viktor Norham has become more influential: his progressive passes rose from 2 to 8 and his touches from 23 to 30, driving more forward control even as overall possession nudged down. That individual uptick coincides with Tamhaven’s control index rising from 52.1 to 71.2, increasing their ability to sustain dangerous possession.",
+    "mechanism_tag": "player_arc",
+    "team_id": "t_tam",
+    "player_ids": [
+     "p_tam_24"
+    ],
+    "evidence": [
+     {
+      "tool": "get_player_physical",
+      "subject": "p_tam_24",
+      "metric": "progressive_passes",
+      "before_start_ms": 1800000,
+      "before_end_ms": 2880000,
+      "after_start_ms": 2880000,
+      "after_end_ms": 3960000,
+      "before": 2.0,
+      "after": 8.0
+     },
+     {
+      "tool": "get_player_physical",
+      "subject": "p_tam_24",
+      "metric": "touches",
+      "before_start_ms": 1800000,
+      "before_end_ms": 2880000,
+      "after_start_ms": 2880000,
+      "after_end_ms": 3960000,
+      "before": 23.0,
+      "after": 30.0
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_tam",
+      "metric": "control_index",
+      "before_start_ms": 1800000,
+      "before_end_ms": 2880000,
+      "after_start_ms": 2880000,
+      "after_end_ms": 3960000,
+      "before": 52.1,
+      "after": 71.2
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_tam",
+      "metric": "possession_time_based",
+      "before_start_ms": 1800000,
+      "before_end_ms": 2880000,
+      "after_start_ms": 2880000,
+      "after_end_ms": 3960000,
+      "before": 0.77,
+      "after": 0.707
+     }
+    ],
+    "confidence": 0.9
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1181,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 8389,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 8,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1002,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_004",
+   "candidate": {
+    "candidate_id": "c_004",
+    "kind": "pressing_spell",
+    "t_ms": 4860000,
+    "team_id": "t_cal",
+    "player_id": null,
+    "window_start_ms": 3960000,
+    "window_end_ms": 4860000,
+    "score": 2.59,
+    "signals": [
+     {
+      "metric": "ppda",
+      "subject": "t_cal",
+      "expected": "down",
+      "window": 4.062,
+      "before": 12.278,
+      "z": 1.32,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_tam",
+      "expected": "down",
+      "window": 0.785,
+      "before": 0.888,
+      "z": 2.01,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_cal",
+      "expected": "up",
+      "window": 0.857,
+      "before": 0.172,
+      "z": 4.45,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "pressing_spell": 2.59
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_cal",
+      "expected": "down",
+      "window": 4.062,
+      "before": 12.278,
+      "z": 1.32,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_tam",
+      "expected": "down",
+      "window": 0.785,
+      "before": 0.888,
+      "z": 2.01,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_cal",
+      "expected": "up",
+      "window": 0.857,
+      "before": 0.172,
+      "z": 4.45,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "possession",
+      "subject": "t_cal",
+      "expected": "up",
+      "window": 0.479,
+      "before": 0.347,
+      "z": 1.13,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_cal",
+      "expected": "up",
+      "window": 28.909,
+      "before": 28.645,
+      "z": 0.22,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_cal",
+      "expected": "down",
+      "window": 0.791,
+      "before": 0.769,
+      "z": -0.44,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "width",
+      "subject": "t_cal",
+      "expected": "up",
+      "window": 16.19,
+      "before": 17.297,
+      "z": -0.88,
+      "above_noise_p95": false
+     }
+    ],
+    "key_events": [
+     {
+      "t_ms": 3668400,
+      "type": "sub",
+      "team_id": "t_tam",
+      "player_id": "p_tam_06",
+      "detail": "p_tam_17"
+     },
+     {
+      "t_ms": 3670200,
+      "type": "sub",
+      "team_id": "t_cal",
+      "player_id": "p_cal_11",
+      "detail": "p_cal_08"
+     },
+     {
+      "t_ms": 4271400,
+      "type": "goal",
+      "team_id": "t_cal",
+      "player_id": null,
+      "detail": null
+     },
+     {
+      "t_ms": 4397300,
+      "type": "sub",
+      "team_id": "t_tam",
+      "player_id": "p_tam_22",
+      "detail": "p_tam_16"
+     },
+     {
+      "t_ms": 4511300,
+      "type": "card",
+      "team_id": "t_cal",
+      "player_id": "p_cal_24",
+      "detail": "yellow"
+     },
+     {
+      "t_ms": 4775700,
+      "type": "sub",
+      "team_id": "t_cal",
+      "player_id": "p_cal_03",
+      "detail": "p_cal_17"
+     }
+    ]
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "pressing_spell",
+    "salience": 4,
+    "reason": "Calmore’s field tilt jumps sharply while Tamhaven’s pass completion drops, fitting a sustained high-press phase after the equaliser."
+   },
+   "explanation": {
+    "claim": "Calmore Town launched a sustained high press from 66'–81': their PPDA fell from 13.4 to 4.1 and time-based possession rose from 27.3% to 47.9%, while Tamhaven’s pass completion dropped from 89.8% to 78.5%. That surge drove Calmore’s field tilt to 85.7% and increased their xT added, creating a sustained attacking spell.",
+    "mechanism_tag": "pressing_spell",
+    "team_id": "t_cal",
+    "player_ids": [],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_cal",
+      "metric": "ppda",
+      "before_start_ms": 3060000,
+      "before_end_ms": 3960000,
+      "after_start_ms": 3960000,
+      "after_end_ms": 4860000,
+      "before": 13.4,
+      "after": 4.06
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_cal",
+      "metric": "field_tilt",
+      "before_start_ms": 3060000,
+      "before_end_ms": 3960000,
+      "after_start_ms": 3960000,
+      "after_end_ms": 4860000,
+      "before": 0.121,
+      "after": 0.857
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_tam",
+      "metric": "pass_completion",
+      "before_start_ms": 3060000,
+      "before_end_ms": 3960000,
+      "after_start_ms": 3960000,
+      "after_end_ms": 4860000,
+      "before": 0.898,
+      "after": 0.785
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_cal",
+      "metric": "xt_added",
+      "before_start_ms": 3060000,
+      "before_end_ms": 3960000,
+      "after_start_ms": 3960000,
+      "after_end_ms": 4860000,
+      "before": 0.005,
+      "after": 0.628
+     }
+    ],
+    "confidence": 0.9
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1252,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 7259,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 6,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 911,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_005",
+   "candidate": {
+    "candidate_id": "c_005",
+    "kind": "player_arc",
+    "t_ms": 5160000,
+    "team_id": "t_cal",
+    "player_id": "p_cal_06",
+    "window_start_ms": 4080000,
+    "window_end_ms": 5160000,
+    "score": 3.51,
+    "signals": [
+     {
+      "metric": "progressive_passes",
+      "subject": "p_cal_06",
+      "expected": "up",
+      "window": 0.5,
+      "before": 0.118,
+      "z": 4.64,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "touches",
+      "subject": "p_cal_06",
+      "expected": "up",
+      "window": 1.222,
+      "before": 0.529,
+      "z": 2.37,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {},
+    "team_profile": [],
+    "key_events": [
+     {
+      "t_ms": 4271400,
+      "type": "goal",
+      "team_id": "t_cal",
+      "player_id": null,
+      "detail": null
+     },
+     {
+      "t_ms": 4397300,
+      "type": "sub",
+      "team_id": "t_tam",
+      "player_id": "p_tam_22",
+      "detail": "p_tam_16"
+     },
+     {
+      "t_ms": 4511300,
+      "type": "card",
+      "team_id": "t_cal",
+      "player_id": "p_cal_24",
+      "detail": "yellow"
+     },
+     {
+      "t_ms": 4775700,
+      "type": "sub",
+      "team_id": "t_cal",
+      "player_id": "p_cal_03",
+      "detail": "p_cal_17"
+     },
+     {
+      "t_ms": 4865200,
+      "type": "card",
+      "team_id": "t_cal",
+      "player_id": "p_cal_26",
+      "detail": "yellow"
+     },
+     {
+      "t_ms": 4996200,
+      "type": "card",
+      "team_id": "t_cal",
+      "player_id": "p_cal_26",
+      "detail": "red"
+     },
+     {
+      "t_ms": 5061200,
+      "type": "sub",
+      "team_id": "t_cal",
+      "player_id": "p_cal_24",
+      "detail": "p_cal_19"
+     }
+    ]
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "player_arc",
+    "salience": 4,
+    "reason": "Sevberg’s progressive passing and involvement jump sharply over the window, and the late-game context plus Calmore’s red card fits a sustained player-led arc rather than noise."
+   },
+   "explanation": {
+    "claim": "Hugo Sevberg lifted Calmore’s play: his progressive passes rose from 2 to 9 and his touches from 9 to 22, making him the focal creator in the late window. That individual surge coincided with Calmore’s time-based possession rising from 25% to 52% and final-third activity jumping to 93%, so his involvement directly drove the team takeover.",
+    "mechanism_tag": "player_arc",
+    "team_id": "t_cal",
+    "player_ids": [
+     "p_cal_06",
+     "p_cal_24"
+    ],
+    "evidence": [
+     {
+      "tool": "get_player_physical",
+      "subject": "p_cal_06",
+      "metric": "progressive_passes",
+      "before_start_ms": 3000000,
+      "before_end_ms": 4080000,
+      "after_start_ms": 4080000,
+      "after_end_ms": 5160000,
+      "before": 2.0,
+      "after": 9.0
+     },
+     {
+      "tool": "get_player_physical",
+      "subject": "p_cal_06",
+      "metric": "touches",
+      "before_start_ms": 3000000,
+      "before_end_ms": 4080000,
+      "after_start_ms": 4080000,
+      "after_end_ms": 5160000,
+      "before": 9.0,
+      "after": 22.0
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_cal",
+      "metric": "possession_time_based",
+      "before_start_ms": 3000000,
+      "before_end_ms": 4080000,
+      "after_start_ms": 4080000,
+      "after_end_ms": 5160000,
+      "before": 0.25,
+      "after": 0.517
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_cal",
+      "metric": "field_tilt",
+      "before_start_ms": 3000000,
+      "before_end_ms": 4080000,
+      "after_start_ms": 4080000,
+      "after_end_ms": 5160000,
+      "before": 0.147,
+      "after": 0.925
+     }
+    ],
+    "confidence": 0.9
+   },
+   "attempts": 2,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1074,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 5493,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 7,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1128,
+     "outcome": "rejected",
+     "detail": "“Sustained pressure into Tamhaven’s box” is not supported by the provided evidence; there is no box-pressure or similar metric in the data."
+    },
+    {
+     "stage": "analyst#2",
+     "ms": 7467,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 8,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 846,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  }
+ ]
+}

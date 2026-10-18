@@ -1,0 +1,702 @@
+{
+ "run_id": "r_m_5003_8f522bbe",
+ "match_id": "m_5003",
+ "mode": "eval",
+ "kind": "recorded agent run",
+ "provider": "foundry",
+ "models": {
+  "fast": "gtf-fast",
+  "reasoning": "gtf-reasoning",
+  "reasoning_effort": "low"
+ },
+ "started_at": "2026-10-18T11:59:46.724870+00:00",
+ "wall_s": 33.2,
+ "candidates": 3,
+ "status_counts": {
+  "approved": 3
+ },
+ "budget_stopped": null,
+ "usage": {
+  "provider": "foundry",
+  "calls": 9,
+  "tokens_in": 16008,
+  "tokens_out": 3070,
+  "cost_eur": 0.01243,
+  "estimated": false,
+  "by_agent": {
+   "detector": {
+    "calls": 3,
+    "tokens_in": 3320,
+    "tokens_out": 172,
+    "eur": 0.00316
+   },
+   "analyst": {
+    "calls": 3,
+    "tokens_in": 10218,
+    "tokens_out": 2847,
+    "eur": 0.00726
+   },
+   "verifier": {
+    "calls": 3,
+    "tokens_in": 2470,
+    "tokens_out": 51,
+    "eur": 0.00202
+   }
+  }
+ },
+ "calls": [
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1016,
+   "tokens_out": 54,
+   "reasoning_tokens": 0,
+   "latency_ms": 1250,
+   "cost_eur": 0.0009728346,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3140,
+   "tokens_out": 863,
+   "reasoning_tokens": 320,
+   "latency_ms": 6809,
+   "cost_eur": 0.0022095937,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 802,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1437,
+   "cost_eur": 0.0006563023,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 934,
+   "tokens_out": 58,
+   "reasoning_tokens": 0,
+   "latency_ms": 1089,
+   "cost_eur": 0.0009307262,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3511,
+   "tokens_out": 924,
+   "reasoning_tokens": 384,
+   "latency_ms": 7611,
+   "cost_eur": 0.0023985675999999997,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 844,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1023,
+   "cost_eur": 0.0006867943,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1370,
+   "tokens_out": 60,
+   "reasoning_tokens": 0,
+   "latency_ms": 1337,
+   "cost_eur": 0.001255974,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3567,
+   "tokens_out": 1060,
+   "reasoning_tokens": 512,
+   "latency_ms": 8697,
+   "cost_eur": 0.002650234,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 824,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1140,
+   "cost_eur": 0.0006722742999999999,
+   "estimated": false
+  }
+ ],
+ "moments": [
+  {
+   "moment_id": "mo_001",
+   "candidate": {
+    "candidate_id": "c_001",
+    "kind": "pressing_spell",
+    "t_ms": 1500000,
+    "team_id": "t_ros",
+    "player_id": null,
+    "window_start_ms": 600000,
+    "window_end_ms": 1500000,
+    "score": 3.56,
+    "signals": [
+     {
+      "metric": "ppda",
+      "subject": "t_ros",
+      "expected": "down",
+      "window": 3.889,
+      "before": 24.5,
+      "z": 3.32,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_hol",
+      "expected": "down",
+      "window": 0.706,
+      "before": 0.923,
+      "z": 4.21,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_ros",
+      "expected": "up",
+      "window": 0.656,
+      "before": 0.172,
+      "z": 3.15,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "pressing_spell": 3.56,
+     "momentum_shift": 2.66
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_ros",
+      "expected": "down",
+      "window": 3.889,
+      "before": 24.5,
+      "z": 3.32,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_hol",
+      "expected": "down",
+      "window": 0.706,
+      "before": 0.923,
+      "z": 4.21,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_ros",
+      "expected": "up",
+      "window": 0.656,
+      "before": 0.172,
+      "z": 3.15,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "possession",
+      "subject": "t_ros",
+      "expected": "up",
+      "window": 0.62,
+      "before": 0.366,
+      "z": 2.18,
+      "above_noise_p95": true
+     }
+    ],
+    "key_events": []
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "pressing_spell",
+    "salience": 4,
+    "reason": "Roshaven show a clear sustained press with much lower PPDA, higher field tilt and reduced Holmore passing accuracy."
+   },
+   "explanation": {
+    "claim": "Roshaven Borough ramped up a sustained press: their PPDA collapsed from 24.5 to 3.9 while Holmore Harriers' pass completion dropped from 92% to 71%. As a result Roshaven's field tilt rose from 17% to 66% and they held 62% time-based possession — Holmore lost control.",
+    "mechanism_tag": "pressing_spell",
+    "team_id": "t_ros",
+    "player_ids": [],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ros",
+      "metric": "ppda",
+      "before_start_ms": 0,
+      "before_end_ms": 600000,
+      "after_start_ms": 600000,
+      "after_end_ms": 1500000,
+      "before": 24.5,
+      "after": 3.89
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_hol",
+      "metric": "pass_completion",
+      "before_start_ms": 0,
+      "before_end_ms": 600000,
+      "after_start_ms": 600000,
+      "after_end_ms": 1500000,
+      "before": 0.923,
+      "after": 0.706
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ros",
+      "metric": "field_tilt",
+      "before_start_ms": 0,
+      "before_end_ms": 600000,
+      "after_start_ms": 600000,
+      "after_end_ms": 1500000,
+      "before": 0.172,
+      "after": 0.656
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ros",
+      "metric": "possession_time_based",
+      "before_start_ms": 0,
+      "before_end_ms": 600000,
+      "after_start_ms": 600000,
+      "after_end_ms": 1500000,
+      "before": 0.366,
+      "after": 0.62
+     }
+    ],
+    "confidence": 0.9
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1251,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 6810,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 8,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1438,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_002",
+   "candidate": {
+    "candidate_id": "c_002",
+    "kind": "player_arc",
+    "t_ms": 4080000,
+    "team_id": "t_ros",
+    "player_id": "p_ros_08",
+    "window_start_ms": 3000000,
+    "window_end_ms": 4080000,
+    "score": 3.12,
+    "signals": [
+     {
+      "metric": "progressive_passes",
+      "subject": "p_ros_08",
+      "expected": "up",
+      "window": 0.556,
+      "before": 0.22,
+      "z": 4.07,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "touches",
+      "subject": "p_ros_08",
+      "expected": "up",
+      "window": 1.556,
+      "before": 0.92,
+      "z": 2.18,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {},
+    "team_profile": [],
+    "key_events": [
+     {
+      "t_ms": 2970000,
+      "type": "card",
+      "team_id": "t_hol",
+      "player_id": "p_hol_10",
+      "detail": "yellow"
+     },
+     {
+      "t_ms": 3586400,
+      "type": "card",
+      "team_id": "t_ros",
+      "player_id": "p_ros_18",
+      "detail": "yellow"
+     }
+    ]
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "player_arc",
+    "salience": 3,
+    "reason": "Hugo Normore’s progressive passing and involvement rose sharply over the window, which fits a clear individual uptick rather than a broad team swing."
+   },
+   "explanation": {
+    "claim": "Hugo Normore’s involvement jumped: his progressive passes rose from 4 to 10 and touches from 15 to 28, and Roshaven’s time-based possession went from 48.1% to 64.4% with final-third share up from 35.0% to 56.7%. That individual uptick is driving Roshaven’s increased attacking platform in the 65th minute.",
+    "mechanism_tag": "player_arc",
+    "team_id": "t_ros",
+    "player_ids": [
+     "p_ros_08"
+    ],
+    "evidence": [
+     {
+      "tool": "get_player_physical",
+      "subject": "p_ros_08",
+      "metric": "progressive_passes",
+      "before_start_ms": 1920000,
+      "before_end_ms": 3000000,
+      "after_start_ms": 3000000,
+      "after_end_ms": 4080000,
+      "before": 4.0,
+      "after": 10.0
+     },
+     {
+      "tool": "get_player_physical",
+      "subject": "p_ros_08",
+      "metric": "touches",
+      "before_start_ms": 1920000,
+      "before_end_ms": 3000000,
+      "after_start_ms": 3000000,
+      "after_end_ms": 4080000,
+      "before": 15.0,
+      "after": 28.0
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ros",
+      "metric": "possession_time_based",
+      "before_start_ms": 1920000,
+      "before_end_ms": 3000000,
+      "after_start_ms": 3000000,
+      "after_end_ms": 4080000,
+      "before": 0.481,
+      "after": 0.644
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ros",
+      "metric": "field_tilt",
+      "before_start_ms": 1920000,
+      "before_end_ms": 3000000,
+      "after_start_ms": 3000000,
+      "after_end_ms": 4080000,
+      "before": 0.35,
+      "after": 0.567
+     }
+    ],
+    "confidence": 0.9
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1089,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 7611,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 15,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1024,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_003",
+   "candidate": {
+    "candidate_id": "c_003",
+    "kind": "pressing_spell",
+    "t_ms": 4680000,
+    "team_id": "t_ros",
+    "player_id": null,
+    "window_start_ms": 3780000,
+    "window_end_ms": 4680000,
+    "score": 1.25,
+    "signals": [
+     {
+      "metric": "ppda",
+      "subject": "t_ros",
+      "expected": "down",
+      "window": 11.8,
+      "before": 8.478,
+      "z": -0.55,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_hol",
+      "expected": "down",
+      "window": 0.75,
+      "before": 0.841,
+      "z": 1.77,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_ros",
+      "expected": "up",
+      "window": 0.87,
+      "before": 0.482,
+      "z": 2.52,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "pressing_spell": 1.25
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_ros",
+      "expected": "down",
+      "window": 11.8,
+      "before": 8.478,
+      "z": -0.55,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_hol",
+      "expected": "down",
+      "window": 0.75,
+      "before": 0.841,
+      "z": 1.77,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_ros",
+      "expected": "up",
+      "window": 0.87,
+      "before": 0.482,
+      "z": 2.52,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "possession",
+      "subject": "t_ros",
+      "expected": "up",
+      "window": 0.576,
+      "before": 0.529,
+      "z": 0.4,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_ros",
+      "expected": "up",
+      "window": 25.316,
+      "before": 25.179,
+      "z": 0.14,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_ros",
+      "expected": "down",
+      "window": 0.917,
+      "before": 0.89,
+      "z": -0.53,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "width",
+      "subject": "t_ros",
+      "expected": "up",
+      "window": 14.66,
+      "before": 13.945,
+      "z": 0.66,
+      "above_noise_p95": false
+     }
+    ],
+    "key_events": [
+     {
+      "t_ms": 3586400,
+      "type": "card",
+      "team_id": "t_ros",
+      "player_id": "p_ros_18",
+      "detail": "yellow"
+     },
+     {
+      "t_ms": 4140600,
+      "type": "sub",
+      "team_id": "t_ros",
+      "player_id": "p_ros_04",
+      "detail": "p_ros_24"
+     },
+     {
+      "t_ms": 4191100,
+      "type": "sub",
+      "team_id": "t_hol",
+      "player_id": "p_hol_18",
+      "detail": "p_hol_20"
+     },
+     {
+      "t_ms": 4368700,
+      "type": "goal",
+      "team_id": "t_ros",
+      "player_id": null,
+      "detail": null
+     },
+     {
+      "t_ms": 4673400,
+      "type": "sub",
+      "team_id": "t_hol",
+      "player_id": "p_hol_24",
+      "detail": "p_hol_25"
+     }
+    ]
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "momentum_shift",
+    "salience": 4,
+    "reason": "Roshaven’s field tilt rises sharply and Holmore’s passing drops around the goal, pointing to a real late territorial swing rather than pure pressing."
+   },
+   "explanation": {
+    "claim": "After Roshaven’s 73rd-minute goal they seized territorial control — final-third actions rose to 87% from 55.6% and their threat (xT added) jumped to 0.263 from 0.033. Holmore’s control fell (46.8 from 55.3) and pass completion dropped to 75%, so Roshaven are driving the game now.",
+    "mechanism_tag": "momentum_shift",
+    "team_id": "t_ros",
+    "player_ids": [],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ros",
+      "metric": "field_tilt",
+      "before_start_ms": 2880000,
+      "before_end_ms": 3780000,
+      "after_start_ms": 3780000,
+      "after_end_ms": 4680000,
+      "before": 0.556,
+      "after": 0.87
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ros",
+      "metric": "xt_added",
+      "before_start_ms": 2880000,
+      "before_end_ms": 3780000,
+      "after_start_ms": 3780000,
+      "after_end_ms": 4680000,
+      "before": 0.033,
+      "after": 0.263
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_hol",
+      "metric": "pass_completion",
+      "before_start_ms": 2880000,
+      "before_end_ms": 3780000,
+      "after_start_ms": 3780000,
+      "after_end_ms": 4680000,
+      "before": 0.804,
+      "after": 0.75
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_hol",
+      "metric": "control_index",
+      "before_start_ms": 2880000,
+      "before_end_ms": 3780000,
+      "after_start_ms": 3780000,
+      "after_end_ms": 4680000,
+      "before": 55.3,
+      "after": 46.8
+     }
+    ],
+    "confidence": 0.8
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1337,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 8698,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 10,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1140,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  }
+ ]
+}

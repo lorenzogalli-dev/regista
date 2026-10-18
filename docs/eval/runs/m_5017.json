@@ -1,0 +1,805 @@
+{
+ "run_id": "r_m_5017_3b2b16ad",
+ "match_id": "m_5017",
+ "mode": "eval",
+ "kind": "recorded agent run",
+ "provider": "foundry",
+ "models": {
+  "fast": "gtf-fast",
+  "reasoning": "gtf-reasoning",
+  "reasoning_effort": "low"
+ },
+ "started_at": "2026-10-18T12:09:01.757418+00:00",
+ "wall_s": 37.7,
+ "candidates": 3,
+ "status_counts": {
+  "approved": 3
+ },
+ "budget_stopped": null,
+ "usage": {
+  "provider": "foundry",
+  "calls": 11,
+  "tokens_in": 20392,
+  "tokens_out": 3730,
+  "cost_eur": 0.0152,
+  "estimated": false,
+  "by_agent": {
+   "detector": {
+    "calls": 3,
+    "tokens_in": 3568,
+    "tokens_out": 175,
+    "eur": 0.00335
+   },
+   "analyst": {
+    "calls": 4,
+    "tokens_in": 13635,
+    "tokens_out": 3448,
+    "eur": 0.00907
+   },
+   "verifier": {
+    "calls": 4,
+    "tokens_in": 3189,
+    "tokens_out": 107,
+    "eur": 0.00278
+   }
+  }
+ },
+ "calls": [
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1237,
+   "tokens_out": 60,
+   "reasoning_tokens": 0,
+   "latency_ms": 2401,
+   "cost_eur": 0.001159416,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3426,
+   "tokens_out": 685,
+   "reasoning_tokens": 320,
+   "latency_ms": 5269,
+   "cost_eur": 0.0019592515,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 764,
+   "tokens_out": 56,
+   "reasoning_tokens": 0,
+   "latency_ms": 1255,
+   "cost_eur": 0.0007985943999999999,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3472,
+   "tokens_out": 875,
+   "reasoning_tokens": 512,
+   "latency_ms": 6024,
+   "cost_eur": 0.0023037525000000002,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 820,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 966,
+   "cost_eur": 0.0006693703,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1191,
+   "tokens_out": 57,
+   "reasoning_tokens": 0,
+   "latency_ms": 1262,
+   "cost_eur": 0.0011129522999999998,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3393,
+   "tokens_out": 1062,
+   "reasoning_tokens": 512,
+   "latency_ms": 7105,
+   "cost_eur": 0.0026154738,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 838,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1333,
+   "cost_eur": 0.0006824383,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1140,
+   "tokens_out": 58,
+   "reasoning_tokens": 0,
+   "latency_ms": 1301,
+   "cost_eur": 0.0010802822000000002,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3344,
+   "tokens_out": 826,
+   "reasoning_tokens": 512,
+   "latency_ms": 6830,
+   "cost_eur": 0.0021893574,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 767,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1104,
+   "cost_eur": 0.0006308923,
+   "estimated": false
+  }
+ ],
+ "moments": [
+  {
+   "moment_id": "mo_001",
+   "candidate": {
+    "candidate_id": "c_001",
+    "kind": "momentum_shift",
+    "t_ms": 2280000,
+    "team_id": "t_qua",
+    "player_id": null,
+    "window_start_ms": 1380000,
+    "window_end_ms": 2280000,
+    "score": 2.21,
+    "signals": [
+     {
+      "metric": "possession",
+      "subject": "t_qua",
+      "expected": "up",
+      "window": 0.753,
+      "before": 0.514,
+      "z": 2.05,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_qua",
+      "expected": "up",
+      "window": 0.938,
+      "before": 0.575,
+      "z": 2.36,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "momentum_shift": 2.21
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_qua",
+      "expected": "down",
+      "window": 4.143,
+      "before": 6.7,
+      "z": 0.4,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_dra",
+      "expected": "down",
+      "window": 0.722,
+      "before": 0.61,
+      "z": -2.17,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_qua",
+      "expected": "up",
+      "window": 0.938,
+      "before": 0.575,
+      "z": 2.36,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "possession",
+      "subject": "t_qua",
+      "expected": "up",
+      "window": 0.753,
+      "before": 0.514,
+      "z": 2.05,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_qua",
+      "expected": "up",
+      "window": 27.426,
+      "before": 30.648,
+      "z": -2.06,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_qua",
+      "expected": "down",
+      "window": 0.939,
+      "before": 0.724,
+      "z": -4.27,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "width",
+      "subject": "t_qua",
+      "expected": "up",
+      "window": 15.878,
+      "before": 17.94,
+      "z": -1.69,
+      "above_noise_p95": false
+     }
+    ],
+    "key_events": [
+     {
+      "t_ms": 1500200,
+      "type": "sub",
+      "team_id": "t_qua",
+      "player_id": "p_qua_02",
+      "detail": "p_qua_06"
+     },
+     {
+      "t_ms": 1606000,
+      "type": "goal",
+      "team_id": "t_qua",
+      "player_id": null,
+      "detail": null
+     },
+     {
+      "t_ms": 1925400,
+      "type": "goal",
+      "team_id": "t_qua",
+      "player_id": null,
+      "detail": null
+     },
+     {
+      "t_ms": 2163800,
+      "type": "goal",
+      "team_id": "t_qua",
+      "player_id": null,
+      "detail": null
+     }
+    ]
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "momentum_shift",
+    "salience": 4,
+    "reason": "Quarhurst’s possession and field tilt rose together well above their earlier level, and a stretch of goals supports a sustained control swing rather than noise."
+   },
+   "explanation": {
+    "claim": "Quarhurst Mariners seized control: time-based possession rose from 60% to 75% and field tilt climbed from 72% to 94%, a clear takeover of the match. That control translated into chances — xT added jumped from 0.103 to 0.537 — while Draford’s possession fell from 40% to 25%.",
+    "mechanism_tag": "momentum_shift",
+    "team_id": "t_qua",
+    "player_ids": [],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_qua",
+      "metric": "possession_time_based",
+      "before_start_ms": 480000,
+      "before_end_ms": 1380000,
+      "after_start_ms": 1380000,
+      "after_end_ms": 2280000,
+      "before": 0.596,
+      "after": 0.753
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_qua",
+      "metric": "field_tilt",
+      "before_start_ms": 480000,
+      "before_end_ms": 1380000,
+      "after_start_ms": 1380000,
+      "after_end_ms": 2280000,
+      "before": 0.721,
+      "after": 0.938
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_qua",
+      "metric": "xt_added",
+      "before_start_ms": 480000,
+      "before_end_ms": 1380000,
+      "after_start_ms": 1380000,
+      "after_end_ms": 2280000,
+      "before": 0.103,
+      "after": 0.537
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_dra",
+      "metric": "possession_time_based",
+      "before_start_ms": 480000,
+      "before_end_ms": 1380000,
+      "after_start_ms": 1380000,
+      "after_end_ms": 2280000,
+      "before": 0.404,
+      "after": 0.247
+     }
+    ],
+    "confidence": 0.8
+   },
+   "attempts": 2,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 2401,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 5270,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 9,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1256,
+     "outcome": "rejected",
+     "detail": "The claim says they turned that control into chances and goals, but the evidence only shows possession, field tilt, and xT added; it does not contain any goal or chance conversion fact."
+    },
+    {
+     "stage": "analyst#2",
+     "ms": 6026,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 9,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 967,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_002",
+   "candidate": {
+    "candidate_id": "c_002",
+    "kind": "pressing_spell",
+    "t_ms": 3480000,
+    "team_id": "t_dra",
+    "player_id": null,
+    "window_start_ms": 2580000,
+    "window_end_ms": 3480000,
+    "score": 2.19,
+    "signals": [
+     {
+      "metric": "ppda",
+      "subject": "t_dra",
+      "expected": "down",
+      "window": 5.357,
+      "before": 28.25,
+      "z": 3.69,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_qua",
+      "expected": "down",
+      "window": 0.788,
+      "before": 0.83,
+      "z": 0.82,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_dra",
+      "expected": "up",
+      "window": 0.463,
+      "before": 0.147,
+      "z": 2.05,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "pressing_spell": 2.19
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_dra",
+      "expected": "down",
+      "window": 5.357,
+      "before": 28.25,
+      "z": 3.69,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_qua",
+      "expected": "down",
+      "window": 0.788,
+      "before": 0.83,
+      "z": 0.82,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_dra",
+      "expected": "up",
+      "window": 0.463,
+      "before": 0.147,
+      "z": 2.05,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "possession",
+      "subject": "t_dra",
+      "expected": "up",
+      "window": 0.396,
+      "before": 0.363,
+      "z": 0.28,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_dra",
+      "expected": "up",
+      "window": 26.029,
+      "before": 27.26,
+      "z": -0.76,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_dra",
+      "expected": "down",
+      "window": 0.694,
+      "before": 0.634,
+      "z": -1.2,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "width",
+      "subject": "t_dra",
+      "expected": "up",
+      "window": 15.786,
+      "before": 17.546,
+      "z": -1.43,
+      "above_noise_p95": false
+     }
+    ],
+    "key_events": [
+     {
+      "t_ms": 2698100,
+      "type": "card",
+      "team_id": "t_dra",
+      "player_id": "p_dra_06",
+      "detail": "yellow"
+     }
+    ]
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "pressing_spell",
+    "salience": 4,
+    "reason": "Draford’s press intensified sharply and they won the ball higher up the pitch, with a nearby booking fitting a more aggressive phase."
+   },
+   "explanation": {
+    "claim": "Draford Town began pressing much harder: their PPDA fell from 8.0 to 5.4 and their time-based possession rose from 19.7% to 39.6%. That press won them more final-third action (field tilt 0.0% → 46.3%) and cut Quarhurst’s possession from 80.3% to 60.4%, so the game fronted up.",
+    "mechanism_tag": "pressing_spell",
+    "team_id": "t_dra",
+    "player_ids": [],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_dra",
+      "metric": "ppda",
+      "before_start_ms": 1680000,
+      "before_end_ms": 2580000,
+      "after_start_ms": 2580000,
+      "after_end_ms": 3480000,
+      "before": 8.0,
+      "after": 5.36
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_dra",
+      "metric": "possession_time_based",
+      "before_start_ms": 1680000,
+      "before_end_ms": 2580000,
+      "after_start_ms": 2580000,
+      "after_end_ms": 3480000,
+      "before": 0.197,
+      "after": 0.396
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_dra",
+      "metric": "field_tilt",
+      "before_start_ms": 1680000,
+      "before_end_ms": 2580000,
+      "after_start_ms": 2580000,
+      "after_end_ms": 3480000,
+      "before": 0.0,
+      "after": 0.463
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_qua",
+      "metric": "possession_time_based",
+      "before_start_ms": 1680000,
+      "before_end_ms": 2580000,
+      "after_start_ms": 2580000,
+      "after_end_ms": 3480000,
+      "before": 0.803,
+      "after": 0.604
+     }
+    ],
+    "confidence": 0.9
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1262,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 7106,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 7,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1333,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_003",
+   "candidate": {
+    "candidate_id": "c_003",
+    "kind": "pressing_spell",
+    "t_ms": 4380000,
+    "team_id": "t_dra",
+    "player_id": null,
+    "window_start_ms": 3480000,
+    "window_end_ms": 4380000,
+    "score": 0.81,
+    "signals": [
+     {
+      "metric": "ppda",
+      "subject": "t_dra",
+      "expected": "down",
+      "window": 18.5,
+      "before": 10.444,
+      "z": -1.31,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_qua",
+      "expected": "down",
+      "window": 0.725,
+      "before": 0.819,
+      "z": 1.83,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_dra",
+      "expected": "up",
+      "window": 0.5,
+      "before": 0.206,
+      "z": 1.92,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "pressing_spell": 0.81
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_dra",
+      "expected": "down",
+      "window": 18.5,
+      "before": 10.444,
+      "z": -1.31,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_qua",
+      "expected": "down",
+      "window": 0.725,
+      "before": 0.819,
+      "z": 1.83,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_dra",
+      "expected": "up",
+      "window": 0.5,
+      "before": 0.206,
+      "z": 1.92,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "possession",
+      "subject": "t_dra",
+      "expected": "up",
+      "window": 0.528,
+      "before": 0.372,
+      "z": 1.34,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_dra",
+      "expected": "up",
+      "window": 27.339,
+      "before": 26.726,
+      "z": 0.45,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_dra",
+      "expected": "down",
+      "window": 0.738,
+      "before": 0.657,
+      "z": -1.61,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "width",
+      "subject": "t_dra",
+      "expected": "up",
+      "window": 14.444,
+      "before": 17.018,
+      "z": -2.12,
+      "above_noise_p95": false
+     }
+    ],
+    "key_events": []
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "pressing_spell",
+    "salience": 3,
+    "reason": "Draford’s field tilt and the opponent’s pass completion both move in the pressing direction, even if the PPDA signal is muted."
+   },
+   "explanation": {
+    "claim": "Draford Town has started to take the ball and push higher: time-based possession rose from 39.6% to 52.8% and their field tilt rose to 50.0%. Quarhurst’s pass completion fell from 78.8% to 72.5%, so Draford’s higher pressure is reducing Quarhurst’s ball control and could generate scoring openings.",
+    "mechanism_tag": "pressing_spell",
+    "team_id": "t_dra",
+    "player_ids": [],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_dra",
+      "metric": "possession_time_based",
+      "before_start_ms": 2580000,
+      "before_end_ms": 3480000,
+      "after_start_ms": 3480000,
+      "after_end_ms": 4380000,
+      "before": 0.396,
+      "after": 0.528
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_dra",
+      "metric": "field_tilt",
+      "before_start_ms": 2580000,
+      "before_end_ms": 3480000,
+      "after_start_ms": 3480000,
+      "after_end_ms": 4380000,
+      "before": 0.463,
+      "after": 0.5
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_qua",
+      "metric": "pass_completion",
+      "before_start_ms": 2580000,
+      "before_end_ms": 3480000,
+      "after_start_ms": 3480000,
+      "after_end_ms": 4380000,
+      "before": 0.788,
+      "after": 0.725
+     }
+    ],
+    "confidence": 0.6
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1301,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 6831,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 11,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1105,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  }
+ ]
+}

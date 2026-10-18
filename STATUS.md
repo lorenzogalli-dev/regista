@@ -10,6 +10,7 @@ Last updated: 2026-10-18. This file can drift: check the real state (run it, que
   - Timing: ~3.5 s simulate + ~2.2 s write per full match (macOS ARM).
 
 ## In progress
+- D4 evaluation done (2026-10-18): official run once on 20 eval + 10 control seeds (`docs/eval/`): recall 52 %, evidence validity 100 %, 0 unsupported of 81 approved, precision 43 %, precision@3 48 %, 1.8 approved per control match (all evidence-backed), Verifier rejections 15 %, candidate → approval p50 9.5 s.
 - D2.0 storyline signal check done (2026-10-18), official table in `docs/signal_check.md`.
   - Three strengthening rounds tuned on 2000–2099; first judged run on 2100–2199 (`docs/signal_check_2100.md`, superseded).
   - Criterion changed after that run (approved): robust z (median/MAD) for all types; official check run once on the final simulator, seeds 2300–2399 (noise holdout 2400–2449).
@@ -46,7 +47,9 @@ Cumulative cap 8 EUR (ledger `data/runs/foundry_ledger.jsonl`, local). Prices: A
 | 2026-10-18 | Dev round 4: names → ids, Detector keeps player arcs; 20 dev matches (1000-1019) | 0.53 (0.37–0.80) | 0.268 | tuning 1000-1009: recall 65 %, precision 48 %; held-out 1010-1019: recall 52 %, precision 41 % |
 | 2026-10-18 | Full pipeline, 3 dev matches (captions, personas, Director) | 0.16 (0.11–0.24) | 0.070 | persona invented a scorer; texts cut by schema limits |
 | 2026-10-18 | Full pipeline after text check + glossary, same 3 matches | ~0.07 (from previous actual) | 0.073 | no invented facts, no cut texts |
-| | **Cumulative** | | **0.83** | cap 8 EUR |
+| 2026-10-18 | Dev report, final config, 20 dev matches | 0.53 | 0.281 | recall 51 %, precision 38 %, P@3 44 %, 0 unsupported |
+| 2026-10-18 | **Official eval**, 20 eval + 10 control, once | 0.73 (0.51–1.09) | 0.385 | see README / docs/eval |
+| | **Cumulative** | | **1.50** | cap 8 EUR |
 
 ## Blocked
 - Nothing.

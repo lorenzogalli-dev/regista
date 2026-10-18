@@ -95,6 +95,39 @@ The provider is an env switch (`MODEL_PROVIDER=fake | openai | foundry`, see `.e
 Every run records tokens, latency and cost per call and stops at `RUN_BUDGET_EUR`; Foundry runs
 also respect a cumulative cap (`FOUNDRY_TOTAL_CAP_EUR`) kept in a local spend ledger.
 
+## Evaluation
+
+Run once, on seeds never used for tuning: 20 eval matches (44 hidden storylines) and 10 control
+matches with no storylines. Models: gpt-5.4-mini (Detector, Verifier) and gpt-5-mini (Analyst,
+low reasoning effort) on Microsoft Foundry; 282 model calls, 0.39 EUR. Full report:
+`docs/eval/report.html`, raw numbers `docs/eval/report.json`, and every recorded run in
+`docs/eval/runs/`.
+
+| Metric | Result |
+|---|---|
+| Storyline recall (approved explanation in the window ± 3 min, right team/player, right mechanism) | **52 %** (23 / 44) |
+| Recall by type | tactical switch 6/8 · player arc 7/9 (rated *difficult* by the signal check) · momentum shift 6/12 · pressing spell 4/15 |
+| Evidence validity (every cited number recomputed by a second, independent code path) | **100 %** (267 checked, 45 not independently checkable) |
+| Approved explanations with unsupported evidence | **0** of 81 |
+| Precision (approved explanations that match a planted storyline) | 43 % |
+| Precision@3 (the three moments per match the Director airs) | 48 % |
+| Approved explanations per control match (no storylines planted) | 1.8 |
+| Verifier rejections (claim sent back to the Analyst at least once) | 15 % |
+| Latency p50 / p95: Detector · Analyst · Verifier (text) · candidate → approval | 1.3 / 2.0 s · 6.8 / 9.1 s · 1.1 / 1.5 s · 9.5 / 17.3 s |
+
+How to read precision: every approved explanation that does not match a planted storyline still
+cites numbers that the independent recomputation confirms. They are **unplanted but
+evidence-backed** patterns (54 of 81): real swings in the simulated match, such as a spell of
+possession, that nobody scripted. They are not hallucinations; the metric counts them as misses
+only because the evaluation can score against planted storylines alone. The same holds for the
+control matches: the 1.8 explanations per match describe real fluctuations, with valid
+evidence. What the system does not do is state numbers the data does not support.
+
+Known limits: about a quarter of storylines produce no candidate from the code pre-filter;
+pressing spells are often confused with momentum swings (both raise field tilt); and ordinary
+fluctuations of the simulator are as strong and as persistent as planted ones, so the code
+cannot separate them (checked on dev seeds).
+
 ## Front-end (web/)
 
 Broadcast graphics follow `DESIGN.md` ("Verified on air"). Routes:

@@ -1,0 +1,570 @@
+{
+ "run_id": "r_m_9002_d9be4664",
+ "match_id": "m_9002",
+ "mode": "eval",
+ "kind": "recorded agent run",
+ "provider": "foundry",
+ "models": {
+  "fast": "gtf-fast",
+  "reasoning": "gtf-reasoning",
+  "reasoning_effort": "low"
+ },
+ "started_at": "2026-10-18T12:11:09.468134+00:00",
+ "wall_s": 28.7,
+ "candidates": 3,
+ "status_counts": {
+  "approved": 3
+ },
+ "budget_stopped": null,
+ "usage": {
+  "provider": "foundry",
+  "calls": 9,
+  "tokens_in": 15104,
+  "tokens_out": 2600,
+  "cost_eur": 0.01105,
+  "estimated": false,
+  "by_agent": {
+   "detector": {
+    "calls": 3,
+    "tokens_in": 2778,
+    "tokens_out": 163,
+    "eur": 0.00273
+   },
+   "analyst": {
+    "calls": 3,
+    "tokens_in": 9967,
+    "tokens_out": 2386,
+    "eur": 0.00639
+   },
+   "verifier": {
+    "calls": 3,
+    "tokens_in": 2359,
+    "tokens_out": 51,
+    "eur": 0.00193
+   }
+  }
+ },
+ "calls": [
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1028,
+   "tokens_out": 53,
+   "reasoning_tokens": 0,
+   "latency_ms": 1419,
+   "cost_eur": 0.0009771907,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3157,
+   "tokens_out": 726,
+   "reasoning_tokens": 320,
+   "latency_ms": 5558,
+   "cost_eur": 0.0019722274,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 749,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1314,
+   "cost_eur": 0.0006178243,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 887,
+   "tokens_out": 55,
+   "reasoning_tokens": 0,
+   "latency_ms": 1135,
+   "cost_eur": 0.0008835364999999999,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3382,
+   "tokens_out": 823,
+   "reasoning_tokens": 448,
+   "latency_ms": 7172,
+   "cost_eur": 0.0021924377,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 774,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 986,
+   "cost_eur": 0.0006359743,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 863,
+   "tokens_out": 55,
+   "reasoning_tokens": 0,
+   "latency_ms": 1246,
+   "cost_eur": 0.0008661125,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3428,
+   "tokens_out": 837,
+   "reasoning_tokens": 256,
+   "latency_ms": 6106,
+   "cost_eur": 0.0022271963,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 836,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 964,
+   "cost_eur": 0.0006809863000000001,
+   "estimated": false
+  }
+ ],
+ "moments": [
+  {
+   "moment_id": "mo_001",
+   "candidate": {
+    "candidate_id": "c_001",
+    "kind": "momentum_shift",
+    "t_ms": 1500000,
+    "team_id": "t_wil",
+    "player_id": null,
+    "window_start_ms": 600000,
+    "window_end_ms": 1500000,
+    "score": 1.79,
+    "signals": [
+     {
+      "metric": "possession",
+      "subject": "t_wil",
+      "expected": "up",
+      "window": 0.447,
+      "before": 0.248,
+      "z": 1.71,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_wil",
+      "expected": "up",
+      "window": 0.594,
+      "before": 0.308,
+      "z": 1.86,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "momentum_shift": 1.79
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_wil",
+      "expected": "down",
+      "window": 10.4,
+      "before": 7.333,
+      "z": -0.51,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_dun",
+      "expected": "down",
+      "window": 0.791,
+      "before": 0.811,
+      "z": 0.4,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_wil",
+      "expected": "up",
+      "window": 0.594,
+      "before": 0.308,
+      "z": 1.86,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "possession",
+      "subject": "t_wil",
+      "expected": "up",
+      "window": 0.447,
+      "before": 0.248,
+      "z": 1.71,
+      "above_noise_p95": true
+     }
+    ],
+    "key_events": [
+     {
+      "t_ms": 702800,
+      "type": "card",
+      "team_id": "t_dun",
+      "player_id": "p_dun_28",
+      "detail": "yellow"
+     }
+    ]
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "momentum_shift",
+    "salience": 2,
+    "reason": "Wilfield’s possession and field tilt both rise together after the booking, suggesting a modest but coherent swing of control."
+   },
+   "explanation": {
+    "claim": "Wilfield Athletic seized control after Marek Corsen's booking: their time-based possession rose from 24.8% to 44.7% and field tilt jumped from 30.8% to 59.4%. That surge also increased threat—xT added went from 0.013 to 0.131—so Wilfield are forcing play higher up.",
+    "mechanism_tag": "momentum_shift",
+    "team_id": "t_wil",
+    "player_ids": [],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_wil",
+      "metric": "possession_time_based",
+      "before_start_ms": 0,
+      "before_end_ms": 600000,
+      "after_start_ms": 600000,
+      "after_end_ms": 1500000,
+      "before": 0.248,
+      "after": 0.447
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_wil",
+      "metric": "field_tilt",
+      "before_start_ms": 0,
+      "before_end_ms": 600000,
+      "after_start_ms": 600000,
+      "after_end_ms": 1500000,
+      "before": 0.308,
+      "after": 0.594
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_wil",
+      "metric": "xt_added",
+      "before_start_ms": 0,
+      "before_end_ms": 600000,
+      "after_start_ms": 600000,
+      "after_end_ms": 1500000,
+      "before": 0.013,
+      "after": 0.131
+     }
+    ],
+    "confidence": 0.8
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1420,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 5560,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 8,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1315,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_002",
+   "candidate": {
+    "candidate_id": "c_002",
+    "kind": "player_arc",
+    "t_ms": 1680000,
+    "team_id": "t_wil",
+    "player_id": "p_wil_25",
+    "window_start_ms": 600000,
+    "window_end_ms": 1680000,
+    "score": 3.47,
+    "signals": [
+     {
+      "metric": "progressive_passes",
+      "subject": "p_wil_25",
+      "expected": "up",
+      "window": 0.333,
+      "before": 0.0,
+      "z": 4.05,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "touches",
+      "subject": "p_wil_25",
+      "expected": "up",
+      "window": 0.944,
+      "before": 0.1,
+      "z": 2.88,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {},
+    "team_profile": [],
+    "key_events": [
+     {
+      "t_ms": 702800,
+      "type": "card",
+      "team_id": "t_dun",
+      "player_id": "p_dun_28",
+      "detail": "yellow"
+     }
+    ]
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "player_arc",
+    "salience": 3,
+    "reason": "Yorner’s progressive passing and involvement rose sharply over the window, matching a clear individual uptick rather than a teamwide swing."
+   },
+   "explanation": {
+    "claim": "Wilfield Athletic started to move play through Yusuf Yorner: he produced 6 progressive passes after 10.0–28.0 minutes (up from 0) and his touches rose from 1 in 10.0 minutes to 17 in 18.0 minutes. That individual surge coincided with Wilfield’s time-based possession rising to 46.5%, helping them control more of the ball.",
+    "mechanism_tag": "player_arc",
+    "team_id": "t_wil",
+    "player_ids": [
+     "p_wil_25"
+    ],
+    "evidence": [
+     {
+      "tool": "get_player_physical",
+      "subject": "p_wil_25",
+      "metric": "progressive_passes",
+      "before_start_ms": 0,
+      "before_end_ms": 600000,
+      "after_start_ms": 600000,
+      "after_end_ms": 1680000,
+      "before": 0.0,
+      "after": 6.0
+     },
+     {
+      "tool": "get_player_physical",
+      "subject": "p_wil_25",
+      "metric": "touches",
+      "before_start_ms": 0,
+      "before_end_ms": 600000,
+      "after_start_ms": 600000,
+      "after_end_ms": 1680000,
+      "before": 1.0,
+      "after": 17.0
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_wil",
+      "metric": "possession_time_based",
+      "before_start_ms": 0,
+      "before_end_ms": 600000,
+      "after_start_ms": 600000,
+      "after_end_ms": 1680000,
+      "before": 0.248,
+      "after": 0.465
+     }
+    ],
+    "confidence": 0.88
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1135,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 7173,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 7,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 986,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_003",
+   "candidate": {
+    "candidate_id": "c_003",
+    "kind": "player_arc",
+    "t_ms": 3000000,
+    "team_id": "t_wil",
+    "player_id": "p_wil_06",
+    "window_start_ms": 1920000,
+    "window_end_ms": 3000000,
+    "score": 3.29,
+    "signals": [
+     {
+      "metric": "progressive_passes",
+      "subject": "p_wil_06",
+      "expected": "up",
+      "window": 0.444,
+      "before": 0.094,
+      "z": 4.26,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "touches",
+      "subject": "p_wil_06",
+      "expected": "up",
+      "window": 1.333,
+      "before": 0.656,
+      "z": 2.32,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {},
+    "team_profile": [],
+    "key_events": [
+     {
+      "t_ms": 2408200,
+      "type": "goal",
+      "team_id": "t_dun",
+      "player_id": null,
+      "detail": null
+     }
+    ]
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "player_arc",
+    "salience": 4,
+    "reason": "Belrick’s progressive passing and involvement jump well above his usual level, and the change is coherent even after Dunholm’s goal."
+   },
+   "explanation": {
+    "claim": "Ari Belrick doubled his touches (12 → 24) and massively increased progressive passes (1 → 8), becoming the focal creator for Wilfield Athletic. Wilfield’s time-based possession rose to 57.9% (from 37.4%) and field tilt to 75.8% (from 56.7%), showing Belrick drove their recovery.",
+    "mechanism_tag": "player_arc",
+    "team_id": "t_wil",
+    "player_ids": [
+     "p_wil_06"
+    ],
+    "evidence": [
+     {
+      "tool": "get_player_physical",
+      "subject": "p_wil_06",
+      "metric": "progressive_passes",
+      "before_start_ms": 840000,
+      "before_end_ms": 1920000,
+      "after_start_ms": 1920000,
+      "after_end_ms": 3000000,
+      "before": 1.0,
+      "after": 8.0
+     },
+     {
+      "tool": "get_player_physical",
+      "subject": "p_wil_06",
+      "metric": "touches",
+      "before_start_ms": 840000,
+      "before_end_ms": 1920000,
+      "after_start_ms": 1920000,
+      "after_end_ms": 3000000,
+      "before": 12.0,
+      "after": 24.0
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_wil",
+      "metric": "possession_time_based",
+      "before_start_ms": 840000,
+      "before_end_ms": 1920000,
+      "after_start_ms": 1920000,
+      "after_end_ms": 3000000,
+      "before": 0.374,
+      "after": 0.579
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_wil",
+      "metric": "field_tilt",
+      "before_start_ms": 840000,
+      "before_end_ms": 1920000,
+      "after_start_ms": 1920000,
+      "after_end_ms": 3000000,
+      "before": 0.567,
+      "after": 0.758
+     }
+    ],
+    "confidence": 0.8
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1246,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 6106,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 13,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 965,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  }
+ ]
+}

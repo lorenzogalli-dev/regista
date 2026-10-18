@@ -1,0 +1,518 @@
+{
+ "run_id": "r_m_5012_c691dad4",
+ "match_id": "m_5012",
+ "mode": "eval",
+ "kind": "recorded agent run",
+ "provider": "foundry",
+ "models": {
+  "fast": "gtf-fast",
+  "reasoning": "gtf-reasoning",
+  "reasoning_effort": "low"
+ },
+ "started_at": "2026-10-18T12:06:22.199060+00:00",
+ "wall_s": 21.4,
+ "candidates": 2,
+ "status_counts": {
+  "approved": 2
+ },
+ "budget_stopped": null,
+ "usage": {
+  "provider": "foundry",
+  "calls": 6,
+  "tokens_in": 10450,
+  "tokens_out": 1715,
+  "cost_eur": 0.00769,
+  "estimated": false,
+  "by_agent": {
+   "detector": {
+    "calls": 2,
+    "tokens_in": 2279,
+    "tokens_out": 119,
+    "eur": 0.00217
+   },
+   "analyst": {
+    "calls": 2,
+    "tokens_in": 6538,
+    "tokens_out": 1562,
+    "eur": 0.00419
+   },
+   "verifier": {
+    "calls": 2,
+    "tokens_in": 1633,
+    "tokens_out": 34,
+    "eur": 0.00133
+   }
+  }
+ },
+ "calls": [
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1135,
+   "tokens_out": 59,
+   "reasoning_tokens": 0,
+   "latency_ms": 1665,
+   "cost_eur": 0.0010810081,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3265,
+   "tokens_out": 860,
+   "reasoning_tokens": 448,
+   "latency_ms": 8099,
+   "cost_eur": 0.0022318140000000004,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 820,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1245,
+   "cost_eur": 0.0006693703,
+   "estimated": false
+  },
+  {
+   "agent": "detector",
+   "role": "fast",
+   "tokens_in": 1144,
+   "tokens_out": 60,
+   "reasoning_tokens": 0,
+   "latency_ms": 1199,
+   "cost_eur": 0.001091898,
+   "estimated": false
+  },
+  {
+   "agent": "analyst",
+   "role": "reasoning",
+   "tokens_in": 3273,
+   "tokens_out": 702,
+   "reasoning_tokens": 320,
+   "latency_ms": 5435,
+   "cost_eur": 0.0019555098,
+   "estimated": false
+  },
+  {
+   "agent": "verifier",
+   "role": "fast",
+   "tokens_in": 813,
+   "tokens_out": 17,
+   "reasoning_tokens": 0,
+   "latency_ms": 1068,
+   "cost_eur": 0.0006642883,
+   "estimated": false
+  }
+ ],
+ "moments": [
+  {
+   "moment_id": "mo_001",
+   "candidate": {
+    "candidate_id": "c_001",
+    "kind": "pressing_spell",
+    "t_ms": 1620000,
+    "team_id": "t_yar",
+    "player_id": null,
+    "window_start_ms": 720000,
+    "window_end_ms": 1620000,
+    "score": 2.16,
+    "signals": [
+     {
+      "metric": "ppda",
+      "subject": "t_yar",
+      "expected": "down",
+      "window": 9.0,
+      "before": 19.0,
+      "z": 1.61,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_ver",
+      "expected": "down",
+      "window": 0.754,
+      "before": 0.872,
+      "z": 2.3,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_yar",
+      "expected": "up",
+      "window": 0.561,
+      "before": 0.167,
+      "z": 2.56,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "pressing_spell": 2.16
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_yar",
+      "expected": "down",
+      "window": 9.0,
+      "before": 19.0,
+      "z": 1.61,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_ver",
+      "expected": "down",
+      "window": 0.754,
+      "before": 0.872,
+      "z": 2.3,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_yar",
+      "expected": "up",
+      "window": 0.561,
+      "before": 0.167,
+      "z": 2.56,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "possession",
+      "subject": "t_yar",
+      "expected": "up",
+      "window": 0.575,
+      "before": 0.42,
+      "z": 1.33,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_yar",
+      "expected": "up",
+      "window": 25.562,
+      "before": 23.108,
+      "z": 1.65,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_yar",
+      "expected": "down",
+      "window": 0.716,
+      "before": 0.765,
+      "z": 0.98,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "width",
+      "subject": "t_yar",
+      "expected": "up",
+      "window": 14.61,
+      "before": 15.698,
+      "z": -0.86,
+      "above_noise_p95": false
+     }
+    ],
+    "key_events": []
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "pressing_spell",
+    "salience": 3,
+    "reason": "Yarholm’s higher field tilt and Vermore’s worse pass completion suggest a sustained press, even though the ppda change is only modest."
+   },
+   "explanation": {
+    "claim": "Yarholm Rovers have launched a sustained press: their PPDA fell from 19.0 to 9.0 and their field tilt rose from 16.7% to 56.1%, while Vermore Town’s pass completion dropped from 87.2% to 75.4%. That press has flipped time-based possession from 42% to 57.5%, forcing Vermore deeper and cutting their control.",
+    "mechanism_tag": "pressing_spell",
+    "team_id": "t_yar",
+    "player_ids": [],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_yar",
+      "metric": "possession_time_based",
+      "before_start_ms": 0,
+      "before_end_ms": 720000,
+      "after_start_ms": 720000,
+      "after_end_ms": 1620000,
+      "before": 0.42,
+      "after": 0.575
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_yar",
+      "metric": "field_tilt",
+      "before_start_ms": 0,
+      "before_end_ms": 720000,
+      "after_start_ms": 720000,
+      "after_end_ms": 1620000,
+      "before": 0.167,
+      "after": 0.561
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_yar",
+      "metric": "ppda",
+      "before_start_ms": 0,
+      "before_end_ms": 720000,
+      "after_start_ms": 720000,
+      "after_end_ms": 1620000,
+      "before": 19.0,
+      "after": 9.0
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ver",
+      "metric": "pass_completion",
+      "before_start_ms": 0,
+      "before_end_ms": 720000,
+      "after_start_ms": 720000,
+      "after_end_ms": 1620000,
+      "before": 0.872,
+      "after": 0.754
+     }
+    ],
+    "confidence": 0.8
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1665,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 8100,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 12,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1246,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "moment_id": "mo_002",
+   "candidate": {
+    "candidate_id": "c_002",
+    "kind": "tactical_switch/long_ball",
+    "t_ms": 1680000,
+    "team_id": "t_ver",
+    "player_id": null,
+    "window_start_ms": 720000,
+    "window_end_ms": 1680000,
+    "score": 2.16,
+    "signals": [
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_ver",
+      "expected": "up",
+      "window": 24.813,
+      "before": 21.86,
+      "z": 1.97,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_ver",
+      "expected": "down",
+      "window": 0.754,
+      "before": 0.872,
+      "z": 2.36,
+      "above_noise_p95": true
+     }
+    ],
+    "fired_kinds": {
+     "tactical_switch/long_ball": 2.16
+    },
+    "team_profile": [
+     {
+      "metric": "ppda",
+      "subject": "t_ver",
+      "expected": "down",
+      "window": 12.8,
+      "before": 16.667,
+      "z": 0.61,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_yar",
+      "expected": "down",
+      "window": 0.72,
+      "before": 0.765,
+      "z": 0.87,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "field_tilt",
+      "subject": "t_ver",
+      "expected": "up",
+      "window": 0.4,
+      "before": 0.82,
+      "z": -2.73,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "possession",
+      "subject": "t_ver",
+      "expected": "up",
+      "window": 0.414,
+      "before": 0.547,
+      "z": -1.14,
+      "above_noise_p95": false
+     },
+     {
+      "metric": "avg_pass_length",
+      "subject": "t_ver",
+      "expected": "up",
+      "window": 24.813,
+      "before": 21.86,
+      "z": 1.97,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "pass_completion",
+      "subject": "t_ver",
+      "expected": "down",
+      "window": 0.754,
+      "before": 0.872,
+      "z": 2.36,
+      "above_noise_p95": true
+     },
+     {
+      "metric": "width",
+      "subject": "t_ver",
+      "expected": "up",
+      "window": 13.102,
+      "before": 11.11,
+      "z": 1.74,
+      "above_noise_p95": false
+     }
+    ],
+    "key_events": [
+     {
+      "t_ms": 1668200,
+      "type": "card",
+      "team_id": "t_ver",
+      "player_id": "p_ver_27",
+      "detail": "yellow"
+     }
+    ]
+   },
+   "status": "approved",
+   "detector": {
+    "keep": true,
+    "mechanism_hint": "tactical_switch",
+    "salience": 3,
+    "reason": "Vermore’s passing became noticeably longer and less accurate after a yellow for the centre-back, fitting a modest shift toward a more direct build-up."
+   },
+   "explanation": {
+    "claim": "Vermore Town shifted into more direct play after Tomas Ulham’s yellow: their average pass length rose to 24.8 m and pass completion fell to 75%. That change coincided with time-based possession dropping to 39.8% and the control index falling from 54.6 to 38.4, showing less settled build-up and more risk.",
+    "mechanism_tag": "tactical_switch",
+    "team_id": "t_ver",
+    "player_ids": [
+     "p_ver_27"
+    ],
+    "evidence": [
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ver",
+      "metric": "avg_pass_length_m",
+      "before_start_ms": 0,
+      "before_end_ms": 720000,
+      "after_start_ms": 720000,
+      "after_end_ms": 1680000,
+      "before": 21.9,
+      "after": 24.8
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ver",
+      "metric": "pass_completion",
+      "before_start_ms": 0,
+      "before_end_ms": 720000,
+      "after_start_ms": 720000,
+      "after_end_ms": 1680000,
+      "before": 0.872,
+      "after": 0.754
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ver",
+      "metric": "possession_time_based",
+      "before_start_ms": 0,
+      "before_end_ms": 720000,
+      "after_start_ms": 720000,
+      "after_end_ms": 1680000,
+      "before": 0.58,
+      "after": 0.398
+     },
+     {
+      "tool": "get_window_stats",
+      "subject": "t_ver",
+      "metric": "control_index",
+      "before_start_ms": 0,
+      "before_end_ms": 720000,
+      "after_start_ms": 720000,
+      "after_end_ms": 1680000,
+      "before": 54.6,
+      "after": 38.4
+     }
+    ],
+    "confidence": 0.8
+   },
+   "attempts": 1,
+   "rejection": null,
+   "caption": null,
+   "personas": null,
+   "cue": null,
+   "fallbacks": [],
+   "stages": [
+    {
+     "stage": "detector",
+     "ms": 1200,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "analyst#1",
+     "ms": 5436,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:code",
+     "ms": 6,
+     "outcome": "ok",
+     "detail": ""
+    },
+    {
+     "stage": "verifier:text",
+     "ms": 1068,
+     "outcome": "ok",
+     "detail": ""
+    }
+   ]
+  }
+ ]
+}
