@@ -25,7 +25,11 @@ Last updated: 2026-10-18. This file can drift: check the real state (run it, que
   - scorebug, player tags, pass trail + pass card (tier 0), AI moment card with verified seal (tier 1) on a recorded clip of m_1000 (`metrics.export_sample`), `/graphics` transparent output, `/design` reference page;
   - team palettes enforce text contrast ≥ 4.5, marks ≥ 3 on the background, home/away separation and distance from the AI cyan (tested on 6 kit pairs);
   - `web/scripts/capture.mjs`: real-time screenshots, video (ffmpeg) and a design audit (title-safe, overlaps, contrast, tabular figures, skew).
-- D3 not started: waits for Azure / Foundry setup by Lore.
+- D3 agents + orchestration in progress (2026-10-18), with the fake client:
+  - candidate finder in code (2-signal rule, robust z vs noise fitted on 2200-2249): 4.1 candidates per no-storyline match, 5.2 per dev match; on dev seeds 62 % of storylines get a candidate of the right kind in their window (80 % of any kind for the right team);
+  - Agent Framework graph workflow Detector → Analyst ⇄ Verifier (hybrid, one retry) → Narrator · Persona · Director → Publish, timeouts and template fallbacks; Analyst tools over MCP (in-process server on the live store);
+  - meter + per-run budget cap, cost estimate from real prompt sizes (`agents.estimate`), runs saved as JSON and to PostgreSQL;
+  - Foundry not called yet (waiting for `az login`, quota check and deployments).
 
 ## Blocked
 - Nothing.
@@ -37,6 +41,9 @@ Last updated: 2026-10-18. This file can drift: check the real state (run it, que
   - 2026-10-18, commit 3af8a07 (final simulator): full tracking file **identical** on Linux too (the xfail passed). Kept non-strict: one seed only.
 
 ## Decisions
+- GitHub Models was retired on 2026-07-30 (its endpoint now answers "OK" to any request); development uses the fake client, Foundry only for prompt tuning, eval and recorded runs, each after a cost estimate. Hackathon Azure budget: 10 EUR.
+- Models: GPT-6 Luna for Detector, Verifier, Narrator, Persona, Director; GPT-6 Sol (low reasoning effort) for the Analyst; fallback GPT-5.6 Luna / Sol.
+- Eval sample: 10 eval + 5 control seeds (budget), declared in the README.
 - mcp pinned to 1.x (`>=1.30,<2`): agent-framework-core 1.22 requires `mcp<2` for its MCP tools; mcp 2.x renamed FastMCP and changed APIs.
 - Difficult-pass trigger: SPEC suggested difficulty > 0.8, but difficulty is P(pass fails), and completed passes almost never reach 0.8; the threshold is the 98th percentile of completed calibration passes (0.491).
 - Speed trigger at most once per player per 5 minutes (at 60 s there were ~135 a match).

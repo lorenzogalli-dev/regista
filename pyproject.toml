@@ -13,6 +13,10 @@ dependencies = [
     "websockets>=17.2",
     "pydantic>=2.14.1",
     "mcp>=1.30.0,<2",
+    "agent-framework-core==1.22.0",
+    "agent-framework-openai==1.17.0",
+    "agent-framework-foundry==1.15.0",
+    "azure-identity>=1.26.0",
 ]
 
 [project.scripts]
@@ -44,7 +48,7 @@ select = ["E", "F", "W", "I", "B", "UP", "SIM", "RUF"]
 
 [tool.mypy]
 python_version = "3.12"
-packages = ["sim", "metrics", "api", "eval"]
+packages = ["sim", "metrics", "agents", "api", "eval"]
 warn_unused_ignores = true
 
 [[tool.mypy.overrides]]

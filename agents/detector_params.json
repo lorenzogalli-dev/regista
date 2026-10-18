@@ -1,0 +1,108 @@
+{
+ "note": "Noise reference for agents.candidates; fitted on no-storyline seeds 2200-2249.",
+ "window_min": {
+  "pressing_spell": 15,
+  "momentum_shift": 15,
+  "tactical_switch/long_ball": 16,
+  "tactical_switch/wide": 16,
+  "player_arc": 18
+ },
+ "check_ms": 60000,
+ "kinds": {
+  "pressing_spell": {
+   "n": 7082,
+   "median": [
+    0.066667,
+    -0.000578,
+    0.0
+   ],
+   "scale": [
+    6.180589,
+    0.051717,
+    0.153744
+   ],
+   "p95": [
+    2.4322,
+    1.7513,
+    1.7797
+   ],
+   "p99": [
+    5.263,
+    2.6345,
+    2.5555
+   ]
+  },
+  "momentum_shift": {
+   "n": 7082,
+   "median": [
+    0.0,
+    0.0
+   ],
+   "scale": [
+    0.116562,
+    0.153744
+   ],
+   "p95": [
+    1.6245,
+    1.7797
+   ],
+   "p99": [
+    2.374,
+    2.5555
+   ]
+  },
+  "tactical_switch/long_ball": {
+   "n": 6982,
+   "median": [
+    -0.070495,
+    -9.9e-05
+   ],
+   "scale": [
+    1.532097,
+    0.050253
+   ],
+   "p95": [
+    1.8415,
+    1.7572
+   ],
+   "p99": [
+    2.6677,
+    2.5912
+   ]
+  },
+  "tactical_switch/wide": {
+   "n": 6982,
+   "median": [
+    -0.068165
+   ],
+   "scale": [
+    1.181728
+   ],
+   "p95": [
+    1.7825
+   ],
+   "p99": [
+    2.6208
+   ]
+  },
+  "player_arc": {
+   "n": 20656,
+   "median": [
+    0.0,
+    -0.00542
+   ],
+   "scale": [
+    0.082367,
+    0.294614
+   ],
+   "p95": [
+    2.0235,
+    1.8262
+   ],
+   "p99": [
+    3.2132,
+    2.7834
+   ]
+  }
+ }
+}

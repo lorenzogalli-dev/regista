@@ -75,6 +75,26 @@ On no-storyline holdout matches, requiring two signals above their own noise p95
 0.16–0.64 episodes per match for the active types. Full tables, protocol and the history of the
 criterion: `docs/signal_check.md`. Performance: `docs/performance.md`.
 
+## Agents (agents/)
+
+Six agents in an Agent Framework graph workflow, one run per candidate moment:
+**Detector → Analyst ⇄ Verifier → Narrator · Persona · Director**. Candidates come from code
+(two metric signals above their noise level), so models are called only when something may
+have happened. The Analyst reads numbers through the metrics MCP tools; the Verifier recomputes
+every number it cites with the same tools (code) and checks the wording (agent); a rejection
+goes back to the Analyst once. Narrator, Persona and Director fall back to templates on failure.
+
+```sh
+uv run python -m agents.run m_1000                 # MODEL_PROVIDER=fake: offline, free
+uv run python -m agents.estimate m_1000 m_1001     # cost estimate of a Foundry run
+MODEL_PROVIDER=foundry uv run python -m agents.run m_1000 --mode eval
+uv run python -m eval.fit_detector                 # refit the candidate noise reference
+```
+
+The provider is an env switch (`MODEL_PROVIDER=fake | openai | foundry`, see `.env.example`).
+Every run records tokens, latency and cost per call and stops at `RUN_BUDGET_EUR`. Evaluation
+uses 10 eval and 5 control matches: a sample reduced to keep model spend within budget.
+
 ## Front-end (web/)
 
 Broadcast graphics follow `DESIGN.md` ("Verified on air"). Routes:

@@ -159,7 +159,9 @@ Principle: **numbers from tools, words from models.** Every claim an agent makes
 
 Ingest, state and metrics are plain code, not agents — say so in the README; it is a design choice, not a gap.
 
-Models: two Foundry deployments from env — `FOUNDRY_MODEL_REASONING` (Detector, Analyst, Verifier) and `FOUNDRY_MODEL_FAST` (Narrator, Persona, Director).
+Models: two Foundry deployments from env — `FOUNDRY_MODEL_REASONING` (Analyst only, GPT-6 Sol family, low reasoning effort) and `FOUNDRY_MODEL_FAST` (Detector, Verifier, Narrator, Persona, Director; GPT-6 Luna family). Fallback: the GPT-5.6 Sol / Luna models if GPT-6 quota is unavailable. The provider is chosen by env (`MODEL_PROVIDER=fake | openai | foundry`); development and tests use the scripted fake client (GitHub Models was retired on 2026-07-30). Foundry is used only for prompt tuning on a few dev matches, the evaluation and the recorded agent runs, each after a cost estimate (`agents.estimate`) and within a per-run budget cap (`RUN_BUDGET_EUR`). Total Azure spend for the hackathon is capped at 10 EUR.
+
+Candidate moments are found by code (`agents/candidates.py`): every minute of match time, each storyline type's signals over the recent window are scored against noise (robust z, noise fitted on no-storyline seeds) and a candidate needs two signals above their noise p95 (a single-signal type needs its p99). Only candidates reach the Detector agent, so model calls scale with candidates, not with match time.
 
 ### 6.0 Two overlay tiers
 - **Tier 0 — data graphics, code only, immediate:** speed badge, pass card, shot speed, player tag, stat compare, momentum/control ribbon. Emitted directly from metrics threshold triggers; no agent in the path.
@@ -198,7 +200,7 @@ Models: two Foundry deployments from env — `FOUNDRY_MODEL_REASONING` (Detector
 
 ## 7. Evaluation harness
 
-Runs N seeded matches (e.g. 20) offline, as fast as possible (not paced), and reports:
+Runs seeded matches offline, as fast as possible (not paced): **10 eval seeds (5000–5009) and 5 control seeds (9000–9004)**, a sample reduced for budget reasons and declared as such in the README. It reports:
 - **Storyline recall** — share of hidden storylines for which at least one approved explanation falls in the window (± 3 min), names the right team or actors, and has a `mechanism_tag` matching the storyline type.
 - **Explanation precision** — share of approved explanations that match a storyline. (Evidence correctness is reported separately below, so precision is not trivially 100 %.)
 - **Evidence validity** — share of approved evidence items that pass recomputation by a code path **independent of the Verifier's**.
