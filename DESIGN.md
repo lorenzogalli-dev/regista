@@ -13,7 +13,7 @@ A viewer should be able to tell at a glance which graphics are measurements and 
 
 ## 2. Identity
 
-- Product name **Regista**, tagline **"Reads the game. Directs the broadcast."** Wordmark: a slanted green tab with a "go on air" notch, then the name in Barlow Condensed 800 (`web/src/brand/Wordmark.tsx`, `web/public/favicon.svg`). The name line, used on the landing and in the README: "In Italian, regista is both the playmaker who reads the game and the TV director who decides what goes on air."
+- Product name **Regista**, tagline **"Reads the game. Directs the broadcast."** Wordmark: a slanted green tab with a "go on air" notch, then the name in Barlow Condensed 800 (`web/src/brand/Wordmark.tsx`, `web/public/regista-icon.svg`, also the favicon). The name line, used on the landing and in the README: "In Italian, regista is both the playmaker who reads the game and the TV director who decides what goes on air."
 - **No real league, club, broadcaster or sponsor marks, and no proprietary broadcast fonts.** No code, assets, logos or text from any other product.
 
 ### Type (Google Fonts, SIL OFL, self-hosted under `web/public/fonts`)

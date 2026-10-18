@@ -1,5 +1,7 @@
 # Regista
 
+<img src="docs/brand/regista-wordmark.png" alt="Regista" width="260">
+
 **Reads the game. Directs the broadcast.** AI match graphics and tactical explanations,
 generated live, and checked before they go on air: a multi-agent system that watches a football
 match, explains what changed and why in broadcast graphics for different viewers, and checks
