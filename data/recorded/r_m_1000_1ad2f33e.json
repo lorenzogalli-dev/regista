@@ -2316,7 +2316,7 @@
    },
    "payload": {
     "headline": "Piet Falvik: driving the play?",
-    "text": "Last 18 minutes vs before: Progressive passes per minute 0.0 → 0.3; Touches per minute 1.2 → 1.8.",
+    "text": "Last 18 minutes vs the 11 before: Progressive passes per minute 0 → 6; Touches per minute 13 → 32.",
     "team_id": "t_dun",
     "player_id": "p_dun_24",
     "state": "pending"
@@ -2594,7 +2594,7 @@
    },
    "payload": {
     "headline": "Linbridge Harriers: taking control?",
-    "text": "Last 15 minutes vs before: Time-based possession 46% → 71%; Field tilt 38% → 67%.",
+    "text": "Last 15 minutes vs the 15 before: Time-based possession 43% → 71%; Field tilt 36% → 67%.",
     "team_id": "t_lin",
     "player_id": null,
     "state": "pending"
@@ -4021,7 +4021,7 @@
    },
    "payload": {
     "headline": "Dunhurst Borough: going direct?",
-    "text": "Last 16 minutes vs before: Pass completion 72% → 60%; Average pass length 26.2 → 29.2.",
+    "text": "Last 16 minutes vs the 16 before: Pass completion 76% → 60%; Average pass length (m) 24.5 → 29.2.",
     "team_id": "t_dun",
     "player_id": null,
     "state": "pending"
@@ -4439,7 +4439,7 @@
    },
    "payload": {
     "headline": "Linbridge Harriers: pressing harder?",
-    "text": "Last 15 minutes vs before: Pass completion 70% → 57%; Field tilt 52% → 84%.",
+    "text": "Last 15 minutes vs the 15 before: Pass completion 65% → 57%; Field tilt 31% → 84%.",
     "team_id": "t_lin",
     "player_id": null,
     "state": "pending"

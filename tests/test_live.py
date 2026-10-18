@@ -84,3 +84,19 @@ def test_recorded_stream_replays_saved_overlays_in_time_order(sample_dirs) -> No
     t = [m["data"]["t_ms"] for m in msgs if m["type"] in ("frame", "event")]
     assert t == sorted(t)
     assert msgs[-1]["type"] == "end"
+
+
+def test_rebuilt_overlays_match_the_recorded_ones(sample_dirs) -> None:
+    from agents.run import rebuild_overlays
+
+    run = asyncio.run(run_match(sample_dirs[0], "full", FAKE, use_mcp=False))
+    rebuilt = rebuild_overlays(run, sample_dirs[0])
+    assert [o["overlay_id"] for o in rebuilt] == [o["overlay_id"] for o in run["overlays"]]
+    pending = [o for o in rebuilt if o["payload"].get("state") == "pending"]
+    verified = {
+        o["payload"]["replaces"]: o for o in rebuilt if o["payload"].get("state") == "verified"
+    }
+    assert pending and verified
+    for p in pending:
+        # The template's numbers come from the same windows as the verified card's evidence.
+        assert p["payload"]["text"].startswith("Last ")

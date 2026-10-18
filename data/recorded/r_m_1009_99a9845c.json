@@ -2839,7 +2839,7 @@
    },
    "payload": {
     "headline": "Nico Irlow: driving the play?",
-    "text": "Last 18 minutes vs before: Progressive passes per minute 0.0 → 0.4; Touches per minute 0.5 → 1.1.",
+    "text": "Last 18 minutes vs the 10 before: Progressive passes per minute 0 → 8; Touches per minute 5 → 20.",
     "team_id": "t_elm",
     "player_id": "p_elm_27",
     "state": "pending"
@@ -2991,7 +2991,7 @@
    },
    "payload": {
     "headline": "Elmholm Vale: going direct?",
-    "text": "Last 16 minutes vs before: Average pass length 26.0 → 29.0; Pass completion 83% → 73%.",
+    "text": "Last 16 minutes vs the 13 before: Average pass length (m) 26.0 → 29.0; Pass completion 83% → 74%.",
     "team_id": "t_elm",
     "player_id": null,
     "state": "pending"
@@ -3278,7 +3278,7 @@
    },
    "payload": {
     "headline": "Eskdale Athletic: stretching the pitch?",
-    "text": "Last 16 minutes vs before: Width 11.0 → 14.4.",
+    "text": "Last 16 minutes vs the 16 before: Width (m) 10.9 → 14.4.",
     "team_id": "t_esk",
     "player_id": null,
     "state": "pending"
@@ -4700,7 +4700,7 @@
    },
    "payload": {
     "headline": "Kian Dordor: driving the play?",
-    "text": "Last 18 minutes vs before: Progressive passes per minute 0.2 → 0.7; Touches per minute 0.8 → 1.5.",
+    "text": "Last 18 minutes vs the 18 before: Progressive passes per minute 5 → 12; Touches per minute 14 → 27.",
     "team_id": "t_elm",
     "player_id": "p_elm_21",
     "state": "pending"
@@ -4900,7 +4900,7 @@
    },
    "payload": {
     "headline": "Eskdale Athletic: stretching the pitch?",
-    "text": "Last 16 minutes vs before: Width 12.1 → 16.1.",
+    "text": "Last 16 minutes vs the 16 before: Width (m) 11.5 → 16.1.",
     "team_id": "t_esk",
     "player_id": null,
     "state": "pending"
@@ -4919,7 +4919,7 @@
    },
    "payload": {
     "headline": "Elmholm Vale: stretching the pitch?",
-    "text": "Last 16 minutes vs before: Width 16.2 → 19.4.",
+    "text": "Last 16 minutes vs the 16 before: Width (m) 15.8 → 19.4.",
     "team_id": "t_elm",
     "player_id": null,
     "state": "pending"

@@ -79,7 +79,9 @@ async def run_match(
                 player = next(
                     (p.name for p in store.meta.players if p.player_id == c.player_id), None
                 )
-                templates[c.candidate_id] = template_card(c, desk.team_name(c.team_id), player)
+                templates[c.candidate_id] = template_card(
+                    c, desk.team_name(c.team_id), player, tools
+                )
                 try:
                     moments.append(await run_moment(desk, c, mode))
                 except BudgetExceeded as e:
@@ -138,15 +140,57 @@ async def run_match(
     }
 
 
+def rebuild_overlays(run: dict[str, Any], match_dir: Path) -> list[dict[str, Any]]:
+    """Recompute a recorded run's overlay timeline from code only (tier 0, candidate
+    templates), keeping its recorded moments and latencies. No model calls."""
+    store = MatchStore(io.read_meta(match_dir))
+    tools = MatchTools(store)
+    feed = Tier0Feed(store)
+    tier0: list[dict[str, Any]] = []
+    for m in merged(match_dir, speed=1.0):
+        if m["type"] == "frame":
+            store.ingest_frame(m["data"])
+            tier0.extend(feed.poll())
+        else:
+            store.ingest_event(m["data"])
+    finder = CandidateFinder(store)
+    cands = {c.candidate_id: c for c in finder.poll()}
+    names = {p.player_id: p.name for p in store.meta.players}
+    teams = {
+        store.meta.home.team_id: store.meta.home.name,
+        store.meta.away.team_id: store.meta.away.name,
+    }
+    tier1 = []
+    for mo in run["moments"]:
+        c = cands[mo["candidate"]["candidate_id"]]
+        if c.t_ms != mo["candidate"]["t_ms"] or c.kind != mo["candidate"]["kind"]:
+            raise ValueError(f"candidate {c.candidate_id} differs from the recorded one")
+        template = template_card(c, teams[c.team_id], names.get(c.player_id or ""), tools)
+        tier1 += moment_overlays(mo, template)
+    return sorted(tier0 + tier1, key=lambda o: o["show_at_ms"])
+
+
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(prog="python -m agents.run")
     ap.add_argument("match_id")
     ap.add_argument("--mode", choices=["full", "eval"], default="full")
     ap.add_argument("--no-mcp", action="store_true", help="Analyst without tool calls")
     ap.add_argument("--out", type=Path, default=Path("data/runs"))
+    ap.add_argument(
+        "--rebuild-overlays",
+        action="store_true",
+        help="treat match_id as a run JSON path and recompute its overlays from code only",
+    )
     a = ap.parse_args(argv)
     logging.basicConfig(level=logging.WARNING)
     data_dir = Path(os.environ.get("MATCH_DATA_DIR", "data/generated"))
+    if a.rebuild_overlays:
+        path = Path(a.match_id)
+        recorded = json.loads(path.read_text())
+        recorded["overlays"] = rebuild_overlays(recorded, data_dir / recorded["match_id"])
+        path.write_text(json.dumps(recorded, indent=1, ensure_ascii=False) + "\n")
+        print(f"{path}: {len(recorded['overlays'])} overlays rebuilt (no model calls)")
+        return 0
     run = asyncio.run(run_match(data_dir / a.match_id, a.mode, use_mcp=not a.no_mcp))
     a.out.mkdir(parents=True, exist_ok=True)
     path = a.out / f"{run['run_id']}.json"

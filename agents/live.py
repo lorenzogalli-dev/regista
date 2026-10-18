@@ -176,7 +176,7 @@ async def live_session(
                 player = next(
                     (p.name for p in store.meta.players if p.player_id == c.player_id), None
                 )
-                template = template_card(c, desk.team_name(c.team_id), player)
+                template = template_card(c, desk.team_name(c.team_id), player, tools)
                 shown = False
                 calls_before = len(meter.calls)
 

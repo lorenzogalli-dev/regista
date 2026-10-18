@@ -2426,7 +2426,7 @@
    },
    "payload": {
     "headline": "Brinhaven Wanderers: pressing harder?",
-    "text": "Last 15 minutes vs before: Ppda 27.0 → 5.3; Field tilt 34% → 62%.",
+    "text": "Last 15 minutes vs the 15 before: Ppda 24.3 → 5.3; Field tilt 36% → 62%.",
     "team_id": "t_bri",
     "player_id": null,
     "state": "pending"
@@ -3116,7 +3116,7 @@
    },
    "payload": {
     "headline": "Brinhaven Wanderers: going direct?",
-    "text": "Last 16 minutes vs before: Pass completion 75% → 65%; Average pass length 26.6 → 29.5.",
+    "text": "Last 16 minutes vs the 16 before: Pass completion 70% → 65%; Average pass length (m) 27.0 → 29.5.",
     "team_id": "t_bri",
     "player_id": null,
     "state": "pending"
@@ -3961,7 +3961,7 @@
    },
    "payload": {
     "headline": "Brinhaven Wanderers: taking control?",
-    "text": "Last 15 minutes vs before: Time-based possession 32% → 61%; Field tilt 39% → 72%.",
+    "text": "Last 15 minutes vs the 15 before: Time-based possession 23% → 61%; Field tilt 30% → 72%.",
     "team_id": "t_bri",
     "player_id": null,
     "state": "pending"
@@ -4122,7 +4122,7 @@
    },
    "payload": {
     "headline": "Emil Alak: driving the play?",
-    "text": "Last 18 minutes vs before: Progressive passes per minute 0.1 → 0.6; Touches per minute 0.4 → 1.0.",
+    "text": "Last 18 minutes vs the 18 before: Progressive passes per minute 0 → 10; Touches per minute 4 → 18.",
     "team_id": "t_bri",
     "player_id": "p_bri_14",
     "state": "pending"

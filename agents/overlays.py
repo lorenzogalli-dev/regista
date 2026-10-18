@@ -12,6 +12,7 @@ run stores them with the real latencies measured when it was produced.
 from dataclasses import dataclass, field
 from typing import Any
 
+from agents import evidence as E
 from agents.candidates import Candidate
 from metrics import models
 from metrics.store import MatchStore
@@ -196,22 +197,53 @@ class Tier0Feed:
 def _fmt(metric: str, v: float) -> str:
     if metric in SHARE_METRICS:
         return f"{round(v * 100)}%"
+    if metric in ("progressive_passes", "touches"):
+        return f"{v:.0f}"
     return f"{v:.1f}"
 
 
-def template_card(c: Candidate, team_name: str, player_name: str | None) -> dict[str, Any]:
-    """Deterministic card from the candidate's code-computed signals (no model text)."""
-    sigs = sorted(c.signals, key=lambda s: -s.z)[:2]
-    lines = [
-        f"{LABEL.get(s.metric, s.metric).capitalize()} {_fmt(s.metric, s.before_value)} → "
-        f"{_fmt(s.metric, s.window_value)}"
-        for s in sigs
-    ]
-    minutes = round((c.window_end_ms - c.window_start_ms) / MIN_MS)
+# Candidate signal → evidence-pack metric, so template and verified card show the same windows.
+PACK_METRIC = {
+    "possession": "possession_time_based",
+    "field_tilt": "field_tilt",
+    "ppda": "ppda",
+    "pass_completion": "pass_completion",
+    "avg_pass_length": "avg_pass_length_m",
+    "width": "width_m",
+    "progressive_passes": "progressive_passes",
+    "touches": "touches",
+}
+PACK_LABEL = {
+    "possession_time_based": "time-based possession",
+    "avg_pass_length_m": "average pass length (m)",
+    "width_m": "width (m)",
+}
+
+
+def template_card(
+    c: Candidate, team_name: str, player_name: str | None, tools: MatchTools
+) -> dict[str, Any]:
+    """Deterministic card (no model text). Its numbers are the evidence-pack values for the
+    candidate's two strongest signals, so the verified card that replaces it uses the same
+    windows (the moment's window and the same length just before it)."""
+    pack = {(e.subject, e.metric): e for e in E.pack(tools, c)}
+    lines = []
+    for s in sorted(c.signals, key=lambda s: -s.z)[:2]:
+        ev = pack.get((s.subject, PACK_METRIC.get(s.metric, s.metric)))
+        if ev is None:
+            continue
+        label = PACK_LABEL.get(ev.metric, LABEL.get(s.metric, ev.metric))
+        lines.append(
+            f"{label.capitalize()} {_fmt(s.metric, ev.before)} → {_fmt(s.metric, ev.after)}"
+        )
+    before, after = E.windows(c)
+    minutes = round((after[1] - after[0]) / MIN_MS)
+    prev = round((before[1] - before[0]) / MIN_MS)
+    span = f"Last {minutes} minutes vs the {prev} before"
     who = player_name or team_name
     return {
         "headline": f"{who}: {HEADLINE.get(c.kind, 'Something is changing').lower()}?",
-        "text": f"Last {minutes} minutes vs before: " + "; ".join(lines) + ".",
+        "text": f"{span}: " + "; ".join(lines) + ".",
         "team_id": c.team_id,
         "player_id": c.player_id,
     }
