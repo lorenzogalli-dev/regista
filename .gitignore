@@ -1,4 +1,5 @@
 .env
+.deploy.secrets
 .venv/
 __pycache__/
 *.pyc

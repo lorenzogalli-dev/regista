@@ -42,7 +42,13 @@ export function useGraphicsBody(on: boolean) {
   useEffect(() => {
     if (!on) return
     document.body.classList.add('graphics')
-    return () => document.body.classList.remove('graphics')
+    // ?bg=00b140 shows the layer over a flat key colour, as a vision mixer would see it.
+    const bg = new URLSearchParams(window.location.search).get('bg')
+    if (bg && /^[0-9a-f]{6}$/i.test(bg)) document.body.style.background = `#${bg}`
+    return () => {
+      document.body.classList.remove('graphics')
+      document.body.style.background = ''
+    }
   }, [on])
 }
 

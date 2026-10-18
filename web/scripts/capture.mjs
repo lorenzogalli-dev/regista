@@ -3,7 +3,8 @@
 // look exactly as in a browser.
 //
 //   node scripts/capture.mjs shot  <url> <out.png> [width] [height] [waitMs]
-//   node scripts/capture.mjs video <url> <out.mp4> [seconds] [width] [height]   (needs ffmpeg)
+//   node scripts/capture.mjs video <url> <out.mp4> [seconds] [width] [height]   (needs ffmpeg;
+//                                                         SCROLL=1 scrolls to the bottom)
 //   node scripts/capture.mjs audit <url>          design audit of a /broadcast URL (exit 1 on problems)
 //
 // CHROME overrides the browser path (default: Google Chrome on macOS). TRANSPARENT=1 captures
@@ -107,6 +108,8 @@ async function video(url, out, seconds = 15, width = 1920, height = 1080) {
   const dir = mkdtempSync(join(tmpdir(), 'gtf-frames-'))
   const cdp = await launch(Number(width), Number(height))
   const frames = []
+  let stoppedAt = 0
+  let openedAt = 0
   try {
     cdp.on('Page.screencastFrame', async (p) => {
       const file = join(dir, `f${String(frames.length).padStart(5, '0')}.jpg`)
@@ -116,16 +119,39 @@ async function video(url, out, seconds = 15, width = 1920, height = 1080) {
     })
     await cdp.send('Page.startScreencast', { format: 'jpeg', quality: 92, everyNthFrame: 1 })
     await open(cdp, url)
-    await sleep(Number(seconds) * 1000)
+    await sleep(Number(process.env.SETTLE_MS ?? 1200)) // first paint, fonts, first data
+    openedAt = Date.now() / 1000
+    if (process.env.SCROLL === '1') {
+      // Scroll the page smoothly to the bottom over the recording (long pages).
+      await sleep(1500)
+      const ms = Number(seconds) * 1000 - 3000
+      await cdp.send('Runtime.evaluate', {
+        expression: `(() => { const end = document.documentElement.scrollHeight - innerHeight;
+          const t0 = performance.now(); const step = (t) => { const k = Math.min(1, (t - t0) / ${ms});
+          scrollTo(0, end * (0.5 - Math.cos(Math.PI * k) / 2)); if (k < 1) requestAnimationFrame(step) };
+          requestAnimationFrame(step) })()`,
+      })
+      await sleep(ms + 1500)
+    } else {
+      await sleep(Number(seconds) * 1000)
+    }
+    stoppedAt = Date.now() / 1000
     await cdp.send('Page.stopScreencast')
   } finally {
     await cdp.close()
   }
-  // Variable frame timing from Chrome → constant 30 fps via ffmpeg's concat demuxer.
+  // Variable frame timing from Chrome → constant 30 fps via ffmpeg's concat demuxer. Chrome
+  // only sends a frame when the page changes, so the last one lasts until the stop; the concat
+  // demuxer ignores the last entry's duration unless the file is listed once more.
+  // Drop the page load: start from the last frame painted before `openedAt`.
+  const after = frames.findIndex((f) => f.t >= openedAt)
+  frames.splice(0, after === -1 ? frames.length - 1 : Math.max(0, after - 1))
+  if (frames.length) frames[0].t = Math.max(frames[0].t, openedAt)
   const lines = frames.flatMap((f, i) => {
-    const next = frames[i + 1]?.t ?? f.t + 1 / 30
+    const next = frames[i + 1]?.t ?? Math.max(f.t + 1 / 30, stoppedAt)
     return [`file '${f.file}'`, `duration ${(next - f.t).toFixed(4)}`]
   })
+  if (frames.length) lines.push(`file '${frames[frames.length - 1].file}'`)
   writeFileSync(join(dir, 'list.txt'), lines.join('\n') + '\n')
   const r = spawnSync(
     'ffmpeg',
@@ -139,6 +165,8 @@ async function video(url, out, seconds = 15, width = 1920, height = 1080) {
       '0',
       '-i',
       join(dir, 'list.txt'),
+      '-t',
+      String(seconds),
       '-vf',
       `fps=30,scale=${width}:${height}`,
       '-c:v',

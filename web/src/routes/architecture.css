@@ -1,0 +1,95 @@
+.arch {
+  max-width: 1560px;
+  margin: 0 auto;
+  padding: 48px 24px;
+  box-sizing: border-box;
+}
+.arch h1 {
+  margin: 6px 0 24px;
+  font-family: var(--font-display);
+  font-stretch: var(--wdth-expanded);
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 800;
+  text-transform: uppercase;
+}
+.arch .eyebrow {
+  margin: 0;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-2);
+}
+.arch-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.box {
+  fill: var(--panel);
+  stroke: rgb(242 245 243 / 0.3);
+  stroke-width: 1.5;
+}
+.box.agent {
+  stroke: var(--ai);
+  fill: rgb(70 229 216 / 0.06);
+}
+.box.data {
+  stroke: var(--pending);
+}
+.box-title {
+  font-family: var(--font-display);
+  font-stretch: var(--wdth-condensed);
+  font-size: 20px;
+  font-weight: 800;
+  text-transform: uppercase;
+  fill: var(--text);
+}
+.box-sub {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.35;
+  color: var(--text-2);
+}
+.agent {
+  fill: var(--panel);
+  stroke: rgb(70 229 216 / 0.6);
+}
+.agent.hybrid {
+  stroke-dasharray: 6 3;
+}
+.agent-label {
+  font-family: var(--font-display);
+  font-stretch: var(--wdth-condensed);
+  font-size: 18px;
+  font-weight: 800;
+  text-transform: uppercase;
+  fill: var(--text);
+  text-anchor: middle;
+}
+.hint {
+  font-size: 12px;
+  fill: var(--text-2);
+  text-anchor: middle;
+}
+.azure {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin-top: 28px;
+}
+.az {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 16px;
+  background: var(--panel);
+  border-top: 3px solid #3b8ad9;
+}
+.az b {
+  font-size: 15px;
+}
+.az span {
+  font-size: 13px;
+  color: var(--text-2);
+}

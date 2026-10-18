@@ -1,3 +1,4 @@
+import { Architecture } from './routes/Architecture.tsx'
 import { Broadcast } from './routes/Broadcast.tsx'
 import { Control } from './routes/Control.tsx'
 import { Design } from './routes/Design.tsx'
@@ -19,5 +20,6 @@ export default function App() {
   if (path.startsWith('/eval')) return <EvalReport />
   if (path.startsWith('/second')) return <Second />
   if (path.startsWith('/recap')) return <Recap />
+  if (path.startsWith('/architecture')) return <Architecture />
   return <Landing />
 }
