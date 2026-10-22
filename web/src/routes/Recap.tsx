@@ -5,6 +5,7 @@ import type { RunListItem } from '../lib/hooks.ts'
 import { matchClock } from '../lib/sample.ts'
 import './pages.css'
 import './second.css'
+import { SiteNav } from './SiteNav.tsx'
 
 // Recap (DESIGN.md §5.6), simple: the three highest-salience verified moments of a recorded run.
 // /recap?run=<id>&persona=analyst_en
@@ -50,25 +51,30 @@ export function Recap() {
     .slice(0, 3)
     .sort((a, b) => a.candidate.t_ms - b.candidate.t_ms)
   return (
-    <main className="page">
-      <p className="eyebrow">Full-time recap · Recorded agent run</p>
-      <h1>{data.title}</h1>
-      <p className="lede">The three moments that mattered most, as verified on air.</p>
-      <section className="feed2">
-        {top.map((m) => {
-          const line = m.personas?.find((p) => p.persona_id === persona)
-          return (
-            <article className="card2" key={m.moment_id}>
-              <div className="card2-top">
-                <span className="num">{matchClock(m.candidate.t_ms, data.ends)}</span>
-                <VerifiedSeal passed={m.explanation!.evidence.length} total={m.explanation!.evidence.length} />
-              </div>
-              <h2>{line?.headline ?? ''}</h2>
-              <p>{line?.text ?? m.explanation!.claim}</p>
-            </article>
-          )
-        })}
-      </section>
-    </main>
+    <div className="site">
+      <SiteNav />
+      <header className="page-head">
+        <p className="eyebrow">Full-time recap · Recorded agent run</p>
+        <h1>{data.title}</h1>
+        <p className="lede">The three moments that mattered most, as verified on air.</p>
+      </header>
+      <main className="page">
+        <section className="feed2">
+          {top.map((m) => {
+            const line = m.personas?.find((p) => p.persona_id === persona)
+            return (
+              <article className="card2 tactic" key={m.moment_id}>
+                <div className="card2-top">
+                  <span className="num">{matchClock(m.candidate.t_ms, data.ends)}</span>
+                  <VerifiedSeal passed={m.explanation!.evidence.length} total={m.explanation!.evidence.length} />
+                </div>
+                <h2>{line?.headline ?? ''}</h2>
+                <p>{line?.text ?? m.explanation!.claim}</p>
+              </article>
+            )
+          })}
+        </section>
+      </main>
+    </div>
   )
 }

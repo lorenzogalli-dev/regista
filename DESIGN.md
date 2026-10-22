@@ -30,7 +30,7 @@ A viewer should be able to tell at a glance which graphics are measurements and 
 - **Brand accent: Regista green `#7CF25C`** (replaces the earlier yellow/amber highlights in the product chrome). Used for the wordmark, primary buttons, eyebrows, the played part of the timeline, data-graphic ("computed by code") marks and the telestration, which is drawn by code from the match data. Never on agent-written text. Checked: contrast 13.5:1 on the background, ΔE 68 from the AI cyan, ΔE ≥ 57 from every team kit colour in the generated matches.
 - Team colours used as **text** (short names on the ribbon and stat compare) are lightened until they reach 4.5:1 on the panel (`TeamColors.text`); `line` (≥ 3:1) is for marks only.
 - Status: amber for "pending model text" (template shown), red only for errors in the control room.
-- Light theme not required; dark is the product. Respect `prefers-reduced-motion`.
+- Light theme not required; dark is the product. The site pages alternate dark grey and chalk bands (§5c); the broadcast layer stays dark. Respect `prefers-reduced-motion`.
 
 ### Shape and material
 - Sharp, slightly slanted geometry (4–6° skew on bars and tabs), like modern sports broadcast packages. No rounded "app card" look on the broadcast layer.
@@ -94,6 +94,15 @@ Nobody watches 90 minutes, and an AI card that wipes out while the match runs ca
 - **Insights feed** beside the programme: every card that has gone on air stays readable, in the chosen persona; its seal opens the evidence; "Watch this moment again" goes back to the template.
 - **The ✓ seal opens the evidence**: for every metric cited, before and after bars with the subject and windows, and the line "Recomputed independently by code from the match data before it went on air."
 - The programme keeps every rule above (title-safe, no overlap, contrast, skew); the player chrome lives outside the 16:9 frame. `&clean=1` gives the bare programme.
+
+## 5c. Site pages (landing, eval report, architecture, recap)
+
+The pages around the product, styled like a matchday site rather than an app (revision of 2026-10-22, `web/src/routes/site.css`).
+
+- **Pill nav**: centred, fully rounded, semi-transparent dark glass with backdrop blur, fixed at the top; wordmark, section or page links (hidden under 860 px), and a green **▶ Tour** button.
+- **Bands**: full-width sections alternating dark grey `#15181A` (panels `#1E2225`) and chalk `#E8E9E2` with faint mowing stripes, like the paint and the grass. On chalk: ink `#121513` (15:1), secondary `#4A524C` (6.6:1) and a darker brand green `#1D6B12` (5.4:1) for eyebrows and accents; dark panels inside a chalk band (`.dark-scope`) keep the dark palette. Inner pages open with a chalk header band.
+- **Football containers**: numbers on a **stadium scoreboard** (near-black dot-matrix board, green header strip with what is shown and two lamps); links on a **tactics board** (pitch green with mowing stripes and a corner arc); steps numbered with **shirt numbers** (round, green for code, cyan for agents, white for data and on-air).
+- These rounded, softer shapes are for the site pages only; the broadcast layer keeps its sharp, slanted geometry (§2, §4).
 
 ## 6. Quality bar (definition of done for the front-end)
 

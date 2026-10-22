@@ -7,6 +7,7 @@ import { ProgramFrame } from '../broadcast/ProgramFrame.tsx'
 import { usePlayer } from '../lib/player.ts'
 import { STAGE } from '../lib/projection.ts'
 import './landing.css'
+import { SiteNav } from './SiteNav.tsx'
 
 // Landing: what the product does in 30 seconds for anyone, the technical depth further down.
 // Plain English at the top, no jargon; numbers as measured (docs/eval).
@@ -175,9 +176,10 @@ function TrustSchema() {
   )
 }
 
-function Num({ children, label, note }: { children: ReactNode; label: string; note: string }) {
+function Num({ children, tag, label, note }: { children: ReactNode; tag: string; label: string; note: string }) {
   return (
-    <Reveal className="result">
+    <Reveal className="result board">
+      <span className="board-strip">{tag}</span>
       <b className="result-value">{children}</b>
       <span className="result-label">{label}</span>
       <span className="result-note">{note}</span>
@@ -240,17 +242,16 @@ export function Landing() {
 
   return (
     <MotionConfig reducedMotion="user">
-      <main className="landing">
-        <nav className="land-nav">
-          <Wordmark size={24} />
-          <div className="land-nav-links">
-            <a href="#how">How it works</a>
-            <a href="#trust">Trust</a>
-            <a href="#results">Results</a>
-            <a href="#explore">Explore</a>
-            <a href="#hood">Under the hood</a>
-          </div>
-        </nav>
+      <main className="landing site">
+        <SiteNav
+          links={[
+            ['#how', 'How it works'],
+            ['#trust', 'Trust'],
+            ['#results', 'Results'],
+            ['#explore', 'Explore'],
+            ['#hood', 'Under the hood'],
+          ]}
+        />
 
         <header className="hero">
           <motion.div
@@ -293,7 +294,7 @@ export function Landing() {
           </motion.div>
         </header>
 
-        <section className="band problem" id="problem">
+        <section className="band light problem" id="problem">
           <Reveal className="narrow">
             <h2 className="eyebrow-h">The problem</h2>
             <p className="big-text">
@@ -330,7 +331,7 @@ export function Landing() {
           </div>
         </section>
 
-        <section className="band trust" id="trust">
+        <section className="band light trust" id="trust">
           <Reveal className="narrow">
             <h2 className="eyebrow-h">Why you can trust it</h2>
             <p className="big-text">
@@ -342,7 +343,7 @@ export function Landing() {
               count how many it discovers on its own.
             </p>
           </Reveal>
-          <Reveal>
+          <Reveal className="dark-scope">
             <TrustSchema />
           </Reveal>
         </section>
@@ -353,25 +354,25 @@ export function Landing() {
             <p className="body-text">One official run on matches kept aside during development. All data is synthetic.</p>
           </Reveal>
           <div className="results">
-            <Num label="of the hidden storylines found" note="23 of 44, on 20 matches the system had never seen">
+            <Num tag="Storylines found" label="of the hidden storylines found" note="23 of 44, on 20 matches the system had never seen">
               <InView>
                 <CountUp value={52} duration={1.2} />
               </InView>
               <small>%</small>
             </Num>
-            <Num label="explanations on air with a number the data doesn’t support" note="out of 81 approved explanations">
+            <Num tag="Unsupported on air" label="explanations on air with a number the data doesn’t support" note="out of 81 approved explanations">
               <InView>
                 <CountUp value={0} from={9} duration={1.2} />
               </InView>
               <small> / 81</small>
             </Num>
-            <Num label="evidence items confirmed by an independent recount" note="267 of 267 recomputed from the raw match data">
+            <Num tag="Evidence recount" label="evidence items confirmed by an independent recount" note="267 of 267 recomputed from the raw match data">
               <InView>
                 <CountUp value={100} duration={1.2} />
               </InView>
               <small>%</small>
             </Num>
-            <Num label="total AI cost" note="Microsoft Foundry, development, evaluation and demo runs together">
+            <Num tag="AI cost" label="total AI cost" note="Microsoft Foundry, development, evaluation and demo runs together">
               <small>≈ €</small>
               <InView>
                 <CountUp value={1.76} decimals={2} duration={1.2} />
@@ -389,16 +390,16 @@ export function Landing() {
           </Reveal>
         </section>
 
-        <section className="band" id="explore">
+        <section className="band light" id="explore">
           <Reveal>
             <h2 className="eyebrow-h">Explore</h2>
           </Reveal>
           <div className="explore">
             {EXPLORE.map((e, i) => (
               <Reveal key={e.t} delay={0.05 * i} className="explore-cell">
-                <a className="explore-card" href={e.href}>
+                <a className="explore-card tactic dark-scope" href={e.href}>
                   <h3>
-                    {e.t} <span aria-hidden>→</span>
+                    <span className="kit-num num">{i + 1}</span> {e.t} <span aria-hidden>→</span>
                   </h3>
                   <p>{e.s}</p>
                 </a>
@@ -406,7 +407,7 @@ export function Landing() {
             ))}
             <Reveal delay={0.3} className="explore-cell">
               <a
-                className={`explore-card live ${liveOff ? 'disabled' : ''}`}
+                className={`explore-card tactic dark-scope live ${liveOff ? 'disabled' : ''}`}
                 href={liveOff ? undefined : `/broadcast?live=${first?.match_id ?? 'm_1000'}`}
                 aria-disabled={liveOff}
               >
@@ -430,7 +431,7 @@ export function Landing() {
           <div className="flow">
             {FLOW.map((f, i) => (
               <Reveal key={f.t} delay={0.08 * i} className={`flow-node ${f.k}`}>
-                <span className="flow-i num">{String(i + 1).padStart(2, '0')}</span>
+                <span className={`kit-num num ${f.k === 'agent' || f.k === 'gate' ? 'ai' : f.k === 'code' ? '' : 'away'}`}>{i + 1}</span>
                 <h4>{f.t}</h4>
                 <p>{f.s}</p>
                 {i < FLOW.length - 1 && <i className="flow-link" aria-hidden />}

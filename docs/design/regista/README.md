@@ -4,6 +4,8 @@ Review material for the pre-submission revision: rename to **Regista**, new land
 tour, broadcast player (timeline, next key moment, auto-skip, moment replay with telestration,
 insights feed, evidence behind the seal), new type and accent. Rules: `DESIGN.md` (§2, §5, §5b,
 §6). Everything shown is the real app replaying recorded agent runs of synthetic matches.
+The landing screenshots were retaken on 2026-10-22 after the site-page restyle (pill nav,
+dark grey and chalk bands, scoreboard and tactics-board containers; `DESIGN.md` §5c).
 
 | File | What |
 |---|---|
