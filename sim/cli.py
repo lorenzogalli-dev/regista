@@ -52,6 +52,13 @@ def cmd_digest(a: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_reindex(a: argparse.Namespace) -> int:
+    for d in a.match_dirs:
+        io.reindex_tracking(Path(d))
+        print(f"{d}: indexed, content unchanged")
+    return 0
+
+
 def cmd_plausibility(a: argparse.Namespace) -> int:
     from sim.plausibility import summarise_seeds
 
@@ -150,6 +157,10 @@ def main(argv: list[str] | None = None) -> int:
     d = sub.add_parser("digest", help="sha256 of a generated match's uncompressed content")
     d.add_argument("match_dir")
     d.set_defaults(fn=cmd_digest)
+
+    r = sub.add_parser("reindex", help="rewrite tracking files generated before the seek index")
+    r.add_argument("match_dirs", nargs="+")
+    r.set_defaults(fn=cmd_reindex)
 
     pl = sub.add_parser("plausibility", help="summary stats over a seed set")
     pl.add_argument("--set", choices=["dev", "control"], default="dev")

@@ -1,6 +1,7 @@
 """Export a short clip of a generated match for front-end design work (D5a).
 
-`python -m metrics.export_sample m_1000 --pass-event e_003045 --out web/public/samples/hero.json`
+    python -m metrics.export_sample m_1000 --pass-event e_003045 \
+        --out web/public/samples/hero_m_1000.json
 
 The clip holds public data only (match meta, tracking frames, events) plus numbers computed by
 the metrics tools: the pass card of the chosen pass and a before/after window comparison for the

@@ -15,7 +15,7 @@ from pathlib import Path
 
 from api.data_sync import check_name
 
-MATCH_FILES = ("match.json", "events.jsonl", "tracking.jsonl.gz")
+MATCH_FILES = ("match.json", "events.jsonl", "tracking.jsonl.gz", "tracking.idx.json")
 
 
 def manifest(runs_dir: Path, data_dir: Path) -> list[tuple[str, Path]]:

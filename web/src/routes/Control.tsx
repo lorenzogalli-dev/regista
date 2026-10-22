@@ -1,4 +1,5 @@
 import { motion, AnimatePresence } from 'motion/react'
+import { useEffect } from 'react'
 
 import { ProgramFrame } from '../broadcast/ProgramFrame.tsx'
 import { useClockTick } from '../lib/clock.ts'
@@ -100,9 +101,23 @@ export function Control() {
   return <ControlView source={source} speed={Number(params.get('speed') ?? 4)} from={Number(params.get('from') ?? 0)} />
 }
 
-export function ControlView({ source, speed, from }: { source: Source | null; speed: number; from: number }) {
+export function ControlView({
+  source,
+  speed,
+  from,
+  onReady,
+}: {
+  source: Source | null
+  speed: number
+  from: number
+  /** Called once the stream has its first frame (or failed). */
+  onReady?: () => void
+}) {
   const { stream, clock } = useMatchStream(source, speed, from)
   const t = useClockTick(clock, 200)
+  useEffect(() => {
+    if (stream) onReady?.()
+  }, [stream]) // eslint-disable-line react-hooks/exhaustive-deps
   if (stream?.error) return <p style={{ padding: 40 }}>{stream.error}</p>
   if (!stream || !clock) return null
 

@@ -37,6 +37,7 @@ def test_manifest_has_runs_and_their_public_match_files(sample_dirs, tmp_path: P
         "generated/m_1000/match.json",
         "generated/m_1000/events.jsonl",
         "generated/m_1000/tracking.jsonl.gz",
+        "generated/m_1000/tracking.idx.json",
     ]
     assert not any(io.GT_FILE in n for n in names)
     assert (gt / "m_1000" / io.GT_FILE).is_file()  # it exists locally, and is not uploaded

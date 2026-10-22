@@ -41,6 +41,7 @@ export function SplitView({
   right,
   initialFav,
   box,
+  onReady,
 }: {
   source: Source | null
   speed: number
@@ -50,8 +51,13 @@ export function SplitView({
   initialFav: string | null
   /** Fit into this box (px) instead of the window. */
   box?: { width: number; height: number }
+  /** Called once the stream has its first frame (or failed). */
+  onReady?: () => void
 }) {
   const { stream, clock } = useMatchStream(source, speed, from)
+  useEffect(() => {
+    if (stream) onReady?.()
+  }, [stream]) // eslint-disable-line react-hooks/exhaustive-deps
   const [fav, setFav] = useState<string | null>(initialFav)
   const [scale, setScale] = useState(0.5)
 

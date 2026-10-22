@@ -2,7 +2,8 @@
 startup. Read-only, with the container app's managed identity; no keys.
 
 Blob layout under DATA_BLOB_URL (https://<account>.blob.core.windows.net/<container>):
-    generated/m_1000/match.json, events.jsonl, tracking.jsonl.gz  -> MATCH_DATA_DIR
+    generated/m_1000/match.json, events.jsonl, tracking.jsonl.gz, tracking.idx.json
+                                                                   -> MATCH_DATA_DIR
     recorded/r_m_1000_xxxxxxxx.json                                -> RUNS_DIR
 
 Only an allowlist of public files is accepted (infra/upload_data.py applies the same list);
@@ -22,7 +23,7 @@ PREFIXES = {"generated/": "MATCH_DATA_DIR", "recorded/": "RUNS_DIR"}
 
 
 ALLOWED = re.compile(
-    r"^(generated/m_\d{1,9}/(match\.json|events\.jsonl|tracking\.jsonl\.gz)"
+    r"^(generated/m_\d{1,9}/(match\.json|events\.jsonl|tracking\.jsonl\.gz|tracking\.idx\.json)"
     r"|recorded/r_m_\d{1,9}_[0-9a-f]{8}\.json)$"
 )
 

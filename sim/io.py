@@ -1,17 +1,22 @@
 """Deterministic writers and readers for simulator output.
 
 Layout:
-  <out>/match.json, <out>/events.jsonl, <out>/tracking.jsonl.gz
+  <out>/match.json, <out>/events.jsonl, <out>/tracking.jsonl.gz, <out>/tracking.idx.json
   <gt_dir>/<match_id>/storylines.json   (hidden ground truth, separate tree)
+
+tracking.jsonl.gz holds one gzip member per match minute (still a plain gzip file to any
+reader); tracking.idx.json gives each member's first t_ms and byte offset, so a replay that
+starts late in the match decompresses one minute instead of everything before it.
 """
 
+import contextlib
 import gzip
 import hashlib
-import io
 import json
-from collections.abc import Iterator
+import re
+from collections.abc import Iterable, Iterator
 from pathlib import Path
-from typing import Any
+from typing import IO, Any
 
 from sim.engine import SimResult
 from sim.schema import GroundTruth, MatchMeta
@@ -19,7 +24,10 @@ from sim.schema import GroundTruth, MatchMeta
 MATCH_FILE = "match.json"
 EVENTS_FILE = "events.jsonl"
 TRACKING_FILE = "tracking.jsonl.gz"
+INDEX_FILE = "tracking.idx.json"
 GT_FILE = "storylines.json"
+MEMBER_MS = 60_000
+_T_MS = re.compile(rb'^\{"t_ms":(\d+),')
 
 
 class GroundTruthLeak(ValueError):
@@ -66,12 +74,8 @@ def write_match(result: SimResult, gt: GroundTruth, out_dir: Path, gt_dir: Path)
     with paths["events"].open("w") as f:
         for e in result.events:
             f.write(_dumps(e) + "\n")
-    with (
-        paths["tracking"].open("wb") as raw,
-        gzip.GzipFile(filename="", mode="wb", fileobj=raw, mtime=0, compresslevel=6) as gz,
-        io.TextIOWrapper(gz, encoding="utf-8") as f,
-    ):
-        f.writelines(tracking_lines(result))
+    write_tracking((line.encode() for line in tracking_lines(result)), out_dir)
+    paths["index"] = out_dir / INDEX_FILE
     gt_match_dir = gt_dir / result.meta.match_id
     gt_match_dir.mkdir(parents=True, exist_ok=True)
     paths["ground_truth"] = gt_match_dir / GT_FILE
@@ -89,9 +93,75 @@ def iter_events(match_dir: Path) -> Iterator[dict[str, Any]]:
             yield json.loads(line)
 
 
-def iter_tracking(match_dir: Path) -> Iterator[dict[str, Any]]:
-    with gzip.open(match_dir / TRACKING_FILE, "rt", encoding="utf-8") as f:
+def _t_ms(line: bytes) -> int:
+    m = _T_MS.match(line)
+    if m is None:
+        raise ValueError(f"tracking line without a leading t_ms: {line[:40]!r}")
+    return int(m.group(1))
+
+
+def write_tracking(lines: Iterable[bytes], out_dir: Path) -> None:
+    """Write tracking lines as one deterministic gzip member per match minute, and the index."""
+    members: list[list[int]] = []
+    with (out_dir / TRACKING_FILE).open("wb") as raw:
+        gz: gzip.GzipFile | None = None
+        minute = -1
+        for line in lines:
+            t = _t_ms(line)
+            if t // MEMBER_MS != minute:
+                if gz is not None:
+                    gz.close()
+                minute = t // MEMBER_MS
+                members.append([t, raw.tell()])
+                gz = gzip.GzipFile(filename="", mode="wb", fileobj=raw, mtime=0, compresslevel=6)
+            assert gz is not None
+            gz.write(line)
+        if gz is not None:
+            gz.close()
+        size = raw.tell()
+    index = {"member_ms": MEMBER_MS, "size": size, "members": members}
+    (out_dir / INDEX_FILE).write_text(_dumps(index) + "\n")
+
+
+def reindex_tracking(match_dir: Path) -> None:
+    """Rewrite an existing tracking file in the indexed layout; its content does not change."""
+    before = content_digest(match_dir)["tracking.jsonl"]
+    tmp = match_dir / ".reindex"
+    tmp.mkdir(exist_ok=True)
+    with gzip.open(match_dir / TRACKING_FILE, "rb") as f:
+        write_tracking(f, tmp)
+    (tmp / TRACKING_FILE).replace(match_dir / TRACKING_FILE)
+    (tmp / INDEX_FILE).replace(match_dir / INDEX_FILE)
+    tmp.rmdir()
+    if content_digest(match_dir)["tracking.jsonl"] != before:
+        raise RuntimeError(f"reindexing changed the tracking content of {match_dir}")
+
+
+def _seek_offset(match_dir: Path, from_ms: int) -> int:
+    """Byte offset of the member holding `from_ms`; 0 without a valid index."""
+    path = match_dir / INDEX_FILE
+    if from_ms <= 0 or not path.is_file():
+        return 0
+    index = json.loads(path.read_text())
+    if index.get("size") != (match_dir / TRACKING_FILE).stat().st_size:
+        return 0  # stale index: the tracking file was replaced without it
+    offset = 0
+    for first_t, off in index["members"]:
+        if first_t > from_ms:
+            break
+        offset = off
+    return int(offset)
+
+
+def iter_tracking(match_dir: Path, from_ms: int = 0) -> Iterator[dict[str, Any]]:
+    """Tracking frames in time order; with `from_ms`, only frames at or after it."""
+    with contextlib.ExitStack() as stack:
+        raw: IO[bytes] = stack.enter_context((match_dir / TRACKING_FILE).open("rb"))
+        raw.seek(_seek_offset(match_dir, from_ms))
+        f = stack.enter_context(gzip.GzipFile(fileobj=raw, mode="rb"))
         for line in f:
+            if from_ms and _t_ms(line) < from_ms:
+                continue
             yield json.loads(line)
 
 

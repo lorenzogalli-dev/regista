@@ -295,14 +295,3 @@ class MatchStore:
     def triggers_between(self, start: int, end: int) -> list[Trigger]:
         start, end = self.clamp(start, end)
         return [t for t in self.triggers if start <= t.t_ms < end]
-
-
-def from_stream(meta: MatchMeta, messages: list[dict[str, Any]]) -> MatchStore:
-    """Build a store by replaying (event/frame) messages in order."""
-    st = MatchStore(meta)
-    for m in messages:
-        if m["type"] == "event":
-            st.ingest_event(m["data"])
-        elif m["type"] == "frame":
-            st.ingest_frame(m["data"])
-    return st

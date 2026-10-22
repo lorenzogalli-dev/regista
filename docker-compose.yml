@@ -1,6 +1,5 @@
 name: regista
 
-
 services:
   db:
     image: postgres:17
@@ -35,7 +34,6 @@ services:
         condition: service_healthy
     # data/ground_truth is deliberately NOT mounted: the agent runtime must never see it.
     volumes:
-      - ./data/samples:/app/data/samples:ro
       - ./data/generated:/app/data/generated:ro
       - ./data/recorded:/app/data/recorded:ro
       - ./docs/eval:/app/docs/eval:ro

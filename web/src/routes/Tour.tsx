@@ -17,6 +17,7 @@ import './tour.css'
 
 const DEMO = 'r_m_1000_1ad2f33e'
 const REJECTION = 'r_m_5016_d5b7b361'
+const READY_WAIT_MS = 8000
 
 type Tier = 'code' | 'ai' | 'both' | null
 type Cue = { at: number; tier: Tier; title: string; sub: string }
@@ -265,7 +266,17 @@ function current(cues: Cue[], t: number): Cue | null {
   return c
 }
 
-function BroadcastScene({ step, box, onCue }: { step: Extract<Step, { kind: 'broadcast' }>; box: { width: number; height: number }; onCue: (c: Cue | null) => void }) {
+function BroadcastScene({
+  step,
+  box,
+  onCue,
+  onReady,
+}: {
+  step: Extract<Step, { kind: 'broadcast' }>
+  box: { width: number; height: number }
+  onCue: (c: Cue | null) => void
+  onReady: () => void
+}) {
   const p = usePlayer({
     runId: step.run,
     from: step.from,
@@ -285,6 +296,9 @@ function BroadcastScene({ step, box, onCue }: { step: Extract<Step, { kind: 'bro
         : { at: 0, tier: 'both', title: step.replay.title, sub: step.replay.sub }
       : current(step.cues, p.replay ? Infinity : p.t)
   useEffect(() => onCue(cue), [cue?.title]) // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => {
+    if (p.stream) onReady()
+  }, [p.stream]) // eslint-disable-line react-hooks/exhaustive-deps
   if (!p.stream || !p.clock) return null
   return (
     <div style={{ width: STAGE.width * scale, height: STAGE.height * scale }} className="tour-frame">
@@ -309,6 +323,7 @@ export function Tour() {
   const [paused, setPaused] = useState(false)
   const [elapsed, setElapsed] = useState(0)
   const [cue, setCue] = useState<Cue | null>(null)
+  const [ready, setReady] = useState(false)
   const sceneRef = useRef<HTMLDivElement>(null)
   const elapsedRef = useRef(0)
   const box = useBox(sceneRef)
@@ -320,12 +335,23 @@ export function Tour() {
     elapsedRef.current = 0
     setElapsed(0)
     setCue(null)
+    setReady(false)
     setPaused(false)
-  }, [setI, setElapsed, setCue, setPaused])
+  }, [setI, setElapsed, setCue, setReady, setPaused])
+  const onReady = useCallback(() => setReady(true), [setReady])
+
+  // A scene's step starts with its first frame, so a slow seek never eats the step; after
+  // READY_WAIT_MS it starts anyway.
+  const waiting = step.kind !== 'slide' && !ready
+  useEffect(() => {
+    if (!waiting) return
+    const id = window.setTimeout(onReady, READY_WAIT_MS)
+    return () => window.clearTimeout(id)
+  }, [waiting, i, onReady])
 
   // Step clock (wall time). The last step waits for the viewer.
   useEffect(() => {
-    if (paused) return
+    if (paused || waiting) return
     let last = performance.now()
     const id = window.setInterval(() => {
       const now = performance.now()
@@ -335,7 +361,7 @@ export function Tour() {
       else setElapsed(elapsedRef.current)
     }, 100)
     return () => window.clearInterval(id)
-  }, [paused, i, step.seconds, go])
+  }, [paused, waiting, i, step.seconds, go])
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -396,7 +422,7 @@ export function Tour() {
             transition={{ duration: 0.45 }}
           >
             {step.kind === 'slide' && step.render()}
-            {step.kind === 'broadcast' && <BroadcastScene step={step} box={box} onCue={setCue} />}
+            {step.kind === 'broadcast' && <BroadcastScene step={step} box={box} onCue={setCue} onReady={onReady} />}
             {step.kind === 'split' && (
               <>
                 <SplitView
@@ -407,13 +433,14 @@ export function Tour() {
                   right="casual_it"
                   initialFav={null}
                   box={box}
+                  onReady={onReady}
                 />
                 <TimedCues cues={step.cues} onCue={setCue} t={approxT} />
               </>
             )}
             {step.kind === 'control' && (
               <div className="tour-control" style={{ ['--k' as string]: Math.min(box.width / 1600, box.height / 1000) }}>
-                <ControlView source={{ kind: 'recorded', runId: step.run }} speed={step.speed} from={step.from} />
+                <ControlView source={{ kind: 'recorded', runId: step.run }} speed={step.speed} from={step.from} onReady={onReady} />
                 <TimedCues cues={step.cues} onCue={setCue} t={approxT} />
               </div>
             )}

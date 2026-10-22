@@ -43,9 +43,6 @@ class MatchData:
     def n_minutes(self) -> int:
         return -(-self.duration_ms // MIN_MS)
 
-    def period_at(self, t_ms: int) -> int:
-        return 1 if t_ms < self.meta.period_end_ms[0] else 2
-
     def direction(self, team_id: str, period: int) -> int:
         """+1 if `team_id` attacks towards x = 105 in `period`, else -1."""
         return self._dirs[(team_id, period)]

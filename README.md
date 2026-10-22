@@ -14,9 +14,21 @@ what goes on air. (Until 18 October 2026 the project was called *Ground Truth Fo
 
 All data is synthetic; all clubs, players, venues and competitions are fictional.
 
+## The problem
+
+On TV, graphics like "shot at 112 km/h" and lines like "they've been pressing high for ten
+minutes" are prepared by a team of analysts and designers. That is expensive, so it happens only
+for big matches and in few languages. AI could do it for every match and every viewer, but on
+live TV one invented number is a disaster: the hard part is trust. Regista generates the graphics
+and explanations live, recomputes every number an agent cites before it goes on screen, and
+measures how often it finds what really happened.
+
 ## Live demo
 
 **https://gtf-app.delightfulbush-9c2f92ce.italynorth.azurecontainerapps.io**
+
+No login, account or key is needed: open the link in any browser. Everything below works on
+recorded agent runs except the live session (last row), so it costs nothing to explore.
 
 | Start here | What you see |
 |---|---|
@@ -67,11 +79,16 @@ scripted fake client by default (`MODEL_PROVIDER=fake`); Foundry needs `az login
 
 ```sh
 cp .env.example .env            # model settings for MODEL_PROVIDER=foundry
+# The matches of the recorded runs in data/recorded (tracking is not committed; ~6 s each):
+for s in 1000 1003 1009 5016; do uv run sim generate --seed $s; done
 docker compose up -d --build    # PostgreSQL + API on :8000
 curl localhost:8000/health      # {"status":"ok","db":"ok"}
 
 cd web && npm install && npm run dev   # front-end on :5173, proxies the API
 ```
+
+Then open http://localhost:5173/tour. The simulator is deterministic, so the generated matches
+are the ones the recorded runs were made on.
 
 ## Simulator
 
@@ -142,7 +159,11 @@ uv run python -m agents.run m_1000                 # MODEL_PROVIDER=fake: offlin
 uv run python -m agents.estimate m_1000 m_1001     # cost estimate of a Foundry run
 MODEL_PROVIDER=foundry uv run --env-file .env python -m agents.run m_1000 --mode eval
 uv run python -m eval.fit_detector                 # refit the candidate noise reference
+uv run --env-file .env python -m agents.smoke       # one call per Foundry deployment (auth check)
 ```
+
+System prompts, one per agent, are in [`agents/prompts/`](agents/prompts) with a table of agent,
+model and output schema.
 
 The provider is an env switch (`MODEL_PROVIDER=fake | openai | foundry`, see `.env.example`).
 Every run records tokens, latency and cost per call and stops at `RUN_BUDGET_EUR`; Foundry runs
@@ -162,7 +183,7 @@ low reasoning effort) on Microsoft Foundry; 282 model calls, 0.39 EUR. Full repo
 | Recall by type | tactical switch 6/8 · player arc 7/9 (rated *difficult* by the signal check) · momentum shift 6/12 · pressing spell 4/15 |
 | Evidence validity (cited numbers recomputed by a second, independent code path) | **100 %** of the 267 items recomputed; 45 of 312 (14 %) could not be recomputed independently (see below) |
 | Approved explanations with unsupported evidence | **0** of 81 |
-| Precision (approved explanations that match a planted storyline) | 43 % |
+| Precision (approved explanations that match a planted storyline, in the 20 matches with storylines) | 43 % (27 / 63; the other 18 of the 81 approved are in the control matches) |
 | Precision@3 (the three moments per match the Director airs) | 48 % |
 | Approved explanations per control match (no storylines planted) | 1.8 |
 | Verifier rejections (claim sent back to the Analyst at least once) | 15 % |
@@ -249,8 +270,26 @@ is a Container App secret.
 Model choice: GPT-6 / GPT-5.6 quota is not available for this subscription, so the agents use
 gpt-5.4-mini and gpt-5-mini, which have default quota. Model spend for the whole project
 (prompt tuning, evaluation, recorded runs) was about 1.76 EUR, tracked per call; live sessions
-are capped at 150 model calls per day. `infra/post_judging.sh` removes PostgreSQL and lets the
+are capped at 150 model calls per day in production (`LIVE_DAILY_MODEL_CALL_CAP`, set by
+`infra/deploy.sh`; the local default is 2000). `infra/post_judging.sh` removes PostgreSQL and lets the
 app scale to zero after the judging period.
+
+## Repository structure
+
+| Path | What |
+|---|---|
+| `sim/` | Match simulator (events + 10 Hz tracking, hidden storylines) and the paced replay stream |
+| `metrics/` | Deterministic metrics engine: live store, pass difficulty, xG, xT, control index, telestration; the typed tools and their MCP server |
+| `agents/` | Candidate finder, Agent Framework workflow, model providers and cost meter, overlay timeline, live sessions; `prompts/` holds one system prompt per agent |
+| `api/` | FastAPI app: REST, recorded and live WebSockets, MCP mount, PostgreSQL, Blob data sync, telemetry; serves the built front-end |
+| `web/` | React + TypeScript front-end (Vite): broadcast package, player, tour, split view, control room, pages; `scripts/` captures screenshots, video and layout audits |
+| `eval/` | Evaluation harness and scorer, signal check, detector noise fit |
+| `infra/` | Azure deployment scripts (see [`infra/README.md`](infra/README.md)) |
+| `tests/` | pytest suite: simulator, metrics, agents with the fake client, API, ground-truth isolation, data sync |
+| `data/` | `recorded/`: the recorded agent runs the demo replays; `samples/`: one match without tracking. Git-ignored: `generated/` (simulator output), `ground_truth/` (hidden storylines), `runs/` (local run JSONs and spend ledger) |
+| `docs/` | Evaluation report, signal check, performance, demo video, design review, brand (see [`docs/README.md`](docs/README.md)) |
+| `.github/workflows/` | `ci.yml` (lint, types, tests, front-end build), `image.yml` (container image to GHCR after CI passes on `main`) |
+| `SPEC.md`, `DESIGN.md`, `STATUS.md` | Technical spec, design direction, progress and decisions |
 
 ## Develop
 
@@ -260,6 +299,7 @@ uv run ruff check . && uv run ruff format --check .
 uv run mypy
 uv run pytest                    # fast suite
 uv run pytest -m slow            # plausibility over 20 dev seeds
+cd web && npm run lint && npm test && npm run build
 ```
 
 ## Documents

@@ -72,6 +72,9 @@ A multi-agent system on Microsoft Foundry that turns a live stream of synthetic 
 {"t_ms": 123400, "ball": {"x": 52.1, "y": 30.2, "z": 0.1, "speed_ms": 14.2},
  "players": [{"player_id": "p_hrb_07", "x": 70.3, "y": 55.0, "speed_ms": 7.9}]}
 ```
+Stored as `tracking.jsonl.gz` with one gzip member per match minute (a plain gzip file to any
+reader), plus `tracking.idx.json` with each member's first `t_ms` and byte offset: a replay that
+starts late in the match decompresses one minute instead of everything before it.
 
 ### 3.5 Hidden ground truth (`storylines.json`) — **never readable by agents**
 ```json
@@ -243,18 +246,10 @@ Every replay is a **real, saved output of the agent pipeline**, labelled **"Reco
 - Azure budget alerts are configured manually by the owner, outside the repo.
 
 ## 10. Repo layout
-```
-/sim            simulator + replay server
-/metrics        deterministic metrics engine + tools API
-/agents         agent definitions, prompts, workflow
-/api            FastAPI app (WebSocket stream, REST)
-/web            front-end
-/eval           harness + reports
-/data/samples   a few generated matches (small)
-/infra          Azure deployment (Bicep or az CLI script) + README
-/docs           architecture diagram, demo script
-SPEC.md  DESIGN.md  README.md  STATUS.md  LICENSE (MIT)
-```
+See the README, section "Repository structure". In short: `sim/` simulator + replay stream,
+`metrics/` metrics engine + tools + MCP server, `agents/` workflow + prompts, `api/` FastAPI app,
+`web/` front-end, `eval/` harness, `infra/` Azure CLI deployment scripts, `tests/`, `data/`
+(recorded runs, one sample match), `docs/` (evaluation, signal check, video, design review).
 
 ## 11. Demo video (< 2 min)
 1. 0:00–0:15 — The problem: the scoreline doesn't tell the story.

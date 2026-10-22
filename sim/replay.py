@@ -31,8 +31,8 @@ def merged(match_dir: Path, speed: float, from_ms: int = 0) -> Iterator[Message]
     )
     frames = (
         (f["t_ms"], 1, i, {"type": "frame", "data": f})
-        for i, f in enumerate(io.iter_tracking(match_dir))
-        if f["t_ms"] >= from_ms and (f["t_ms"] // 100) % stride == 0
+        for i, f in enumerate(io.iter_tracking(match_dir, from_ms))
+        if (f["t_ms"] // 100) % stride == 0
     )
     for _, _, _, msg in heapq.merge(events, frames):
         yield msg
