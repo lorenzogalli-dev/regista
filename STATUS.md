@@ -49,7 +49,8 @@ Cumulative cap 8 EUR (ledger `data/runs/foundry_ledger.jsonl`, local). Prices: A
 | 2026-10-18 | Recorded demo runs, full pipeline, m_1000 / m_1003 / m_1009 | 0.27 (0.19–0.41) | 0.133 | first take (generic persona headlines) |
 | 2026-10-18 | Recorded demo runs again, specific persona headlines | 0.27 (0.19–0.41) | 0.115 | kept in data/recorded |
 | 2026-10-18 | Production live-session check (6 calls, not in the local ledger) | – | ~0.01 | managed identity works |
-| | **Cumulative** | | **~1.76** | cap 8 EUR |
+| 2026-10-22 | Demo video voice-over, Azure AI Speech (en-GB-RyanNeural), ~3,000 characters (two takes + a test) | ~0.04 (13.20 EUR / 1M characters) | ~0.04 | Speech meter, not in the Foundry ledger |
+| | **Cumulative** | | **~1.80** | cap 8 EUR |
 
 ## Blocked
 - Nothing.

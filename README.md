@@ -259,6 +259,7 @@ npm test                               # projection and team-colour tests (node 
 | Azure Database for PostgreSQL Flexible | runs and moments (Burstable B1ms) |
 | Azure Blob Storage | demo matches and recorded runs, downloaded at startup (read-only, allowlist of public files) |
 | Application Insights | OpenTelemetry traces from Agent Framework |
+| Azure AI Speech | the voice-over of the demo video (neural text to speech, Entra ID on the Foundry resource) |
 | GitHub Actions + GHCR | CI; the image is pushed only after CI passes |
 
 The container app has a managed identity with two roles: *Storage Blob Data Reader* on the

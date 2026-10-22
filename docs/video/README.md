@@ -1,5 +1,20 @@
 # Demo video: clips and voice-over
 
+**Final video: [`regista-demo.mp4`](regista-demo.mp4)** (1:52, 1920×1080, H.264 + AAC) with English
+subtitles burned in and as [`regista-demo.srt`](regista-demo.srt). It is built from the clips below,
+three title cards in the site's style and a voice-over by **Azure AI Speech** (neural voice
+`en-GB-RyanNeural`, on the project's Foundry resource with Entra ID, no keys; ~3,000 characters,
+about 0.04 EUR). No music.
+
+```sh
+python3 docs/video/build/make_video.py --voice azure   # or --voice say: free local draft voice
+```
+
+`build/make_video.py` synthesises every voice-over line separately, so each subtitle and cut follows
+the line's exact length (measured: subtitles within 0.03 s of the speech); `build/cards.html` holds
+the title cards and overlays, recorded with `web/scripts/capture.mjs`. Intermediate files go to
+`build/out/` (git-ignored).
+
 Under 2 minutes, following SPEC §11. The **guided tour** (`/tour`) is the backbone: clips 02–07
 are cut from one real-time recording of it (`docs/design/regista/guided-tour.mp4`, 124 s,
 1920×1080). Every scene is the real app replaying **recorded agent runs** (real outputs of the
@@ -25,42 +40,31 @@ Suggested cut (≈ 1:55): 01 (0:00–0:06) → 03 (0:06–0:20, trimmed) → 04 
 (0:56–1:08) → 06 (1:08–1:28) → 09 as an insert (1:28–1:32) → 11, under-the-hood part
 (1:32–1:42) → 07 (1:42–1:55). Use 02, 08, 10, 12 as alternatives.
 
-## Voice-over (English, about 270 words, ~1:55 at a calm pace)
+## Voice-over (final, 256 words)
 
-**[0:00, landing]**
-This is Regista. In Italian, the regista is the playmaker who reads the game, and the TV
-director who decides what goes on air. It does both: AI match graphics and tactical
-explanations, generated live, and checked before they go on air.
+**[0:00.0, title card]**
+This is Regista. Live match graphics and tactical analysis take a team of analysts, so most matches never get them. Regista generates them live, and checks every number before it goes on air.
 
-**[0:06, data graphics]**
-Some graphics need no AI at all. Pass difficulty, top speed, shot speed and expected goals are
-computed by code, the instant they happen.
+**[0:11.6, tour: data graphics]**
+Some graphics need no AI at all. Pass difficulty, top speed, shot speed and expected goals are computed by code, the instant they happen.
 
-**[0:20, template, verified card, moment replay]**
-When the game changes, code notices first, and a template goes on air at once, in amber. Behind
-it, six agents built on Microsoft Agent Framework go to work. An Analyst explains what changed,
-reading numbers only through metrics tools over MCP. A Verifier recomputes every number before
-the verified card replaces the template. Then the frame holds, like a TV replay, so you can
-read it, and the pitch shows why: this is where the team is now playing. Tap the seal, and
-every figure is there, before and after, recomputed by code.
+**[0:25.2, tour: template, verified card, moment replay]**
+When the game shifts, code notices first, and a template goes on air at once. Behind it, six agents on Microsoft Agent Framework and Foundry go to work, reading numbers only through metrics tools over MCP. The Verifier recomputes every number before the verified card replaces the template. Then the frame holds, like a TV replay, and the pitch shows why, drawn from the match data.
 
-**[0:56, split view]**
-The same facts, told for different viewers: an analyst in English, a casual fan in Italian
-following a favourite player. The numbers and the seal never change.
+**[0:53.9, tour: split view]**
+The same facts, told for different viewers: an analyst in English, a casual fan in Italian following a favourite player. The numbers and the seal never change.
 
-**[1:08, control room]**
-In the control room you watch the agents check each other. Here the Analyst credited two
-players who had already been substituted. The Verifier rejected it, and only the corrected
-version went on air.
+**[1:06.0, tour: control room]**
+In the control room, you watch the agents check each other. Here the Analyst credited two players who had already been substituted. The Verifier rejected it, and only the corrected version went on air.
 
-**[1:28, graphics only, under the hood]**
-The graphics run as a layer for any vision mixer, on Azure Container Apps, Foundry,
-PostgreSQL, Blob Storage and Application Insights.
+**[1:20.7, evaluation report]**
+We measured it on twenty unseen matches with hidden storylines the AI never sees. It found about half of them, and put no explanation on air with a number the data does not support. Precision is forty-three percent: the report shows where it goes wrong.
 
-**[1:42, results]**
-We measured it on matches with hidden storylines the AI never sees: half of them found, and no
-explanation on air with a number the data does not support. Regista: reads the game, directs
-the broadcast.
+**[1:35.8, Microsoft and Azure card]**
+It runs on Azure Container Apps, Microsoft Foundry, PostgreSQL, Blob Storage and Application Insights; the voice is Azure AI Speech.
+
+**[1:45.7, closing card]**
+Regista. Reads the game, directs the broadcast.
 
 Notes on accuracy (for the edit):
 - "half of them found": recall 52 % (23 of 44) on 20 evaluation matches never used for tuning;

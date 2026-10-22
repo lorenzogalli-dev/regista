@@ -13,3 +13,4 @@ data/generated/
 data/runs/
 eval/out/
 .DS_Store
+docs/video/build/out/
