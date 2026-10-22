@@ -1,5 +1,5 @@
 // One client for recorded agent runs and live sessions: both speak the same messages
-// (`run`, `meta`, `frame`, `event`, `overlay`, `pipeline`, `notice`, `end`). The match clock
+// (`run`, `meta`, `frame`, `event`, `events`, `overlay`, `pipeline`, `notice`, `end`). The match clock
 // follows the stream, rendered a little behind the newest frame so positions interpolate.
 
 import { useEffect, useState } from 'react'
@@ -131,6 +131,9 @@ export class MatchStream {
         return // frames are read by the clock; no React update per frame
       case 'event':
         this.events.push(m.data)
+        break
+      case 'events': // the history before a mid-match start, in one message
+        for (const e of m.data) this.events.push(e)
         break
       case 'overlay':
         this.overlays.push(m.data)

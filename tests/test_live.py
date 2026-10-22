@@ -8,6 +8,7 @@ import pytest
 from agents import live
 from agents.config import Settings
 from agents.run import run_match
+from sim import io
 
 FAKE = Settings(provider="fake", run_budget_eur=1e9)
 
@@ -84,6 +85,25 @@ def test_recorded_stream_replays_saved_overlays_in_time_order(sample_dirs) -> No
     t = [m["data"]["t_ms"] for m in msgs if m["type"] in ("frame", "event")]
     assert t == sorted(t)
     assert msgs[-1]["type"] == "end"
+
+
+def test_mid_match_start_sends_the_history_in_one_message(sample_dirs) -> None:
+    run = {"run_id": "r_m_1000_0123abcd", "match_id": "m_1000", "overlays": [], "moments": []}
+    from_ms = 2_031_000
+
+    async def until_first_frame() -> list[dict]:
+        out = []
+        async for m in live.recorded_stream(run, sample_dirs[0], 100.0, from_ms):
+            out.append(m)
+            if m["type"] == "frame":
+                return out
+        return out
+
+    msgs = asyncio.run(until_first_frame())
+    history = [m for m in msgs if m["type"] == "events"]
+    assert len(history) == 1
+    assert history[0]["data"] == [e for e in io.iter_events(sample_dirs[0]) if e["t_ms"] < from_ms]
+    assert msgs[-1]["type"] == "frame" and msgs[-1]["data"]["t_ms"] >= from_ms
 
 
 def test_rebuilt_overlays_match_the_recorded_ones(sample_dirs) -> None:

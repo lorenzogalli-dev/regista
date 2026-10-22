@@ -82,10 +82,13 @@ async def recorded_stream(
     if from_ms > 0:
         # Joining mid-match: the history the graphics need (score, possession, ribbon).
         yield {"type": "meta", "data": io.read_meta(match_dir).model_dump()}
+        # One message for all earlier events: thousands of single messages delay the first frame.
+        history = []
         for e in io.iter_events(match_dir):
             if e["t_ms"] >= from_ms:
                 break
-            yield {"type": "event", "data": e}
+            history.append(e)
+        yield {"type": "events", "data": history}
         for t, m in timeline(run):
             if t >= from_ms or m["type"] != "overlay":
                 continue

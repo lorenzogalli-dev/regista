@@ -232,7 +232,7 @@ Streams: `/ws/recorded/{run_id}` and `/ws/live/{match_id}` send the same message
 `event`, `overlay`, `pipeline`), so every screen works on both. On a recorded run the client can
 change the playback rate (`{"type": "pace", "speed": 0..100}`, 0 holds the stream): that is how
 the player pauses, fast-forwards quiet play and holds a moment replay; seeking reconnects with
-`from_ms`. `/api/runs/{id}/timeline` gives the timeline markers (goals, shots, red cards, Verifier
+`from_ms`, and the earlier events arrive first in one `events` message. `/api/runs/{id}/timeline` gives the timeline markers (goals, shots, red cards, Verifier
 rejections) and the telestration of each verified moment, computed by code from the public
 match events (`metrics/telestration.py`): where the team wins the ball back, how wide it plays,
 its longest passes, a player's progressive passes, or its final-third actions.
