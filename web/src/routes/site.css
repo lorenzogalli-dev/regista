@@ -39,7 +39,6 @@
   border-radius: 999px;
   /* darkens what is behind it, so white text reads over the chalk bands too */
   backdrop-filter: blur(22px) saturate(1.2) brightness(0.55);
-  -webkit-backdrop-filter: blur(22px) saturate(1.2) brightness(0.55);
   box-shadow: 0 10px 30px rgb(0 0 0 / 0.18);
 }
 .site-nav-home {
