@@ -454,6 +454,10 @@ export function Landing() {
         <footer className="land-foot">
           <Wordmark size={18} />
           <span>Reads the game. Directs the broadcast.</span>
+          <span className="credit">
+            Built by Lorenzo Galli · MSc student, KTH Royal Institute of Technology ·{' '}
+            <a href="https://github.com/lorenzogalli-dev">github.com/lorenzogalli-dev</a>
+          </span>
           <span className="fine">
             Recorded agent runs are real outputs of the pipeline, replayed with zero model calls. All clubs, players and data are
             synthetic. MIT licence.

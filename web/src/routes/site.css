@@ -29,17 +29,17 @@
   z-index: 20;
   display: flex;
   align-items: center;
-  gap: 22px;
+  gap: 30px;
   max-width: calc(100% - 24px);
-  padding: 9px 10px 9px 20px;
+  padding: 11px 12px 11px 26px;
   box-sizing: border-box;
   white-space: nowrap;
   translate: -50% 0;
-  background: rgb(21 24 26 / 0.78);
-  border: 1px solid rgb(242 245 243 / 0.12);
+  background: rgb(21 24 26 / 0.58);
+  border: 1px solid rgb(242 245 243 / 0.14);
   border-radius: 999px;
-  backdrop-filter: blur(16px) saturate(1.3);
-  -webkit-backdrop-filter: blur(16px) saturate(1.3);
+  backdrop-filter: blur(22px) saturate(1.3);
+  -webkit-backdrop-filter: blur(22px) saturate(1.3);
   box-shadow:
     inset 0 1px 0 rgb(255 255 255 / 0.08),
     0 10px 30px rgb(0 0 0 / 0.3);
@@ -51,8 +51,8 @@
 }
 .site-nav-links {
   display: flex;
-  gap: 18px;
-  font-size: 15px;
+  gap: 24px;
+  font-size: 16px;
   font-weight: 600;
 }
 .site-nav-links a {
@@ -72,12 +72,12 @@
   letter-spacing: 0.02em;
   text-transform: uppercase;
   text-decoration: none;
-  color: var(--brand-ink);
-  background: var(--brand);
+  color: #fff;
+  background: #1f7a14; /* darker than the brand green: white text at 5.5:1 */
   border-radius: 999px;
 }
 .site-nav-cta:hover {
-  filter: brightness(1.08);
+  filter: brightness(1.12);
 }
 
 /* ------------------------------------------------------------------ bands */
@@ -86,7 +86,7 @@
 .site .band {
   max-width: none;
   margin: 0;
-  padding: 96px var(--gutter);
+  padding: 128px var(--gutter);
   border-top: 0;
 }
 .site .band.light,
@@ -111,7 +111,7 @@
 
 /* Header band of the inner pages (eval, architecture, recap). */
 .site .page-head {
-  padding: 120px var(--gutter) 48px;
+  padding: 140px var(--gutter) 64px;
 }
 .site .page-head > * {
   max-width: 1120px;
@@ -148,7 +148,7 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  padding: 0 0 20px;
+  padding: 0 0 26px;
   overflow: hidden;
   background:
     radial-gradient(circle, rgb(255 255 255 / 0.05) 1px, transparent 1.4px) 0 0 / 7px 7px,
@@ -183,11 +183,11 @@
   box-shadow: -12px 0 0 var(--board);
 }
 .site .board > :not(.board-strip) {
-  padding-inline: 20px;
+  padding-inline: 24px;
 }
 .site .board .result-value,
 .site .board .big-value {
-  margin-top: 10px;
+  margin-top: 16px;
   color: #f2f5f3;
   text-shadow: 0 0 18px rgb(124 242 92 / 0.25);
 }
@@ -227,10 +227,10 @@
   display: inline-grid;
   place-items: center;
   flex: none;
-  width: 34px;
-  height: 34px;
+  width: 38px;
+  height: 38px;
   font-family: var(--font-display);
-  font-size: 17px;
+  font-size: 19px;
   font-weight: 800;
   font-variant-numeric: tabular-nums;
   color: var(--brand-ink);
@@ -261,10 +261,10 @@
     --gutter: 16px;
   }
   .site .band {
-    padding-block: 60px;
+    padding-block: 72px;
   }
   .site .page-head {
-    padding-top: 96px;
+    padding-top: 104px;
   }
   .site-nav {
     gap: 14px;
