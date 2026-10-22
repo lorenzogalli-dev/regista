@@ -99,7 +99,7 @@ Nobody watches 90 minutes, and an AI card that wipes out while the match runs ca
 
 The pages around the product, styled like a matchday site rather than an app (revision of 2026-10-22, `web/src/routes/site.css`).
 
-- **Pill nav**: centred, fully rounded, semi-transparent dark glass with backdrop blur, fixed at the top; wordmark, section or page links (hidden under 860 px), and a dark green **▶ Tour** button (`#1F7A14`, white text 5.5:1).
+- **Pill nav**: centred, fully rounded, borderless and mostly transparent (dark glass at 36 %, backdrop blurred and darkened so its white text also reads over chalk), fixed at the top; wordmark, section or page links (hidden under 860 px), and a brand-green **▶ Tour** button with dark text (`#7CF25C` on `#06110C`, 13:1).
 - **Bands**: full-width sections alternating dark grey `#15181A` (panels `#1E2225`) and chalk `#E8E9E2` with faint mowing stripes, like the paint and the grass. On chalk: ink `#121513` (15:1), secondary `#4A524C` (6.6:1) and a darker brand green `#1D6B12` (5.4:1) for eyebrows and accents; dark panels inside a chalk band (`.dark-scope`) keep the dark palette. Inner pages open with a chalk header band.
 - **Football containers**: numbers on a **stadium scoreboard** (near-black dot-matrix board, green header strip with what is shown and two lamps); links on a **tactics board** (pitch green with mowing stripes and a corner arc); steps numbered with **shirt numbers** (round, green for code, cyan for agents, white for data and on-air).
 - These rounded, softer shapes are for the site pages only; the broadcast layer keeps its sharp, slanted geometry (§2, §4).
