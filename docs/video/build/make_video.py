@@ -29,16 +29,20 @@ SRT = ROOT / "docs/video/regista-demo.srt"
 AZURE_VOICE = "en-GB-RyanNeural"
 SPEECH_ENDPOINT = "https://gtf-foundry.cognitiveservices.azure.com/tts/cognitiveservices/v1"
 LEAD, GAP, TAIL, XFADE = 0.5, 0.35, 0.7, 0.35
+MAX_SILENCE, MAX_TOTAL = 1.5, 115.0  # longest pause between two lines; video length (s)
 FOOT_X, FOOT_Y, FOOT_W, FOOT_H = 160, 16, 1600, 900
 
 # id, source (card name or clip file), start in the clip, section tag (kind), lines; `fit`
 # speeds the clip up (at most `max_speed`) so the whole scene fits; `min_dur` gives the footage
 # room; `cut` removes stretches of the clip (seconds), such as the loading gap between two tour
-# steps.
+# steps. `zoom` is a slow push-in on an element so its text reads on a laptop: local start and
+# end (s), the element's centre in the source frame, zoom factor. `nosub` lists lines left
+# without a subtitle because the card already shows them as text.
 SEGMENTS: list[dict] = [
     {
         "id": "title",
         "card": "title",
+        "nosub": [1, 2],
         "lines": [
             "This is Regista.",
             (
@@ -51,13 +55,13 @@ SEGMENTS: list[dict] = [
     {
         "id": "data",
         "clip": "03-tour-data-graphics.mp4",
-        "start": 1.0,
-        "cut": [(8.4, 9.35), (14.95, 16.05)],
+        "start": 2.5,
+        "cut": [(7.6, 10.6), (14.9, 17.3)],
         "tag": "Computed by code",
         "kind": "code",
         "fit": True,
         "max_speed": 1.4,
-        "min_dur": 14.0,
+        "min_dur": 10.3,
         "lines": [
             "Some graphics need no AI at all.",
             (
@@ -69,12 +73,15 @@ SEGMENTS: list[dict] = [
     {
         "id": "ai",
         "clip": "04-tour-ai-insight-replay.mp4",
-        "start": 1.0,
+        "start": 1.6,
+        "cut": [(10.5, 14.0)],
         "tag": "AI agents · verified",
         "kind": "ai",
-        "fit": True,
-        "max_speed": 1.3,
-        "min_dur": 29.0,
+        "min_dur": 24.65,
+        "zoom": [
+            {"t": (4.0, 6.9), "cx": 630, "cy": 735, "z": 1.6},  # amber card: AI insight, verifying
+            {"t": (14.2, 17.1), "cx": 635, "cy": 695, "z": 1.55},  # verified card, 4/4 seal
+        ],
         "lines": [
             "When the game shifts, code notices first, and a template goes on air at once.",
             (
@@ -91,12 +98,12 @@ SEGMENTS: list[dict] = [
     {
         "id": "split",
         "clip": "05-tour-split.mp4",
-        "start": 1.0,
+        "start": 3.0,
         "tag": "Every viewer",
         "kind": "ai",
         "fit": True,
-        "max_speed": 1.25,
-        "min_dur": 12.5,
+        "max_speed": 1.35,
+        "min_dur": 10.15,
         "lines": [
             (
                 "The same facts, told for different viewers: an analyst in English, a casual fan "
@@ -108,12 +115,13 @@ SEGMENTS: list[dict] = [
     {
         "id": "control",
         "clip": "06-tour-control-room.mp4",
-        "start": 1.0,
+        "start": 5.0,
         "tag": "Control room",
         "kind": "ai",
         "fit": True,
-        "max_speed": 1.3,
-        "min_dur": 15.0,
+        "max_speed": 1.4,
+        "min_dur": 12.95,
+        "zoom": [{"t": (4.2, 7.1), "cx": 673, "cy": 725, "z": 1.55}],  # the Verifier's rejection
         "lines": [
             "In the control room, you watch the agents check each other.",
             (
@@ -130,19 +138,19 @@ SEGMENTS: list[dict] = [
         "kind": "code",
         "fit": True,
         "max_speed": 1.2,
-        "min_dur": 15.5,
         "lines": [
             "We measured it on twenty unseen matches with hidden storylines the AI never sees.",
+            "It found about half of them, with a precision of forty-three percent,",
             (
-                "It found about half of them, and put no explanation on air with a number the "
-                "data does not support."
+                "and not a single unsupported number went on air. Every miss is in the public "
+                "report."
             ),
-            "Precision is forty-three percent: the report shows where it goes wrong.",
         ],
     },
     {
         "id": "stack",
         "card": "stack",
+        "zoom": [{"t": (2.9, 6.1), "cx": 960, "cy": 549, "z": 1.18}],  # the tiles
         "lines": [
             (
                 "It runs on Azure Container Apps, Microsoft Foundry, PostgreSQL, Blob Storage and"
@@ -165,8 +173,8 @@ SUBTITLE = {
     "We measured it on twenty unseen matches with hidden storylines the AI never sees.": (
         "We measured it on 20 unseen matches with hidden storylines the AI never sees."
     ),
-    "Precision is forty-three percent: the report shows where it goes wrong.": (
-        "Precision is 43 %: the report shows where it goes wrong."
+    "It found about half of them, with a precision of forty-three percent,": (
+        "It found about half of them, with a precision of 43 %,"
     ),
 }
 
@@ -293,6 +301,26 @@ def record_card(card: str, seconds: float) -> Path:
     return dst
 
 
+def zoom_filter(zooms: list[dict], w: int, h: int) -> str:
+    """zoompan for the segment's `zoom` list: eases in and out over RAMP seconds, holds between.
+    The input is upscaled first so the crop moves in half-pixel steps (no visible jitter)."""
+    ramp = 0.6
+    z_terms, x_terms, y_terms = [], [], []
+    for zm in zooms:
+        a, b = zm["t"]
+        k = f"min(clip((it-{a})/{ramp},0,1),clip(({b}-it)/{ramp},0,1))"
+        e = f"({k})*({k})*(3-2*({k}))"
+        z_terms.append(f"{zm['z'] - 1}*{e}")
+        x_terms.append(f"({2 * zm['cx']}-iw/2)*{e}")
+        y_terms.append(f"({2 * zm['cy']}-ih/2)*{e}")
+    z, cx, cy = "+".join(z_terms), "+".join(x_terms), "+".join(y_terms)
+    return (
+        f"scale={2 * w}:{2 * h}:flags=lanczos,"
+        f"zoompan=z='1+{z}':x='clip(iw/2+{cx}-iw/zoom/2,0,iw-iw/zoom)':"
+        f"y='clip(ih/2+{cy}-ih/zoom/2,0,ih-ih/zoom)':d=1:s={w}x{h}:fps=30"
+    )
+
+
 def build_segment(
     seg: dict, lines: list[tuple[str, Path, float]], frame: Path
 ) -> tuple[Path, float, list]:
@@ -308,16 +336,18 @@ def build_segment(
     filters: list[str] = []
     if "card" in seg:
         inputs += ["-i", record_card(seg["card"], dur)]
-        filters.append(f"[0:v]trim=0:{dur:.3f},setpts=PTS-STARTPTS,fps=30[base]")
+        zoom = f",{zoom_filter(seg['zoom'], 1920, 1080)}" if seg.get("zoom") else ""
+        filters.append(f"[0:v]trim=0:{dur:.3f},setpts=PTS-STARTPTS,fps=30{zoom}[base]")
     else:
         clip = CLIPS / seg["clip"]
         cuts = seg.get("cut", [])
         avail = duration(clip) - seg["start"] - sum(b - a for a, b in cuts)
         keep = f"gte(t,{seg['start']})" + "".join(f"*not(between(t,{a},{b}))" for a, b in cuts)
         speed = min(seg.get("max_speed", 1.0), max(1.0, avail / dur)) if seg.get("fit") else 1.0
+        zoom = f"{zoom_filter(seg['zoom'], 1920, 1080)}," if seg.get("zoom") else ""
         inputs += ["-loop", "1", "-t", f"{dur:.3f}", "-i", frame, "-i", clip]
         filters.append(
-            f"[1:v]fps=30,select='{keep}',setpts=N/(30*TB)/{speed:.4f},fps=30,"
+            f"[1:v]fps=30,select='{keep}',setpts=N/(30*TB)/{speed:.4f},fps=30,{zoom}"
             f"scale={FOOT_W}:{FOOT_H}:force_original_aspect_ratio=decrease,"
             f"tpad=stop_mode=clone:stop_duration={dur:.3f},trim=0:{dur:.3f},setpts=PTS-STARTPTS[clip]"
         )
@@ -332,6 +362,8 @@ def build_segment(
         filters.append(f"[{last}][tag]overlay=0:0[v{n}]")
         last, n = f"v{n}", n + 1
     for i, (a, b, text, _) in enumerate(timings):
+        if i in seg.get("nosub", []):
+            continue
         png = overlay_png(f"sub-{seg['id']}-{i}", {"sub": SUBTITLE.get(text, text)})
         inputs += ["-loop", "1", "-t", f"{dur:.3f}", "-i", png]
         filters.append(
@@ -413,6 +445,12 @@ def main() -> None:
         for k, (_, _, tl) in enumerate(built)
         for a, b, text, wav in tl
     ]
+    # Every pause between two lines stays short, and the cut stays under the length limit.
+    pauses = [(lines[j + 1][0] - lines[j][1], lines[j][2]) for j in range(len(lines) - 1)]
+    longest = max(pauses)
+    print(f"  longest pause {longest[0]:.2f} s (after: {longest[1][:50]})")
+    if longest[0] > MAX_SILENCE or total > MAX_TOTAL:
+        raise SystemExit(f"pause {longest[0]:.2f} s or length {total:.1f} s over the limit")
     n0 = len(built)
     for _, _, _, wav in lines:
         inputs += ["-i", wav]
@@ -465,10 +503,16 @@ def main() -> None:
         FINAL,
     )
 
+    subtitled = [
+        (starts[k] + a, starts[k] + b, text)
+        for k, (seg, (_, _, tl)) in enumerate(zip(SEGMENTS, built, strict=True))
+        for i, (a, b, text, _) in enumerate(tl)
+        if i not in seg.get("nosub", [])
+    ]
     SRT.write_text(
         "\n".join(
             f"{i}\n{srt_time(a)} --> {srt_time(b + 0.25)}\n{SUBTITLE.get(text, text)}\n"
-            for i, (a, b, text, _) in enumerate(lines, 1)
+            for i, (a, b, text) in enumerate(subtitled, 1)
         )
     )
     (OUT / "timeline.json").write_text(
@@ -486,7 +530,7 @@ def main() -> None:
     )
     print(
         f"{FINAL.relative_to(ROOT)}: {duration(FINAL):.2f} s; "
-        f"{SRT.relative_to(ROOT)}: {len(lines)} subtitles"
+        f"{SRT.relative_to(ROOT)}: {len(subtitled)} subtitles"
     )
 
 

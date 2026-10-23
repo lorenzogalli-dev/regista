@@ -3,69 +3,61 @@
 This is Regista.
 
 2
-00:00:01,783 --> 00:00:07,154
-Live match graphics and tactical analysis take a team of analysts, so most matches never get them.
-
-3
-00:00:07,254 --> 00:00:11,482
-Regista generates them live, and checks every number before it goes on air.
-
-4
 00:00:12,082 --> 00:00:14,410
 Some graphics need no AI at all.
 
-5
+3
 00:00:14,510 --> 00:00:21,082
 Pass difficulty, top speed, shot speed and expected goals are computed by code, the instant they happen.
 
-6
-00:00:25,732 --> 00:00:30,619
+4
+00:00:22,032 --> 00:00:26,919
 When the game shifts, code notices first, and a template goes on air at once.
 
-7
-00:00:30,719 --> 00:00:38,555
+5
+00:00:27,019 --> 00:00:34,855
 Behind it, six agents on Microsoft Agent Framework and Foundry go to work, reading numbers only through metrics tools over MCP.
 
-8
-00:00:38,655 --> 00:00:43,266
+6
+00:00:34,955 --> 00:00:39,566
 The Verifier recomputes every number before the verified card replaces the template.
 
-9
-00:00:43,366 --> 00:00:49,115
+7
+00:00:39,666 --> 00:00:45,415
 Then the frame holds, like a TV replay, and the pitch shows why, drawn from the match data.
 
-10
-00:00:54,382 --> 00:01:00,984
+8
+00:00:46,332 --> 00:00:52,934
 The same facts, told for different viewers: an analyst in English, a casual fan in Italian following a favourite player.
 
-11
-00:01:01,084 --> 00:01:03,214
+9
+00:00:53,034 --> 00:00:55,164
 The numbers and the seal never change.
 
-12
-00:01:06,532 --> 00:01:09,682
+10
+00:00:56,132 --> 00:00:59,282
 In the control room, you watch the agents check each other.
 
-13
-00:01:09,782 --> 00:01:18,196
+11
+00:00:59,382 --> 00:01:07,796
 Here the Analyst credited two players who had already been substituted. The Verifier rejected it, and only the corrected version went on air.
 
-14
-00:01:21,182 --> 00:01:25,850
+12
+00:01:08,732 --> 00:01:13,400
 We measured it on 20 unseen matches with hidden storylines the AI never sees.
 
+13
+00:01:13,500 --> 00:01:17,097
+It found about half of them, with a precision of 43 %,
+
+14
+00:01:17,197 --> 00:01:22,607
+and not a single unsupported number went on air. Every miss is in the public report.
+
 15
-00:01:25,950 --> 00:01:31,211
-It found about half of them, and put no explanation on air with a number the data does not support.
-
-16
-00:01:31,311 --> 00:01:35,309
-Precision is 43 %: the report shows where it goes wrong.
-
-17
-00:01:36,332 --> 00:01:45,571
+00:01:23,207 --> 00:01:32,446
 It runs on Azure Container Apps, Microsoft Foundry, PostgreSQL, Blob Storage and Application Insights; the voice is Azure AI Speech.
 
-18
-00:01:46,171 --> 00:01:50,287
+16
+00:01:33,046 --> 00:01:37,162
 Regista. Reads the game, directs the broadcast.

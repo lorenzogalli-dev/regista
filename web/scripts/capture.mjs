@@ -9,7 +9,7 @@
 //                                                         problems; &auditAt=<ms> sets when it runs)
 //
 // CHROME overrides the browser path (default: Google Chrome on macOS). TRANSPARENT=1 captures
-// with a transparent page background (for /graphics).
+// with a transparent page background (for /graphics). STYLE='<css>' adds CSS to the page.
 
 import { spawn, spawnSync } from 'node:child_process'
 import { mkdtempSync, rmSync, writeFileSync } from 'node:fs'
@@ -85,6 +85,12 @@ async function open(cdp, url) {
   await cdp.send('Page.navigate', { url })
   await loaded
   await cdp.send('Runtime.evaluate', { expression: 'document.fonts.ready', awaitPromise: true })
+  if (process.env.STYLE) {
+    // Extra CSS for this capture only (e.g. hide the fixed nav in a scrolling video).
+    await cdp.send('Runtime.evaluate', {
+      expression: `document.head.insertAdjacentHTML('beforeend', ${JSON.stringify(`<style>${process.env.STYLE}</style>`)})`,
+    })
+  }
 }
 
 async function shot(url, out, width = 1920, height = 1080, waitMs = 2500) {
